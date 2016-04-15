@@ -13,21 +13,3 @@ Conteúdo:
 
    pages/getting_started
    pages/whatblacklist
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
-* this is
-* a list
-
-  * with a nested list
-  * and some subitems
-
-* and here the parent list continues
