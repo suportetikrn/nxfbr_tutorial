@@ -45,7 +45,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'NxSkinBR'
+project = u'NxFilter - Tutorial - BR'
 copyright = u'2016, Kernel - Tecnologia da Informação'
 author = u'Kernel - Tecnologia da Informação'
 
