@@ -12,7 +12,7 @@ Um dos motivos para se integrar o NxFilter com o AD é ter a possibilidade de ap
 Importação de Usuário
 *********************
 
-No NxFilter a integração com o AD funciona importanto os usuários e grupos existentes no AD. Isso significa que você permitirá o NxFilter acessar seus usuários e grupos. Para fazer esse procedimento acesse ``User & Group > Active Directoryi``.
+No NxFilter a integração com o AD funciona importanto os usuários e grupos existentes no AD. Isso significa que você permitirá o NxFilter acessar seus usuários e grupos. Para fazer esse procedimento acesse ``User & Group > Active Directory``.
 
 Após a importação dos usuários e grupos, seus usuários conseguirão usar suas credenciais na página de Login do NxFilter.
 
