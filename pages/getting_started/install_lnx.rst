@@ -13,4 +13,4 @@ Install NxFilter em outras distribuições Linux
 # Entre na pasta ``/nxfilter/bin`` e execute ``chmod +x *.sh``
 # Execute ``startup.sh``
 
- ..image:: /images/linux_startup.png
+ .. image:: /images/linux_startup.png
