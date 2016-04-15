@@ -46,8 +46,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'NxSkinBR'
-copyright = u'2016, Bruno Emanuel'
-author = u'Bruno Emanuel'
+copyright = u'2016, Kernel - Tecnologia da Informação'
+author = u'Kernel - Tecnologia da Informação'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
