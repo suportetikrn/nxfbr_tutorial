@@ -3,13 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to NxSkinBR's documentation!
+Bem-vindo ao Tutorial do NxFilter!
 ====================================
 
-Contents:
+Conteúdo:
 
 .. toctree::
    :maxdepth: 2
+
+   pages/getting_started
+   pages/whatblacklist
 
 
 
