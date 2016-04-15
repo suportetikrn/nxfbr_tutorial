@@ -29,5 +29,5 @@ Há diversos Agentes disponíveis para tal finalidade. São:
 
 Você pode usar apenas um deles ou mais de um de modo a se complementarem. 
 
-  ::
-   Para mais informações, leia as partes sobre Single Sign-On ou os devidos Agentes.
+::
+  Para mais informações, leia as partes sobre Single Sign-On ou os devidos Agentes
