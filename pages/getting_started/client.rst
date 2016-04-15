@@ -15,4 +15,4 @@ A forma mais simples de configurar o Servidor DNS para seus usuários seria modi
 
 Porém se sua rede tem muitos computadores é provável que você utilize o serviço DHCP. Então você só precisa configurar no seu servidor DHCP informando que o servidor DNS de suas estações será o NXFilter.
 
-Se você tiver um firewall você pode forçar os usuários a usar o NxFilter como servidor de DNS bloqueando qualquer tráfego de saída para `53/UDP` e `53/TCP`. Assim garantirá que o únicos servidor DNS utilizado será o NxFilter.
+Se você tiver um firewall você pode forçar os usuários a usar o NxFilter como servidor de DNS bloqueando qualquer tráfego de saída para ``53/UDP`` e ``53/TCP``. Assim garantirá que o únicos servidor DNS utilizado será o NxFilter.
