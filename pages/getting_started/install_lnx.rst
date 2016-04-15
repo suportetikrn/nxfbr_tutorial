@@ -1,4 +1,4 @@
-Install NxFilter em outras distribuições Linux
+Instalando NxFilter em outras distribuições Linux
 ------------------------------------------------
 
 
