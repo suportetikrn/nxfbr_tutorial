@@ -1,0 +1,1 @@
+Search.setIndex({envversion:47,filenames:["index"],objects:{},objnames:{},objtypes:{},terms:{"\u00edndice":0,"m\u00f3dulo":0,"p\u00e1gina":0,busca:0,content:0,continu:0,here:0,list:0,nest:0,parent:0,some:0,subitem:0,thi:0},titles:["Welcome to NxSkinBR&#8217;s documentation!"],titleterms:{document:0,indic:0,nxskinbr:0,tabl:0,welcom:0}})
