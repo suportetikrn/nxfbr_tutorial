@@ -1,4 +1,4 @@
-Instalando o NxFilter no Windows
+Instalando no Windows
 ---------------------------------
 
 
