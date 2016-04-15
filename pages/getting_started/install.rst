@@ -1,0 +1,14 @@
+.. _install:
+
+*********************
+Instalando o NxFilter
+*********************
+
+
+.. toctree::
+   :titlesonly:
+
+   install/install_win.rst
+   install/install_lnx_ubuntu.rst
+   install/install_lnx.rst
+   install/install_win_manually.rst
