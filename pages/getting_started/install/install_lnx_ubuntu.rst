@@ -1,4 +1,4 @@
-Instalando o NxFilter no Ubuntu
+Instalando no Ubuntu
 --------------------------------
 
 É disponibilizado o pacote 'deb' para o Ubuntu Linux na área de Downloads.
