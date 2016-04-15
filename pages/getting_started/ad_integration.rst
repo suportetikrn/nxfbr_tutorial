@@ -16,7 +16,7 @@ No NxFilter a integração com o AD funciona importanto os usuários e grupos ex
 
 Após a importação dos usuários e grupos, seus usuários conseguirão usar suas credenciais na página de Login do NxFilter.
 
-Single Sign-Oni (SSO) com Active Directory
+Single Sign-On (SSO) com Active Directory
 ******************************************
 
 O objetivo do SSO é aproveitar as credenciais utilizadas ao se autenticar na máquina, evitando assim que os usuários tenham de acessar a página de login do NxFilter. Para usar a capacidade do Single Sign-On (SSO) além da integração com o AD é preciso utilizar um agente com o NxFilter. 
