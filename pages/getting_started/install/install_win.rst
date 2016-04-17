@@ -11,7 +11,9 @@ Após diversos 'Next', deverá ser criado o serviço do NxFilter no Windows. Se 
 
  .. image:: /images/setup_svc_inst.png
 
-Para acessar a interface administrativa, abra o browser de sua preferência e acesse pelo endereço `http://localhost/admin`. Ou se você tiver criado - durante a instalação - o ícone no desktop, dê dois cliques no mesmo. Se a tela abaixo aparecer o NxFilter está ativo. No primeiro login o usuário é ``admin`` e a senha ``admin``.
+Para acessar a interface administrativa, abra o browser de sua preferência e acesse pelo endereço `http://localhost/admin`. Ou se você tiver criado - durante a instalação - o ícone no desktop, dê dois cliques no mesmo. Se a tela abaixo aparecer o NxFilter está ativo. 
+
+ .. note:: No primeiro login o usuário é ``admin`` e a senha ``admin``.
 
  .. image:: /images/admin_login2.png
  
