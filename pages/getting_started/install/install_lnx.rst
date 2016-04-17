@@ -2,7 +2,7 @@ Instalando em outras distribuições Linux
 ------------------------------------------------
 
 
- Em geral, quando se instala o NxFilter em sistemas Linux,::
+ Em geral, quando se instala o NxFilter em sistemas Linux::
 
   * É preciso ter acesso como usuário ``root``
   * Ter o Java 7 ou superior instalado
