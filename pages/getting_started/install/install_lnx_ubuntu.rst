@@ -2,7 +2,7 @@ Instalando no Ubuntu
 --------------------------------
 
 É disponibilizado o pacote 'deb' para o Ubuntu Linux na área de Downloads.
-Para instalá-lo, primeiro instale o Java. Baixo o pacote através do comando ``wget`` e então instale usando o comando ``dpkg``. Feito isso bastará iniciá-lo usando o script instalado através com o pacote.
+Para instalá-lo, primeiro instale o Java. Baixo o pacote através do comando ``wget`` e então instale usando o comando ``dpkg``. Feito isso bastará iniciá-lo usando o script instalado através com o pacote.::
 
   $ sudo apt-get install openjdk-8-jre
   $ wget http://www.nxfilter.org/download/nxfilter-3.1.6.deb
