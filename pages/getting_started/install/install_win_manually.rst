@@ -3,10 +3,10 @@ Instalando no Windows manualmente
 
 Para instalar o NxFilter de forma manual, utilize o pacote `zip`. Ainda sim é possível executá-lo como um serviço Windows com um script batch incluso no pacote.
 
-# Baixe o arquivo ``nxfilter-x.y.z.zip`` na área de `Downloads`.
-# Extraia o arquivo zip na pasta `c:/nxfilter`.
-# Acesse a pasta `c:/nxfilter/bin`.
-# Execut o script `startup.bat`.
+ #. Baixe o arquivo ``nxfilter-x.y.z.zip`` na área de `Downloads`.
+ #. Extraia o arquivo zip na pasta `c:/nxfilter`.
+ #. Acesse a pasta `c:/nxfilter/bin`.
+ #. Execute o script `startup.bat`.
 
 ::
 
