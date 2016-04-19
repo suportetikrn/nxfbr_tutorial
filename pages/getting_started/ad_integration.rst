@@ -36,17 +36,22 @@ Servidor MS DNS e NxFilter
 
 Quando você publicar o NxFilter em um ambiente com Active Directory você pode se preocupar com a possibilidade de quebrar a integridade do serviço do AD pelo fato de que o NxFilter atuará como servidor DNS e o papel de servidor DNS em uma estrutura com AD é muito importante. Porém não desabilitaremos ou substituiremos o Servidor DNS do AD. Nossa abordagem é trabalhar com o servidor DNS já existente do AD de forma cooperativa. 
 
-But we don't disable or replace the existing Active Directory DNS server. Our approach is to work with the existing Active Directory DNS server in cooperation. So you have to maintain your existing MS DNS server even though you use NxFilter as the DNS server for your network.
+Mas a ideia não é desabilitar ou substituir o servidor DNS AD existente. Nosso objetivo é trabalhar com o servidor DNS AD de forma colaborativa. Então você precisa manter seu servidor MS DNS mesmo que use o NxFilter como servidor DNS para toda a sua rede.
 
-1. Where to install it
-  Some people try to install NxFilter on their domain controller. But you already have another DNS server there. It is your MS DNS server. It would be better to install it on the other system to avoid of having a port collision problem.
-2. Dynamic host update
-  MS DNS server in Active Directory does a lot of things. It lets the hosts in Active Directory know the location of resources using SRV records. And it maintains a DNS zone for every hosts. It does dynamic host IP update when you change an IP address of a system. To keep all these things working NxFilter bypasses the internal DNS queries for Active Directory domain to MS DNS server automatically. It assumes that you have your MS DNS server on the DC you imported your users from.
-3. Which upstream server for NxFilter
-  You might have a question about which DNS server you should use as an upstream server for NxFilter because you already have a DNS server that is your MS DNS server. You can use any DNS server as an upstream DNS server for your NxFilter including your MS DNS server. NxFilter still forwards your Active Directory internal DNS queries to your MS DNS server. So you can use whichever DNS server you think the best.
-4. Manual setup for MS DNS server
- After you import Active Directory users and groups, NxFilter tries to work with your MS DNS server automatically based on your Active Directory importation setup but sometimes you want to have a different settings for your MS DNS server. Or you might want to have a redundancy for your MS DNS server. In that case, you can do all these things on the edit page of your Active Directory setup. For having redundancy, you can add multiple DNS servers separated by commas.
+1. Onde instalar
+  Em alguns ambientes tentam instalar o NxFilter dentro do próprio controlador de Domínio (AD). Mas como dito antes, já existe um servidor DNS no AD, é o seu servidor MS DNS. O correto é instalar o NxFilter em outro servidor de modo que evite conflito de portas, no caso do DNS ( `53/udp` e `53/tcp` ).
+
+2. Atualização dinâmica de IP
+  O Servidor MS DNS no MS Active Directory executa diversas operações. Ele permite que os terminais/hosts saibam onde estão os recursos que utilizam registros SRV. E mantem uma Zona DNS para todos os terminais/hosts. Ele também faz atualização dinâmica do IP quando o endereço IP da máquina é alterado. Para manter todas essas coisas funcionando o NxFilter faz um `bypass` de consultas internas que seriam de cargo do servidor AD, direcionando automaticamente - de modo transparente - para o servidor MS DNS. Ele entende que se você tem um servidor MS DNS no Domain Controller ( DC ) é dele que seus usuários são importados.
+
+3. Que servidor upstream utilizar no NxFilter
+  Você pode se perguntar sobre que servidor DNS utilizar como upstream para o NxFilter pois você já tem um servidor DNS que é o seu servidor MS DNS . Você pode usar qualquer servidor DNS como upstream, inclusive o próprio servidor MS DNS. O NxFilter continuaŕa direcionando as suas consultas internas para seu servidor AD, isso não impedirá o funcionamento do NxFilter. Então você pode usar o servidor DNS que achar melhor.
+ .. warning::
+  Ao usar seu servidor MS DNS como upstream leve em conta que o mesmo terá permissão para consulta na internet.
+
+4. Configuração Manual para o servidor MS DNS.
+  Após fazer a importação dos seus usuários e grupos no AD, NxFilter tentará automáticamente usar seu servidor MS DNS, baseado nas configurações da sua importação porém algumas vezes se deseja usar outro servidor MS DNS. Ou pode se deseja ter uma redundância do MS DNS. Neste caso, você pode fazer todas as alterações na página de configuração do Active Directory na GUI do NxFilter. Para ter redundância na consulta de servidores DNS você pode inserir os servidores separando por vírgulas.
 
  .. note:: 
 
-   You might need to allow 'Nonsecure Dynamic Update' on your MS DNS zone properties for NxFilter to update the IP addresses of the hosts in the MS DNS zone.
+   Você pode ter de ativar 'Atualização Dinâmica Insegura' em `Propriedades` na Zona do servidor MS DNS para que o NxFilter faça a atualização dos IP das estações diretamente na Zona.
