@@ -1,3 +1,7 @@
+**********************************
+GUI - NxClassifier
+**********************************
+
 
 We have 'NxClassifier' top menu on GUI. It has the following submenus.
 
