@@ -1,11 +1,11 @@
-**********************************
-NxClient and remote user filtering
-**********************************
+************************************
+NxClient e filtro de usuário remoto 
+************************************
 
 NxFilter prove um aplicativo cliente para filtro em usuário remoto que é o NxClient. Uma vez instalado o NxClient no sistema de usuário você pode filtrar e monitorar o tráfego de Internet daquele usuário em sua GUI NxFilter de modo centralizado independente de sua localização.
 
  .. note::
-  You need to open 53 UDP and 80, 443 TCP ports on NxFilter side.
+  Você precisa permitir o acesso às portas 53/UDP e 80,443/TCP no(s) servidor(es) NxFilter.
 
 Instalação do NxClient
 ************************
