@@ -37,10 +37,10 @@ Existem alguns `malwares` que usam um domínio próprio como um protocolo de men
 Alguns malwares ou botnets usam o protocolo DNS como ferramenta de comunicação. Eles usam consultas DNS e respostas para se comunicar uns com os outros.
 
 .. envvar:: Block Mailer Worm
-Normally you are not supposed to see MX query from your client PC. When NxFilter finds MX type query from your client PC it will be regarded from some malware trying to send emails.
+É incomum se ver consultas MX feitas de uma estação de trabalho. Quando NxFilter encontra essa consulta vinda de uma estação ela provavelmente é feita por algum malware tentando enviar emails.
 
 .. envvar:: Block DNS Rebinding
-When NxFilter finds a private IP address(192.168.0.0/16, 172.16.0.0/12, 10.0.0.0/8) on DNS response packet it will be blocked as DNS rebinding attack.
+Quando NxFilter identifica um IP privado (192.168.0.0/16, 172.16.0.0/12, 10.0.0.0/8) nos pacotes de respostas DNS ele será bloqueado, sendo tratado como um ataque de DNS Rebinding.
 
  .. note::
   Se você tem seu próprio registro DNS com IP privado você precisa colocar o bypass do domínio na whitelist.
