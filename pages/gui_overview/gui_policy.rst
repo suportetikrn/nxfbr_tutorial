@@ -74,6 +74,7 @@ Monitora somente a atividade do usuário mas não o bloqueia.
 Permite bloquear consultas DNS por categorias.
 
 .. envvar:: Quotaed Categories
+
 Se algumas categorias forem marcadas, então os usuários que estiverem nessa política, só poderão acessar os sites classificados nelas pelo tempo determinado em 'Quota'. Quando o usuário consome o tempo da quota suas requisições para os sites dentro das categorias em 'Quotaed Categories' serão bloqueadas.
 
 Definir um horário livre
