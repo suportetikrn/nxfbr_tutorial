@@ -45,6 +45,7 @@ Jahaslist
 *********
 
 You can view the contents of Jahaslist and modify it directly here. But we don't recommend you to do the reclassification here unless it is a mass importation of domains. We keep Jahaslist in a separated DB file and NxFilter doesn't do auto-backup for it. So you would better use 'Category > System' for reclassification as it is in the main config DB.
+
  .. note::
   When you do the reclassification on 'Logging > Request' or 'NxClassifier > Classified' your reclassification data goes into 'Category > System'.
   When you export Jahaslist, NxFilter merges your custom classified domains from 'Category > System' into Jahaslist and then export the merged result into a file.
@@ -53,4 +54,5 @@ Test Run
 *********
 
 After you add your own classification rules you want to see the result. You can do a test run for your classification ruleset against a website here.
+
  .. note:: 'Test Run' doesn't do actual classification. If you want to classify a domain you need to make a query for the domain against NxFilter.
