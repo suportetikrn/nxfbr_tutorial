@@ -26,8 +26,11 @@ If you have a firewall in your network it is simple. You just need to block outg
 
 Como o NxFilter determina que politica aplicar a um usuário?
 *************************************************************
-You can assign a policy to a user directly. If the user belongs to a group then the group policy overrides the user policy. This is simple so far. But when you import users from Active Directory there might be users belonging to multiple groups. You don't know which policy to apply to a user in this case.
-To solve this problem we introduced 'Priority Points' concept. If there are multiple groups and if they have several different policies, the policy having the highest priority points will be applied. You can set this priority points on a policy. When you want to find out which policy being applied to a user use 'TEST' button on 'User & Group > User'.
+Você pode atribuir uma política diretamente a um usuário. Se o usuário pertence a um grupo, então a política do grupo sobrepõe a política do usuário.
+Porém quando você importa usuários do Active Directory eles podem pertencer a diversos grupos. Nesse caso você não saberia que política seria aplicada a determinado usuário.
+Para resolver esses problema use a feature 'Priority Points'. Se há mais de um grupo e se eles tem políticas diferentes, a política que tiver a maior pontuação em prioridade será aplicada. Você pode definir essa pontuação em um política.
+
+ .. note:: Para saber que política está sendo aplicada a um determinado usuário, utilize o botão 'TEST' em 'User & Group > User'.
 
 What is the quickest way of blocking 'facebook.com'?
 *************************************************************
