@@ -104,10 +104,12 @@ To enable 'syslog_only' option add the following line on '/nxfilter/conf/cfg.pro
 syslog_only = 1
 * You still get the counting data but the actual logging data will not be stored into your traffic DB.
 
-How to set up a time zone.
-*************************************************************
-Some of our users reported that they have a different time zone on NxFilter from the system. This happens mostly on CentOS. When you need to set up a time zone for NxFilter manually. You can do that on JVM level. On '/nxfilter/bin/startup.sh' set the following parameter.
--Duser.timezone=Europe/Rome
+Como alterar o timezone?
+*************************
+Alguns usuários sentiram necessidade de usar um timezone diferente do usado no NxFilter. Acontece geralmente no CentOS. Quando houver a necessidade de mudar o timezone de forma manual isso pode ser feito mudando os parâmetros da JVM.
+Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM, insira o seguinte parâmetro `-Duser.timezone=America/Fortaleza`.
+ .. note::
+ 'America/Fortaleza' foi um exemplo, você pode ver a que se aplica melhor a sua região em `<http://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzamy/reftzval.htm>`
 
 My Browsers keep restarting after NxClient starting.
 *************************************************************
