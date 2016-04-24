@@ -24,7 +24,7 @@ How do I force users to be filtered by NxFilter?
 *************************************************************
 If you have a firewall in your network it is simple. You just need to block outgoing UDP/53, TCP/53 traffic except from NxFilter. And then you use DHCP to set up NxFilter to be the DNS server for your network. Now NxFilter became the only DNS server that your users can use and their DNS setup to point NxFilter will be done automatically.
 
-How NxFilter determin which policy to apply for a user?
+Como o NxFilter determina que politica aplicar a um usuário?
 *************************************************************
 You can assign a policy to a user directly. If the user belongs to a group then the group policy overrides the user policy. This is simple so far. But when you import users from Active Directory there might be users belonging to multiple groups. You don't know which policy to apply to a user in this case.
 To solve this problem we introduced 'Priority Points' concept. If there are multiple groups and if they have several different policies, the policy having the highest priority points will be applied. You can set this priority points on a policy. When you want to find out which policy being applied to a user use 'TEST' button on 'User & Group > User'.
