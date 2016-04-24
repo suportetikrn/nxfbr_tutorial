@@ -1,0 +1,110 @@
+.. _faq:
+
+***
+FAQ
+***
+
+Perguntas frequentes sobre o NxFilter
+
+I can bypass NxFilter by accessing websites using IP address
+*************************************************************
+There are people saying that DNS filtering is useless as they can access a website using IP address. This is a very naive thought and simply not true. In today's Internet environment most websites are running on a virtual host. This means there are multiple websites on one IP address. You can't access these websites without domain.
+And the other thing you need to think about is that there are many URLs in a webpage. This is especially true when it comes to a big portal site. Those URLs are based on DNS as well. It is like that you can try to access a blocked website using an IP address but what you get is just a brocken webpage.
+* NxFilter can block IP host in URL with its local proxy agents.
+
+It doesn't get blocked/unblocked right away.
+*************************************************************
+
+This is most likely from the DNS cache on your system. If you are on a Windows system there are two kinds of DNS caches. One is from your browser and the other is from your Windows OS. Before the cache expires your policy change for blocking/unblocking will not be working. Both caches expire eventually but you might want to clear it out immediately. If it is a browser cache you can clear it out by restarting your browser.
+If you want to clear out your Windows DNS cache, use the following command on CMD.
+ipconfig /flushdns
+Normally DNS cache from Windows expires in a day at the maximum. Of course it depends on TTL from DNS record but I have not seen it bigger than 86,400 seconds(1 day) usually. About the browser cache it may take several minutes to get expired. But it will get expired and blocked eventually. So in practice this is not a problem as you don't need to block/unblock a site many times a day.
+
+How do I force users to be filtered by NxFilter?
+*************************************************************
+If you have a firewall in your network it is simple. You just need to block outgoing UDP/53, TCP/53 traffic except from NxFilter. And then you use DHCP to set up NxFilter to be the DNS server for your network. Now NxFilter became the only DNS server that your users can use and their DNS setup to point NxFilter will be done automatically.
+
+How NxFilter determin which policy to apply for a user?
+*************************************************************
+You can assign a policy to a user directly. If the user belongs to a group then the group policy overrides the user policy. This is simple so far. But when you import users from Active Directory there might be users belonging to multiple groups. You don't know which policy to apply to a user in this case.
+To solve this problem we introduced 'Priority Points' concept. If there are multiple groups and if they have several different policies, the policy having the highest priority points will be applied. You can set this priority points on a policy. When you want to find out which policy being applied to a user use 'TEST' button on 'User & Group > User'.
+
+What is the quickest way of blocking 'facebook.com'?
+*************************************************************
+Add '*.facebook.com' into 'Whitelist > Domain' and check 'Admin Block' option.
+
+I want to block 'facebook.com' only for students.
+*************************************************************
+You need to be able to differentiate your students on NxFilter with authentication first. And then block 'Social Networking' category on a policy when you use Jahaslist. Then assign the policy to the user or group for your students.
+
+I want to allow sales department to use the Internet freely at lunchtime.
+Create a user or a group for your sale department and define a free-time in 'Policy & Rule > Free Time' then assign a free-time policy which is more lenient to the user or group.
+
+How do I change NxFilter's webserver port?
+*************************************************************
+You can change HTTP/HTTPS listening ports on NxFilter. However when you change HTTP port you will lose your block-page redirection. It is because when NxFilter redirects a user there needs to be something waiting for his/her browser on TCP/80 port.
+To change the ports, you need to modify these two parameters on '/nxfilter/conf/cfg.properties' file.
+http_port = 80
+https_port = 443
+After you change the ports, restart NxFilter.
+
+How do I reset admin password?
+*************************************************************
+We have '/nxfilter/bin/reset_pw.sh' script to reset admin password. Once you run the script, the admin name and password will be reset to 'admin'. You need to run the script while NxFilter working.
+* There is '/nxfilter/bin/reset_acl.sh' to reset access restriction to GUI as well.
+
+Can I bind NxFilter to a specific IP address?
+*************************************************************
+You might want to bind NxFilter to a specific IP address to avoid of having a port collision problem. You can bind NxFilter to a specific IP address using 'listen_ip' parameter in '/nxfilter/conf/cfg.properties' file. If you set it to '0.0.0.0' NxFilter will listen on all the IP addresses of the system but if you set it to a specific IP address NxFilter will listen on the specified IP address only.
+* Even if you bind NxFilter to a specific IP address you can not run multiple NxFilter on the same machine. This is because NxFilter needs to bind several ports on localhost for internal communication.
+
+How do I bypass my local domain?
+*************************************************************
+On 'DNS > Setup' You can set your local DNS server and local domain. With this setup if there are DNS queries for your local domain NxFilter forwards the queries to the local DNS server and bypass authentication, filtering and logging.
+
+Can I use an exact matching keyword for log search?
+*************************************************************
+You can use square brackets for exact matching on log search.
+    ex) [john], [192.168.0.1]
+
+Why do I need to re-login after lunch break?
+*************************************************************
+Your login session has been expired. If there is no activity(DNS query) from your PC for a certain time your login session expires. You can increase 'Login Session TTL' on 'Config > Setup'.
+* If you use single sign-on with Active Directory you can avoid of having this problem.
+
+How do I apply my own SSL certificate?
+*************************************************************
+We use an embedded Tomcat 7.x as the built-in webserver for NxFilter. If you want to apply your own SSL certificate with Tomcat there are two parameters you need to set in Tomcat config file. One is 'keystoreFile' and the other one is 'keystorePass'. However we don't have a separated config file for Tomcat. We use '/nxfilter/conf/cfg.properties' file to set these parameters.
+keystore_file = conf/myown.keystore
+keystore_pass = 123456
+* About how to build keystore file read Tomcat manual.
+
+How do I enable debug mode?
+*************************************************************
+When there is something wrong with NxFilter the first thing you can do is to find out what is going on exactly with its log data. NxFilter keeps its system log data inside '/nxfilter/log' directory. If you need more detailed log data, enable debug mode on '/nxfilter/conf/log4j.properties'. Change 'INFO' to 'DEBUG' inside the file and restart NxFilter.
+
+How do I hide SSL warning?
+*************************************************************
+When a browser being redirected on HTTPS it warns users that they are being redirected. This is for preventing 'Man in the Middle' attack. That is why you get an SSL warning page instead of NxFilter block-page. Your browser is just doing its job and we don't want to interfere that. However we know that there are users wanting to hide the warning page for some reason. While we still can't show the block-page on HTTPS but you can hide it by changing HTTPS port of NxFilter. If you use a non-standard HTTPS port, your users will only see 'Connection Error' message.
+To change HTTPS port for NxFilter modify the following line on '/nxfilter/conf/cfg.properties' file.
+https_port = 443
+
+I don't see any username on 'Logging > Request'.
+*************************************************************
+The first thing you need to check would be 'Enable Authentication' option on 'Config > Setup'. Some people don't understand that they need to enable authentication before implementing any authentication method.
+
+How do I bypass logging completely?
+*************************************************************
+For internal purposes, the minimum log retention period you can set is 3 days. But you can bypass logging completely by setting 'syslog_only' option on '/nxfilter/conf/cfg.properties' file. If you set this option without having Syslog exportation setup then NxFilter bypasses logging and not sending Syslog data as it doesn't know where to send it.
+To enable 'syslog_only' option add the following line on '/nxfilter/conf/cfg.properties' file,
+syslog_only = 1
+* You still get the counting data but the actual logging data will not be stored into your traffic DB.
+
+How to set up a time zone.
+*************************************************************
+Some of our users reported that they have a different time zone on NxFilter from the system. This happens mostly on CentOS. When you need to set up a time zone for NxFilter manually. You can do that on JVM level. On '/nxfilter/bin/startup.sh' set the following parameter.
+-Duser.timezone=Europe/Rome
+
+My Browsers keep restarting after NxClient starting.
+*************************************************************
+NxClient is a local proxy so it needs to update the system proxy settings to redirect HTTP/HTTPS traffic of your browsers to itself. And after it updates the proxy settings it needs to restart the browsers to apply the changes. But you might have another Windows program preventing the update or doing the update for itself. You have a race condition here. To fix it, you have to disable one of them.
