@@ -13,17 +13,23 @@ Editando uma política
 **********************************
 Após criar uma política você pode modificar suas propriedades
 
-.. envvar:: - Priority Points
- Se há diversas políticas associadas a um único usuário, a política com om maior valor será aplicada.
-- Enable Filter
-If you disable this option there will be no blocking from the policy.
-- Block All
-Block everything on policy level.
-- Block Unclassified
-Block unclassified domains.
-- Ad-remove
-Block domains in 'Ads' category of Jahaslist with a blank block-page.
-* This is useful when you want to remove embedded adverts without showing NxFilter's block-page.
+.. envvar:: Priority Points
+Se há diversas políticas associadas a um único usuário, a política com o maior valor será aplicada.
+
+.. envvar:: Enable Filter
+Se está opção estiver desmarcada essa política não efetuará bloqueios.
+
+.. envvar:: Block All
+Tudo bloqueado
+
+.. envvar:: Block Unclassified
+Bloqueia domínios não classificados.
+
+.. envvar:: Ad-remove
+Bloqueia domínios que estejam na categoria `Ads` da Jahashlist colocando uma página em branco.
+
+.. note:: É muito útil pro caso de remover ads embutidos em páginas e não distorcer mostrando a página de bloqueio do nxfilter.
+
 - Max Domain Length
 There are some malwares using domain name itself as a message protocol. These domains are abnormally long while the length of most domains are under 30 characters. You can set a limit for the length of a domain to block these abnormal domains. To prevent having false positives NxFilter doesn't apply 'Max Domain Length' against 100,000 well known domains.
 - Block Covert Channel
