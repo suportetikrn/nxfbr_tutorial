@@ -11,50 +11,64 @@ Quando o NxFilter é instalado, há somente uma política no sistema que é 'Def
 
 Editando uma política
 **********************************
+
 Após criar uma política você pode modificar suas propriedades
 
 .. envvar:: Priority Points
+
 Se há diversas políticas associadas a um único usuário, a política com o maior valor será aplicada.
 
 .. envvar:: Enable Filter
+
 Se está opção estiver desmarcada essa política não efetuará bloqueios.
 
 .. envvar:: Block All
+
 Tudo bloqueado
 
 .. envvar:: Block Unclassified
+
 Bloqueia domínios não classificados.
 
 .. envvar:: Ad-remove
+
 Bloqueia domínios que estejam na categoria `Ads` da Jahashlist colocando uma página em branco.
 
 .. note:: É muito útil pro caso de remover ads embutidos em páginas e não distorcer mostrando a página de bloqueio do nxfilter.
 
 .. envvar:: Max Domain Length
+
 Existem alguns `malwares` que usam um domínio próprio como um protocolo de mensagem. Esses domínios são extensos de forma anormal, enquanto a maioria dos domínios tem menos de 30 caracteres. Você pode definiar um limite para esse tamanho.Para previnir falso positivo NxFilter não aplica 'Max Domain Length' contra 100 mil domínios conhecidos.
 
 .. envvar:: Block Covert Channel
+
 Alguns malwares ou botnets usam o protocolo DNS como ferramenta de comunicação. Eles usam consultas DNS e respostas para se comunicar uns com os outros.
 
 .. envvar:: Block Mailer Worm
+
 É incomum se ver consultas MX feitas de uma estação de trabalho. Quando NxFilter encontra essa consulta vinda de uma estação ela provavelmente é feita por algum malware tentando enviar emails.
 
 .. envvar:: Block DNS Rebinding
+
 Quando NxFilter identifica um IP privado (192.168.0.0/16, 172.16.0.0/12, 10.0.0.0/8) nos pacotes de respostas DNS ele será bloqueado, sendo tratado como um ataque de DNS Rebinding.
 
  .. note::
   Se você tem seu próprio registro DNS com IP privado você precisa colocar o bypass do domínio na whitelist.
 
 .. envvar:: Allow 'A' Record Only
+
 Esta é a forma mais restrita de filtrar malwares e botnets que usam o protocolo DNS como ferramenta de comunicação. Se você tem um típico escritório não precisa usar nenhum tipo de registro DNS especial. Com essa opção o NxFilter permite apenas consultas a registros do tipo A, AAAA, PTR, CNAME e os outros tipos de registros DNS serão bloqueados.
 
 .. envvar:: Quota
+
 NxFilter tem a funcionalidade de quota-por-tempo ( quota-time ). Você pode permitir que seus usuários naveguem por certos sites por um determinado tempo. Você pode definir a quantidade de tempo nesse campo.
 
 .. envvar:: Quota All
+
 Aplicar quota a todos os domínios, inclusive os `não classificados`.
 
 .. envvar:: Safe-search
+
 Força o uso de safe-search no Goolg, Yahoo, Youtube e Bing.
  .. note:: Para uso com Yahoo é obrigatório o uso de proxy agent rodando no sistema
 
