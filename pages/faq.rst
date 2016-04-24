@@ -24,7 +24,7 @@ How do I force users to be filtered by NxFilter?
 *************************************************************
 If you have a firewall in your network it is simple. You just need to block outgoing UDP/53, TCP/53 traffic except from NxFilter. And then you use DHCP to set up NxFilter to be the DNS server for your network. Now NxFilter became the only DNS server that your users can use and their DNS setup to point NxFilter will be done automatically.
 
-Como o NxFilter determina que politica aplicar a um usuário?
+Como o NxFilter determina que política aplicar a um usuário?
 *************************************************************
 Você pode atribuir uma política diretamente a um usuário. Se o usuário pertence a um grupo, então a política do grupo sobrepõe a política do usuário.
 Porém quando você importa usuários do Active Directory eles podem pertencer a diversos grupos. Nesse caso você não saberia que política seria aplicada a determinado usuário.
