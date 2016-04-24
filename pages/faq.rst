@@ -32,9 +32,9 @@ Para resolver esses problema use a feature 'Priority Points'. Se há mais de um 
 
  .. note:: Para saber que política está sendo aplicada a um determinado usuário, utilize o botão 'TEST' em 'User & Group > User'.
 
-What is the quickest way of blocking 'facebook.com'?
-*************************************************************
-Add '*.facebook.com' into 'Whitelist > Domain' and check 'Admin Block' option.
+Qual forma mais rápida de bloquear 'facebook.com'?
+**************************************************
+Insira '*.facebook.com' em 'Whitelist > Domain' e marque a opção 'Admin Block'.
 
 I want to block 'facebook.com' only for students.
 *************************************************************
@@ -86,11 +86,12 @@ How do I enable debug mode?
 *************************************************************
 When there is something wrong with NxFilter the first thing you can do is to find out what is going on exactly with its log data. NxFilter keeps its system log data inside '/nxfilter/log' directory. If you need more detailed log data, enable debug mode on '/nxfilter/conf/log4j.properties'. Change 'INFO' to 'DEBUG' inside the file and restart NxFilter.
 
-How do I hide SSL warning?
-*************************************************************
-When a browser being redirected on HTTPS it warns users that they are being redirected. This is for preventing 'Man in the Middle' attack. That is why you get an SSL warning page instead of NxFilter block-page. Your browser is just doing its job and we don't want to interfere that. However we know that there are users wanting to hide the warning page for some reason. While we still can't show the block-page on HTTPS but you can hide it by changing HTTPS port of NxFilter. If you use a non-standard HTTPS port, your users will only see 'Connection Error' message.
-To change HTTPS port for NxFilter modify the following line on '/nxfilter/conf/cfg.properties' file.
-https_port = 443
+Como oculto o alerta de SSL?
+****************************
+Quando um browser está sendo redirecionado para HTTPS ele alerta o usuário que isso está ocorrendo. Tem o objetivo de prevenir o ataque `Man in the middle <https://pt.wikipedia.org/wiki/Ataque_man-in-the-middle>`_. Por esse motivo que é recebida a mensagem de alerta ao invés da tradicional página de bloqueio do NxFilter. Seu browser está apenas fazendo o que deve ser feito e não é o objetivo do NxFilter interferir nisso.
+Em todo caso há situações em que se deseja ocultar essa página de alerta. Para que isso ocorra pode se mudar a porta HTTPS do NxFilter, desse modo os usuários receberão a mensagem de "Erro de Conexão".
+ .. note::
+Para mudar a porta HTTPS modifique a linha `https_port = 443` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
 
 I don't see any username on 'Logging > Request'.
 *************************************************************
