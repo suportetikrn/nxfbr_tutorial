@@ -13,3 +13,5 @@ Conteúdo:
 
    pages/getting_started
    pages/whatblacklist
+   pages/authentication
+   pages/gui_overview
