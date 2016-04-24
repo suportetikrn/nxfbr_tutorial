@@ -15,3 +15,10 @@ Conteúdo:
    pages/whatblacklist
    pages/authentication
    pages/gui_overview
+   pages/working_agent
+   pages/nxcloud
+   pages/custom_nxfilter
+   pages/nxclassifier
+   pages/dns_server
+   pages/misc
+   pages/faq
