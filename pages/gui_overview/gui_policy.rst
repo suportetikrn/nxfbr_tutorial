@@ -85,8 +85,8 @@ Você pode definir um período livre global em 'Policy & Rule > Free Time'. Se f
 
 Controle de Aplicação
 **********************************
-NxFilter permite o controle de aplicações através de seus agentes: NxLogon e NxClient. Para mais detalhes leia 'Controle de Aplicação com NxLogo e NxClient' nesse mesmo tutorial.
+NxFilter permite o controle de aplicações através de seus agentes: NxLogon e NxClient. Para mais detalhes leia 'Controle de Aplicação com NxLogon e NxClient' nesse mesmo tutorial.
 
 Proxy Filtering
 **********************************
-NxFilter provides HTTP proxy filtering through NxClient. For more details read 'Proxy filtering with NxClient' part of this tutorial.
+NxFilter provê um proxy filter HTTP através do NxClient. Para mais detalhes leia 'Proxy filtering com NxClient' nesse mesmo tutorial.
