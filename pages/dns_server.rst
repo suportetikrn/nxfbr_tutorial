@@ -17,23 +17,27 @@ Caching
 NxFilter has its own cache for the DNS response from its upstream server. This means when you use a public or ISP DNS server as a DNS server for your network NxFilter can boost up your network speed by reducing the traffic to the DNS server outside your local network. This is because once a DNS response from an upstream server has been cached then your users will get the response from NxFilter not from the upstream server. You will not have a latency problem between your local network and the DNS server on the Internet.
 
 
-Authoritative DNS server
-************************
-NxFilter can be working as an authoritative DNS server.
-1. Zone File
-We use the same form of zone file as BIND. You create a zone file for a domain on 'DNS > Zone File'. And then you can add your hosts into the DNS zone by editing it on GUI.
-2. To put it on the Internet
-Since NxFilter is a DNS filter with authentication, when you use it as an autoritative DNS server there are several things you would need to think about.
-- Authentication
-You must enable authentication especially when you put NxFilter on the Internet to avoid of being a target of DDOS attack. But the problem is that if you enable authetication, these anonymous users querying your domain will be redirected to the login-page of NxFilter. To allow the anonymous DNS query against your domain, you need to bypass authentication for your domain.
-- Filtering
-NxFilter is a DNS filter so your domain might be blocked by NxFilter for some reason. This will lead to the failure of resolving the domain you want to service. To avoid of having this kind of problem, it might be better to bypass filtering for your domain.
-- Too many log
-You could have too many log data for your domain as a result of DDOS attack. In that case, you would better bypass logging for your domain.
-* You can set up whitelist for your domain with some bypass options but you also can do that using the bypass options of a zone file.
-* On NxCloud you have 'Public Service' option instead of bypass options. In reality this is	a combination of 'Bypass Filtering' and 'Bypass Logging' as there is no 'Bypass Authentication' option for NxCloud. You need to set this option to service your DNS zone on the Internet when you use NxCloud.
-3. Clustering
-When you build a cluster of NxFilter your slave nodes will be working as an authoritative DNS server with the settings from the master node. You don't need to set up a secondary DNS server for redundancy. It is already clustered.
+DNS Autoritativo
+*********************
+NxFilter pode atuar como um servidor DNS Autoritativo.
+1. Arquivo de Zone ( Zone File )
+ É usado o mesmo padrão nos arquivos de zona do BIND. O arquivo é criado em 'DNS > Zone File'. E então você pode adicionar suas estações ( host ) na zona DNS diretamente pela GUI.
+
+2. Para disponibilizar na internet.
+Sabendo que o NxFilter é um filtro DNS com autenticação, quando você o utilizar como servidor DNS autoritativo é necessário tomar conhecimento dos seguintes pontos:
+  - Autenticação
+    Você precisa habilitar a autenticação principalmente quando expõe o NXFilter na Internet com o objetivo de evitar ataques DDOS. Porém há o problema que se a autenticação for ativada, usuários anônimos serão redirecionados para a tela de login. Para permitir que usuários anônimos façam normalmente consulta DNS no seu domínio, você precisar permitir o 'bypass' da autenticação para seu domínio.
+  - Filtro
+    NxFilter é um filtro DNS, então seu dominio pode ser bloqueado pelo NxFilter por algumas razões. Para evitar problemas do tipo é indicado fazer o 'bypass' da filtragem do seu domínio.
+  - Logs em excesso
+    Você pode acabar tendo muitos registros de log por conta de ataques DDOS em seu domínio. No caso, pode ser melhor também ativar o 'bypass' de logs no seu domínio.
+
+ .. note::
+  Você pode configurar uma 'whitelist' para seu domínio ser liberado em alguns casos, mas também é possível usar a opção de 'bypass' de um arquivo de zona ( zone file ).
+  No NxCloud você tem a opção 'Public Service' ao invés da opção 'bypass'. Na realidade essa opção é a combinação do 'ByPass Filtro' e 'Bypass Logging' não há opção 'Bypass Autenticação'  no NxCloud. Você precisa marcar essa opção para sua Zona DNS na internet quando usa o NxCloud.
+
+3. Clustering / Usando o Cluster
+ Quando está usando o NxFilter em Cluster seus nós trabalharão como um servidor DNS Autoritativo com as mesmas configurações do nó principal. Você não precisa configurar DNS Secundário para haver redundância. Isso já faz parte do serviço de clusterização.
 
 DNS Dinâmico
 ************
