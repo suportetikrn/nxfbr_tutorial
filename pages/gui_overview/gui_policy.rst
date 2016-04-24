@@ -46,7 +46,7 @@ Quando NxFilter identifica um IP privado (192.168.0.0/16, 172.16.0.0/12, 10.0.0.
   Se você tem seu próprio registro DNS com IP privado você precisa colocar o bypass do domínio na whitelist.
 
 .. envvar:: Allow 'A' Record Only
-Esta é a forma mais restrita de filtrar malwares e botnets que usam o protocolo DNS como ferramenta de comunicação. Se você tem um típico escritório não precisa usar nenhum tipo de registro DNS especial. Com essa opção o NxFilter permite apenas consultas a registros do tipo A,AAAA,PTR,CNAME e os outros tipos de registros DNS serão bloqueados.
+Esta é a forma mais restrita de filtrar malwares e botnets que usam o protocolo DNS como ferramenta de comunicação. Se você tem um típico escritório não precisa usar nenhum tipo de registro DNS especial. Com essa opção o NxFilter permite apenas consultas a registros do tipo A, AAAA, PTR, CNAME e os outros tipos de registros DNS serão bloqueados.
 
 .. envvar:: Quota
 NxFilter tem a funcionalidade de quota-por-tempo ( quota-time ). Você pode permitir que seus usuários naveguem por certos sites por um determinado tempo. Você pode definir a quantidade de tempo nesse campo.
