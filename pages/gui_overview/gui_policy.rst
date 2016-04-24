@@ -31,10 +31,10 @@ Bloqueia domínios que estejam na categoria `Ads` da Jahashlist colocando uma p�
 .. note:: É muito útil pro caso de remover ads embutidos em páginas e não distorcer mostrando a página de bloqueio do nxfilter.
 
 .. envvar:: Max Domain Length
-There are some malwares using domain name itself as a message protocol. These domains are abnormally long while the length of most domains are under 30 characters. You can set a limit for the length of a domain to block these abnormal domains. To prevent having false positives NxFilter doesn't apply 'Max Domain Length' against 100,000 well known domains.
+Existem alguns `malwares` que usam um domínio próprio como um protocolo de mensagem. Esses domínios são extensos de forma anormal, enquanto a maioria dos domínios tem menos de 30 caracteres. Você pode definiar um limite para esse tamanho.Para previnir falso positivo NxFilter não aplica 'Max Domain Length' contra 100 mil domínios conhecidos.
 
 .. envvar:: Block Covert Channel
-Some malwares or botnets are using DNS protocol as their communication tool. They are using DNS query and response to communicate to each other.
+Alguns malwares ou botnets usam o protocolo DNS como ferramenta de comunicação. Eles usam consultas DNS e respostas para se comunicar uns com os outros.
 
 .. envvar:: Block Mailer Worm
 Normally you are not supposed to see MX query from your client PC. When NxFilter finds MX type query from your client PC it will be regarded from some malware trying to send emails.
