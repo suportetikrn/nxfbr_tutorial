@@ -37,10 +37,16 @@ When you build a cluster of NxFilter your slave nodes will be working as an auth
 
 DNS Dinâmico
 ************
-NxFilter supports dynamic DNS. You can build a 'DynDNS' like service with NxFilter if you want.
-To service dynamic DNS you need to have a domain for the service on 'DNS > Setup > Dynamic Domain' and then enable the service. If you want to service it publicly or on the Internet, you will have to have a authoritative DNS zone on 'DNS > Zone File' for your dynamic DNS domain.
-Once you set up everything on the server side, you need to install a dynamic DNS client on your client system. We use NxUpdate for this. On NxUpdate you need to set up a server IP that is the IP address of your NxFilter and a login token associated to a username. The associated username will be the hostname.
-For example, if you have 'example.com' as your dynamic DNS domain and you install NxUpdate on a client system with a login token which is associated to 'myhost' user. Then once your NxUpdate started working you can access the system using 'myhost.example.com'.
+NxFilter tem suporte a DNS Dinâmico. Você pode construir um serviço no estilo 'DynDNS' com NxFilter se assim desejar.
+
+Para ativar esse serviço vocë precisa ter um domínio em 'DNS > Setup > Dynamic Domain' e então ativar o serviço. Se quiser que o serviço seja público ou esteja disponível na internet, você tera de ativar uma Zone DNS Autoritativa em 'DNS > Zone File' para que seu Domínio Dinâmico funcione.
+
+Uma vez que esteja tudo configurado no lado do servidor, é necessário instalar o cliente de DNS Dinâmico no sistema do seu cliente. Para isso usamos o NxUpdate.
+
+No NxUpdate você precisa configurar o ip do Servidor, que no caso é o IP do seu NxFilter e um token associado ao nome do usuário da estação. No caso o nome do usuário será o nome da máquina.
+
+Por exemplo, se você tem o domínio dinâmico 'exemplo.com' e instalar o NxUpdate na estação de trabalho com o token do usuário 'minhamaquina', uma vez que o NxUpdate entre em ativa você poderá pingar o endereço 'minhamaquina.example.com'.
+ 
  .. note::
   Dynamic DNS service requires to enable authentication on 'Config > Setup'.
   You can view the list of dynamic domains being serviced on 'DNS > Dynamic Domain'.
