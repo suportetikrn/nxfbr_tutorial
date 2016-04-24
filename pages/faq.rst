@@ -109,7 +109,7 @@ Como alterar o timezone?
 Alguns usuários sentiram necessidade de usar um timezone diferente do usado no NxFilter. Acontece geralmente no CentOS. Quando houver a necessidade de mudar o timezone de forma manual isso pode ser feito mudando os parâmetros da JVM.
 Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM, insira o seguinte parâmetro `-Duser.timezone=America/Fortaleza`.
  .. note::
- 'America/Fortaleza' foi um exemplo, você pode ver a que se aplica melhor a sua região em `<http://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzamy/reftzval.htm>`
+  'America/Fortaleza' foi um exemplo, você pode ver a que se aplica melhor a sua região em `<http://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzamy/reftzval.htm>`.
 
 My Browsers keep restarting after NxClient starting.
 *************************************************************
