@@ -9,5 +9,4 @@ Entendendo as opções disponíveis na interface de administração do NxFilter
 .. toctree::
    :titlesonly:
 
-   getting_started/sys_req.rst
-   getting_started/install.rst
+   gui_overview/gui_dns.rst
