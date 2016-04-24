@@ -46,45 +46,46 @@ Quando NxFilter identifica um IP privado (192.168.0.0/16, 172.16.0.0/12, 10.0.0.
   Se você tem seu próprio registro DNS com IP privado você precisa colocar o bypass do domínio na whitelist.
 
 .. envvar:: Allow 'A' Record Only
-This is the most strict way of filtering malwares and botnets employing DNS protocol as their communication tool. If you are an ordinary office worker you don't need to use any special type of DNS record.	With this option NxFilter allows A, AAAA, PTR, CNAME only and the other types of DNS records will be blocked.
+Esta é a forma mais restrita de filtrar malwares e botnets que usam o protocolo DNS como ferramenta de comunicação. Se você tem um típico escritório não precisa usar nenhum tipo de registro DNS especial. Com essa opção o NxFilter permite apenas consultas a registros do tipo A,AAAA,PTR,CNAME e os outros tipos de registros DNS serão bloqueados.
 
 .. envvar:: Quota
-NxFilter has quota-time feature. You can allow your users to browse some websites for a certain amount of time. You can set the amount of time here.
+NxFilter tem a funcionalidade de quota-por-tempo ( quota-time ). Você pode permitir que seus usuários naveguem por certos sites por um determinado tempo. Você pode definir a quantidade de tempo nesse campo.
 
 .. envvar:: Quota All
-Apply quota to all domains including unclassified domains.
+Aplicar quota a todos os domínios, inclusive os `não classificados`.
 
 .. envvar:: Safe-search
-Enforcing safe-search against Google, Bing, Yahoo and Youtube.
-* Safe-search enforcing for Yahoo requires a local proxy agent running on user system.
+Força o uso de safe-search no Goolg, Yahoo, Youtube e Bing.
+ .. note:: Para uso com Yahoo é obrigatório o uso de proxy agent rodando no sistema
 
 .. envvar:: Block-time
-You can set policy specific block-time.
+Vocë pode definir o período em que a política de bloqueios é aplicada.
 
 .. envvar:: Disable Application Control
-Disable application control on policy level.
+Inativa o controle de aplicação na política.
 
 .. envvar:: Disable Proxy Filtering
-Disable proxy filtering for on policy level.
+Inativa o filtro de proxy na política.
 
 .. envvar:: Logging Only
-Monitoring user activity without blocking them.
+Monitora somente a atividade do usuário mas não o bloqueia.
 
 .. envvar:: Blocked Categories
-You can block DNS request by categories.
+Permite bloquear consultas DNS por categorias.
 
 .. envvar:: Quotaed Categories
-If you check some categories in 'Quotaed Categories' then your users can access the websites in the categories for the amount of time you specified with 'Quota' above.	When a user consumed up his quota his/her DNS requests for those sites will be blocked.
+Se algumas categorias forem marcadas, então os usuários que estiverem nessa política, só poderão acessar os sites classificados nelas pelo tempo determinado em 'Quota'. Quando o usuário consome o tempo da quota suas requisições para os sites dentro das categorias em 'Quotaed Categories' serão bloqueadas.
 
-Define a free-time
+Definir um horário livre
 **********************************
-You can define a global free-time in 'Policy & Rule > Free Time'. If you assign a free-time policy to users it will be applied during the time defined here.
-* If the start-time is bigger than the end-time then it will break into 'end-time ~ 24:00' and '00:00 ~ start-time'	on the same day.
-* You can set a group specific free-time on 'User & Group > Group > EDIT'.
+Você pode definir um período livre global em 'Policy & Rule > Free Time'. Se for atribuido um período livre para usuários ele estará subordinado ao horário definido aqui.
+ .. note::
+  Se a hora inicial for maior que a hora final então ela funcionará da seguinte forma 'hora-fim ~ 24:00' e '00:00 ~ hora-inicio' no mesmo dia.
+  Você pode definir um tempo livre específico para um grupo em 'User & Group > Group > EDIT'.
 
-Application Control
+Controle de Aplicação
 **********************************
-NxFilter provides application control through its agents, NxLogon and NxClient. For more details read 'Application control with NxLogon and NxClient' part of this tutorial.
+NxFilter permite o controle de aplicações através de seus agentes: NxLogon e NxClient. Para mais detalhes leia 'Controle de Aplicação com NxLogo e NxClient' nesse mesmo tutorial.
 
 Proxy Filtering
 **********************************
