@@ -10,3 +10,5 @@ Entendendo as opções disponíveis na interface de administração do NxFilter
    :titlesonly:
 
    gui_overview/gui_dns.rst
+   gui_overview/gui_user.rst
+   gui_overview/gui_policy.rst

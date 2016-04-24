@@ -1,0 +1,70 @@
+**********************************
+GUI - Policy / Política 
+**********************************
+
+Com NxFilter você pode ter diversas políticas de filtro aplicáveis a usuários e/ou grupos.
+
+Criando uma política
+**********************************
+
+Quando o NxFilter é instalado, há somente uma política no sistema que é 'Default'. Está política será aplicada a todos se não for feita nenhuma alteração. Para aplicar uma política diferente para um determinado usuário ou grupo é preciso criar uma nova política e habilitar a autenticação.
+
+Editando uma política
+**********************************
+Após criar uma política você pode modificar suas propriedades
+
+.. envvar:: - Priority Points
+ Se há diversas políticas associadas a um único usuário, a política com om maior valor será aplicada.
+- Enable Filter
+If you disable this option there will be no blocking from the policy.
+- Block All
+Block everything on policy level.
+- Block Unclassified
+Block unclassified domains.
+- Ad-remove
+Block domains in 'Ads' category of Jahaslist with a blank block-page.
+* This is useful when you want to remove embedded adverts without showing NxFilter's block-page.
+- Max Domain Length
+There are some malwares using domain name itself as a message protocol. These domains are abnormally long while the length of most domains are under 30 characters. You can set a limit for the length of a domain to block these abnormal domains. To prevent having false positives NxFilter doesn't apply 'Max Domain Length' against 100,000 well known domains.
+- Block Covert Channel
+Some malwares or botnets are using DNS protocol as their communication tool. They are using DNS query and response to communicate to each other.
+- Block Mailer Worm
+Normally you are not supposed to see MX query from your client PC. When NxFilter finds MX type query from your client PC it will be regarded from some malware trying to send emails.
+- Block DNS Rebinding
+When NxFilter finds a private IP address(192.168.0.0/16, 172.16.0.0/12, 10.0.0.0/8) on DNS response packet it will be blocked as DNS rebinding attack.
+* If you have your own DNS record with private IP address you need to bypass the domain on whitelist.
+- Allow 'A' Record Only
+This is the most strict way of filtering malwares and botnets employing DNS protocol as their communication tool. If you are an ordinary office worker you don't need to use any special type of DNS record.	With this option NxFilter allows A, AAAA, PTR, CNAME only and the other types of DNS records will be blocked.
+- Quota
+NxFilter has quota-time feature. You can allow your users to browse some websites for a certain amount of time. You can set the amount of time here.
+- Quota All
+Apply quota to all domains including unclassified domains.
+- Safe-search
+Enforcing safe-search against Google, Bing, Yahoo and Youtube.
+* Safe-search enforcing for Yahoo requires a local proxy agent running on user system.
+- Block-time
+You can set policy specific block-time.
+- Disable Application Control
+Disable application control on policy level.
+- Disable Proxy Filtering
+Disable proxy filtering for on policy level.
+- Logging Only
+Monitoring user activity without blocking them.
+- Blocked Categories
+You can block DNS request by categories.
+- Quotaed Categories
+If you check some categories in 'Quotaed Categories' then your users can access the websites in the categories for the amount of time you specified with 'Quota' above.	When a user consumed up his quota his/her DNS requests for those sites will be blocked.
+
+Define a free-time
+**********************************
+You can define a global free-time in 'Policy & Rule > Free Time'. If you assign a free-time policy to users it will be applied during the time defined here.
+* If the start-time is bigger than the end-time then it will break into 'end-time ~ 24:00' and '00:00 ~ start-time'	on the same day.
+* You can set a group specific free-time on 'User & Group > Group > EDIT'.
+
+Application Control
+**********************************
+NxFilter provides application control through its agents, NxLogon and NxClient. For more details read 'Application control with NxLogon and NxClient' part of this tutorial.
+
+Proxy Filtering
+**********************************
+NxFilter provides HTTP proxy filtering through NxClient. For more details read 'Proxy filtering with NxClient' part of this tutorial.
