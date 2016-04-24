@@ -2,23 +2,31 @@
 NxClient and remote user filtering
 **********************************
 
-NxFilter provides a remote user filtering client software that is NxClient. Once you install NxClient on a user system you can filter and monitor the Internet traffic from the user system on your NxFilter GUI centrally regardless of its location.
+NxFilter prove um aplicativo cliente para filtro em usuário remoto que é o NxClient. Uma vez instalado o NxClient no sistema de usuário você pode filtrar e monitorar o tráfego de Internet daquele usuário em sua GUI NxFilter de modo centralizado independente de sua localização.
+
  .. note::
   You need to open 53 UDP and 80, 443 TCP ports on NxFilter side.
 
-Installation of NxClient
+Instalação do NxClient
 ************************
 
-After you install it using NxClient installer you will have its setup program running. There are 'Server IP' and 'Login Token' parameters and you need to set them up with your own.
- .. note::
-  On NxFilter every user has a login token. You can find it on 'User & Group > User > Edit'.
-  NxClient is a Windows service program. It will start at system startup automatically.
-  When you install NxClient or NxUpdate on Mac OS X, read Installing NxClient or NxUpdate on Mac OS X on this tutorial.
+Após instalar o NxClient usando seu instalador, o sistema de configuração estará rodando. Aparecerá um formulário com os campos `Server IP` e `Login Token` e você precisa preenchê-los de acordo com seu ambiente.
 
-After you modify the config value test your setup first and then start it. You can check if it is working by viewing 'Logging > Signal'. There will be signals from NxClient.
-* You can add multiple server IP addresses separated by commas if you run a cluster of NxFilter.
-* To change the config value run 'C:/Program Files/nxclient/setup.exe'.
+ .. note::
+
+  No NxFilter cada usuário tem um login token. Você pode encontrar esse token em 'User & Group > User > Edit'.
+  NxClient é um programa Windows que roda como serviço. Ele iniciará automaticamente com o sistema.
+  Quando você instalar NxClient ou NxUpdate on Mac OS X, leia as instruções para NxCliente ou NxUpdate no MAC OS X neste tutorial.
+
+Após fazer as devidas modificações e testar sua configuração e assim inicialiizar o sistema, é possível verificar se está funcionando em 'Logging > Signal'. Deverá haver registros do NxClient nesse relatório.
+
+ .. note::
+  É possível adicionar mais de um IP de servidor NxFilter separando por ',' ser você estiver rodando um cluster do NxFilter.
+  Para mudar a configuração execute o programa 'C:/Arquivos de Programas/nxclient/setup.exe'.
+
 Signals of NxClient
+*******************
+
 When it comes to a remote user filtering the most tricky part would be how to force users to be filtered. Nobody wants to get filtered and they are away from your office. If they use their personal PC then you can not filter them anyway. But when they use a company laptop you still can filter them by installing NxClient on their system.
 However what if they uninstall or stop NxClient? NxClient is running as a service and it doesn't provide an uninstaller for 'Add/Remove programs' in control panel. So if your users don't have enough privilege they can't uninstall it.
 But sometimes you need to give your users 'Local Administrator' privilege. In that case it's not possible to stop your users from uninstalling NxClient. So we defined several signals with which you can find out what's happening on a user system. NxClient send the following signals.
