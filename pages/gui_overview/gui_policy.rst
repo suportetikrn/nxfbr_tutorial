@@ -78,7 +78,9 @@ Se algumas categorias forem marcadas, então os usuários que estiverem nessa po
 
 Definir um horário livre
 **********************************
+
 Você pode definir um período livre global em 'Policy & Rule > Free Time'. Se for atribuido um período livre para usuários ele estará subordinado ao horário definido aqui.
+
  .. note::
   Se a hora inicial for maior que a hora final então ela funcionará da seguinte forma 'hora-fim ~ 24:00' e '00:00 ~ hora-inicio' no mesmo dia.
   Você pode definir um tempo livre específico para um grupo em 'User & Group > Group > EDIT'.
