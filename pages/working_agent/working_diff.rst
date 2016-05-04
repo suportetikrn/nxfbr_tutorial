@@ -4,9 +4,9 @@ Diferenças entre os agentes
 
 NxFilter tem diversos agentes, com atribuições diferentes. Alguns são para single sign-on com Active Directory. Outros para filtro de usuários remotos e atualização de IP dinâmico. Outros podem ser usados para controle de aplicações e proxy filtering.
 
- 1. NxLogon 
+1. NxLogon 
 
-  Agente Single sign-on para Active Directory. Você pode inicializá-lo com um script de logon através de uma GPO. Ele suporte controle de aplicação.
+  Agente Single Sign-On para Active Directory. Você pode inicializá-lo com um script de logon através de uma GPO. Ele suporte controle de aplicação.
 
 2. NxMapper 
 
