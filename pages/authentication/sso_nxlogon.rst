@@ -18,3 +18,14 @@ Você pode seguir esses passos para executar o NxLogon através do GPO.
 #. Mude o endereço IP em ``nxlogon.bat`` para o IP do seu servidor NxFilter. Se estiver usando um cluster Nx você pode colocar múltiplos IPs apenas separando-os por `espaço`.
 #. Abra 'Ferramentas Administrativas > Usuários e Computadores do Active Directory' em seu Domain Controller (DC).
 #. Abra a aba 'Política de Grupo' em Propriedade do seu Domínio AD.
+
+.. image:: /images/gpo.png
+
+#. Clique no botão 'Editar' e então vá em 'Configuração do Usuário > Configurações do Windows > Scripts ( Logon/Logoff )'
+
+.. image:: /images/gpo_edit.png
+
+#. Clique em 'Logon' e clique em 'Adicionar' então clique em 'Navegar'. Você verá o diretório 'Logon' para selecionar o arquivo. Copie seu 'nxlogon.bat' e 'nxlogon.exe' do diretório gerado pelo pacote NxLogon, contido no diretório 'Logon'. Você pode arrastar e soltar os arquivos no diretório.
+
+#. Selecione o arquivo copiado na pasta o 'nxlogon.bat' como um script de logon para adicionar.
+
