@@ -27,7 +27,7 @@ Nxfilter tem suporte a diversos modos de autenticação. É possível escolher u
   Se você tem um servidor OpenLDAP ou AD, seus usuários pode se autenticar usando as mesmas credenciais registradas no LDAP. 
 
 .. alert::
- Para usar essa funcionalidade você precisa importar seus usuários do servidor LDAP antes.
+  Para usar essa funcionalidade você precisa importar seus usuários do servidor LDAP antes.
 
 4. Login token based authentication
 
