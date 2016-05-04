@@ -29,3 +29,4 @@ Você pode seguir esses passos para executar o NxLogon através do GPO.
 
 #. Selecione o arquivo copiado na pasta o 'nxlogon.bat' como um script de logon para adicionar.
 
+.. image:: /images/gpo_logon.png
