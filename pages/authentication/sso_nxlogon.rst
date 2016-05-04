@@ -21,12 +21,23 @@ Você pode seguir esses passos para executar o NxLogon através do GPO.
 
 .. image:: /images/gpo.png
 
-#. Clique no botão 'Editar' e então vá em 'Configuração do Usuário > Configurações do Windows > Scripts ( Logon/Logoff )'
+5. Clique no botão 'Editar' e então vá em 'Configuração do Usuário > Configurações do Windows > Scripts ( Logon/Logoff )'
 
 .. image:: /images/gpo_edit.png
 
-#. Clique em 'Logon' e clique em 'Adicionar' então clique em 'Navegar'. Você verá o diretório 'Logon' para selecionar o arquivo. Copie seu 'nxlogon.bat' e 'nxlogon.exe' do diretório gerado pelo pacote NxLogon, contido no diretório 'Logon'. Você pode arrastar e soltar os arquivos no diretório.
+6. Clique em 'Logon' e clique em 'Adicionar' então clique em 'Navegar'. Você verá o diretório 'Logon' para selecionar o arquivo. Copie seu 'nxlogon.bat' e 'nxlogon.exe' do diretório gerado pelo pacote NxLogon, contido no diretório 'Logon'. Você pode arrastar e soltar os arquivos no diretório.
 
-#. Selecione o arquivo copiado na pasta o 'nxlogon.bat' como um script de logon para adicionar.
+7. Selecione o arquivo copiado na pasta o 'nxlogon.bat' como um script de logon para adicionar.
 
 .. image:: /images/gpo_logon.png
+
+8. Agora toda vez que um usuário se autenticar no sistema 'logon.bat' será executado e vai executar 'nxlogon.exe'. Você pode verificar se o processo está rodando no Gereciador de Tarefas do Windows.
+
+.. image:: /images/task_man.png
+
+
+.. note::
+  Se deseja remover a sessão de login imeditamente após o usuário fazer logout use o script 'nxlogoff.bat' como script de logoff na GPO.
+  Quando você rodar múltiplas instâncias do NxLogon no mesmo PC com múltiplos usuários ele pode causar confusão no processo de detecção.Se usuários podem aparecer com nomes diferentes na visualização do log. Para impedir múltiplas instâncias no mesmo sistema use o parâmetro '-bm'.
+  Atualmente o suporte ao controle de aplicações do NxLogon se tornou muito complicado comparado as versões anteriores. Se você deseja usar algo mais simples - sem controle de aplicação - use 'nxlogon-1.0.-p1.zip' disponibilizado na página de download.
+
