@@ -22,6 +22,7 @@ You can access NxFilter's login-page using a domain defined here.
 You can clear out a user login session using a domain defined here.
 - Login Session TTL
 NxFilter keeps a login session after a user login. But this login session needs to be expired eventually. It is especially required when there is a shared PC by several users. If a user doesn't make any DNS request for the specified amount of time defined here, his/her login session expires and the user needs to login again.
+
 Config > Setup > Syslog
 ***********************
 
