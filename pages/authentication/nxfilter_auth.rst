@@ -26,12 +26,12 @@ Nxfilter tem suporte a diversos modos de autenticação. É possível escolher u
 
   Se você tem um servidor OpenLDAP ou AD, seus usuários pode se autenticar usando as mesmas credenciais registradas no LDAP. 
 
-.. alert::
+.. warning::
   Para usar essa funcionalidade você precisa importar seus usuários do servidor LDAP antes.
 
 4. Autenticação por token
 
- NxFilter texrm uma funcionalidade especial chamada 'Login Token'. 
+ NxFilter tem uma funcionalidade especial chamada 'Login Token'. 
 
  Ela é usada para autenticar usuários remotos ou filtros. Esse token é registrado para cada usuário de forma automática quando você o cria ou importa. O Token é utilizado para diferenciar usuários remotos com os agentes NxClient, NxBlock ou IPs dinâmicos com NxUpdate.
 
