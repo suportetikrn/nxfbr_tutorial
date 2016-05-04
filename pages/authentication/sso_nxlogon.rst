@@ -38,6 +38,8 @@ Você pode seguir esses passos para executar o NxLogon através do GPO.
 
 .. note::
   Se deseja remover a sessão de login imeditamente após o usuário fazer logout use o script 'nxlogoff.bat' como script de logoff na GPO.
+
   Quando você rodar múltiplas instâncias do NxLogon no mesmo PC com múltiplos usuários ele pode causar confusão no processo de detecção.Se usuários podem aparecer com nomes diferentes na visualização do log. Para impedir múltiplas instâncias no mesmo sistema use o parâmetro '-bm'.
+
   Atualmente o suporte ao controle de aplicações do NxLogon se tornou muito complicado comparado as versões anteriores. Se você deseja usar algo mais simples - sem controle de aplicação - use 'nxlogon-1.0.-p1.zip' disponibilizado na página de download.
 
