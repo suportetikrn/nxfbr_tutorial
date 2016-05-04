@@ -37,7 +37,7 @@ Você pode seguir esses passos para executar o NxLogon através do GPO.
 
 
 .. note::
-  Se deseja remover a sessão de login imeditamente após o usuário fazer logout use o script 'nxlogoff.bat' como script de logoff na GPO.
+  Se deseja fechar a sessão do usuário no NxFilter imeditamente após o usuário fazer logout use o script 'nxlogoff.bat' como script de logoff na GPO.
 
   Quando você rodar múltiplas instâncias do NxLogon no mesmo PC com múltiplos usuários ele pode causar confusão no processo de detecção.Se usuários podem aparecer com nomes diferentes na visualização do log. Para impedir múltiplas instâncias no mesmo sistema use o parâmetro '-bm'.
 
