@@ -10,7 +10,9 @@ Caso não deseje instalar este programa em cada PC na sua rede é possível usar
   Antes de iniciar esse processo é preciso importar usuários e grupos do AD. Para importá-los leia o procedimento 'GUI - Usuário'.
   
 .. warning::
-  NxLogon usa a porta 19002/TCP para se comunicar o NxFilter. Ela precisa estar liberada no seu firewall - caso haja um.
+  NxLogon usa a porta 19002/TCP para se comunicar o NxFilter. 
+  
+  Ela precisa estar liberada no seu firewall - caso haja um.
 
 Você pode seguir esses passos para executar o NxLogon através do GPO.
 
