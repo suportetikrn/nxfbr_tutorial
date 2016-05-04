@@ -14,7 +14,7 @@ Caso não deseje instalar este programa em cada PC na sua rede é possível usar
 
 Você pode seguir esses passos para executar o NxLogon através do GPO.
 
-#. Baixe o pacote nxlogon-x.x.zip do www.nxfilter.org.
+#. Baixe o pacote nxlogon-x.x.zip do `<www.nxfilter.org>`.
 #. Mude o endereço IP em ``nxlogon.bat`` para o IP do seu servidor NxFilter. Se estiver usando um cluster Nx você pode colocar múltiplos IPs apenas separando-os por `espaço`.
 #. Abra 'Ferramentas Administrativas > Usuários e Computadores do Active Directory' em seu Domain Controller (DC).
 #. Abra a aba 'Política de Grupo' em Propriedade do seu Domínio AD.
