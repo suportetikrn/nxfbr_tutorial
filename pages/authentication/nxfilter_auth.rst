@@ -29,9 +29,15 @@ Nxfilter tem suporte a diversos modos de autenticação. É possível escolher u
 .. alert::
   Para usar essa funcionalidade você precisa importar seus usuários do servidor LDAP antes.
 
-4. Login token based authentication
+4. Autenticação por token
 
-NxFilter has a special concept called 'Login Token'. This is used for remote user authentication or filtering. This login token is being created for each user when you create or import users. You use this login token to differentiate users for remote user filtering with NxClient and NxBlock or dynamic IP update with NxUpdate.
-5. Single sign-on against Active Directory
-Many people want to filter their users transparently. Or you don't want to show any login prompt to your users. NxFilter provides Active Directory integration. Once you implement it your users don't need to go through NxFilter's login-page and your users will be appeared on NxFilter GUI with their Active Directory usernames and groups.
+ NxFilter texrm uma funcionalidade especial chamada 'Login Token'. 
+
+ Ela é usada para autenticar usuários remotos ou filtros. Esse token é registrado para cada usuário de forma automática quando você o cria ou importa. O Token é utilizado para diferenciar usuários remotos com os agentes NxClient, NxBlock ou IPs dinâmicos com NxUpdate.
+
+5. Single Sign-On através do AD
+
+ Muitas pessoas desejam autenticar seus usuários de forma transparante. Ou simplesmente não querem que os mesmos tenham de digitar mais uma vez suas credências.
+
+ NxFilter provê integração com AD. Uma vez que tenha implementado o mesmo seus usuários não precisarão passar pela tela de autenticação e eles já estarão visiveis na GUI do NxFilter com seus logins e grupos do AD.
 
