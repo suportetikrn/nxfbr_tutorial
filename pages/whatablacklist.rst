@@ -8,5 +8,5 @@ Classificando em Categorias - Blacklist e Domínios
    :titlesonly:
 
    whatablacklist/whatblacklist.rst
-   whatablacklist/using_jahashlist.rst
+   whatablacklist/using_jahaslist.rst
    whatablacklist/shallalist.rst
