@@ -9,7 +9,7 @@ Custo de licenciamento da lista
 
  O licenciamento de uso da lista é de 1 dólar americano por usuário, ao ano. 
 
- ..note ::
+.. note ::
    Há a possibilidade de desconto para organizações sem fins lucrativos e opções de licença ilimitada. 
    Caso haja interesse em algum desses modos favor entrar em contato no email 'suporte@kernel.inf.br'.
 
