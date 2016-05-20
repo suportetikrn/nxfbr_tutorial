@@ -12,7 +12,7 @@ Conteúdo:
    :maxdepth: 2
 
    pages/getting_started
-   pages/whatblacklist
+   pages/whatablacklist
    pages/authentication
    pages/gui_overview
    pages/working_agent
