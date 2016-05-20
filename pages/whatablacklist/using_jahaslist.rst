@@ -17,8 +17,11 @@ Ativando a licença
 ^^^^^^^^^^^^^^^^^^
 
 Após a aquisição da licença para a Jahaslist você receberá um arquivo 'license.lic'. Siga os passos:
+
 #. Copie o arquivo 'license.lic' na pasta 'conf' dentro do diretório de instalação do nxfilter, ex: ''/nxfilter/conf''. 
+
 #. Selecione em 'Categoria > Sistema' a opção de uso da Jahaslist
+
 #. Reinicie o NxFilter
 
 Contando o número de usuários
