@@ -6,12 +6,15 @@ A lista negra/blacklist é uma base de dados com domínios organizados por categ
 
 1. Jahaslist
 
-  Jahaslist é a lista padrão do NxFilter. Ela tem suporte a classificação dinâmica dos sites através do NxClassifier. NxClassifier é integrado a uma engine de auto-classificação de sites ainda não categorizados.
+  Jahaslist é a lista padrão do NxFilter. Ela tem suporte a classificação dinâmica dos sites através do NxClassifier. 
+
+  O NxClassifier é integrado a uma engine que tem por função a auto-classificação de sites, identificando automaticamente a que categoria esse domínio pertence.
+
   Para mais informações sobre a funcionalidade do NxClassifier e como adicionar registros à Jahaslist leia a seção NxClassifier.
 
 2. Shallalist
 
-  Livre 'somente' para uso não comercial. Ela é mantida pela www.shallalist.de.
+  Livre 'somente' para uso não comercial. Ela é mantida pela [[http://www.shallalist.de]].
 
 3. Komodia
 
