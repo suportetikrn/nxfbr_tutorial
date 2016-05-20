@@ -14,7 +14,7 @@ A lista negra/blacklist é uma base de dados com domínios organizados por categ
 
 2. Shallalist
 
-  Livre 'somente' para uso não comercial. Ela é mantida pela [[http://www.shallalist.de]].
+  Livre 'somente' para uso não comercial. Ela é mantida pela http://www.shallalist.de.
 
 3. Komodia
 
