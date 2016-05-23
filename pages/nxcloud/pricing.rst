@@ -12,5 +12,7 @@ Para usar o NxCloud só se exige que a blacklist esteja licenciada, seja a Jahas
 
 .. warning::
 
-   Se desejar usar outra lista negra que não seja a Jahaslist ou a Komodia haverá um encargo de 2 dólares por usuário ao ano. É necessário comprar uma licença de uso do provedor escolhido. No momento são suportados: Zvelo, NetSweeper como opções para o NxCloud.
+   Se desejar usar outra lista negra que não seja a Jahaslist ou a Komodia haverá um encargo de 2 dólares por usuário ao ano. 
+   É necessário comprar uma licença de uso do provedor escolhido. 
+   No momento são suportadas as listas: Zvelo, NetSweeper como opções para o NxCloud.
 
