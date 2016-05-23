@@ -1,8 +1,8 @@
 .. _whatablacklist:
 
-***************************************************
-Classificando em Categorias - Blacklist e Domínios
-***************************************************
+*********************************
+Categorias - Blacklist e Domínios
+*********************************
 
 .. toctree::
    :titlesonly:
