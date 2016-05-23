@@ -51,7 +51,7 @@ When you use NxClient on your mobile worker's laptop you might have a problem wi
 
 To address this issue NxClient does auto-switch between local filtering and remote filtering. This means that NxClient can find NxFilter in a local network and when it is on your local network it stops its proxy filtering. Plus, it has its own NxLogon module doing single sign-on in your local network.
 
- .. alert:: 
+ .. warning:: 
   If you don't like this auto-switch behavior you can add 'no_switch = 1' into 'C:/Program Files/nxclient/conf/cfg.properties'.
 
 Uninstalling NxClient
