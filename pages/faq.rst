@@ -39,12 +39,13 @@ Qual forma mais rápida de bloquear 'facebook.com'?
 **************************************************
 Insira '*.facebook.com' em 'Whitelist > Domain' e marque a opção 'Admin Block'.
 
-I want to block 'facebook.com' only for students.
-*************************************************************
-You need to be able to differentiate your students on NxFilter with authentication first. And then block 'Social Networking' category on a policy when you use Jahaslist. Then assign the policy to the user or group for your students.
+Desejo bloquear o 'facebook.com' apenas para um determinado grupo
+*****************************************************************
+Antes é necessário separar de algum modo seu grupo de outros usuários usando a parte de autenticação do NxFilter. Daí bloquear a categoria de 'Social Networking' em uma política quando estiver usando a Jahaslist. O último passo seria atribuir essa política ao grupo desejado.
 
-I want to allow sales department to use the Internet freely at lunchtime.
-Create a user or a group for your sale department and define a free-time in 'Policy & Rule > Free Time' then assign a free-time policy which is more lenient to the user or group.
+Se houver o interesse em permitir, por exemplo, que o grupo de 'Vendas' possa usar a internet sem bloqueios no horário de almoço.
+
+Crie um usuário ou um grupo e defina o horário livre em 'Políticas e Regras > Horário Livre' então atribua a política de horário que mais convier para esse grupo.
 
 How do I change NxFilter's webserver port?
 *************************************************************
