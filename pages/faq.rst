@@ -9,9 +9,10 @@ Perguntas frequentes sobre o NxFilter
 Posso burlar o NxFilter usando endereço IP para acessar sites
 **************************************************************
 Existem casos de pessoas dizendo que filtros DNS não são práticos por poder se acessar um website usando seu endereço IP. Esta é uma afirmação nem sempre é correta. Atualmente muitos servidores de sites estão rodando com Virtual Host, deste modo diversos sites respondem no mesmo endereço IP. Por isso nem sempre é possível acessar sites diretamente sem usar o respectivo domínio.
+
 Outra coisa para se ter em mente é que existem muitas URLs em uma página só ( endereço de css, endereço de imagem, etc... ). Isso se aplica mais ainda se estivermos falando de algum portal. E essas URLS são baseadas em endereço DNS. É como se você pudesse tentar acessar um site bloqueado usando IP porém o que você obtem é uma página com erros.
 
-  ..note ::
+ .. note::
    NxFilter pode bloquear IP usando o agente de proxy.
 
 It doesn't get blocked/unblocked right away.
@@ -22,9 +23,9 @@ If you want to clear out your Windows DNS cache, use the following command on CM
 ipconfig /flushdns
 Normally DNS cache from Windows expires in a day at the maximum. Of course it depends on TTL from DNS record but I have not seen it bigger than 86,400 seconds(1 day) usually. About the browser cache it may take several minutes to get expired. But it will get expired and blocked eventually. So in practice this is not a problem as you don't need to block/unblock a site many times a day.
 
-How do I force users to be filtered by NxFilter?
-*************************************************************
-If you have a firewall in your network it is simple. You just need to block outgoing UDP/53, TCP/53 traffic except from NxFilter. And then you use DHCP to set up NxFilter to be the DNS server for your network. Now NxFilter became the only DNS server that your users can use and their DNS setup to point NxFilter will be done automatically.
+Como obrigar os usuários a usarem o NxFilter?
+*********************************************
+Havendo um firewall em sua rede esse é um procedimento simples. Só é preciso bloquear a saída UDP/53 e TCP/53 de outros que não sejam o NxFilter. E então você pode usar o DHCP para registrar no cliente o NxFilter como servidor DNS na sua rede. Desse modo o NxFilter se tornará seu único servidor DNS que seus usuários poderão utilizar e a parte DHCP deixará isso configurado de modo automático.
 
 Como o NxFilter determina que política aplicar a um usuário?
 *************************************************************
