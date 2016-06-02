@@ -6,11 +6,13 @@ FAQ
 
 Perguntas frequentes sobre o NxFilter
 
-I can bypass NxFilter by accessing websites using IP address
-*************************************************************
-There are people saying that DNS filtering is useless as they can access a website using IP address. This is a very naive thought and simply not true. In today's Internet environment most websites are running on a virtual host. This means there are multiple websites on one IP address. You can't access these websites without domain.
-And the other thing you need to think about is that there are many URLs in a webpage. This is especially true when it comes to a big portal site. Those URLs are based on DNS as well. It is like that you can try to access a blocked website using an IP address but what you get is just a brocken webpage.
-* NxFilter can block IP host in URL with its local proxy agents.
+Posso burlar o NxFilter usando endereço IP para acessar sites
+**************************************************************
+Existem casos de pessoas dizendo que filtros DNS não são práticos por poder se acessar um website usando seu endereço IP. Esta é uma afirmação nem sempre é correta. Atualmente muitos servidores de sites estão rodando com Virtual Host, deste modo diversos sites respondem no mesmo endereço IP. Por isso nem sempre é possível acessar sites diretamente sem usar o respectivo domínio.
+Outra coisa para se ter em mente é que existem muitas URLs em uma página só ( endereço de css, endereço de imagem, etc... ). Isso se aplica mais ainda se estivermos falando de algum portal. E essas URLS são baseadas em endereço DNS. É como se você pudesse tentar acessar um site bloqueado usando IP porém o que você obtem é uma página com erros.
+
+  ..note ::
+   NxFilter pode bloquear IP usando o agente de proxy.
 
 It doesn't get blocked/unblocked right away.
 *************************************************************
