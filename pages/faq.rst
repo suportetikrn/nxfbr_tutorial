@@ -79,10 +79,13 @@ Existe o script `/nxfilter/bin/reset_pw.sh` para resetar a senha de administrado
  .. note::
   Há também o script '/nxfilter/bin/reset_acl.sh' que reseta as resitrições de acesso ao GUI.
 
-Can I bind NxFilter to a specific IP address?
+Posso vincular o NxFilter a um determinado endereço IP?
 *************************************************************
-You might want to bind NxFilter to a specific IP address to avoid of having a port collision problem. You can bind NxFilter to a specific IP address using 'listen_ip' parameter in '/nxfilter/conf/cfg.properties' file. If you set it to '0.0.0.0' NxFilter will listen on all the IP addresses of the system but if you set it to a specific IP address NxFilter will listen on the specified IP address only.
-* Even if you bind NxFilter to a specific IP address you can not run multiple NxFilter on the same machine. This is because NxFilter needs to bind several ports on localhost for internal communication.
+
+Em casos como conflitos de portas é possível vincular o NxFilter a um IP específico. Isso pode ser feito usando o parâmetro `listen_ip` em `/nxfilter/conf/cfg.properties`. Se estiver setado o `0.0.0.0` o NxFilter irá responder em todos os endereços IPs do sistema mas se for especificado o IP o NxFilter só responderá nesse.
+
+ .. note::
+  Mesmo que se vincule o NxFilter a um determinado endereço IP você não poderá ter multiplas instâncias do NxFilter na mesma máquina. Isso ocorre por que ele precisa se vincular a diversas portas no servidor para comunicação interna.
 
 How do I bypass my local domain?
 *************************************************************
