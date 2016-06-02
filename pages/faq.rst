@@ -15,13 +15,25 @@ Outra coisa para se ter em mente é que existem muitas URLs em uma página só (
  .. note::
    NxFilter pode bloquear IP usando o agente de proxy.
 
-It doesn't get blocked/unblocked right away.
-*************************************************************
+Mesmo tendo alterado o NxFilter continua bloqueando/permitindo o acesso ao site
+*******************************************************************************
 
-This is most likely from the DNS cache on your system. If you are on a Windows system there are two kinds of DNS caches. One is from your browser and the other is from your Windows OS. Before the cache expires your policy change for blocking/unblocking will not be working. Both caches expire eventually but you might want to clear it out immediately. If it is a browser cache you can clear it out by restarting your browser.
-If you want to clear out your Windows DNS cache, use the following command on CMD.
-ipconfig /flushdns
-Normally DNS cache from Windows expires in a day at the maximum. Of course it depends on TTL from DNS record but I have not seen it bigger than 86,400 seconds(1 day) usually. About the browser cache it may take several minutes to get expired. But it will get expired and blocked eventually. So in practice this is not a problem as you don't need to block/unblock a site many times a day.
+É provável que seja o cache DNS do seu sistema interferindo. 
+Se você está usando o Windows saiba que nele existem dois tipos de cache DNS:
+  1. O do Browser
+  2. O do próprio Windows
+Digamos que antes do cache expirar foi alterada a política no NxFilter bloqueando/permitindo o acesso ao site. O cache só vai expirar em um determinado momento, porém é possivel forçar a limpeza do cache imediatamente.
+
+Para limpar o cache do Browser feche o mesmo completamente, todas as janelas e depois reabra o sistema.
+
+Para limpar o cache DNS do Windows, execute o seguinte comando no prompt, vulgo CMD `ipconfig /flushdns`.
+
+Geralmente o cache DNS do Windows expirar no máximo em 1 dia. É claro que isso também depende do TTL do registro definido pelo DNS, mas ainda não tivemos registros de TTLs superiores a 1 dia - ou 86400 segundos.
+
+Quanto ao cache DNS no Browser o registro DNS pode levar vários minutos para expirar. Porém ele irá expirar e receberá a nova política definida no NxFilter.
+
+  .. note::
+    Na prática isso não será um problema, já que não é comum executar esse procedimento de bloqueio/desbloqueio várias vezes ao dia.
 
 Como obrigar os usuários a usarem o NxFilter?
 *********************************************
@@ -47,18 +59,25 @@ Se houver o interesse em permitir, por exemplo, que o grupo de 'Vendas' possa us
 
 Crie um usuário ou um grupo e defina o horário livre em 'Políticas e Regras > Horário Livre' então atribua a política de horário que mais convier para esse grupo.
 
-How do I change NxFilter's webserver port?
+Como alterar a porta do servidor web do NxFilter?
 *************************************************************
-You can change HTTP/HTTPS listening ports on NxFilter. However when you change HTTP port you will lose your block-page redirection. It is because when NxFilter redirects a user there needs to be something waiting for his/her browser on TCP/80 port.
-To change the ports, you need to modify these two parameters on '/nxfilter/conf/cfg.properties' file.
+Você pode mudar as portas HTTP/HTTPS do NxFilter. Porém ao mudar a porta HTTP você perderá a página de bloqueio para o caso de redirecionamento. Isso ocorrerá por conta do NxFilter redirecionar o usuário - quando necessário - para algo no browser do usuário na porta TCP/80.
+
+Para fazer a alteração das portas você precisa mudar os seguintes parâmetros em '/nxfilter/conf/cfg.properties'.
+
 http_port = 80
 https_port = 443
-After you change the ports, restart NxFilter.
 
-How do I reset admin password?
+Após a mudança de portas reinicie o NxFilter.
+
+
+Como resetar a senha de administrador?
 *************************************************************
-We have '/nxfilter/bin/reset_pw.sh' script to reset admin password. Once you run the script, the admin name and password will be reset to 'admin'. You need to run the script while NxFilter working.
-* There is '/nxfilter/bin/reset_acl.sh' to reset access restriction to GUI as well.
+
+Existe o script `/nxfilter/bin/reset_pw.sh` para resetar a senha de administrador. Uma vez executado o script, o nome e a senha do administrador será resetada para o padrão de instalação. Esse script deve ser executado enquando o NxFilter está em execução.
+
+ .. note::
+  Há também o script '/nxfilter/bin/reset_acl.sh' que reseta as resitrições de acesso ao GUI.
 
 Can I bind NxFilter to a specific IP address?
 *************************************************************
