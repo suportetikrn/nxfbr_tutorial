@@ -33,7 +33,6 @@ from recommonmark.parser import CommonMarkParser
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
-    'sphinxcontrib.httpdomain',
     'djangodocs',
 ]
 
