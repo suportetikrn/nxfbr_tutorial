@@ -65,7 +65,7 @@ Você pode mudar as portas HTTP/HTTPS do NxFilter. Porém ao mudar a porta HTTP 
 
 Para fazer a alteração das portas você precisa mudar os seguintes parâmetros em ``/nxfilter/conf/cfg.properties``.
 
- .. code-block:: jproperties
+.. code-block:: jproperties
   http_port = 80
   https_port = 443
 
@@ -77,7 +77,7 @@ Como resetar a senha de administrador?
 
 Existe o script `/nxfilter/bin/reset_pw.sh` para resetar a senha de administrador. Uma vez executado o script, o nome e a senha do administrador será resetada para o padrão de instalação. Esse script deve ser executado enquando o NxFilter está em execução.
 
- .. note::
+.. note::
   Há também o script '/nxfilter/bin/reset_acl.sh' que reseta as resitrições de acesso ao GUI.
 
 Posso vincular o NxFilter a um determinado endereço IP?
@@ -85,7 +85,7 @@ Posso vincular o NxFilter a um determinado endereço IP?
 
 Em casos como conflitos de portas é possível vincular o NxFilter a um IP específico. Isso pode ser feito usando o parâmetro `listen_ip` em `/nxfilter/conf/cfg.properties`. Se estiver setado o `0.0.0.0` o NxFilter irá responder em todos os endereços IPs do sistema mas se for especificado o IP o NxFilter só responderá nesse.
 
- .. note::
+.. note::
   Mesmo que se vincule o NxFilter a um determinado endereço IP você não poderá ter multiplas instâncias do NxFilter na mesma máquina. Isso ocorre por que ele precisa se vincular a diversas portas no servidor para comunicação interna.
 
 Como fazer o bypass do meu domínio local?
