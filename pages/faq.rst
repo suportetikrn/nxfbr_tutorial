@@ -130,7 +130,9 @@ Em todo caso há situações em que se deseja ocultar essa página de alerta. Pa
 
 Não vejo o nome do meu usuário em 'Logging > Request'
 *************************************************************
-A primeira coisa que você precisa ativar é 'Habilitar autenticação' em 'Config > Setup'. Algumas pessoas não compreendem que é necessário ativar a autenticação antes de fazer uso de algo que use o método de autenticação.
+A primeira coisa que você precisa ativar é 'Habilitar autenticação' em 'Config > Setup'. 
+
+As vezes passa despercebido que é necessário ativar a autenticação antes de fazer uso de qualquer coisa que dependa do método de autenticação.
 
 How do I bypass logging completely?
 *************************************************************
