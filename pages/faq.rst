@@ -65,9 +65,9 @@ Você pode mudar as portas HTTP/HTTPS do NxFilter. Porém ao mudar a porta HTTP 
 
 Para fazer a alteração das portas você precisa mudar os seguintes parâmetros em ``/nxfilter/conf/cfg.properties``.
 
- .. highlight:: none 
-   http_port = 80
-   https_port = 443
+ .. code-block:: jproperties
+  http_port = 80
+  https_port = 443
 
 Após a mudança de portas reinicie o NxFilter.
 
