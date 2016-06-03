@@ -114,7 +114,12 @@ keystore_pass = 123456
 
 Como habilitar o modo de debug?
 *************************************************************
-When there is something wrong with NxFilter the first thing you can do is to find out what is going on exactly with its log data. NxFilter keeps its system log data inside '/nxfilter/log' directory. If you need more detailed log data, enable debug mode on '/nxfilter/conf/log4j.properties'. Change 'INFO' to 'DEBUG' inside the file and restart NxFilter.
+Quando há algo de errado com o NxFilter a primeira coisa recomendade é verificar os logs. NxFilter mantém registros de log dentro da pasta `/nxfilter/log`.
+
+Caso precise de informações mais detalhadas sobre o erro, habilite o modo de debug em `/nxfilter/conf/log4j.properties`, alterando o trecho `INFO` para `DEBUG` dentro do arquivo e reinicie o NxFilter
+
+  .. warning::
+   Após identificar o erro, ou terminar de analisar os logs não esqueça de alterar isso novamente para o padrão `INFO` pois pode acabar gerando muito log e encher sua unidade de disco de modo acelerado.
 
 Como oculto o alerta de SSL?
 ****************************
