@@ -96,19 +96,23 @@ Can I use an exact matching keyword for log search?
 You can use square brackets for exact matching on log search.
     ex) [john], [192.168.0.1]
 
-Why do I need to re-login after lunch break?
-*************************************************************
-Your login session has been expired. If there is no activity(DNS query) from your PC for a certain time your login session expires. You can increase 'Login Session TTL' on 'Config > Setup'.
-* If you use single sign-on with Active Directory you can avoid of having this problem.
+Por que preciso autenticar novamente após a parada para almoçar?
+****************************************************************
+Sua sessão expirou. 
 
-How do I apply my own SSL certificate?
+Não havendo atividade ( consultas DNS ) vindas do seu terminal de trabalho por um determinado tempo sua sessão expira. Você pode aumentar o tempo em 'Login Session TTL' em 'Config > Setup'.
+
+ .. note::
+  Se você usar o modo SSO com o AD você pode evitar esse tipo de problema.
+
+Como aplicar meu próprio certificado SSL?
 *************************************************************
 We use an embedded Tomcat 7.x as the built-in webserver for NxFilter. If you want to apply your own SSL certificate with Tomcat there are two parameters you need to set in Tomcat config file. One is 'keystoreFile' and the other one is 'keystorePass'. However we don't have a separated config file for Tomcat. We use '/nxfilter/conf/cfg.properties' file to set these parameters.
 keystore_file = conf/myown.keystore
 keystore_pass = 123456
 * About how to build keystore file read Tomcat manual.
 
-How do I enable debug mode?
+Como habilitar o modo de debug?
 *************************************************************
 When there is something wrong with NxFilter the first thing you can do is to find out what is going on exactly with its log data. NxFilter keeps its system log data inside '/nxfilter/log' directory. If you need more detailed log data, enable debug mode on '/nxfilter/conf/log4j.properties'. Change 'INFO' to 'DEBUG' inside the file and restart NxFilter.
 
@@ -119,16 +123,17 @@ Em todo caso há situações em que se deseja ocultar essa página de alerta. Pa
  .. note::
   Para mudar a porta HTTPS modifique a linha `https_port = 443` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
 
-I don't see any username on 'Logging > Request'.
+Não vejo o nome do meu usuário em 'Logging > Request'
 *************************************************************
-The first thing you need to check would be 'Enable Authentication' option on 'Config > Setup'. Some people don't understand that they need to enable authentication before implementing any authentication method.
+A primeira coisa que você precisa ativar é 'Habilitar autenticação' em 'Config > Setup'. Algumas pessoas não compreendem que é necessário ativar a autenticação antes de fazer uso de algo que use o método de autenticação.
 
 How do I bypass logging completely?
 *************************************************************
 For internal purposes, the minimum log retention period you can set is 3 days. But you can bypass logging completely by setting 'syslog_only' option on '/nxfilter/conf/cfg.properties' file. If you set this option without having Syslog exportation setup then NxFilter bypasses logging and not sending Syslog data as it doesn't know where to send it.
 To enable 'syslog_only' option add the following line on '/nxfilter/conf/cfg.properties' file,
 syslog_only = 1
-* You still get the counting data but the actual logging data will not be stored into your traffic DB.
+ .. note::
+  You still get the counting data but the actual logging data will not be stored into your traffic DB.
 
 Como alterar o timezone?
 *************************
@@ -137,6 +142,6 @@ Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM,
  .. note::
   'America/Fortaleza' foi um exemplo, você pode ver a que se aplica melhor a sua região em `<http://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzamy/reftzval.htm>`.
 
-My Browsers keep restarting after NxClient starting.
-*************************************************************
-NxClient is a local proxy so it needs to update the system proxy settings to redirect HTTP/HTTPS traffic of your browsers to itself. And after it updates the proxy settings it needs to restart the browsers to apply the changes. But you might have another Windows program preventing the update or doing the update for itself. You have a race condition here. To fix it, you have to disable one of them.
+Meus Browsers ficam fechando e abrindo após o NxClient iniciar
+****************************************************************
+ NxClient é um proxy local entáo ele precisa atualizar as configurações de proxy de modo a redirecionar o tráfego HTTP/HTTPS dos browsers de suas máquina para ele mesmo. E após essas configurações de proxy serem aplicadas é necessário reiniciar os browsers de modo a aplicar essas alterações. Mas vocë pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
