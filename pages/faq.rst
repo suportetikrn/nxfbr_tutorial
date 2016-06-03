@@ -66,8 +66,8 @@ Você pode mudar as portas HTTP/HTTPS do NxFilter. Porém ao mudar a porta HTTP 
 Para fazer a alteração das portas você precisa mudar os seguintes parâmetros em '/nxfilter/conf/cfg.properties'.
 
 .. highlight:: jproperties
- http_port = 80
- https_port = 443
+   http_port = 80
+   https_port = 443
 
 Após a mudança de portas reinicie o NxFilter.
 
@@ -96,7 +96,7 @@ Tenho de usar a correspondência extada do que estou pesquisando no log ?
 *************************************************************************
 Você pode separar por colchetes para fazer um filtro mais preciso na pesquisa do log.
 
-    ex) [john], [192.168.0.1]
+    ex: [john], [192.168.0.1]
 
 Por que preciso autenticar novamente após a parada para almoçar?
 ****************************************************************
