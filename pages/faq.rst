@@ -135,7 +135,7 @@ syslog_only = 1
  .. note::
   You still get the counting data but the actual logging data will not be stored into your traffic DB.
 
-Como alterar o timezone?
+Como alterar a timezone?
 *************************
 Alguns usuários sentiram necessidade de usar um timezone diferente do usado no NxFilter. Acontece geralmente no CentOS. Quando houver a necessidade de mudar o timezone de forma manual isso pode ser feito mudando os parâmetros da JVM.
 Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM, insira o seguinte parâmetro `-Duser.timezone=America/Fortaleza`.
