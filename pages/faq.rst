@@ -147,16 +147,18 @@ Em todo caso há situações em que se deseja ocultar essa página de alerta. Pa
 
 .. note::
 
-  Para mudar a porta HTTPS modifique a linha `https_port = 443` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
+  Para mudar a porta HTTPS modifique a linha ``https_port = 443`` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
 
 Não vejo o nome do meu usuário em 'Logging > Request'
 *************************************************************
+
 A primeira coisa que você precisa ativar é 'Habilitar autenticação' em 'Config > Setup'. 
 
 As vezes passa despercebido que é necessário ativar a autenticação antes de fazer uso de qualquer coisa que dependa do método de autenticação.
 
 Como evitar qualquer registro de log?
 *************************************************************
+
 O tempo minimo de retenção de registros é de 3 dias.
 
 Mas caso não deseje registrar nada é possível burlar isso definindo o parâmetro `syslog_only` em `/nxfilter/conf/cfg.properties`. Se esse parâmetro for registrado no arquivo sem ter nenhum valor o NxFilter não registrará nada.
@@ -177,7 +179,7 @@ Alguns usuários sentiram necessidade de usar um timezone diferente do usado no 
 
 Quando houver a necessidade de mudar o timezone de forma manual isso pode ser feito mudando os parâmetros da JVM.
 
-Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM, insira o seguinte parâmetro `-Duser.timezone=America/Fortaleza`.
+Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM, insira o seguinte parâmetro ``-Duser.timezone=America/Fortaleza``.
 
  .. warning::
 
@@ -185,7 +187,7 @@ Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM,
 
  .. note::
 
-  'America/Fortaleza' foi um exemplo, você pode ver a que se aplica melhor a sua região em ``http://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzamy/reftzval.htm``.
+  'America/Fortaleza' foi um exemplo, você pode ver a que se aplica melhor a sua região em ``http://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzamy/reftzval.htm``_ .
 
 Meus Browsers ficam fechando e abrindo após o NxClient iniciar
 ****************************************************************
