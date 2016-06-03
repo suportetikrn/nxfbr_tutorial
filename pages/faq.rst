@@ -143,7 +143,7 @@ Quando houver a necessidade de mudar o timezone de forma manual isso pode ser fe
 
 Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM, insira o seguinte parâmetro `-Duser.timezone=America/Fortaleza`.
 
- .. warn::
+ .. warning::
   Usando o CentOS isso geralmente é necessário. 
 
  .. note::
