@@ -91,7 +91,6 @@ Como fazer o bypass do meu domínio local?
 *************************************************************
 Em 'DNS > Setup' você pode registrar seu servidor DNS interno e domínio local. Nessa configuração se houverem consultas DNS ao domínio local o NxFilter direciona as consultas para o servidor DNS local e não exige autenticação, filtro e/ou registro.
 
-Can I use an exact matching keyword for log search?
 Tenho de usar a correspondência extada do que estou pesquisando no log ?
 *************************************************************************
 Você pode separar por colchetes para fazer um filtro mais preciso na pesquisa do log.
@@ -109,10 +108,14 @@ Não havendo atividade ( consultas DNS ) vindas do seu terminal de trabalho por 
 
 Como aplicar meu próprio certificado SSL?
 *************************************************************
-We use an embedded Tomcat 7.x as the built-in webserver for NxFilter. If you want to apply your own SSL certificate with Tomcat there are two parameters you need to set in Tomcat config file. One is 'keystoreFile' and the other one is 'keystorePass'. However we don't have a separated config file for Tomcat. We use '/nxfilter/conf/cfg.properties' file to set these parameters.
-keystore_file = conf/myown.keystore
-keystore_pass = 123456
-* About how to build keystore file read Tomcat manual.
+O NxFilter usa o Tomcat 7.x de modo embarcado para ser o servidor de páginas. Se você deseja aplicar seu próprio certificado SSL no Tomcat há dois parâmetros que você precisa definir no arquivo de configuração dele.
+
+Um é o `keystorefile` e o outro é `keystorePass`. Em todo caso não há um arquivo seaparado só para configurar o Tomcat. Será utilizado o `/nxfilter/conf/cfg.properties` para definir esses parâmetros.
+ keystore_file = conf/minha.keystore
+ keystore_pass = 123456
+
+ .. note::
+  Para saber como gerar o arquivo keystore leia o manual do Tomcat 7.x
 
 Como habilitar o modo de debug?
 *************************************************************
@@ -138,13 +141,18 @@ A primeira coisa que você precisa ativar é 'Habilitar autenticação' em 'Conf
 
 As vezes passa despercebido que é necessário ativar a autenticação antes de fazer uso de qualquer coisa que dependa do método de autenticação.
 
-How do I bypass logging completely?
+Como evitar qualquer registro de log?
 *************************************************************
-For internal purposes, the minimum log retention period you can set is 3 days. But you can bypass logging completely by setting 'syslog_only' option on '/nxfilter/conf/cfg.properties' file. If you set this option without having Syslog exportation setup then NxFilter bypasses logging and not sending Syslog data as it doesn't know where to send it.
-To enable 'syslog_only' option add the following line on '/nxfilter/conf/cfg.properties' file,
+O tempo minimo de retenção de registros é de 3 dias.
+
+Mas caso não deseje registrar nada é possível burlar isso definindo o parâmetro `syslog_only` em `/nxfilter/conf/cfg.properties`. Se esse parâmetro for registrado no arquivo sem ter nenhum valor o NxFilter não registrará nada.
+
+Para ativar o `syslog_only` insira a o seguinte registro em `/nxfilter/conf/cfg.properties`:
+
 syslog_only = 1
+
  .. note::
-  You still get the counting data but the actual logging data will not be stored into your traffic DB.
+   Você continuará tendo as contagens mas o registro dos dados não serão armazenados em sua tabela de tráfego.
 
 Como alterar a timezone?
 *************************
@@ -162,4 +170,8 @@ Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM,
 
 Meus Browsers ficam fechando e abrindo após o NxClient iniciar
 ****************************************************************
-O Agente NxClient atua como um proxy local, entáo ele precisa atualizar as configurações de proxy de modo a redirecionar o tráfego HTTP/HTTPS dos browsers de suas máquina para ele mesmo. E após essas configurações de proxy serem aplicadas é necessário reiniciar os browsers de modo a aplicar essas alterações. Mas vocë pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
+O Agente NxClient atua como um proxy local, entáo ele precisa atualizar as configurações de proxy de modo a redirecionar o tráfego HTTP/HTTPS dos browsers de suas máquina para ele mesmo. E após essas configurações de proxy serem aplicadas é necessário reiniciar os browsers de modo a aplicar essas alterações. 
+
+Mas você pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. 
+
+Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
