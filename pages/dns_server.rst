@@ -14,11 +14,16 @@ Quando o NxFilter é instalado ele já vem com a opção de servidor DNS forward
 
 Caching
 *******
-NxFilter has its own cache for the DNS response from its upstream server. This means when you use a public or ISP DNS server as a DNS server for your network NxFilter can boost up your network speed by reducing the traffic to the DNS server outside your local network. This is because once a DNS response from an upstream server has been cached then your users will get the response from NxFilter not from the upstream server. You will not have a latency problem between your local network and the DNS server on the Internet.
 
+NxFilter tem seu próprio cache de DNS originado do servidor upstream configurado. Significa que quando você usa um endereço público ou um servidor DNS na internet como um servidor DNS na sua configuração do NxFilter e usar o NxFilter como servidor DNS da sua rede local você poderá aumentar a velocidade da sua rede, já que o tráfego de rede deixará de fazer acessos externos e só fará consultas de DNS locaias.
+
+Isto ocorre por que uma vez que a consulta seja feita ela é armazenada no cache do NxFilter então seus usuários receberão a resposta do NxFilter e não mais de uma servidor da internet.
+
+Não terá também problemas de latência entre sua rede local e o servidor DNS na internet.
 
 DNS Autoritativo
 *********************
+
 NxFilter pode atuar como um servidor DNS Autoritativo.
 1. Arquivo de Zone ( Zone File )
  É usado o mesmo padrão nos arquivos de zona do BIND. O arquivo é criado em 'DNS > Zone File'. E então você pode adicionar suas estações ( host ) na zona DNS diretamente pela GUI.
@@ -33,7 +38,9 @@ Sabendo que o NxFilter é um filtro DNS com autenticação, quando você o utili
     Você pode acabar tendo muitos registros de log por conta de ataques DDOS em seu domínio. No caso, pode ser melhor também ativar o 'bypass' de logs no seu domínio.
 
  .. note::
+
   Você pode configurar uma 'whitelist' para seu domínio ser liberado em alguns casos, mas também é possível usar a opção de 'bypass' de um arquivo de zona ( zone file ).
+
   No NxCloud você tem a opção 'Public Service' ao invés da opção 'bypass'. Na realidade essa opção é a combinação do 'ByPass Filtro' e 'Bypass Logging' não há opção 'Bypass Autenticação'  no NxCloud. Você precisa marcar essa opção para sua Zona DNS na internet quando usa o NxCloud.
 
 3. Clustering / Usando o Cluster
@@ -41,6 +48,7 @@ Sabendo que o NxFilter é um filtro DNS com autenticação, quando você o utili
 
 DNS Dinâmico
 ************
+
 NxFilter tem suporte a DNS Dinâmico. Você pode construir um serviço no estilo 'DynDNS' com NxFilter se assim desejar.
 
 Para ativar esse serviço vocë precisa ter um domínio em 'DNS > Setup > Dynamic Domain' e então ativar o serviço. Se quiser que o serviço seja público ou esteja disponível na internet, você tera de ativar uma Zone DNS Autoritativa em 'DNS > Zone File' para que seu Domínio Dinâmico funcione.
@@ -52,6 +60,8 @@ No NxUpdate você precisa configurar o ip do Servidor, que no caso é o IP do se
 Por exemplo, se você tem o domínio dinâmico 'exemplo.com' e instalar o NxUpdate na estação de trabalho com o token do usuário 'minhamaquina', uma vez que o NxUpdate entre em ativa você poderá pingar o endereço 'minhamaquina.example.com'.
  
  .. note::
-  Dynamic DNS service requires to enable authentication on 'Config > Setup'.
-  You can view the list of dynamic domains being serviced on 'DNS > Dynamic Domain'.
-  On NxCloud we have 'Logging > Dynamic DNS' for admin to monitor the activities related to your dynamic domain.
+  O serviço de DNS Dinâmico requer que a autenticação esteja ativada em `Config > Setup`.
+
+  Pode ser acessada a lista de domínios dinâmicos que estão sendo resolvidos em `DNS > Dynamic Domain`.
+
+  No serviço NxCloud há em ``Logging > Dynamic DNS`` a possibilidade do administrador monitorar as atividades relacionadas ao seu domínio dinâmico. 
