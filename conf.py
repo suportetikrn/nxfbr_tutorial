@@ -33,7 +33,6 @@ from recommonmark.parser import CommonMarkParser
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
-    'djangodocs',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
