@@ -86,18 +86,22 @@ Existe o script `/nxfilter/bin/reset_pw.sh` para resetar a senha de administrado
 Posso vincular o NxFilter a um determinado endereço IP?
 *************************************************************
 
-Em casos como conflitos de portas é possível vincular o NxFilter a um IP específico. Isso pode ser feito usando o parâmetro ``listen_ip`` em `/nxfilter/conf/cfg.properties`. Se estiver setado o ``0.0.0.0`` o NxFilter irá responder em todos os endereços IPs do sistema mas se for especificado o IP o NxFilter só responderá nesse.
+Em casos como conflitos de portas é possível vincular o NxFilter a um IP específico. Isso pode ser feito usando o parâmetro ``listen_ip`` em `/nxfilter/conf/cfg.properties`. Se estiver setado ``0.0.0.0`` o NxFilter irá responder em todos os endereços IPs do sistema mas se for especificado o IP o NxFilter só responderá nesse.
 
 .. note::
+
   Mesmo que se vincule o NxFilter a um determinado endereço IP você não poderá ter multiplas instâncias do NxFilter na mesma máquina. Isso ocorre por que ele precisa se vincular a diversas portas no servidor para comunicação interna.
 
 Como fazer o bypass do meu domínio local?
 *************************************************************
-Em 'DNS > Setup' você pode registrar seu servidor DNS interno e domínio local. Nessa configuração se houverem consultas DNS ao domínio local o NxFilter direciona as consultas para o servidor DNS local e não exige autenticação, filtro e/ou registro.
+
+Em ``DNS > Setup`` você pode registrar seu servidor DNS interno e domínio local. Nessa configuração se houverem consultas DNS ao domínio local o NxFilter direciona as consultas para o servidor DNS local e não exige autenticação, filtro e/ou registro.
 
 Tenho de usar a correspondência extada do que estou pesquisando no log ?
 *************************************************************************
 Você pode separar por colchetes para fazer um filtro mais preciso na pesquisa do log.
+
+.. code-block:: none
 
     ex: [john], [192.168.0.1]
 
@@ -155,7 +159,7 @@ Mas caso não deseje registrar nada é possível burlar isso definindo o parâme
 
 Para ativar o `syslog_only` insira a o seguinte registro em `/nxfilter/conf/cfg.properties`:
 
-.. code-block:: none 
+.. code-block:: jproperties 
 
     syslog_only = 1
 
@@ -172,23 +176,18 @@ Quando houver a necessidade de mudar o timezone de forma manual isso pode ser fe
 Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM, insira o seguinte parâmetro `-Duser.timezone=America/Fortaleza`.
 
  .. warning::
+
   No CentOS esse procedimento geralmente é necessário. 
 
  .. note::
+
   'America/Fortaleza' foi um exemplo, você pode ver a que se aplica melhor a sua região em ``http://www.ibm.com/support/knowledgecenter/ssw_i5_54/rzamy/reftzval.htm``.
 
 Meus Browsers ficam fechando e abrindo após o NxClient iniciar
 ****************************************************************
+
 O Agente NxClient atua como um proxy local, entáo ele precisa atualizar as configurações de proxy de modo a redirecionar o tráfego HTTP/HTTPS dos browsers de suas máquina para ele mesmo. E após essas configurações de proxy serem aplicadas é necessário reiniciar os browsers de modo a aplicar essas alterações. 
 
 Mas você pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. 
 
 Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
-
-
-.. code-block:: nginx
-
-        alias /home/docs/checkouts/readthedocs.org/cnames/$host/$doc_version/$path;
-        error_page 404 = @fallback;
-        error_page 500 = @fallback;
-
