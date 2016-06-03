@@ -101,7 +101,7 @@ Tenho de usar a correspondência extada do que estou pesquisando no log ?
 *************************************************************************
 Você pode separar por colchetes para fazer um filtro mais preciso na pesquisa do log.
 
-.. code-block:: none
+.. code-block:: jproperties 
 
     ex: [john], [192.168.0.1]
 
