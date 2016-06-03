@@ -63,9 +63,11 @@ Como alterar a porta do servidor web do NxFilter?
 *************************************************************
 Você pode mudar as portas HTTP/HTTPS do NxFilter. Porém ao mudar a porta HTTP você perderá a página de bloqueio para o caso de redirecionamento. Isso ocorrerá por conta do NxFilter redirecionar o usuário - quando necessário - para algo no browser do usuário na porta TCP/80.
 
-Para fazer a alteração das portas você precisa mudar os seguintes parâmetros em '/nxfilter/conf/cfg.properties'.
+Para fazer a alteração das portas você precisa mudar os seguintes parâmetros em ``/nxfilter/conf/cfg.properties``.
 
 .. highlight:: jproperties
+
+::
    http_port = 80
    https_port = 443
 
