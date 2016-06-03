@@ -60,8 +60,8 @@ No NxUpdate você precisa configurar o ip do Servidor, que no caso é o IP do se
 Por exemplo, se você tem o domínio dinâmico 'exemplo.com' e instalar o NxUpdate na estação de trabalho com o token do usuário 'minhamaquina', uma vez que o NxUpdate entre em ativa você poderá pingar o endereço 'minhamaquina.example.com'.
  
  .. note::
-  O serviço de DNS Dinâmico requer que a autenticação esteja ativada em `Config > Setup`.
+  O serviço de DNS Dinâmico requer que a autenticação esteja ativada em ``Config > Setup``.
 
-  Pode ser acessada a lista de domínios dinâmicos que estão sendo resolvidos em `DNS > Dynamic Domain`.
+  Pode ser acessada a lista de domínios dinâmicos que estão sendo resolvidos em ``DNS > Dynamic Domain``.
 
   No serviço NxCloud há em ``Logging > Dynamic DNS`` a possibilidade do administrador monitorar as atividades relacionadas ao seu domínio dinâmico. 
