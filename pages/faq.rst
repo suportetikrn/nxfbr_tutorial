@@ -119,7 +119,7 @@ Quando há algo de errado com o NxFilter a primeira coisa recomendade é verific
 Caso precise de informações mais detalhadas sobre o erro, habilite o modo de debug em `/nxfilter/conf/log4j.properties`, alterando o trecho `INFO` para `DEBUG` dentro do arquivo e reinicie o NxFilter
 
   .. warning::
-   Após identificar o erro, ou terminar de analisar os logs não esqueça de alterar isso novamente para o padrão `INFO` pois pode acabar gerando muito log e encher sua unidade de disco de modo acelerado.
+   Após identificar o erro ou terminar de analisar os logs não esqueça de alterar isso novamente para o padrão `INFO` pois pode acabar gerando muito log e encher sua unidade de disco de modo acelerado.
 
 Como oculto o alerta de SSL?
 ****************************
