@@ -175,3 +175,13 @@ O Agente NxClient atua como um proxy local, entáo ele precisa atualizar as conf
 Mas você pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. 
 
 Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
+
+
+.. code-block:: nginx
+
+    location ~ ^/en/(?P<doc_version>.+)/(?P<path>.*) {
+        alias /home/docs/checkouts/readthedocs.org/cnames/$host/$doc_version/$path;
+        error_page 404 = @fallback;
+        error_page 500 = @fallback;
+    }
+
