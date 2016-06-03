@@ -123,8 +123,10 @@ Caso precise de informações mais detalhadas sobre o erro, habilite o modo de d
 
 Como oculto o alerta de SSL?
 ****************************
-Quando um browser está sendo redirecionado para HTTPS ele alerta o usuário que isso está ocorrendo. Tem o objetivo de prevenir o ataque `Man in the middle <https://pt.wikipedia.org/wiki/Ataque_man-in-the-middle>`_. Por esse motivo que é recebida a mensagem de alerta ao invés da tradicional página de bloqueio do NxFilter. Seu browser está apenas fazendo o que deve ser feito e não é o objetivo do NxFilter interferir nisso.
+Quando um browser está sendo redirecionado para HTTPS ele alerta o usuário que isso está ocorrendo, pois tem o objetivo de prevenir o ataque `Man in the middle <https://pt.wikipedia.org/wiki/Ataque_man-in-the-middle>`_. Por esse motivo que é recebida a mensagem de alerta ao invés da tradicional página de bloqueio do NxFilter. Seu browser está apenas fazendo o que deve ser feito e não é o objetivo do NxFilter interferir nisso.
+
 Em todo caso há situações em que se deseja ocultar essa página de alerta. Para que isso ocorra pode se mudar a porta HTTPS do NxFilter, desse modo os usuários receberão a mensagem de "Erro de Conexão".
+
  .. note::
   Para mudar a porta HTTPS modifique a linha `https_port = 443` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
 
@@ -158,4 +160,4 @@ Em '/nxfilter/bin/startup.sh' na chamada do java, onde tem os parâmtros da JVM,
 
 Meus Browsers ficam fechando e abrindo após o NxClient iniciar
 ****************************************************************
- NxClient é um proxy local entáo ele precisa atualizar as configurações de proxy de modo a redirecionar o tráfego HTTP/HTTPS dos browsers de suas máquina para ele mesmo. E após essas configurações de proxy serem aplicadas é necessário reiniciar os browsers de modo a aplicar essas alterações. Mas vocë pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
+O Agente NxClient atua como um proxy local, entáo ele precisa atualizar as configurações de proxy de modo a redirecionar o tráfego HTTP/HTTPS dos browsers de suas máquina para ele mesmo. E após essas configurações de proxy serem aplicadas é necessário reiniciar os browsers de modo a aplicar essas alterações. Mas vocë pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
