@@ -119,10 +119,14 @@ Como aplicar meu próprio certificado SSL?
 O NxFilter usa o Tomcat 7.x de modo embarcado para ser o servidor de páginas. Se você deseja aplicar seu próprio certificado SSL no Tomcat há dois parâmetros que você precisa definir no arquivo de configuração dele.
 
 Um é o `keystorefile` e o outro é `keystorePass`. Em todo caso não há um arquivo seaparado só para configurar o Tomcat. Será utilizado o `/nxfilter/conf/cfg.properties` para definir esses parâmetros.
- keystore_file = conf/minha.keystore
- keystore_pass = 123456
 
- .. note::
+.. code-block:: jproperties
+
+   keystore_file = conf/minha.keystore
+   keystore_pass = 123456
+
+.. note::
+
   Para saber como gerar o arquivo keystore leia o manual do Tomcat 7.x
 
 Como habilitar o modo de debug?
