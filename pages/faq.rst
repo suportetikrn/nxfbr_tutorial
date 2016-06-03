@@ -87,13 +87,15 @@ Em casos como conflitos de portas é possível vincular o NxFilter a um IP espec
  .. note::
   Mesmo que se vincule o NxFilter a um determinado endereço IP você não poderá ter multiplas instâncias do NxFilter na mesma máquina. Isso ocorre por que ele precisa se vincular a diversas portas no servidor para comunicação interna.
 
-How do I bypass my local domain?
+Como fazer o bypass do meu domínio local?
 *************************************************************
-On 'DNS > Setup' You can set your local DNS server and local domain. With this setup if there are DNS queries for your local domain NxFilter forwards the queries to the local DNS server and bypass authentication, filtering and logging.
+Em 'DNS > Setup' você pode registrar seu servidor DNS interno e domínio local. Nessa configuração se houverem consultas DNS ao domínio local o NxFilter direciona as consultas para o servidor DNS local e não exige autenticação, filtro e/ou registro.
 
 Can I use an exact matching keyword for log search?
-*************************************************************
-You can use square brackets for exact matching on log search.
+Tenho de usar a correspondência extada do que estou pesquisando no log ?
+*************************************************************************
+Você pode separar por colchetes para fazer um filtro mais preciso na pesquisa do log.
+
     ex) [john], [192.168.0.1]
 
 Why do I need to re-login after lunch break?
