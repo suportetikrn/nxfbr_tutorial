@@ -97,7 +97,7 @@ Como fazer o bypass do meu domínio local?
 
 Em ``DNS > Setup`` você pode registrar seu servidor DNS interno e domínio local. Nessa configuração se houverem consultas DNS ao domínio local o NxFilter direciona as consultas para o servidor DNS local e não exige autenticação, filtro e/ou registro.
 
-Tenho de usar a correspondência extada do que estou pesquisando no log ?
+Tenho de usar a correspondência exata do que estou pesquisando no log ?
 *************************************************************************
 Você pode separar por colchetes para fazer um filtro mais preciso na pesquisa do log.
 
