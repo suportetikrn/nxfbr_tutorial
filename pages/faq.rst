@@ -49,7 +49,7 @@ Para resolver esses problema use a feature 'Priority Points'. Se há mais de um 
 
 Qual forma mais rápida de bloquear 'facebook.com'?
 **************************************************
-Insira '*.facebook.com' em 'Whitelist > Domain' e marque a opção 'Admin Block'.
+Insira ``*.facebook.com`` em 'Whitelist > Domain' e marque a opção 'Admin Block'.
 
 Desejo bloquear o 'facebook.com' apenas para um determinado grupo
 *****************************************************************
@@ -61,6 +61,7 @@ Crie um usuário ou um grupo e defina o horário livre em 'Políticas e Regras >
 
 Como alterar a porta do servidor web do NxFilter?
 *************************************************************
+
 Você pode mudar as portas HTTP/HTTPS do NxFilter. Porém ao mudar a porta HTTP você perderá a página de bloqueio para o caso de redirecionamento. Isso ocorrerá por conta do NxFilter redirecionar o usuário - quando necessário - para algo no browser do usuário na porta TCP/80.
 
 Para fazer a alteração das portas você precisa mudar os seguintes parâmetros em ``/nxfilter/conf/cfg.properties``.
@@ -79,12 +80,13 @@ Como resetar a senha de administrador?
 Existe o script `/nxfilter/bin/reset_pw.sh` para resetar a senha de administrador. Uma vez executado o script, o nome e a senha do administrador será resetada para o padrão de instalação. Esse script deve ser executado enquando o NxFilter está em execução.
 
 .. note::
-  Há também o script '/nxfilter/bin/reset_acl.sh' que reseta as resitrições de acesso ao GUI.
+
+  Há também o script ``/nxfilter/bin/reset_acl.sh`` que reseta as resitrições de acesso ao GUI.
 
 Posso vincular o NxFilter a um determinado endereço IP?
 *************************************************************
 
-Em casos como conflitos de portas é possível vincular o NxFilter a um IP específico. Isso pode ser feito usando o parâmetro `listen_ip` em `/nxfilter/conf/cfg.properties`. Se estiver setado o `0.0.0.0` o NxFilter irá responder em todos os endereços IPs do sistema mas se for especificado o IP o NxFilter só responderá nesse.
+Em casos como conflitos de portas é possível vincular o NxFilter a um IP específico. Isso pode ser feito usando o parâmetro ``listen_ip`` em `/nxfilter/conf/cfg.properties`. Se estiver setado o ``0.0.0.0`` o NxFilter irá responder em todos os endereços IPs do sistema mas se for especificado o IP o NxFilter só responderá nesse.
 
 .. note::
   Mesmo que se vincule o NxFilter a um determinado endereço IP você não poderá ter multiplas instâncias do NxFilter na mesma máquina. Isso ocorre por que ele precisa se vincular a diversas portas no servidor para comunicação interna.
