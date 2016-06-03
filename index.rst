@@ -21,4 +21,4 @@ Conteúdo:
    pages/nxclassifier
    pages/dns_server
    pages/misc
-   pages/faq.txt
+   pages/faq
