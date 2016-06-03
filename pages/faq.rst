@@ -126,6 +126,7 @@ Quando há algo de errado com o NxFilter a primeira coisa recomendade é verific
 Caso precise de informações mais detalhadas sobre o erro, habilite o modo de debug em `/nxfilter/conf/log4j.properties`, alterando o trecho `INFO` para `DEBUG` dentro do arquivo e reinicie o NxFilter
 
 .. warning::
+
    Após identificar o erro ou terminar de analisar os logs não esqueça de alterar isso novamente para o padrão `INFO` pois pode acabar gerando muito log e encher sua unidade de disco de modo acelerado.
 
 Como oculto o alerta de SSL?
@@ -135,6 +136,7 @@ Quando um browser está sendo redirecionado para HTTPS ele alerta o usuário que
 Em todo caso há situações em que se deseja ocultar essa página de alerta. Para que isso ocorra pode se mudar a porta HTTPS do NxFilter, desse modo os usuários receberão a mensagem de "Erro de Conexão".
 
 .. note::
+
   Para mudar a porta HTTPS modifique a linha `https_port = 443` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
 
 Não vejo o nome do meu usuário em 'Logging > Request'
@@ -151,10 +153,12 @@ Mas caso não deseje registrar nada é possível burlar isso definindo o parâme
 
 Para ativar o `syslog_only` insira a o seguinte registro em `/nxfilter/conf/cfg.properties`:
 
-.. code-block:: nginx 
+.. code-block:: none 
+
     syslog_only = 1
 
 .. note::
+
    Você continuará tendo as contagens mas o registro dos dados não serão armazenados em sua tabela de tráfego.
 
 Como alterar a timezone?
