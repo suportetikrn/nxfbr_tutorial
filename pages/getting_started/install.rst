@@ -10,5 +10,6 @@ Instalando o NxFilter
 
    install/install_win.rst
    install/install_lnx_ubuntu.rst
+   install/install_lnx_alpine.rst
    install/install_lnx.rst
    install/install_win_manually.rst
