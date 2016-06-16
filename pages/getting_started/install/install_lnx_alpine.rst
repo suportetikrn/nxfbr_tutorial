@@ -7,7 +7,7 @@ Para instalação no Alpine Linux será usado o pacote zip disponibilizado na á
 
 Como pré-requisito é necessário instalar o OpenJDK, nesse caso instalaremos o OpenJDK 8.
 
-No Alpine o pacote do OpenJDK é disponibolizado no repositório ``community``, entre em /etc/apk/repositories e deverá haver uma linha descomentada como a descrita: ``http://dl-2.alpinelinux.org/alpine/v3.4/community`` 
+No Alpine o pacote do OpenJDK é disponibolizado no repositório ``community``, entre em ``/etc/apk/repositories`` e deverá haver uma linha descomentada como a descrita: ``http://dl-2.alpinelinux.org/alpine/v3.4/community`` 
 
 Após esse procedimento instale o OpenJDK JRE 8. ::
 
