@@ -5,7 +5,8 @@ Single sign-on com AD usando NxMapper
 
   Então é oferecida uma alternativa mais fácil de implementar o SSO.Quando você instala o NxMapper no seu Domain Controller ele vai buscar o nome do usuário e o endereço IP ao se autenticar no AD e cria a sessão no NxFilter.
 
-  ::
+.. note::
+
    Se deseja usar o recurso de SSO no AD é preciso, antes de qualquer coisa, importar usuários e grupos do seu AD. 
    Para fazer isso leia a parte 'GUI - User'.
 
@@ -27,7 +28,7 @@ Diferença de uso com o NxLogon
  
  A sessão criada com o NxMapper pode expirar. Enquanto que o NxLogon atualiza as informações da sessão a todo minuto, NxMapper cria ou atualiza somente quando o usuário faz algo no controlado de domínio. Uma vez que a sessão expira os usuários serão redirecionados para a tela de login do NxFilter. Para evitar que isso ocorra você pode aumentar o tempo da sessão em `Config > Setup > Block and Authentication > Login session TTL`.
 
- ::
+.. note::
   It can be expired as NxMapper doesn't refresh it. But as long as there is an activity from a user NxFilter refreshes the login session. It usually expires when a user returned to his/her desk from a long break.
 
 Terminal server exclusion
