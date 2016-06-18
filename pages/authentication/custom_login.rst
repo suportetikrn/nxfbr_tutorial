@@ -1,16 +1,23 @@
-Custom login script for single sign-on
+Script de Login Personalizado para SSO
 ***************************************
-Currently NxFilter supports single sign-on with Active Directory. However some people want more than that. For example, you might want to have single sign-on with your OpenLDAP.
-NxFilter supports an API set for creating login session through HTTP protocol. You need to write your custom login script to call some webpage on NxFilter's built-in webserver. And then your users don't need to go through NxFilter's login-page.
-We have example code on '/nxfilter/example/login_user.jsp'. Initially the access of the page is restricted to localhost only for security reason but you can edit the JSP page to allow the calls from your local network.
-You can call the webpage this way.
+
+ Atualmente NxFilter suporta SSO com AD. Em todo caso algumas pessoas querem outros tipos de validadores. Por exmeplo, você pode querer que o SSO seja aplicado ao seu OpenLDAP.
+
+ NxFilter tem uma API para permitir a criação de sessões através do protocolo HTTP. Você precisa escrever seu próprio script de login para executar uma determinada página no servidor Web do NxFilter. E então seus usuários não precisarão acessar a página de login do NxFilter.
+
+ Existem alguns exemplos em `/nxfilter/example/login_user.jsp`. Inicialmente o acesso a página é restrito apenas a localhost, por questões de segurança, mas você pode editar o arquivo JSP e permitir chamadas a partir da sua rede local.
+
+ O caminho para executar essa página é :
 
 .. code-block::
 
   http://192.168.0.100/example/login_user.jsp?ip=192.168.0.100&uname=john
 
 
-As you see there are two parameters being passed. One is the IP address of your user and the other one is the associated username. The username should be imported or created on NxFilter side already.
+ Como podes ver a página recebe 2 parâmetros. O primeiro é o IP da máquina do usuário e o segundo é o nome do usuário.
+ ::
+  Não esqueça de importar ou criar os usuários no NxFilter.
+
 One thing you need to consider when you write your own login script is that it might be better to call the webpage periodically. There is a session timeout concept in NxFilter. If there is no activity from a logged-in user for certain amount of time the login session will be expired. So if you don't want to show your users NxFilter's login-page, you would need to refresh the login session periodically.
 There are three methods of UserLoginDao class for custom login script.
 
@@ -23,5 +30,7 @@ There are three methods of UserLoginDao class for custom login script.
   find_user(String ip) : You can find a logged-in username by its associated IP address.
 
 
-All the example JSP pages are in '/nxfilter/webapps/example' directory.
+ .. note:: 
+
+  Todas as paginas de exemplo estão em `/nxfilter/webapps/example`.
 
