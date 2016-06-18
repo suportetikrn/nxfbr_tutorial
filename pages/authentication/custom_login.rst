@@ -9,14 +9,13 @@ Script de Login Personalizado para SSO
 
  O caminho para executar essa página é :
 
-  ::
+.. note::
 
   http://192.168.0.100/example/login_user.jsp?ip=192.168.0.100&uname=john
 
+Como podes ver a página recebe 2 parâmetros. O primeiro é o IP da máquina do usuário e o segundo é o nome do usuário.
 
- Como podes ver a página recebe 2 parâmetros. O primeiro é o IP da máquina do usuário e o segundo é o nome do usuário.
-
- ::
+.. warning::
 
   Não esqueça de importar ou criar os usuários no NxFilter.
 
