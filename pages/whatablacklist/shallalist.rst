@@ -1,4 +1,3 @@
-Updating Shallalist
 Atualizando a Shallalist
 *************************
 
