@@ -12,9 +12,6 @@ Custos
   
   Existe a possibilidade de descontos para organizações sem fins lucrativos e por volume de licenças. Também há a licença para acessos ilimitados. Caso haja o interesse em saber mais sobre esses custos favor contactar pelo email 'suporte@kernel.inf.br'.
 
-
-PayPal - The safer, easier way to pay online!  
-
 Aticando a licença
 ^^^^^^^^^^^^^^^^^^^
 
