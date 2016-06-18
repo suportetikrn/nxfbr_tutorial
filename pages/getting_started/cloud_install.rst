@@ -3,15 +3,22 @@ Instalando o NxCloud
 
 NxCloud nada mais é que um NxFilter modificado. É possível instalar e executar o NxCloud da mesma forma como é feito com o NxFilter.
 
-Porém diferente do NxFilter, após sua instalação, você ainda não pode usar o servidor DNS. Isso por que o NxCloud é u, programa para atender múltiplos clientes afim de prestar um serviço comercial. É suposto que você não o usará na sua rede interna. Seus clientes é que o usuário em suas redes. Então você precisa criar uma conta para cada um dos seus clientes primeiro.
+Porém diferente do NxFilter, após sua instalação, você ainda não pode usar o servidor DNS. Isso por que o NxCloud é um programa para atender múltiplos clientes visando prestar um serviço comercial. É suposto que você não o usará na sua rede interna. Seus clientes é que o usarão em suas redes. Então você precisa criar uma conta para cada um dos seus clientes primeiro.
 
 No NxCloud existem 3 tipos de usuários:
  
   Admin > Operator > User
 
-  1. Admin - 
-On NxCloud there are 3 kinds of users.
-Admin > Operator > User
-'Admin' is you and an operator is your customer and a user is the user in your customer's network. An admin manages operator accounts and an operator manages the end users and policies. So you need to create an operator first. To create an operator login to NxCloud GUI as admin and then go to 'Operator' menu. You can create an operator there.
-When you create an operator there will be a default user and default policy for the operator with the same name as the operator. And the default password for the operator is also the name of the operator. Once you create an operator you can login with the operator account to set up a user for testing.
-* You need to associate your IP address to the default user of your first operator to test it.
+  1. Admin - é você, que administra todos os operadores.
+  
+  2. Operator - É o seu cliente, ele gerencia os usuários finais e as políticas. 
+
+  3. User - É o usuário final, o usuário do serviço DNS.
+
+  Então é necessário criar antes o operador. Para fazer isso entre na GUI do NxCloud como administrador e então vá ao menu 'Operator'. Você pode criar um operador nessa área.
+
+  Quando for criado um operador ele terá criado por padrão um usuário e uma política como o mesmo nome do operador. E a senha padrão para o operador é também o seu nome. Uma vez que seja criado um operador é possível se autenticar com a conta do mesmo e configurar um usuário para testes.
+
+  ::
+  É preciso associar seu endereço IP ao usuário padrão do seu primeiro operador para poder testá-lo.
+
