@@ -26,5 +26,6 @@ Quantidade de usuários
  NxFilter conta o número de usuários autenticados ou a quantidade de endereços IPs diariamente. Se um desses exceder a quantidade de licenças, qualquer usuário não licenciado aparecerá no relatório como bloqueado, os domínios consultados serão marcados com a categoria 'Unclassified'. Porém o usuário excedente não será bloqueado em nada.
 
  ::
+
   Para verificar o número de usuários na sua rede, acesse o relatório de uso dos últimos 30 dias em  'Report > Usage'.
 
