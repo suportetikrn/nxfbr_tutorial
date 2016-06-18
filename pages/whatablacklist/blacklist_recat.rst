@@ -7,5 +7,5 @@ Há duas formas de reclassificação.
   1. Adicionar os domínios em 'Category > System' e
   2. Em 'Logging > Request', clicar no domínio desejado e uma janela popup permitirá a reclassificação.
 
-.. image:: /image/recat_popup.png
+.. image:: /images/recat_popup.png
 
