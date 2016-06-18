@@ -7,13 +7,24 @@ Custos
 ^^^^^^^ 
 
   O custo é de 3 doláres por usuário ao ano, com o mínimo de 50 usuários.
+
   Antes de adquirir você tem a possibilidade de fazer 14 dias de teste.
+  
+  Existe a possibilidade de descontos para organizações sem fins lucrativos e por volume de licenças. Também há a licença para acessos ilimitados. Caso haja o interesse em saber mais sobre esses custos favor contactar pelo email 'suporte@kernel.inf.br'.
 
 
-The pricing is 3 USD per-user, per-year by 50 user block. Before you buy it you can have 14 days trial. There are non-profit organization discount and volume discount. Unlimited license option is also available. If you want to find out more about these pricing options contact 'support @ nxfilter.org' first.
 PayPal - The safer, easier way to pay online!  
-Activation of the license
-After you purchase a Komodia license you will receive 'license.lic' file. You need to copy it into '/nxfilter/conf' directory. And then select Komodia option on 'Category > System' and restart NxFilter.
-Counting the number of users
-NxFilter counts the number of logged-in users or client IP addresses on daily basis. If one of them exceeds the licensed user number, any unlicensed users will be appeared as blocked on your log view. And the domains queried by the unlicensed users will be categorized as 'Unclassified'. However since it is a warning measure this blocking is not actually happening on user side.
-* To find out the number of users in your network, view the usage report for the last 30 days on 'Report > Usage'.
+
+Aticando a licença
+^^^^^^^^^^^^^^^^^^^
+
+ Após a aquisição da licença para uso do Komodia você receberá o arquivo 'license.lic'. É preciso copiá-lo no diretório '/nxfilter/conf'. E então selecione a opção de uso da lista 'Komodia' em 'Category > System', então reinicie o NxFilter.
+
+Quantidade de usuários
+^^^^^^^^^^^^^^^^^^^^^^^
+
+ NxFilter conta o número de usuários autenticados ou a quantidade de endereços IPs diariamente. Se um desses exceder a quantidade de licenças, qualquer usuário não licenciado aparecerá no relatório como bloqueado, os domínios consultados serão marcados com a categoria 'Unclassified'. Porém o usuário excedente não será bloqueado em nada.
+
+ ::
+  Para verificar o número de usuários na sua rede, acesse o relatório de uso dos últimos 30 dias em  'Report > Usage'.
+
