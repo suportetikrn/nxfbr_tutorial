@@ -12,7 +12,7 @@ Custos
   
   Existe a possibilidade de descontos para organizações sem fins lucrativos e por volume de licenças. Também há a licença para acessos ilimitados. Caso haja o interesse em saber mais sobre esses custos favor contactar pelo email 'suporte@kernel.inf.br'.
 
-Aticando a licença
+Ativando a licença
 ^^^^^^^^^^^^^^^^^^^
 
  Após a aquisição da licença para uso do Komodia você receberá o arquivo 'license.lic'. É preciso copiá-lo no diretório '/nxfilter/conf'. E então selecione a opção de uso da lista 'Komodia' em 'Category > System', então reinicie o NxFilter.
