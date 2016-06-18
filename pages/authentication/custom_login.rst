@@ -9,26 +9,28 @@ Script de Login Personalizado para SSO
 
  O caminho para executar essa página é :
 
-.. code-block::
+  ::
 
   http://192.168.0.100/example/login_user.jsp?ip=192.168.0.100&uname=john
 
 
  Como podes ver a página recebe 2 parâmetros. O primeiro é o IP da máquina do usuário e o segundo é o nome do usuário.
+
  ::
+
   Não esqueça de importar ou criar os usuários no NxFilter.
 
-One thing you need to consider when you write your own login script is that it might be better to call the webpage periodically. There is a session timeout concept in NxFilter. If there is no activity from a logged-in user for certain amount of time the login session will be expired. So if you don't want to show your users NxFilter's login-page, you would need to refresh the login session periodically.
-There are three methods of UserLoginDao class for custom login script.
+Um ponto a se considerar quando for feito o script é que tem de ser verificar uma forma da página ser chamada periodicamente. Lembre que há no NxFilter o conceito de tempo de sessão. Se não houver atividade de um usuário autenticado por um determinado tempo a sessão expirará. Então se você não deseja que a página de Login fique aparecendo para os seus usuários, é preciso fazer o refresh na página desse script de tempos em tempos.
+
+Há 3 métodos na classe `UserLoginDao` que são utilizados pelo script de login:
 
 .. code-block:: java
   
-  create_ip_session(String ip, String uname) : Creating a login session with an IP and username.
+  create_ip_session(String ip, String uname) : Cria a sessão de login com IP e usuário
 
-  delete_ip_session(String ip) : Deleting a login session with an IP.
+  delete_ip_session(String ip) : Fecha a sessão informando o IP
 
-  find_user(String ip) : You can find a logged-in username by its associated IP address.
-
+  find_user(String ip) : Localiza o usuário com base no IP informado.
 
  .. note:: 
 
