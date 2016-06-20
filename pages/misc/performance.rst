@@ -16,7 +16,8 @@ No script de inicialização do serviço do NxFilter `/nxfilter/bin/startup.bat`
 Se desejar aumentar para 1GB mude o parâmetro `-Xmx512m` para `-Xmx1024m`.
 
 .. note::
-   Case estejas usando o NxFilter como um serviço no Windows, é necessário reinstalar o serviço com esse ajuste de memória. Quando for reinstalá-lo, desinstale usando `unstsvc.bat` altere o arquivo `instsvc.bat` com o ajuste de memória desejado e aí sim reinstale executando `instsvc.bat`.
+
+   Caso estejas usando o NxFilter como um serviço no Windows, é necessário reinstalar o serviço com esse ajuste de memória. Quando for reinstalá-lo, desinstale usando `unstsvc.bat` altere o arquivo `instsvc.bat` com o ajuste de memória desejado e aí sim reinstale executando `instsvc.bat`.
 
 Espaço em disco e redução do volume de dados de log
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
