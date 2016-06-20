@@ -8,9 +8,8 @@ Memória alocada
 
 Por padrão NxFilter usa cerca de 512 MB RAM. É o suficiente para a maioria dos casos. Mas se você alocar mais memória para o NxFilter você terá uma performance maior ainda.
 
-No script de inicialização do serviço do NxFilter `/nxfilter/bin/startup.bat` você tem a linha.
+No script de inicialização do serviço do NxFilter `/nxfilter/bin/startup.bat` você tem a linha. ::
 
-::
     java -Djava.net.preferIPv4Stack=true -Xmx512m -cp "%NX_HOME%"\nxd.jar;"%NX_HOME%"\lib\*; nxd.Main
 
 Se desejar aumentar para 1GB mude o parâmetro `-Xmx512m` para `-Xmx1024m`.
