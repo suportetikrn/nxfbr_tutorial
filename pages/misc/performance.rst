@@ -56,7 +56,7 @@ Em todo caso isso não quer dizer que o NxFilter faça consulta recursiva por si
 
 Caso tenha instalado algo como o servidor de DNS recursivo  MaraDNS's Deadwood e configurado-o para usar a porta 10053 e o ip for `127.0.0.1` é preciso adicionar a seguinte linha em `/nxfilter/conf/cfg.properties`.
 
-.. code-block::
+.. code-block:: jproperties
 
     local_resolver_port = 10053
 
