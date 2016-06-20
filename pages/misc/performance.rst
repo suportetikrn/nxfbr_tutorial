@@ -51,8 +51,7 @@ Usando um servidor DNS recursivo internamente
 
 Um dos motivos que podem causar degradação na performance do NxFilter é a latência do servidor upstream ( servidor DNS que o NxFilter consulta ). Não é um caso para quando há centenas de usários já que o NxFilter tem seu próprio cache. Porém se sua rede tem milhares de usuários, isso pode ser um problema. Por isso foi criado o parâmetro `Local DNS Server`.
 
-Mas isso não quer dizer que o NxFilter não consiga fazer consultas recursivas no DNS. Em vez de instalar um servidor DNS recursivo 
-However this doesn't mean that NxFilter does recursive DNS query by itself. Rather you install a recursive DNS server into the server having NxFilter already installed and make NxFilter uses it as its upstream DNS server. 
+Em todo caso isso não quer dizer que o NxFilter faça consulta recursiva por si só. É possivel instalar um servidor DNS recursivo no mesmo servidor que já tem o NxFilter instalado e assim fazer com que o NxFilter o utilize como um servidor DNS upstream.
 
 Caso tenha instalado algo como o servidor de DNS recursivo  MaraDNS's Deadwood e configurado-o para usar a porta 10053 e o ip for `127.0.0.1` é preciso adicionar a seguinte linha em `/nxfilter/conf/cfg.properties`.
 
