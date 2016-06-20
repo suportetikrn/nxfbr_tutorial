@@ -49,13 +49,23 @@ Para aumentar para 16 threads insira a seguinte linha em `/nxfilter/conf/cfg.pro
 Usando um servidor DNS recursivo internamente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One of the possible cause of performance degrading for NxFilter would be the latency to its upstream server. This is not the case when you have just several hundreds users as NxFilter has its own caching. But if you have several thousands users this could be an issue. So we added local recursive DNS option.
-However this doesn't mean that NxFilter does recursive DNS query by itself. Rather you install a recursive DNS server into the server having NxFilter already installed and make NxFilter uses it as its upstream DNS server. If you install something like MaraDNS's Deadwood recursive DNS server and set it to use 10053 port and listening '127.0.0.1' then you need to add the following line into '/nxfilter/conf/cfg.properties' file.
+Um dos motivos que podem causar degradação na performance do NxFilter é a latência do servidor upstream ( servidor DNS que o NxFilter consulta ). Não é um caso para quando há centenas de usários já que o NxFilter tem seu próprio cache. Porém se sua rede tem milhares de usuários, isso pode ser um problema. Por isso foi criado o parâmetro `Local DNS Server`.
+
+Mas isso não quer dizer que o NxFilter não consiga fazer consultas recursivas no DNS. Em vez de instalar um servidor DNS recursivo 
+However this doesn't mean that NxFilter does recursive DNS query by itself. Rather you install a recursive DNS server into the server having NxFilter already installed and make NxFilter uses it as its upstream DNS server. 
+
+Caso tenha instalado algo como o servidor de DNS recursivo  MaraDNS's Deadwood e configurado-o para usar a porta 10053 e o ip for `127.0.0.1` é preciso adicionar a seguinte linha em `/nxfilter/conf/cfg.properties`.
+
+.. code-block::
+
     local_resolver_port = 10053
-And then restart NxFilter.
 
-Disable data sharing between cluster nodes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E reiniciar o NxFilter.
 
-When you have a cluster, there is a massive amount of communication between nodes for data sharing. This could be a performance degrading factor when you have a busy server. To reduce the amount of communication read Clustering with NxFilter section on this tutorial.
+Desativando o compartilhamento de dados entre os clusters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Quando há um cluster NxFilter, existe uma troca constante de dados entre eles visando o compartilhamento de dados. No caso do servidor ter um processamento alto isso pode ser um fator de degradação da performance.
+
+Para diminuir o volume de troca de dados leia a seção `Criando um Cluster NxFilter` nessa mesma documentação.
 
