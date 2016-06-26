@@ -15,3 +15,5 @@ Entendendo as opções disponíveis na interface de administração do NxFilter
    gui_overview/gui_policy.rst
    gui_overview/gui_category.rst
    gui_overview/gui_nxclassifier.rst
+   gui_overview/gui_whitelist.rst
+   gui_overview/gui_report.rst
