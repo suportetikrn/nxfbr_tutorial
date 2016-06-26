@@ -8,7 +8,7 @@ GUI - Whitelist
 - Bypass Logging : Para casos em que existem muitos registros de um determinado dominio e isso não é interessante guardar
 - Admin Block : Bloquear sempre, aplicável quando não quer ter de configurar cada uma das políticas. Isso bloqueia imediatamente mesmo que já tenha uma outra usando o ByPass Filtering
 
- ..note ::
+.. note::
 
    É possível usar asterisco para incluir subdomínios
     ex) *.nxfilter.org
