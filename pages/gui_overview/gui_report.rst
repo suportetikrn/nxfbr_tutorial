@@ -1,14 +1,28 @@
 GUI - Dashboard, Logging, Report
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-NxFilter keeps its log data up to 400 days and you can generate a daily, weekly, per-user report based on the log data.
-Main
-When you login to your admin GUI you will see the dashboard of NxFilter. There are several charts for showing a summary for the last 2 hours. On the bottom of the dashboard you can see 10 recent block logs for the last 12 hours.
-* The difference between 'request-sum' and 'request-cnt' is from NxFilter's logging system. To reduce the amount of disk access NxFilter keeps all the log data into its memory space. And then it flushes the data once a minute. If there is a request for the same domain from the same user in a minute it only increases the count for the data. So 'request-sum' means the sum of all the counts and 'request-cnt' means the count for all the unique data.
+
+NxFilter armazena os registros de acesso por até 400 dias e você pode gerar relatórios diários, semanais e por usuários baseado nesses registros.
+
+Dashboard
+*********
+
+ Ao acessar a GUI o Dashboard é logo apresentado. Há diversos gráficos mostrando um resumo das últimas 2 horas de acesso. Na parte inferior do Dashboard é possível ver o 10 bloqueios mais recentes das últimas 12 horas.
+.. note::
+  A diferença entre 'request-sum' e 'request-cnt' vem do sistema de logging do NxFilter. Para recuzir a quantidade de acesso a disco NxFilter mantém todos registros na memória. E então ele faz um 'flush' dos dados a cada minuto. Se há uma requisição ao mesmo domínio feito pelo mesmo usuário em um minuto, ele só incrementa na contagem. Então 'request-sum' significa a soma de todas as contagens e 'request-cnt' significa a contagem de todos os dados distintos.
+  
 Logging
-You can search user request log with various conditions in 'Logging > Request'. Logging data is being updated once in a minute to reduce the load on DB.
-In 'Logging > Signal' you can view the log of the signals from the agents of NxFilter.
-In 'Logging > NetFlow' you can monitor NetFlow data imported.
-* Use square brackets for the exact matching keyword on log search.
+^^^^^^^^
+
+É possível pesquisar as requisições em diversas variáveis em 'Logging > Request'. Os registros são atualizados a cada minuto para reduzir a carga no Banco de Dados.
+
+Em 'Logging > Signal' é possível ver os registros de acesso dos agentes do NxFilter.
+Em 'Logging > NetFlow' você pode monitorar os dados NetFlow recebidos.
+
+.. note::
+  Use colchetes para melhorar sua busca.
     ex) [nxfilter], [192.168.0.100]
-Report
-NxFilter generates a daily, weekly, per-user report.
+
+Relatório
+*********
+
+NxFilter gera relatórios diários, Semanais e por usuários
