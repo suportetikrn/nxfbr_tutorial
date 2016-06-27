@@ -8,23 +8,32 @@ NxFilter é basicamente um servidor DNS com a habilidade de aplicar filtros.  Es
 DNS > Setup > DNS Setup
 ************************
 - Upstream DNS server
-  NxFilter works as a forwarding DNS server. You need to have at least one upstream DNS server for NxFilter.
+
+  NxFilter funciona como um servidor de encaminhamento DNS. É obrigatório ter ao menos um servidor de Upstream DNS para o NxFilter.
 
 - Upstream DNS Query Timeout
-  Timeout for a DNS query to your upstream DNS server.
+
+  Timeout para uma consulta DNS retornar do seu servidor Upstream DNS.
 
 - Upstream DNS Load Balance
-  Load balancing option for your upstream DNS servers.
+
+  Opção para ativar balanceamento de carga entre seus servidores de upstream DNS.
 
 - Max Client Cache TTL
-  You can modify the TTL value in a DNS response from NxFilter. If you set the value to '60' NxFilter modifies the DNS cache TTL to '60' if the TTL is bigger than 60.
-  0 - Don't touch it.
-  60 - Don't touch it if it's smaller than 60 and make it '60' if it's bigger than 60.
-  We introduced this function to minimize the effect from the client cache. However if you have more than 1,000 users you would better turn this function off for better performance.
+  O TTL pode ser modificado para uma resposta de registro DNS a partir do NxFilter. Se for definido o valor '60' o NxFilter modificará o cache TTL para '60' caso ele seja superior a esse valor.
+
+  0 - Ignorará o valor TTL enviado pelo servidor Upstream
+  60 - Ignora somente se o valor for inferior a '60', caso seja superior força com que o mesmo seja '60'
+
+  A ideia principal dessa funcionalidade é minimizar os efeitos causados pelo cache dns do cliente. Em todo caso se no seu ambiente houver mais de 1.000 usuários é interessante desligar essa funcionalidade de alteração do TTL para obter melhor performance.
+  
+  .. warn:: 
+
+  Desativando essa funcionalidade colocando o valor '0' poderá fazer com que alguns controles como o de `Quota` não tenham a funcionalidade esperada já que o Cliente poderá demorar mais para consultar o registro DNS.
 
 - Response Cache Size
-  NxFilter has its own cache for DNS query result from its upstream server. Generally speaking, the bigger cache would be better for the performance. Currently the default size is 200,000 and it is enough for most sites.
 
+  NxFilter tem seu próprio cache DNS, que é alimentado a partir do servidor Upstream. Geralmente, quanto maior o cache melhor a performance. Atualmente o NxFilter comporta 200.000 registros e é suficiente para a maioria dos ambientes.
 
 DNS > Setup > Local DNS 
 ************************
