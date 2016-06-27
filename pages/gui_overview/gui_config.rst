@@ -47,39 +47,74 @@ NxFilter mantém a sessão do usuário por um tempo determinado. Isso pode ser n
 Config > Setup > Syslog
 ***********************
 
-NxFilter supports Syslog exportation of its log data. You can build your own reporting system with this feature or you can monitor all the logging in real-time way.
+O NxFilter permite que se exporte os registros para um Servidor Syslog. Você pode montar seu próprio sistema de relatórios ou pode monitorar todos os registros em real-time.
+
 
 - Syslog Host
-The host IP address to which you want to send syslog data.
+
+Endereço do servidor para o qual serão enviados os dados.
+
 - Export Blocked Only
-With this option NxFilter sends the log data of blocked DNS request only.
+
+Enviar somente os registros de bloqueios.
+
 - Enable Remote Logging
-Enable Syslog exportation.
+
+Ativar o envio para o Servidor Syslog definido em `Syslog Host`.
+
 Config > Setup > NetFlow
-NxFilter supports bandwidth control. This is possible by importing NetFlow data.
-For more detail read this, Bandwidth control with NxFilter
+************************
+
+O sistema tem suporte a controle de banda. Isso é possível através da importação de dados do NetFlow.
+
+Para mais detalhes leia em `Controle de Banda` neste mesmo tutorial.
+
 - Router IP
-The IP address of a device sending NetFlow data to NxFilter.
+
+O endereço IP do servidor que enviará os dados NetFlow ao NxFilter.
+
 - Listen Port
-The UDP port number of NetFlow collector.
+
+Porta do coletor NetFlow ( Protocolo UDP ).
+
 - Run Collector
-Run NetFlow collector. After change this option you need to restart NxFilter.
+
+Ativar o coletor. Após alterar esse parâmetro é necessário reiniciar o NxFilter.
+
 Config > Setup > Misc
 ***********************
 
 - Admin Domain
-You can access the admin GUI using the domain you set up. For example, if you use 'admin.nxfilter.org' as your admin domain you can access your admin GUI by typing 'http://admin.nxfilter.org/admin' into your browser address bar.
-* This only works when you use NxFilter as your DNS server. Otherwise you need to register your admin domain to your own DNS server.
+
+URL para acesso a GUI de administração do NxFilter. Se, por exemplo, você registrar `admin.nxfilter.org` a área de administração será acessível através do endereço `http://admin.nxfilter.org/admin`.
+
+.. note::
+  
+  Isso só funcionará quando você estiver usando o NxFilter como seu servidor DNS. Caso contrário você precisará registrar o domínio em seu próprio servidor DNS.
+
 - Bypass Microsoft Update
-You don't want to block Microsoft update with your filtering. Enabling this option means bypassing 'micfosoft.com' and 'windowsupdate.com' and their subdomains.
+ 
+Caso sua rede tenha estações Windows essa opção permite que os updates não sejam bloqueados. Habilitando esta opção os domínios e subdomínios `microsoft.com`  e `windowsupdate.com` não exigirão autenticação nem será bloqueados.
+
 - Logging Retention Period
-If you keep your log data too long it will use your disk space a lot. You can set how long NxFilter keeps its log data here.
+
+Tempo em que os registros ficarão armazenados.
+
+.. warn::
+
+  Períodos muito longos de armazenamento ocupam muito espaço em disco e lentidão na geração de relatórios.
+
 - SSL Only to Admin GUI
-When you want to allow only HTTPS access to the admin GUI enable this option. Once you enable this option you will be redirected to the SSL port automatically even if you use HTTP.
+
+  Forçar que o acesso a área de administração seja feito apenas através de HTTPS/Página segura. Uma vez que esta opção seja habilitada você será redirecionado para o endereço HTTPS automáticamente, mesmo que esteja colocando o endereço HTTP.
+
 - Auto Backup
-NxFilter makes a backup file for its config into '/nxfilter/backup' directory on '01:00' everyday. The name of the backup file starts with 'auto-' prefix. You can have up to 30 backups.
+
+ Backups são executados todos os dias a '01:00' e ficam gravados na pasta '/nxfilter/backup'. Os arquivos de backup terão o prefixo 'auto-'.
+
 - Agent Policy Update Period
-NxFilter provides several agents programs for application control and remote user filtering. These agents fetch their policies periodically. You can set up the policy update period for them here.
+
+ Os agentes disponibilizados pelo NxFilter baixam suas políticas periodicamente. Essa frequência é determinada por esse parâmetro.
 
 Config > Admin
 ***************
@@ -89,38 +124,53 @@ Você pode alterar o usuário administrador e a senha da GUI de administração 
 Config > Alert
 ***************
 
-NxFilter sends an alert email for recent blocking or clustering node down incident. If you want to send an alert email to 'admin @ nxfilter.org' from 'alert200 @ gmail.com' on every 15 minutes then the setup would look like the followings.
+NxFilter envia um email de alerta informando dos blocks recentes ou caso algum nó do cluster caia. 
+
+Por exemplo, caso deseje enviar um email de alerta para 'admin @ nxfilter.org' de 'alert200 @ gmail.com' a cada 15 minutos a configuração seria :
 
 - Admin email : admin @ nxfilter.org
+
 - SMTP host : smtp:gmail.com
+
 - SMTP host : 465
+
 - SMTP SSL : on
+
 - SMTP user : alert200
+
 - SMTP password : ********
+
 - Alert period : Every 15 minutes
 
 Config > Allowed IP
 ***********************
 
-NxFilter has IP based access restriction function for its DNS, GUI, login redirection. You may need to use this feature when you put your NxFilter on a public IP address. You can make whitelist/blacklist way of ACL here.
+NxFilter permite que se faça restrição de acesso baseado em IP para funcionalidades como serviço DNS, GUI ou redirecionamento para login. Isso pode ser útil quando NxFilter é utilizado com endereço de IP público. Você pode fazer uma ACL com permissões e exclusões nessa área.
 
 Config > Backup
 ***************
 
-You can make a backup for the config DB of NxFilter manually. The backup files will be created into '/nxfilter/backup' directory.
+Forçar o backup das configurações. Os arquivos ficarão gravados em '/nxfilter/backup'.
 
 Config > Block Page
 *******************
 
-This is the setup for custom block-page, login-page, welcome-page. When you edit your block-page you can use the following variables populated by NxFilter for making your block-page more informative.
-- #{domain} : Blocked domain
-- #{reason} : Reason for block
-- #{user} : Logged-in username
-- #{group} : Groups of the logged-in user
-- #{policy} : The applied policy
-- #{category} : Categories or the blocked domain
+Personalização da pagina de bloqueio, login e boas vindas. Quando editar a página de bloqueio podem ser usados os seguintes parâmetros caso deseje deixar a página com mais informações.
+
+- #{domain} : Domínio bloqueado
+ 
+- #{reason} : Motivo do bloqueio
+ 
+- #{user} : Usuário autenticado
+ 
+- #{group} : Grupos aos quais o usuário pertence
+
+- #{policy} : Que política foi aplicada
+ 
+- #{category} : Categorias em que se enquadra ou o domínio bloqueado
 
 Config > Cluster
 *****************
 
-NxFilter has a built-in clustering. You can make your NxFilter to be a master node or a slave node in a cluster. After you change the values in cluster setup you need to restart your NxFilter to apply the new settings.
+NxFilter tem a possibilidade de trabalhar em cluster. Você pode ativar seu NxFilter como um nó principal ou secundário em um Cluster. Após alterações na configuração do cluster você precisa reiniciar seu NxFilter para que as mudanças sejam aplicadas.
+
