@@ -68,15 +68,21 @@ São os domínios que durante o processo de classificação apresentaram algum e
 Jahaslist
 *********
 
-You can view the contents of Jahaslist and modify it directly here. But we don't recommend you to do the reclassification here unless it is a mass importation of domains. We keep Jahaslist in a separated DB file and NxFilter doesn't do auto-backup for it. So you would better use 'Category > System' for reclassification as it is in the main config DB.
+ Permite que seja visualizado o conteúdo da Jahaslist e modifique a mesma diretamente.
 
- .. note::
-  When you do the reclassification on 'Logging > Request' or 'NxClassifier > Classified' your reclassification data goes into 'Category > System'.
-  When you export Jahaslist, NxFilter merges your custom classified domains from 'Category > System' into Jahaslist and then export the merged result into a file.
+.. warn::
+
+  Apesar de haver a possibilidade de reclassificar um domínio diretamente na Jahaslist isso não é recomendado - exceto queira proceder com um importação em massa dos domínios. A Jahaslist é armazenada em uma tabela separada das demais, com isso o NxFilter não faz backup da mesma. Então é melhor fazer essa reclassificação em 'Category > System'.
+
+.. note::
+
+  Quando você executa a reclassificação em 'Logging > Request' ou 'NxClassifier > Classified' suas alteraçãoes ficam em 'Category > system'.
+  
+  Quando você exporta Jahaslist, o NxFilter faz a junção de suas personalizações de domínios em 'Category > System' com a Jahaslist e exporta essa lista em um único arquivo.
 
 Test Run
 *********
 
-After you add your own classification rules you want to see the result. You can do a test run for your classification ruleset against a website here.
+Após adicionar suas próprias regras de classificação você pode validar usando o 'Test Run' para verificar se o domínio se enquadra nas regras definidas.
 
- .. note:: 'Test Run' doesn't do actual classification. If you want to classify a domain you need to make a query for the domain against NxFilter.
+.. note:: 'Test Run' não atualiza a classificação. Para que isso ocorra você precisa consultar o serviço de DNS do NxFilter para que este entre na lista de classificação.
