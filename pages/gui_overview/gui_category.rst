@@ -11,5 +11,5 @@ GUI - Categoria
   
   Se deseja incluir subdomínios basta usar 'asterisco'.
     ex) *.nxfilter.org
-  Se deseja verificar em que categoria está cadastrado determinado domínio, use 'Category > Domain Test'.
+  Caso queira verificar em que categoria está cadastrado determinado domínio, use `Category > Domain Test`.
 
