@@ -22,8 +22,9 @@ DNS > Setup > DNS Setup
 - Max Client Cache TTL
   O TTL pode ser modificado para uma resposta de registro DNS a partir do NxFilter. Se for definido o valor '60' o NxFilter modificará o cache TTL para '60' caso ele seja superior a esse valor.
 
-  0 - Ignorará o valor TTL enviado pelo servidor Upstream
-  60 - Ignora somente se o valor for inferior a '60', caso seja superior força com que o mesmo seja '60'
+  - 0 - Ignorará o valor TTL enviado pelo servidor Upstream
+
+  - 60 - Ignora somente se o valor for inferior a '60', caso seja superior força com que o mesmo seja '60'
 
   A ideia principal dessa funcionalidade é minimizar os efeitos causados pelo cache dns do cliente. Em todo caso se no seu ambiente houver mais de 1.000 usuários é interessante desligar essa funcionalidade de alteração do TTL para obter melhor performance.
   
