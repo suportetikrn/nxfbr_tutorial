@@ -85,4 +85,4 @@ Test Run
 
 Após adicionar suas próprias regras de classificação você pode validar usando o 'Test Run' para verificar se o domínio se enquadra nas regras definidas.
 
-.. note:: 'Test Run' não atualiza a classificação. Para que isso ocorra você precisa consultar o serviço de DNS do NxFilter para que este entre na lista de classificação.
+.. note:: A simples execução de 'Test Run' não atualiza a classificação do domínio. Para que isso ocorra você precisa consultar o serviço de DNS do NxFilter para que este entre na lista de classificação.
