@@ -7,19 +7,19 @@ NxFilter é basicamente um servidor DNS com a habilidade de aplicar filtros.  Es
 
 DNS > Setup > DNS Setup
 ************************
-- Upstream DNS server
+.. envvar:: Upstream DNS server
 
   NxFilter funciona como um servidor de encaminhamento DNS. É obrigatório ter ao menos um servidor de Upstream DNS para o NxFilter.
 
-- Upstream DNS Query Timeout
+.. envvar:: Upstream DNS Query Timeout
 
   Timeout para uma consulta DNS retornar do seu servidor Upstream DNS.
 
-- Upstream DNS Load Balance
+.. envvar:: Upstream DNS Load Balance
 
   Opção para ativar balanceamento de carga entre seus servidores de upstream DNS.
 
-- Max Client Cache TTL
+.. envvar:: Max Client Cache TTL
   O TTL pode ser modificado para uma resposta de registro DNS a partir do NxFilter. Se for definido o valor '60' o NxFilter modificará o cache TTL para '60' caso ele seja superior a esse valor.
 
   - 0 - Ignorará o valor TTL enviado pelo servidor Upstream
@@ -32,7 +32,7 @@ DNS > Setup > DNS Setup
 
   Desativando essa funcionalidade colocando o valor '0' poderá fazer com que alguns controles como o de `Quota` não tenham a funcionalidade esperada já que o Cliente poderá demorar mais para consultar o registro DNS.
 
-- Response Cache Size
+.. envvar:: Response Cache Size
 
   NxFilter tem seu próprio cache DNS, que é alimentado a partir do servidor Upstream. Geralmente, quanto maior o cache melhor a performance. Atualmente o NxFilter comporta 200.000 registros e é suficiente para a maioria dos ambientes.
 
