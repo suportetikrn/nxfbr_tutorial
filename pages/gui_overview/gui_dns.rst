@@ -20,6 +20,7 @@ DNS > Setup > DNS Setup
   Opção para ativar balanceamento de carga entre seus servidores de upstream DNS.
 
 .. envvar:: Max Client Cache TTL
+
   O TTL pode ser modificado para uma resposta de registro DNS a partir do NxFilter. Se for definido o valor '60' o NxFilter modificará o cache TTL para '60' caso ele seja superior a esse valor.
 
   - 0 - Ignorará o valor TTL enviado pelo servidor Upstream
@@ -38,29 +39,39 @@ DNS > Setup > DNS Setup
 
 DNS > Setup > Local DNS 
 ************************
- - Local DNS Server
+
+.. envvar:: Local DNS Server
+
    Quando já um servidor DNS para resolver os endereços do domínio interno/local insira o ip dele nessa área. Você pode inserir múltiplos servidores DNS separando-os por ',' visando redundância.
 
-- Local Domain
+.. envvar:: Local Domain
+
    Quando existe um domínio o qual você deseja fazer o foward para seu servidor DNS local adicione o mesmo nesse campo. É possível adicionar multimpos domínios separando-os por ','.
+
  .. warning:: 
+
 	Não use '*' ou qualquer outro caracter especial para um domínio local
 
-- Local DNS Query Timeout
+.. envvar:: Local DNS Query Timeout
+
     Timeout para uma consulta DNS feita no seu servidor de DNS local.
 
-- Upstream DNS Load Balance
+.. envvar:: Upstream DNS Load Balance
+
    Habilitar o balanceamento de carga para seus servidores de DNS locais.
 
-- Use Local DNS
+.. envvar:: Use Local DNS
+
    Ativa o uso de DNS Local.
 
   .. note::
+
 	Se você configurar um servidor DNS local para seu domínio local, todas as consultas DNS para seu domínio local serão direcionadas sem regras não tendo autenticação, filtro e registros dessas consultas.
 
 
 DNS > Setup > Dynamic DNS
 *************************
+
  NxFilter suporta o serviço de DNS dinâmico. Para saber como leia,'Servidor DNS Dinâmico' nesse mesmo tutorial.
 
 DNS > Zone File
@@ -70,4 +81,5 @@ DNS > Zone File
 
 DNS > Redirection
 *****************
+
  Redirecionamento Domínio para IP ou domínio para domínio é possivel de ser feito com NxFilter. Ele funciona como um registro DNS alterado.
