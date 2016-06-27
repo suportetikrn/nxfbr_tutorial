@@ -14,5 +14,6 @@ Agentes funcionais do NxFilter
    working_agent/agent_nxupdate.rst
    working_agent/agent_application_control.rst
    working_agent/agent_proxy.rst
+   working_agent/agent_install_mac.rst
    working_agent/agent_nxblock.rst
    
