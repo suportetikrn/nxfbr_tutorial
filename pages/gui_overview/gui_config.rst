@@ -7,42 +7,47 @@ GUI - Config
 Config > Setup > Block and Authentication
 *****************************************
 
-- Block Redirection IP
+.. envvar:: Block Redirection IP
+
   É o endereço IP do próprio NxFilter. Se houver alguma requisição de um domínio bloqueado, ele será redirecionado para este endereço IP. Geralmente ele é preenchido automáticamente durante o processo de instalação.
 
 .. note::
   Para adicionar mais de um endereço IP separe-os por vírgulas. Isso pode ser usado em caso de redundância ou cluster.
 
-- External Redirection IP
+.. envvar:: External Redirection IP
 
-Quando usar um agente remoto para filtrar requisições DNS ( como o NxClient ) você pode precisar usar um IP diferente do inserido em `Block Redirection IP` para casos onde o agente esteja sendo executado fora da sua rede. Deixando esse campo vazio o sistema usará mesmo registrado em `Block Redirection IP` para redirecionar requisições do agente remoto
+   Quando usar um agente remoto para filtrar requisições DNS ( como o NxClient ) você pode precisar usar um IP diferente do inserido em `Block Redirection IP` para casos onde o agente esteja sendo executado fora da sua rede. Deixando esse campo vazio o sistema usará mesmo registrado em `Block Redirection IP` para redirecionar requisições do agente remoto
 
-- IPv6 Redirection IP
+.. envvar:: IPv6 Redirection IP
 
-É preciso definir esse endereço quando NxFilter é usado como servidor DNS na rede IPv6.
+  É preciso definir esse endereço quando NxFilter é usado como servidor DNS na rede IPv6.
 
-- Enable Authentication
+.. envvar:: Enable Authentication
 
- Essa opção deve ser ativada quando é utilizado algum método de autenticação, inclusive Autenticação vinculada a IP. Após habilitar está opção, qualquer usuário ainda não autenticado será direcionado para a página de login. Desse modo só conseguirão navegar na internet após se autenticar.
+ Essa opção deve ser ativada quando é utilizado algum método de autenticação, inclusive Autenticação vinculada a IP. 
 
-- Login Domain
+ Após habilitar está opção, qualquer usuário ainda não autenticado será direcionado para a página de login. Desse modo só conseguirão navegar na internet após se autenticar.
 
-URL para a página de login.
+.. envvar:: Login Domain
+
+ URL para a página de login.
 
 .. note::
   ex) login.nxfilter.org
 
-- Logout Domain
+.. envvar:: Logout Domain
 
-URL para forçar o término da sessão do usuário.
+  URL para forçar o término da sessão do usuário.
 
 .. note::
 
   ex) logout.nxfilter.org
 
-- Login Session TTL
+.. envvar:: Login Session TTL
 
-NxFilter mantém a sessão do usuário por um tempo determinado. Isso pode ser necessário para casos em que o computador seja compartilhado com outras pessoas, desse modo não haverá requisições DNS por um determinado tempo. Atingindo o tempo definido nesse parâmetro a sessão do usuário expira e ele precisará se autenticar novamente.
+  NxFilter mantém a sessão do usuário por um tempo determinado. Isso pode ser necessário para casos em que o computador seja compartilhado com outras pessoas, desse modo não haverá requisições DNS por um determinado tempo. 
+
+  Atingindo o tempo definido nesse parâmetro a sessão do usuário expira e ele precisará se autenticar novamente.
 
 Config > Setup > Syslog
 ***********************
@@ -50,17 +55,17 @@ Config > Setup > Syslog
 O NxFilter permite que se exporte os registros para um Servidor Syslog. Você pode montar seu próprio sistema de relatórios ou pode monitorar todos os registros em real-time.
 
 
-- Syslog Host
+.. envvar:: Syslog Host
 
-Endereço do servidor para o qual serão enviados os dados.
+  Endereço do servidor para o qual serão enviados os dados.
 
-- Export Blocked Only
+.. envvar:: Export Blocked Only
 
-Enviar somente os registros de bloqueios.
+  Enviar somente os registros de bloqueios.
 
-- Enable Remote Logging
+.. envvar:: Enable Remote Logging
 
-Ativar o envio para o Servidor Syslog definido em `Syslog Host`.
+  Ativar o envio para o Servidor Syslog definido em `Syslog Host`.
 
 Config > Setup > NetFlow
 ************************
@@ -69,52 +74,52 @@ O sistema tem suporte a controle de banda. Isso é possível através da importa
 
 Para mais detalhes leia em `Controle de Banda` neste mesmo tutorial.
 
-- Router IP
+.. envvar:: Router IP
 
-O endereço IP do servidor que enviará os dados NetFlow ao NxFilter.
+  O endereço IP do servidor que enviará os dados NetFlow ao NxFilter.
 
-- Listen Port
+.. envvar:: Listen Port
 
-Porta do coletor NetFlow ( Protocolo UDP ).
+  Porta do coletor NetFlow ( Protocolo UDP ).
 
-- Run Collector
+.. envvar:: Run Collector
 
-Ativar o coletor. Após alterar esse parâmetro é necessário reiniciar o NxFilter.
+  Ativar o coletor. Após alterar esse parâmetro é necessário reiniciar o NxFilter.
 
 Config > Setup > Misc
 ***********************
 
-- Admin Domain
+.. envvar:: Admin Domain
 
-URL para acesso a GUI de administração do NxFilter. Se, por exemplo, você registrar `admin.nxfilter.org` a área de administração será acessível através do endereço `http://admin.nxfilter.org/admin`.
+  URL para acesso a GUI de administração do NxFilter. Se, por exemplo, você registrar `admin.nxfilter.org` a área de administração será acessível através do endereço `http://admin.nxfilter.org/admin`.
 
 .. note::
   
   Isso só funcionará quando você estiver usando o NxFilter como seu servidor DNS. Caso contrário você precisará registrar o domínio em seu próprio servidor DNS.
 
-- Bypass Microsoft Update
+.. envvar:: Bypass Microsoft Update
  
-Caso sua rede tenha estações Windows essa opção permite que os updates não sejam bloqueados. Habilitando esta opção os domínios e subdomínios `microsoft.com`  e `windowsupdate.com` não exigirão autenticação nem será bloqueados.
+  Caso sua rede tenha estações Windows essa opção permite que os updates não sejam bloqueados. Habilitando esta opção os domínios e subdomínios `microsoft.com`  e `windowsupdate.com` não exigirão autenticação nem será bloqueados.
 
-- Logging Retention Period
+.. envvar:: Logging Retention Period
 
-Tempo em que os registros ficarão armazenados.
+  Tempo em que os registros ficarão armazenados.
 
 .. warn::
 
   Períodos muito longos de armazenamento ocupam muito espaço em disco e lentidão na geração de relatórios.
 
-- SSL Only to Admin GUI
+.. envvar:: SSL Only to Admin GUI
 
   Forçar que o acesso a área de administração seja feito apenas através de HTTPS/Página segura. Uma vez que esta opção seja habilitada você será redirecionado para o endereço HTTPS automáticamente, mesmo que esteja colocando o endereço HTTP.
 
-- Auto Backup
+.. envvar:: Auto Backup
 
- Backups são executados todos os dias a '01:00' e ficam gravados na pasta '/nxfilter/backup'. Os arquivos de backup terão o prefixo 'auto-'.
+  Backups são executados todos os dias a '01:00' e ficam gravados na pasta '/nxfilter/backup'. Os arquivos de backup terão o prefixo 'auto-'.
 
-- Agent Policy Update Period
+.. envvar:: Agent Policy Update Period
 
- Os agentes disponibilizados pelo NxFilter baixam suas políticas periodicamente. Essa frequência é determinada por esse parâmetro.
+  Os agentes disponibilizados pelo NxFilter baixam suas políticas periodicamente. Essa frequência é determinada por esse parâmetro.
 
 Config > Admin
 ***************
