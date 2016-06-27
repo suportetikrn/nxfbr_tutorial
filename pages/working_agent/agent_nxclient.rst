@@ -2,17 +2,18 @@
 NxClient e filtro de usuário remoto 
 ************************************
 
-NxFilter prove um aplicativo cliente para filtro em usuário remoto que é o NxClient. Uma vez instalado o NxClient no sistema de usuário você pode filtrar e monitorar o tráfego de Internet daquele usuário em sua GUI NxFilter de modo centralizado independente de sua localização.
+NxFilter provê um aplicativo cliente para filtro em usuário remoto que é o NxClient. Uma vez instalado o NxClient no sistema de usuário você pode filtrar e monitorar o tráfego de Internet daquele usuário em sua GUI NxFilter de modo centralizado independente de sua localização.
 
- .. note::
+.. note::
+
   Você precisa permitir o acesso às portas 53/UDP e 80,443/TCP no(s) servidor(es) NxFilter.
 
 Instalação do NxClient
-************************
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Após instalar o NxClient usando seu instalador, o sistema de configuração estará rodando. Aparecerá um formulário com os campos `Server IP` e `Login Token` e você precisa preenchê-los de acordo com seu ambiente.
 
- .. note::
+.. note::
 
   No NxFilter cada usuário tem um login token. Você pode encontrar esse token em 'User & Group > User > Edit'.
   NxClient é um programa Windows que roda como serviço. Ele iniciará automaticamente com o sistema.
@@ -20,27 +21,30 @@ Após instalar o NxClient usando seu instalador, o sistema de configuração est
 
 Após fazer as devidas modificações e testar sua configuração e assim inicialiizar o sistema, é possível verificar se está funcionando em 'Logging > Signal'. Deverá haver registros do NxClient nesse relatório.
 
- .. note::
+.. note::
+
   É possível adicionar mais de um IP de servidor NxFilter separando por ',' ser você estiver rodando um cluster do NxFilter.
   Para mudar a configuração execute o programa 'C:/Arquivos de Programas/nxclient/setup.exe'.
 
-Signals of NxClient
-*******************
+Sinais do NxClient
+^^^^^^^^^^^^^^^^^^^^^^^
 
-When it comes to a remote user filtering the most tricky part would be how to force users to be filtered. Nobody wants to get filtered and they are away from your office. If they use their personal PC then you can not filter them anyway. But when they use a company laptop you still can filter them by installing NxClient on their system.
+Quando há o interesse em controlar um usuário remoto a parte mais difícil é forçar os usuários a ter o acesso controlado. Ninguém tem interesse em ter o acesso controlado e ainda mais estão afastados da empresa. Se esses seus próprios computadores no trabalho não há como garantir o controle. Porém se o dispositivo for da empresa é possível controlá-lo instalando NxClient no sistema dele.
 
-However what if they uninstall or stop NxClient? NxClient is running as a service and it doesn't provide an uninstaller for 'Add/Remove programs' in control panel. So if your users don't have enough privilege they can't uninstall it.
+Em todo caso o que impede do usuário desinstalar e parar o NxClient? NxClient roda como serviço e não dispõe de um desinstalador em 'Adicionar/Remover programas' no Painel de Controle. Então se seus usuários não tem privilégios de administração e não pode desinstalá-lo.
 
-But sometimes you need to give your users 'Local Administrator' privilege. In that case it's not possible to stop your users from uninstalling NxClient. So we defined several signals with which you can find out what's happening on a user system. NxClient send the following signals.
+Porém em alguns casos é necessário dar o privilégio de 'Administrador Local' a seus usuários. Neste caso não é possível impedir os usuários de removerem o NxClient. 
 
-- START : When NxClient starts it sends START signal to NxFilter.
-- STOP : When NxClient stops it sends STOP signal to NxFilter.
-- PING : On every 5 minutes NxClient sends PING signal to NxFilter.
+Por conta disso foram definidos diversos sinais que podem indicar o que está ocorrendo no sistema. NxCliente envia os seguintes sinais: ::
 
-You can view these signals on 'Logging > Signal' on NxFilter GUI.
+- START : Quando NxClient inicia ele envia esse sinal para o NxFilter.
+- STOP : Quando o NxClient para ele envia esse sinal para o NxFilter.
+- PING : A cada 5 minutos o NxClient envia esse sinal para o NXFilter.
+
+Você pode visualizar esses sinais em 'Logging > Signal' na área de administração do NxFilter.
 
 Fail-safe measure for NxClient
-******************************
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 NxClient needs to update its pollicy from its server that is NxFilter. When NxClient can't connect to its server it bypasses filtering as your users need to be able to use the Internet anyway. You can specify multiple server IP addresses on its setup for redundacy.
 
