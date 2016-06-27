@@ -48,7 +48,7 @@ Você pode definir sua própria ruleset. Ou modificar a ruleset pré-existente. 
 Classified
 ***********
 
-Este é o log resultante da classificação feita pelo NxClassifier. Ele exibirá os domínios classificados recentemte e qual foi a classificação recebida ou não. Baseado no resultado da classificação você pode melhorar sua ruleset.
+Este é o log resultante da classificação feita pelo NxClassifier. Ele exibirá os domínios classificados recentemente e qual foi a classificação recebida ou não. Baseado no resultado da classificação você pode melhorar sua ruleset.
 
 .. note::
   
