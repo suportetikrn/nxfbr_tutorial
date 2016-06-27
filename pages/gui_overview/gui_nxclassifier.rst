@@ -2,37 +2,59 @@
 GUI - NxClassifier
 **********************************
 
-
-We have 'NxClassifier' top menu on GUI. It has the following submenus.
+O NxClassifier tem as seguintes opções nos submenus.
 
 Setup > Classifier Setup
 ************************
 
-- DNS Test Timeout : NxClassifier only classifies the existing domains. So it does DNS testing first when it needs to classify a domain.
-- HTTP Connection Timeout : After DNS testing, now it needs to download a webpage to analyze. This is the connection timeout value for HTTP connection.
-- HTTP Read Timeout : This is the data read timeout value after you have an HTTP connection.
-* If you make these timeout values too big you might have a performance degrading for NxClassifier.
-- Classified Data Retention Days : NxClassifier makes the classification result log for the recently classified websites. NxClassifier doesn't do the classification if it is already classified or if it is in the classification log without an error.
-- Disable Domain Pattern Dic : NxFilter has a domain pattern based calssification process.
-- Disable Classification : You can disable the classification by NxClassifier.
+.. envvar:: DNS Test Timeout
+ 
+  NxClassifier só classifica os domínios existentes/válidos. Então ele primeiro testa o registro DNS antes de classficá-lo.
+
+.. envvar:: HTTP Connection Timeout
+
+  Após testar o registro DNS, a página é baixada no servidor para análise. Este parâmetro define o timeout para a conexão HTTP.
+
+.. envvar:: HTTP Read Timeout
+  
+  Este parâmetro define o timeout para recebimento dos dados referentes a página, é medido após a conexão HTTP
+
+ .. note::
+
+  Se esses timeouts estiverem com valores muito altos você pode ter degradação na performance no momento da execução do NxClassifier.
+
+.. envvar:: Classified Data Retention Days
+ 
+  Este parâmetro define quanto tempo a classificação feita a um site pelo NxClassifier fica armazenada. O NxClassifier armazena os resultados da classificação para os sites mais recentes. O sistema não classifica domínios já categorizados ou que já estejam nos registros de classificação sem qualquer erro.
+
+.. envvar:: Disable Domain Pattern Dic 
+
+ O NxFilter tem um modelo de domínios baseado no processo de classificação
+
+.. envvar:: Disable Classification 
+ 
+ Desabilita a classificação dos domínios pelo NxClassifier.
 
 Setup > Mass Import
 *******************
 
-You use this when you want to import a ruleset file or Jahaslist file exported from another system. It doesn't delete the existing data. But it overwrites the existing data if it is the same one.
+Para importar um arquivo ruleset ou um arquivo Jahaslist exportado de outro sistema. Ele não remove nenhum registro existente mas sobrepõe caso os dados sejam iguais.
 
 Ruleset
 *********
 
-You can define your own ruleset here. Or modify the default ruleset. You can export the ruleset and share it with others.
+Você pode definir sua própria ruleset. Ou modificar a ruleset pré-existente. Você pode exportar a ruleset e compartilhar com outros.
 
 Classified
-*********
+***********
 
-This is the classification result log by NxClassifier. It will show yout the recently classified domains and how they got classified or unclasssified. Based on this classification result you can improve your classification ruleset.
-* With 'VIEW' button you can view the details of the log and with 'TEST' button you do the actual classification process for a domain with your current ruleset.
+Este é o log resultante da classificação feita pelo NxClassifier. Ele exibirá os domínios classificados recentemte e qual foi a classificação recebida ou não. Baseado no resultado da classificação você pode melhorar sua ruleset.
 
- .. note:: If you want to apply a new classification ruleset against the already classified sites use 'RECLASSIFY-ALL' button.
+.. note::
+  
+  Com o botão 'VIEW' você pode visualizar detalhes do log e com o botão 'TEST' você saberá qual a classificação atual.
+
+.. note:: Se deseja aplicar uma nova ruleset de classificação clique em 'RECLASSIFY-ALL' 
 
 Excluded
 *********
