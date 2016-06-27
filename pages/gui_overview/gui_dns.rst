@@ -35,7 +35,11 @@ DNS > Setup > DNS Setup
 
 .. envvar:: Response Cache Size
 
-  NxFilter tem seu próprio cache DNS, que é alimentado a partir do servidor Upstream. Geralmente, quanto maior o cache melhor a performance. Atualmente o NxFilter comporta 200.000 registros e é suficiente para a maioria dos ambientes.
+  NxFilter tem seu próprio cache DNS, que é alimentado a partir do servidor Upstream. Geralmente, quanto maior o cache melhor a performance. 
+
+  .. note ::
+
+    Atualmente o NxFilter comporta 200.000 registros e é suficiente para a maioria dos ambientes.
 
 DNS > Setup > Local DNS 
 ************************
