@@ -46,10 +46,13 @@ Você pode importar usuários e grupos do AD em 'User & GRoup > Active Directory
 Por exemplo, se você tem nas instalações um AD nos seguintes moldes ::
 
  - Controlador de Domínio: 192.168.0.100
+
  - Domínio : nxfilter.local
+
  - Login de Administrador : Administrator
 
 Você definirá os parâmetros dessa forma:
+
 - Host : 192.168.0.100
 - Admin : Administrator@nxfilter.local
 - Password : your-password
