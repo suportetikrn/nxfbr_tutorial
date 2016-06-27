@@ -22,23 +22,41 @@ Propriedades do usuário
 - Work-time Policy : A política que será aplicada quando não estiver em horário livre.
 - Free-time Policy : A política aplicada durante o horário livre. Você pode definir o horário livre em 'Policty- & Rule > Free Time'.
 - Expiration Date : Data em que a conta de usuário expira
-- Login Token : The token for remote user filtering or remote user authentication. It is created when a user created or imported.
-Testing a user
-When you have an LDAP imported user you may have multiple groups and policies for a user. As a result it becomes difficult to figure out which policy a user fall into. To find out which is the 'Applied Policy' for a user, use 'TEST' button on the user list. It fetches the state of a user from NxFilter in real-time way.
-* You can use this test view to find out how much quota or bandwidth consumed by a user or to reset quota or bandwidth for a user.
-Creating a group
-You can create a group on 'User & Group > Group'. After you create a group you can set up a policy for the group by editing its properties. You also can assign members to the group.
-Importing users and groups from Active Directory or OpenLDAP
-You can import users and groups from Active Directory on 'User & Group > Active Directory'. For example, if you have your Active Directory with the following setup.
-- Domain controller : 192.168.0.100
-- Domain : nxfilter.local
-- Admin username : Administrator
-Then you can create an Active Directory importation setup with the following details.
+- Login Token : Token para filtro em usuários remotos ou autenticação dos mesmos. É criado automaticamente quando o usuário é criado ou importado.
+
+Testando um usuário
+*******************
+Quando você tem usuários importados através do LDAP este pode estar cadastrado em diversos grupos e políticas. Como resultado disso fica a dificuldade em determinar que política será aplicada ao mesmo. Para saber que política vem sendo aplicada ao usuário use o botão 'Test' na listagem dos usuários e verifique o campo 'Applied Policy', isso informa os dados do usuário naquele momento.
+
+.. note::
+
+   Você pode usar a visão de teste para verificar também a quota ou o volume de dados utilizado por um determinado usuário ou até resetar esses limites.
+
+Criando um grupo
+*****************
+
+Pode-se criar um grupo em 'User & Group > Group'. Após a criação de um grupo é possível definir uma política para este grupo através da edição de suas propriedade. Nessa mesma área pode também atribuir mebros ao grupo.
+
+
+Importando usuários e grupos a partir do LDAP ou AD
+
+Você pode importar usuários e grupos do AD em 'User & GRoup > Active Directory'. 
+
+Por exemplo, se você tem nas instalações um AD nos seguintes moldes ::
+
+ - Controlador de Domínio: 192.168.0.100
+ - Domínio : nxfilter.local
+ - Login de Administrador : Administrator
+
+Você definirá os parâmetros dessa forma:
 - Host : 192.168.0.100
 - Admin : Administrator@nxfilter.local
 - Password : your-password
 - Base DN : cn=users,dc=nxfilter,dc=local
 - Domain : nxfilter.local
-After having an Active Directory importation setup you can import users and groups with 'IMPORT' button. You also can set up a periodical import by selecting an auto-sync interval.
-* If you want to find out if there is a connectivity issue between NxFilter and your domain controller, use 'TEST' button.
+
+Após ter feito a configuração do AD você pode importar os usuários e grupo clicando em 'IMPORT'. Pode ainda definir que essa definir que a importação seja executada periódicamente selecionando um intervalor de tempo na opção 'auto-sync'.
+
+.. note::
+  Para verificar o funcionamento clique no botão 'TEST'
 
