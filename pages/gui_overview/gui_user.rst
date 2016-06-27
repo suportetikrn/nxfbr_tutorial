@@ -1,6 +1,7 @@
-GUI - User
-^^^^^^^^^^^
-You can create or import users and groups here. NxFilter supports user importation from Active Directory and OpenLDAP.
+GUI - Usuário
+^^^^^^^^^^^^^
+Você pode criar ou importar usuários e grupos nessa área. NxFilter suporta importação de usuários do AD ou OpenLDAP.
+
 
 Criando o usuário
 *****************
