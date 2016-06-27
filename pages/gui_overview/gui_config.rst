@@ -2,26 +2,47 @@
 GUI - Config 
 **********************************
 
-These are mostly system configuration parameters for NxFilter.
+Área com os principais parâmetros de configuração do NxFilter.
 
 Config > Setup > Block and Authentication
 *****************************************
 
 - Block Redirection IP
-This is the IP address of NxFilter itself. If there is a blocked DNS request, it will be redirected to this IP address. It is supposed to be populated automatically during the installation process.
-* You can add multiple block redirection IP addresses separated by commas for redundancy.
+  É o endereço IP do próprio NxFilter. Se houver alguma requisição de um domínio bloqueado, ele será redirecionado para este endereço IP. Geralmente ele é preenchido automáticamente durante o processo de instalação.
+
+.. note::
+  Para adicionar mais de um endereço IP separe-os por vírgulas. Isso pode ser usado em caso de redundância ou cluster.
+
 - External Redirection IP
-When you use a remote filtering agent you might need to use a different 'Block Redirection IP' for the remote filtering agent since it is outside of your network. If you leave this one empty NxFilter will use 'Block Redirection IP' for redirecting the remote filtering agent.
+
+Quando usar um agente remoto para filtrar requisições DNS ( como o NxClient ) você pode precisar usar um IP diferente do inserido em `Block Redirection IP` para casos onde o agente esteja sendo executado fora da sua rede. Deixando esse campo vazio o sistema usará mesmo registrado em `Block Redirection IP` para redirecionar requisições do agente remoto
+
 - IPv6 Redirection IP
-You need to set this up when you use NxFilter as your IPv6 network DNS server.
+
+É preciso definir esse endereço quando NxFilter é usado como servidor DNS na rede IPv6.
+
 - Enable Authentication
-This option is required when you use any authentication methods including IP based authentication. After you enable this option, any unauthenticated user will be redirected to NxFilter's login-page. As a result your users will be forced to login to use the Internet.
+
+ Essa opção deve ser ativada quando é utilizado algum método de autenticação, inclusive Autenticação vinculada a IP. Após habilitar está opção, qualquer usuário ainda não autenticado será direcionado para a página de login. Desse modo só conseguirão navegar na internet após se autenticar.
+
 - Login Domain
-You can access NxFilter's login-page using a domain defined here.
+
+URL para a página de login.
+
+.. note::
+  ex) login.nxfilter.org
+
 - Logout Domain
-You can clear out a user login session using a domain defined here.
+
+URL para forçar o término da sessão do usuário.
+
+.. note::
+
+  ex) logout.nxfilter.org
+
 - Login Session TTL
-NxFilter keeps a login session after a user login. But this login session needs to be expired eventually. It is especially required when there is a shared PC by several users. If a user doesn't make any DNS request for the specified amount of time defined here, his/her login session expires and the user needs to login again.
+
+NxFilter mantém a sessão do usuário por um tempo determinado. Isso pode ser necessário para casos em que o computador seja compartilhado com outras pessoas, desse modo não haverá requisições DNS por um determinado tempo. Atingindo o tempo definido nesse parâmetro a sessão do usuário expira e ele precisará se autenticar novamente.
 
 Config > Setup > Syslog
 ***********************
