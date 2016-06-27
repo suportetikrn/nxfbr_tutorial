@@ -59,9 +59,11 @@ Este é o log resultante da classificação feita pelo NxClassifier. Ele exibir�
 Excluded
 *********
 
-We exclude the domains making certain errors during the classification process. For example, if we have 403 response from a website we don't need to try to classify it as we can't access the website. Or if we get an image file or some other type of file instead of a text or HTML file we will exclude it.
+São os domínios que durante o processo de classificação apresentaram algum erro. Por exemplo, se for recebido o código 403 de um website em processo de classificação não há por que tentar classificá-lo pois se entende que o site está fora do ar. Ou se ao invés de receber um texto ou arquivo HTML receber arquivos que fogem desse padrão ele também será excluído.
 
- .. note:: Since we don't delete these excluded domains if you want to have NxClassifier trying to classify an excluded domain you would need to delete it from the list first.
+.. warn:: 
+  
+ Os domínios excluídos não são removidos da lista, caso haja interesse que o NxClassifier tente classficar um domínio que tenha sido excluído é preciso removê-lo da lista antes.
 
 Jahaslist
 *********
