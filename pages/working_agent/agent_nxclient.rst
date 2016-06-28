@@ -43,15 +43,15 @@ Por conta disso foram definidos diversos sinais que podem indicar o que está oc
 
 Você pode visualizar esses sinais em 'Logging > Signal' na área de administração do NxFilter.
 
-Fail-safe measure for NxClient
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Medidas de segurança para o NxClient
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-NxClient needs to update its pollicy from its server that is NxFilter. When NxClient can't connect to its server it bypasses filtering as your users need to be able to use the Internet anyway. You can specify multiple server IP addresses on its setup for redundacy.
+O NxClient precisa de conectar ao NxFilter para atualizar as políticas e regras. Quando o NxClient não consegue se conectar ao servidor NxFilter ele faz um bypass nas regras de acesso, afinal seus usuários precisarão acessar a internet de qualquer forma. É possível especificar múltiplos endereços de IP dos servidores NxFilter na configuração do NxCliente  visando redundância.
 
-Auto-switch between local filtering and remote filtering
-********************************************************
+Alteração automática entre filtro local ou remoto
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When you use NxClient on your mobile worker's laptop you might have a problem with your filtering policy when they are staying in the office. Your mobile worker might be filtered twice. One from NxClient, one from your local NxFilter. And he/she might be required to go through the login-page of NxFilter.
+Quando você usa o NxClient em notebook da empresa você pode ter problemas com as políticas de controle de acesso quando estiver na empresa. Seu notebook pode ser controlado duas vezes, uma pelo NxClient e outra pelo NxFilter. E o funcionário pode acabar sendo forçado a seu autenticar no NxFilter.
 
 To address this issue NxClient does auto-switch between local filtering and remote filtering. This means that NxClient can find NxFilter in a local network and when it is on your local network it stops its proxy filtering. Plus, it has its own NxLogon module doing single sign-on in your local network.
 
