@@ -21,5 +21,5 @@ Quando se faz necessário permitir o acesso de um usuário qualquer sem que este
 
 Mas você pode desejar distinguir os usuários fazendo a associação através de um único IP ou Sessão por IP. Então o vínculo ao range de IPs é aplicado por último.
 
-Então temos a ideia de que 'Se aplica primeiro o range mais próximo'. Se houver faixas de IP cadastradas, quando menor a faixa maior a prioridade de aplicação antes das outras faixas.
+Então temos a ideia de que 'Se aplica primeiro o range mais próximo'. Se houver faixas de IP cadastradas, quanto menor a faixa maior a prioridade de aplicação antes das outras faixas.
 
