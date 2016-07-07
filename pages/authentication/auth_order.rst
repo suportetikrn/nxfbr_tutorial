@@ -17,7 +17,9 @@ Sessão por IP é o login sendo criado e mantido no NxFilter através de SSO ou 
  
 3. IP range association 
 
-When you need to allow an anonymous user to access the Internet without any login process you create an IP range user to cover whole your network. But you still want to differentiate users by single IP association or the login session. So the IP range association comes at last.
+Quando se faz necessário permitir o acesso de um usuário qualquer sem que este precise se autenticar você pode criar/associar o mesmo a uma faixa de IPs que cubra toda a sua rede. 
 
-We have 'Most specific IP range comes first' rule for ordering IP range users. If there are overlapped IP ranges the smaller IP range will be applied before the others.
+Mas você pode desejar distinguir os usuários fazendo a associação através de um único IP ou através da autenticação. Então o vínculo ao range de IPs é aplicado por último.
+
+Então temos a ideia de que 'Se aplica primeiro o range mais próximo'. Se houver faixas de IP cadastradas, quando menor a faixa maior a prioridade de aplicação antes das outras faixas.
 
