@@ -1,15 +1,16 @@
 NxUpdate e atualização dinâmica de IP
 **************************************
 
-When you have a client system using dynamic IP address and you want to associate its IP address to a specific user you can install NxUpdate on the system. It will update the user's associated IP address on NxFilter.
-NxUpdate has basically the same structure with NxClient. You can install it in the same way as NxClient.
+Para casos em que se tem um cliente que usa IPs dinâmicos e ainda sim se deseja associar esse IP a um determinado usuário, você pode instalar o NxUpdate no sistema. Ele irá atualizar os IP's associados ao usuário no NxFilter.
+
+NxUpdate tem, basicamente, a mesma estrutura do NxClient. Você pode instalá-lo do mesmo modo que instalaria o NxClient.
 
 .. note:: 
-  It sends START, STOP and IPUPDATE signals.
+  
+  Ele envia os sinais: START, STOP e IPUPDATE.
 
-  NxUpdate can be working as a dynamic DNS client for NxFilter.
+  NxUPDATE pode trabalhar como um cliente de DNS dinâmico para o NxFilter.
 
-Writing your own NxUpdate
 Escrevendo seu próprio NxUpdate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
