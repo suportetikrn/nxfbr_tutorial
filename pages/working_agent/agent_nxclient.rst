@@ -46,41 +46,57 @@ Você pode visualizar esses sinais em 'Logging > Signal' na área de administra�
 Medidas de segurança para o NxClient
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-O NxClient precisa de conectar ao NxFilter para atualizar as políticas e regras. Quando o NxClient não consegue se conectar ao servidor NxFilter ele faz um bypass nas regras de acesso, afinal seus usuários precisarão acessar a internet de qualquer forma. É possível especificar múltiplos endereços de IP dos servidores NxFilter na configuração do NxCliente  visando redundância.
+O NxClient precisa se conectar ao NxFilter para atualizar as políticas e regras. Quando o NxClient não consegue se conectar ao servidor NxFilter ele faz um bypass nas regras de acesso, afinal seus usuários precisarão acessar a internet de qualquer forma. É possível especificar múltiplos endereços de IP dos servidores NxFilter na configuração do NxCliente  visando redundância.
 
 Alteração automática entre filtro local ou remoto
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Quando você usa o NxClient em notebook da empresa você pode ter problemas com as políticas de controle de acesso quando estiver na empresa. Seu notebook pode ser controlado duas vezes, uma pelo NxClient e outra pelo NxFilter. E o funcionário pode acabar sendo forçado a seu autenticar no NxFilter.
+Quando você usa o NxClient no notebook da empresa você pode ter problemas com as políticas de controle de acesso quando estiver na empresa. Seu notebook pode ser controlado duas vezes, uma pelo NxClient e outra pelo NxFilter. E o funcionário pode acabar sendo forçado a seu autenticar no NxFilter.
 
-To address this issue NxClient does auto-switch between local filtering and remote filtering. This means that NxClient can find NxFilter in a local network and when it is on your local network it stops its proxy filtering. Plus, it has its own NxLogon module doing single sign-on in your local network.
+Para resolver estas questões o NxClient faz a mudança automáticamente entre fazer o filtro local ou remoto. Isso signigica que o NxClient pode localizar o servidor NxFilter na rede local e quando consegue ele desativa o proxy. E mais, ele ainda tem seu próprio módulo NxLogon o que permite que seja feito o Single Sign-On na rede local.
 
  .. warning:: 
-  If you don't like this auto-switch behavior you can add 'no_switch = 1' into 'C:/Program Files/nxclient/conf/cfg.properties'.
+  
+  Caso não ache interessante a mudança automática você pode adicionar o seguinte parâmetro no arquivo de configuração '' cfg.properties ''
 
-Uninstalling NxClient
+   ``no_swith = 1``
+
+Removendo o NxClient
 *********************
 
-Para evitar uma desinstalação acTo prevent an accidental uninstallation by your user, NxClient doesn't provide an uninstaller for 'Add/Remove programs' in control panel. When you uninstall NxClient you need to do it manually with the following commands.
-- Run 'C:/Program Files/nxclient/bin/unstsvc.bat'.
-- Delete 'C:/Program Files/nxclient' folder.
+Para evitar uma desinstalação acidental feita pelo próprio usuário, o NxClient não provê um módulo de remoção em 'Adicionar/Remover programas' no Painel de Controle. Quando você decidir desinstalar o NxClient você precisará fazê-lo manualmente com os seguintes comandos.
 
-Silent install
-**************
+ # Rode 'C:/Program Files/nxclient/bin/unstsvc.bat'.
+
+ # Apague o diretório 'C:/Program Files/nxclient'.
+
+Instalação silenciosa
+**********************
 
 Some people want to install NxClient on multiple PCs using GPO or PDQ deployment. For this, we have the silent install option for NxClient.
 
-For silent install,
+Em alguns casos pode ser interessante instalar o NxClient em diversos terminais de trabalho usando GPO or publicação PDQ. Para isso nos podemos usar a opção de instalação em modo silencioso do NxClient.
 
-  /silent : Runs the installer in silent mode (The progress window is displayed).
-  /verysilent : Very silent mode. No windows are displayed.
+Para fazê-lo,
 
-And you can specify 'Server IP' and 'Login Token',
+  /silent : Executa o instalar no modo silencioso ( A janela de progresso é exibida ).
+
+  /verysilent : Nada é exibido.
+
+E ainda é possível passar como parâmetro o 'IP do servidor' e/ou o 'Login Token'.
+
   /server=192.168.0.100
+
   /token=2P1WQ6VF
 
-This is the final form of the command.
+Por exemplo:
+
    nxclient-6.0-win.exe /silent /server=192.168.0.102 /token=2P1WQ6VF
-* You can build your own MSI package using MSP wrapper from http://www.exemsi.com.
-* When you install Java silently as a prerequisite for NxClient it might not be starting. This is mostly because when you install Java silently it doesn't set 'PATH' environment variable for itself.
+
+.. note::
+
+  Você pode criar seu próprio pacote MSI usando o MSP wrapper disponível em http://www.exemsi.com.
+
+  Quando você instala o Java no modo silencioso/discreto ( já que ele também é um pre-requisito para o NxClient ), o NxClient pode não funcionar, isso por que instalando o Java nesse modo as vezes faz com que ele não sete o caminho para sua instalação em ``PATH``
+
 
