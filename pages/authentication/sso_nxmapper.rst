@@ -29,7 +29,8 @@ Diferença de uso com o NxLogon
  A sessão criada com o NxMapper pode expirar. Enquanto que o NxLogon atualiza as informações da sessão a todo minuto, NxMapper cria ou atualiza somente quando o usuário faz algo no controlado de domínio. Uma vez que a sessão expira os usuários serão redirecionados para a tela de login do NxFilter. Para evitar que isso ocorra você pode aumentar o tempo da sessão em `Config > Setup > Block and Authentication > Login session TTL`.
 
 .. note::
-  It can be expired as NxMapper doesn't refresh it. But as long as there is an activity from a user NxFilter refreshes the login session. It usually expires when a user returned to his/her desk from a long break.
+
+  A sessão pode expirar já que o NxMapper não a atualiza. Mas enquanto houver atividade ( consulta de DNS ) o NxFilter renovará a sessão. Ela só chegará a expirar em casos como quando o usuário faz uma grande pausa no uso do terminal de trabalho.
 
 Terminal server exclusion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
