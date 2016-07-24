@@ -59,7 +59,7 @@ Para resolver estas questões o NxClient faz a mudança automáticamente entre f
   
   Caso não ache interessante a mudança automática você pode adicionar o seguinte parâmetro no arquivo de configuração '' cfg.properties ''
 
-   ``no_swith = 1``
+   ``no_switch = 1``
 
 Removendo o NxClient
 *********************
