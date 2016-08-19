@@ -28,7 +28,7 @@ Você pode criar seu próprio repositório para esta atualização remota. Ele �
 
 Atualmente esse é o formato usado para arquivos importados ou exportados da Jahaslist na GUI. Então é permitido compartilhar esse arquivo exportado.
 
-.. warn ::
+.. alert ::
   
  - Arquivos textos podem conter ae 100.000 domínios.
 
