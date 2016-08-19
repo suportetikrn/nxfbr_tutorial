@@ -10,7 +10,7 @@ Você pode criar seu próprio repositório para esta atualização remota. Ele �
 
  Ao adicionar a URL indicando o arquivo de atualização em `NxClassifier > Setup > Jahaslist Repository`, o NxFilter fará o download e buscará atualizações para a Jahaslist. Esse processo será executado em dois momentos: ao reiniciar o NxFilter e uma vez a noite. O processo de atualização roda em paralelo com o NxFilter desde modo não haverá prejuízo para sua funcionalidade padrão ( os filtros de DNS ) enquanto ele executa a atualização.
 
- .. note ::
+ .. note::
 
   Você pode adicionar mais de um repositório separados por linhas.
 
@@ -28,7 +28,7 @@ Você pode criar seu próprio repositório para esta atualização remota. Ele �
 
 Atualmente esse é o formato usado para arquivos importados ou exportados da Jahaslist na GUI. Então é permitido compartilhar esse arquivo exportado.
 
-.. alert ::
+.. alert::
   
  - Arquivos textos podem conter ae 100.000 domínios.
 
