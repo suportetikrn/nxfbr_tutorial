@@ -10,6 +10,7 @@ A forma mais rápida de iniciar o uso de NxFilter é seguindo esses passos
    :titlesonly:
 
    getting_started/sys_req.rst
+   getting_started/install_wich.rst
    getting_started/install.rst
    getting_started/start_stop.rst
    getting_started/client.rst
