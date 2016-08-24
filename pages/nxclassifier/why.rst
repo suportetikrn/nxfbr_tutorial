@@ -1,5 +1,5 @@
 *****************************
-Pot que usar o NxClassifier?
+Por que usar o NxClassifier?
 *****************************
 
 Há duas formas que podem ser usadas como método de Classificação para montar uma lista.
