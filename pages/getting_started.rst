@@ -11,6 +11,7 @@ A forma mais rápida de iniciar o uso de NxFilter é seguindo esses passos
 
    getting_started/sys_req.rst
    getting_started/install.rst
+   getting_started/update_nxfilter.rst
    getting_started/start_stop.rst
    getting_started/client.rst
    getting_started/ad_integration.rst
