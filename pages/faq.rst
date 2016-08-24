@@ -6,8 +6,8 @@ FAQ
 
 Perguntas frequentes sobre o NxFilter
 
-Posso burlar o NxFilter usando endereço IP para acessar sites
-**************************************************************
+Posso burlar o NxFilter usando endereço IP para acessar sites?
+***************************************************************
 Existem casos de pessoas dizendo que filtros DNS não são práticos por poder se acessar um website usando seu endereço IP. Esta é uma afirmação nem sempre é correta. Atualmente muitos servidores de sites estão rodando com Virtual Host, deste modo diversos sites respondem no mesmo endereço IP. Por isso nem sempre é possível acessar sites diretamente sem usar o respectivo domínio.
 
 Outra coisa para se ter em mente é que existem muitas URLs em uma página só ( endereço de css, endereço de imagem, etc... ). Isso se aplica mais ainda se estivermos falando de algum portal. E essas URLS são baseadas em endereço DNS. É como se você pudesse tentar acessar um site bloqueado usando IP porém o que você obtem é uma página com erros.
