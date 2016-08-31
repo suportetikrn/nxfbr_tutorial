@@ -1,10 +1,11 @@
 Instalando no Debian 
 --------------------------------
 
-É disponibilizado o pacote 'deb' para o Ubuntu Linux na área de Downloads.
-Para instalá-lo, primeiro instale o Java. Baixo o pacote através do comando ``wget`` e então instale usando o comando ``dpkg``. Feito isso bastará iniciá-lo usando o script instalado através com o pacote.::
+É disponibilizado o pacote 'deb' para o Ubuntu/Debian Linux na área de Downloads.
+Para instalá-lo, primeiro instale o Java e o Sudo. Baixo o pacote através do comando ``wget`` e então instale usando o comando ``dpkg``. Feito isso bastará iniciá-lo usando o script instalado através com o pacote.::
 
-  $ sudo apt-get install openjdk-7-jre 
+  $ su - root
+  $ apt-get install openjdk-7-jre sudo
   $ wget http://www.nxfilter.org/download/nxfilter-3.4.2.deb
   $ sudo dpkg -i nxfilter-3.4.2.deb
   $ start nxfilter
