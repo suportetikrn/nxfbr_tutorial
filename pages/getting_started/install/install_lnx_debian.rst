@@ -10,7 +10,7 @@ Para instalá-lo, primeiro instale o Java e o Sudo. Baixo o pacote através do c
   $ sudo dpkg -i nxfilter-3.4.2.deb
   $ start nxfilter
 
-Seu sistema Debian pode estar usando Systemd invés de Upstart. O script do Systemd também estará instalado. Execute os seguintes comandos para habilitar o script e parar/iniciar o serviço NxFilter.
+Seu sistema Debian pode estar usando Systemd invés de Upstart. O script do Systemd também estará instalado. Execute os seguintes comandos para habilitar o script e parar/iniciar o serviço NxFilter.::
 
    $ sudo systemctl enable nxfilter.service
    $ sudo systemctl start nxfilter.service
