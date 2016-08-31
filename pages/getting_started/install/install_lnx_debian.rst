@@ -28,7 +28,7 @@ O procedimento de atualização é bem simples, garanta que o serviço do NxFilt
    $ sudo dpkg -i nxfilter-3.4.2.deb
    $ sudo systemctl start nxfilter.service
 
-Seu sistema Debian pode estar usando Systemd invés de Upstart. O script do Systemd também estará instalado. Execute os seguintes comandos para habilitar o script e parar/iniciar o serviço NxFilter.
+Seu sistema Debian pode estar usando Systemd invés de Upstart. O script do Systemd também estará instalado. Execute os seguintes comandos para habilitar o script e parar/iniciar o serviço NxFilter.::
 
    $ sudo systemctl enable nxfilter.service
    $ sudo systemctl start nxfilter.service
