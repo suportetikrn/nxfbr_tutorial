@@ -10,6 +10,7 @@ Instalando o NxFilter
 
    install/install_wich.rst
    install/install_win.rst
+   install/install_lnx_debian.rst
    install/install_lnx_ubuntu.rst
    install/install_lnx_alpine.rst
    install/install_lnx.rst
