@@ -41,7 +41,7 @@ NxFilter é, em sua essência, um filtro DNS então o formato de registro de log
 - chrome.exe.pname.app : Chrome foi bloqueado através do nome do processo.
 - Skype.title.app : Skype foi bloqueado com base no título da aplicação.
 
-.. note::
+.. alert::
  
    Quando você ativa o parâmetro ''Block UltraSurf'' e existem extensões do UltraSurf no Chrome ou há outras extensões para proxy instalados, o NxClient mata o processo e registra o sinal ''ultrasurf.chrome.app''.
 
