@@ -47,20 +47,24 @@ Identificação do usuário
 
 Para identificar os usuários são usados o token e a conta do Google. Suponhamos que tenha sido criado um usuário com o nome `estudante` no NxFilter e foram configurados 10 NxBlock com o mesmo token desde usuário. Se nenhum dos usuários se autenticarem no Chrome ( na autenticação do Google ) eles aparecerão nos registros do NxFilter como `estudante` porém se um deles se autenticar no Chrome usando `zedosanzois@gmail.com` - por exemplo - então ele/ela aparecerá como `estudante_zedosanzois` no log do NxFilter.
 
-Central configuration for mass installation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuração centralizada para instalação em massa
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When you do mass installation for NxBlock the problem is that you don't want to set up its connection parameters one by one. If you just use it as a single sign-on agent in your local network it might be fine without the connection parameters but if you want to use it for remote filtering you must set these parameters.
-To solve this problem, we have a way for setting up these values centrally. We use a webpage and Chrome's start page function for this. Simply speaking, you write a webpage containing these config values and then make that webpage to be Chrome's start page on Google admin console. Then everytime your users start their Chrome they will set up themselves with the values.
-When you write the webpage you add a meta tag like the followings,
-<meta name='nxblock' content='192.168.0.100:HW00IYKW:1'>
+Ao fazer uma instalação em massa do NxBlock o problema é que você não terá interesse em configurar os parâmetros necessários um a um. Se você usar somente o agente SSO em sua rede local poderia até ser bom sem os parâmetros de conexão, mas se você deseja usá-lo como filtro remote você precisa definir esses parâmetros.
 
-We have 3 parameters separated by colons. The first one is NxFilter's IP address and the second one is a login token and the last one is about locking or unlocking Chrome's extension setup page.
+Para resolver esse problema, nós temos uma alternativa, uma forma de configurar esses valores de modo centralizado. Nós usamos uma pagina web e a função de página de inicialização do Chrome para isto.
 
-On Google admin side,
+Falando de forma objetiva, você irá criar uma página web contendo os valores de configuração e então fazer com que está página seja a página inicial do Chrome. Então toda vez que seus usuários abrirem seus browsers eles serão configurados com estes valores.
 
- #. From the main dashboard, go to Device Management > Chrome > User Settings.
- #. Select the organizational unit to which you want the settings to apply.
- #. Find 'Pages to Load on Startup'.
- #. Enter the URL for the web page containing NxBlock configuration meta tag.
- #. Click the 'Save Changes' button.
+Ao criar a página web você adicione a meta tag descrita a seguir, ::
+  <meta name='nxblock' content='192.168.0.100:HW00IYKW:1'>
+
+Há 3 parâmetros separados por vírgulas. O primeiro é o IP do servidor NxFilter e o segundo é o token de login e o último é sobre bloquear ou não o acesso a página de configuração de extensão do Chrome.
+
+No lado do Google Admin - para configurar a página inicial,
+
+ #. No dashboard, vá em Gerenciamento de Dispositivo > Chrome > Configurações do Usuário
+ #. Selecione a unidade organizacional onde serão aplicadas as configurações.
+ #. Localize 'Páginas para carregar na inicialização'.
+ #. Insira a URL para página web que contém a tag de configuração do NxBlock.
+ #. Clique em `Salvar alterações`.
