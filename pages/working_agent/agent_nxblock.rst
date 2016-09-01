@@ -66,6 +66,6 @@ No lado do Google Admin - para configurar a página inicial,
 
  #. No dashboard, vá em Gerenciamento de Dispositivo > Chrome > Configurações do Usuário
  #. Selecione a unidade organizacional onde serão aplicadas as configurações.
- #. Localize 'Páginas para carregar na inicialização'.
+ #. Localize `Páginas para carregar na inicialização`.
  #. Insira a URL para página web que contém a tag de configuração do NxBlock.
  #. Clique em `Salvar alterações`.
