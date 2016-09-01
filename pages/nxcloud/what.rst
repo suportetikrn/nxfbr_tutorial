@@ -95,8 +95,9 @@ Você só precisará mudar as páginas JSP em `/nxcloud/webapps`. Esses arquivos
 
 
 Ex.:: 
- Menu ( Operator > Operator - Edit )
 
- operator,operator_edit.jsp
+  Menu ( Operator > Operator - Edit )
+
+  Arquivo operator,operator_edit.jsp
    
 
