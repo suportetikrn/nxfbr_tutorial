@@ -45,7 +45,7 @@ Uma vez que tenha sido definida a senha e esta tenha sido ativada, os usuários 
 Identificação do usuário
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We use login token and Google account to identify users. Suppose you create a user named 'student' and setup 10 NxBlock with the login token associated to 'student'. If these users don't login to Chrome they will be appeared on NxFilter side as 'student' but if one of them login to Chrome using 'john1234@gmail.com' for example, then he/she will be appeared as 'student_john1234' on NxFilter log view.
+Para identificar os usuários são usados o token e a conta do Google. Suponhamos que tenha sido criado um usuário com o nome `estudante` no NxFilter e foram configurados 10 NxBlock com o mesmo token desde usuário. Se nenhum dos usuários se autenticarem no Chrome ( na autenticação do Google ) eles aparecerão nos registros do NxFilter como `estudante` porém se um deles se autenticar no Chrome usando `zedosanzois@gmail.com` - por exemplo - então ele/ela aparecerá como `estudante_zedosanzois` no log do NxFilter.
 
 Central configuration for mass installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
