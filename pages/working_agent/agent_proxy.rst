@@ -5,7 +5,7 @@ Proxy filter com NxClient
 NxClient tem módulo de proxy local para filtro em protocolo HTTP.
 
 Como funciona?
---------------
+^^^^^^^^^^^^^^^
 
 Antes de qualquer coisa defina sua política de filtragem em ``Policy & Rule > Proxy Filtering``. Após iniciar o NxClient no sistema do usuário ele irá filtrar o tráfego HTTP definindo ele mesmo como um servidor proxy local. NxClient coleta as políticas/regras de filtro do proxy de tempos em tempos, definido de acordo com o parâmetro ``Agent Policy Update Period`` em ``Config > Setup``.
 
