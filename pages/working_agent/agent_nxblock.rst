@@ -20,26 +20,30 @@ NxBlock é basicamente uma extensão do Chrome. Você pode instala-lo a partir d
 Política de filtro do NxBlock
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-NxBlock shares the policy on 'Policy & Rule > Proxy Filtering' with the other proxy filtering agents. It updates its policy on every 120 seconds.
+NxBlock compartilha a política em ``Policy & Rule > Proxy Filtering`` com os outros agentes de filtro proxy. Ele sincorniza a política a cada 120 segundos.
 
-Connection to NxFilter
+Conexão com o NxFilter
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-After you install it, you can see NxBlock on your extension setup panel of Chrome or 'chrome://extensions'. There is 'options' link under NxBlock icon. When you click the icon you will be on NxBlock setup page. You need to set up these parameters.
-- Sever IP : The IP address of your NxFilter.
-- Login Token : A login token associated to a user on NxFilter.
-Once you set up these parameters you can test the connectivity using 'Test' button. And then use 'Save' button to save and reload the new configuration.
+Depois de instalar, você verá o NxBlock na área de extensões no painel de configurações do Chrome ou `chrome://extensions`. Abaixo do ícone do  NxBlock tem o link `opções`.Ao clicar no link você verá a página de configuração do NxBlock. Você precisa definir os seguinte parâmetros:
+ - Sever IP : O endereço IP do NxFilter.
+ - Login Token : A chave token definida para o usuário no NxFilter.
 
-Password protection of your setup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Uma vez que esses parâmetros tenham sido configurados você pode testar a conectividade com o servidor NxFilter clicando no botão `Test`. E então clique em `Save` e abra novamente o Chome para receber a nova configuração.
 
-You can hide your NxBlock setup page from your users by having password login procedure. Once you set up a password and enable it, the users will be blocked from accessing NxBlock setup page and 'chrome://extension'.
+Protegendo a configuração com senha
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Você pode ocultar a área de configuração do NxBlock de seus usuários através de uma senha de autenticação.
+
+Uma vez que tenha sido definida a senha e esta tenha sido ativada, os usuários serão impedidos de acessar a página de configuração do NxBlock e 'chrome://extension'.
+
 .. note::
 
-   You can use your client password from NxFilter to access NxBlock setup page once its connection to server is established.
+   Você pode usar a senha de cliente do NxFilter para acessar a configuração do NxBlock uma vez que ele tenha se conectado ao servidor.
 
-User identification
-^^^^^^^^^^^^^^^^^^^^^
+Identificação do usuário
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We use login token and Google account to identify users. Suppose you create a user named 'student' and setup 10 NxBlock with the login token associated to 'student'. If these users don't login to Chrome they will be appeared on NxFilter side as 'student' but if one of them login to Chrome using 'john1234@gmail.com' for example, then he/she will be appeared as 'student_john1234' on NxFilter log view.
 
