@@ -13,3 +13,4 @@ NxCloud
    nxcloud/diff.rst
    nxcloud/home.rst
    nxcloud/billing.rst
+   nxcloud/relay.rst
