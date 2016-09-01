@@ -89,4 +89,14 @@ NxCloud suporta NxRelay que é um servidor de DNS relay instalado por trás de u
 Padronização/Customização da GUI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-É uma camda da GUI que é feita para uma fácil customização. A camada da GUI é separada da parte principal do software. Você precisará mudar todas as páginas JSP em `/nxcloud/webapps`. Esses arquivos JSP seguem um padrão de nome correspondente a estrutura de menus da GUI. Então é fácil de encontrar a funcionalidade de cada arquivo que precisa ser modificado.
+É uma camda da GUI que é feita para uma fácil customização. A camada de visualização ou seja da GUI é separada da parte principal do software. 
+
+Você só precisará mudar as páginas JSP em `/nxcloud/webapps`. Esses arquivos/páginas JSP seguem um padrão de nome correspondente a sua funcionalidade/estrutura descrita no menu da GUI. Então é fácil de encontrar a funcionalidade de cada arquivo que precisa ser modificado.
+
+
+Ex.:: 
+ Menu ( Operator > Operator - Edit )
+
+ operator,operator_edit.jsp
+   
+
