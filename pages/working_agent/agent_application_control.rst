@@ -24,16 +24,26 @@ Opções suportadas
 
 2. Bloquear por nome do processo
 
-  Você pode 
-You can block a process running by its name. This works based on keyword matching against process name. You can add the blocked keywords on GUI and If your agent finds the matching process name it will block the process.
-Enable application control only for specific users
-Basically the application control of NxFilter supposed to be a global policy. When you want to disable it for some user use 'Disable Application Control' option on 'Policy & Rule > Policy > EDIT'.
-Logging blocked application
-NxFilter is basically a DNS filter so its log data format was designed for showing the allowed/blocked domains. To accommodate the log data about a blocked application NxFilter introduced these domains or rules.
-- ultrasurf.port.app : UltraSurf has been blocked by port scanning.
-- tor.port.app : Tor has been blocked by port scanning.
-- chrome.exe.pname.app : Chrome has been blocked by its process name.
-- Skype.title.app : Skype has been blocked by its window title.
-* When you enable 'Block UltraSurf' and there is UltraSurf extension for Chrome or other extensions having proxy permission installed NxClient kills Chrome process and sends 'ultrasurf.chrome.app' signal.
+  Você pode bloquear um processo por um determinado nome. Funciona baseado na identificação de palavras chave. Você pode adicionar as palavras chave na GUI e se o agente identificar algum processo com esse nome ele será bloqueado.
+ 
+Habilitar o controle de aplicações apenas para determinados usuários
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Partimos de um principio em que o controle de aplicações é uma política global. Porém se houver necessidade de aplicá-las a apenas determinados usuários, altere o parâmetro ''Disable Application Control'' em ``Policy & Rule > Policy > EDIT``.
+
+Registrando o bloqueio de aplicações
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+NxFilter é, em sua essência, um filtro DNS então o formato de registro de logs foi preparado para exibir domínio bloqueados/permitidos. Para poder registrar dados sobre aplicações bloqueadas o NxFilter insere os seguintes domínios ou regras.
+
+- ultrasurf.port.app : UltraSurf foi bloqueado por verificação de portas.
+- tor.port.app : Tor foi bloqueado por verificação de portas.
+- chrome.exe.pname.app : Chrome foi bloqueado através do nome do processo.
+- Skype.title.app : Skype foi bloqueado com base no título da aplicação.
+
+.. note::
+ 
+   Quando você ativa o parâmetro ''Block UltraSurf'' e existem extensões do UltraSurf no Chrome ou há outras extensões para proxy instalados, o NxClient mata o processo e registra o sinal ''ultrasurf.chrome.app''.
+
 Execution Interval
 Finding and blocking application may cause some amount of CPU load. If you don't want to cause too much load form your client PC, increase 'Execution Interval' on 'Policy & Rule > Application Control'.
