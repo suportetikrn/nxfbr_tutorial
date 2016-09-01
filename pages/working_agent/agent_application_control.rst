@@ -45,5 +45,7 @@ NxFilter é, em sua essência, um filtro DNS então o formato de registro de log
  
    Quando você ativa o parâmetro ''Block UltraSurf'' e existem extensões do UltraSurf no Chrome ou há outras extensões para proxy instalados, o NxClient mata o processo e registra o sinal ''ultrasurf.chrome.app''.
 
-Execution Interval
-Finding and blocking application may cause some amount of CPU load. If you don't want to cause too much load form your client PC, increase 'Execution Interval' on 'Policy & Rule > Application Control'.
+Intervalo de execução
+^^^^^^^^^^^^^^^^^^^^^^
+
+Encontrar e bloquear aplicações pode causar uma certa carga no processamento. Se você não deseja causar um grande impacto na carga do PC/Desktop do usuário, incremente o valor no parâmetro ''Execution Interval'' em ``Policy & Rule > Application Control``.
