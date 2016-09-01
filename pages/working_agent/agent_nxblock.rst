@@ -56,7 +56,8 @@ Para resolver esse problema, nós temos uma alternativa, uma forma de configurar
 
 Falando de forma objetiva, você irá criar uma página web contendo os valores de configuração e então fazer com que está página seja a página inicial do Chrome. Então toda vez que seus usuários abrirem seus browsers eles serão configurados com estes valores.
 
-Ao criar a página web você adicione a meta tag descrita a seguir, ::
+Ao criar a página web você adicione a meta tag descrita a seguir ::
+
   <meta name='nxblock' content='192.168.0.100:HW00IYKW:1'>
 
 Há 3 parâmetros separados por vírgulas. O primeiro é o IP do servidor NxFilter e o segundo é o token de login e o último é sobre bloquear ou não o acesso a página de configuração de extensão do Chrome.
