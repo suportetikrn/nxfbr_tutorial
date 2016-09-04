@@ -18,7 +18,7 @@ Supondo que haja a necessidade de criar um operador com os atributos abaixo:
 
 A página JSP deverá estar com os seguintes comandos:
 
-.. code-block:: java
+.. code-block:: jsp
 
     <%
 	OperatorData data = new OperatorData();
