@@ -1,7 +1,7 @@
 NxRelay - para identificar usuários de outras redes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-NxRealay é um servidor Relay de DNS para o NxCloud. Com NxRelay você pode associar um IP Privado ou um Range de IPs a um determinado usuário no NxCloud. O que significa que você pode aplicar diferentes políticas de controle baseados nos IPs privados dos seus clientes.
+NxRelay é um servidor Relay de DNS para o NxCloud. Com NxRelay você pode associar um IP Privado ou um Range de IPs a um determinado usuário no NxCloud. O que significa que você pode aplicar diferentes políticas de controle baseados nos IPs privados dos seus clientes.
 
 .. note::
 
@@ -11,29 +11,62 @@ Como funciona?
 ^^^^^^^^^^^^^^^
 
 
+O NxRelay por si só é um servidor DNS Forward. Ele faz a filtragem consultando o NxCloud e trabalha como um servidor DNS redirecionando as consulta DNS para seu servidor de DNS local. Para o NxRelay, o NxCloud não é um servidor DNS Upstream.
 NxRelay itself is a forwarding DNS server. It does filtering by querying NxCloud and it works as a DNS server by forwarding DNS queries to your local DNS server. For NxRelay, NxCloud is not its upstream DNS server. Rather it's a policy server. Its upstream server is your existing DNS server or MS DNS server if you are on Active Directory. This means even if you lose the connection to NxCloud your network will be working fine. And you will not have an issue with Active Directory integration or local domain resolving as all the queries will be resolved by your local DNS server.
-* Since it is a DNS server you can have fail-safe and load balance easily. Install multiple NxRelay servers and make them as the primary and secondary DNS servers of your network.
-* It sends 'START' and 'PING' signals. You can verify if it works on 'Logging > Signal' on NxCloud GUI.
-Install it on Windows as a Windows service
-1. Download its zip package.
-2. Extract it into 'c:/nxrelay'.
-On CMD,
-cd c:/nxrelay/bin
-instsvc.bat
-net start NxRelay
-* Before you start it you need to modify its config parameters in '/opt/nxrelay/conf/cfg.properties'.
+
+.. note::
+   
+   Sendo ele um servidor DNS você pode ter alta disponibilidade e load balance facilmente. Instale múltiplos servidores NxRelay e configure suas estações usando eles como servidores DNS Primário e Secundário.
+
+   Ele envia o sinal 'START' e 'PING'. Você pode verificar se ele está funcionando em 'Logging > Signal' na GUI do NxCloud.
+
+
+Instalando como um serviço no Windows
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1. Faça o download do pacote zip
+2. Descompacte dentro do diretório 'c:/nxrelay'
+
+   No Prompt CMD, faça
+
+.. code-block:: powershell 
+
+    cd c:\nxrelay/bin
+    instsvc.bat
+    net start NxRelay
+    
+.. note::
+  
+   Antes de iniciar o serviço é preciso alterar os parâmetros de configuração em ''c:\nxrelay\conf\cfg.properties''.
+
+
 Install it on Linux as a Systemd service
-1. Download its zip package.
-2. Extract it into '/opt/nxrelay'.
-On command line,
-cd /opt/nxrelay
-sudo chmod +x bin/*.sh
-sudo cp script/nxrelay.service /lib/systemd/system/nxrelay.service
-sudo systemctl enable nxrelay.service
-sudo systemctl start nxrelay.service
-To stop it,
-sudo systemctl stop nxrelay.service
-* Before you start it you need to modify its config parameters in '/opt/nxrelay/conf/cfg.properties'.
+Instalando SystemD no Linux
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Faça o download do pacote zip
+2. Descompacte dentro do diretório '/opt/nxrelay'
+
+  No shell ( bash/sh ) digite:
+
+.. code-block:: bash
+
+    cd /opt/nxrelay
+    sudo chmod +x bin/*.sh
+    sudo cp script/nxrelay.service /lib/systemd/system/nxrelay.service
+    sudo systemctl enable nxrelay.service
+    sudo systemctl start nxrelay.service
+
+Para parar o serviço
+
+.. code-block:: bash
+
+    sudo systemctl stop nxrelay.service
+
+.. note::
+
+   Antes de iniciar o serviço é preciso alterar os parâmetros de configuração em ''/opt/nxrelay/conf/cfg.properties''.
+
+
 How to set it up
 You need one of your NxCloud server IP and a login token from one of your user accounts. It has all of its config parameters in '/opt/nxrelay/conf/cfg.properties'.
 For example,
