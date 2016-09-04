@@ -126,6 +126,10 @@ Config > Admin
 
 Você pode alterar o usuário administrador e a senha da GUI de administração aqui.
 
+.. note::
+
+   'Client Password' é para configurações de agentes remotos para filtragem. Ele tem sido usado para acessar a página de configuração do NxBlock
+
 Config > Alert
 ***************
 
