@@ -18,8 +18,9 @@ Supondo que haja a necessidade de criar um operador com os atributos abaixo:
 
 A página JSP deverá estar com os seguintes comandos:
 
-.. code-block:: jproperties
-  <%
+.. code-block:: java
+
+    <%
 	OperatorData data = new OperatorData();
 	data.name = ”triton”;
 	data.passwd = ”triton1234”;
