@@ -23,7 +23,8 @@ Isso significa que mesmo que você percar a conexão com o NxCloud sua rede cont
 
 
 Instalando como um serviço no Windows
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
+
 
 1. Faça o download do pacote zip
 2. Descompacte dentro do diretório 'c:/nxrelay'
@@ -42,7 +43,8 @@ Instalando como um serviço no Windows
 
 
 Instalando SystemD no Linux
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------
+
 1. Faça o download do pacote zip
 2. Descompacte dentro do diretório '/opt/nxrelay'
 
@@ -68,7 +70,7 @@ Para parar o serviço
 
 
 Parametrizando
-^^^^^^^^^^^^^^
+--------------
 
 Antes de iniciar você precisa ter o endereço IP do servidor NxCloud e um token de uma das contas de usuário. Os parâmetros ficam em ''/opt/nxrelay/conf/cfg.properties''.
 
@@ -92,12 +94,12 @@ Depois de modificar o arquivo de configuração, sempre reinicie o NxRelay. E en
   - Pode ainda verificar se a configuração está correta e a conectividade com o servidor através do comando ''/opt/nxrelay/bin/test.sh''
 
 Que políticas aplicar?
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 Quando o NxRelay estiver funcionando em sua rede local como o servidor DNS ele inicia o filtro com a política associada ao token registrado nele. Porém isso é apenas um procedimento padrão para o NxRelay. Você pode aplicar diferentes políticas baseadas nos endereços IP. Na GUI, do NxCloud, o operador cria um usuário e associa o mesmo a um IP privado ou range de IPs em sua rede para aquele usuário. Agora os usuários associados aquele IP ou range de endereços estará subordinado a política definida ao mesmo usuário criado na GUI do NxCloud.
 
 Scripts inclusos
-^^^^^^^^^^^^^^^^
+----------------
 
 Em ''/opt/nxrelay/bin' existem diversos scripts.
 
