@@ -11,8 +11,9 @@ Como funciona?
 ^^^^^^^^^^^^^^^
 
 
-O NxRelay por si só é um servidor DNS Forward. Ele faz a filtragem consultando o NxCloud e trabalha como um servidor DNS redirecionando as consulta DNS para seu servidor de DNS local. Para o NxRelay, o NxCloud não é um servidor DNS Upstream.
-NxRelay itself is a forwarding DNS server. It does filtering by querying NxCloud and it works as a DNS server by forwarding DNS queries to your local DNS server. For NxRelay, NxCloud is not its upstream DNS server. Rather it's a policy server. Its upstream server is your existing DNS server or MS DNS server if you are on Active Directory. This means even if you lose the connection to NxCloud your network will be working fine. And you will not have an issue with Active Directory integration or local domain resolving as all the queries will be resolved by your local DNS server.
+O NxRelay por si só é um servidor DNS Forward. Ele faz a filtragem consultando o NxCloud e trabalha como um servidor DNS redirecionando as consulta DNS para seu servidor de DNS local. Para o NxRelay, o NxCloud não é um servidor DNS Upstream, pelo contrário é um servidor de políticas. O servidor upstream é o seu servidor DNS local ou o servidor MS do AD que responde as suas consultas DNS.
+
+Isso significa que mesmo que você percar a conexão com o NxCloud sua rede continuará a funcionar. E você não terá problemas com sua rede AD ou resolução de nomes do domínio locai, já que suas consultas DNS continuarão sendo resolvidas por seu servidor local.
 
 .. note::
    
@@ -66,27 +67,53 @@ Para parar o serviço
    Antes de iniciar o serviço é preciso alterar os parâmetros de configuração em ''/opt/nxrelay/conf/cfg.properties''.
 
 
-How to set it up
-You need one of your NxCloud server IP and a login token from one of your user accounts. It has all of its config parameters in '/opt/nxrelay/conf/cfg.properties'.
-For example,
-server = 192.168.0.100
-token = BSYEB28O
-local_dns = 8.8.8.8,8.8.4.4
-local_domain =
-When you have these config values in the config file, your NxCloud server IP is '192.168.0.100' and the login token is 'BSYEB28O' and your local DNS server or the existing DNS server is '8.8.8.8' and '8.8.4.4'. If you have some domains to bypass from filtering you can add them as the comma separated value of 'local_domain'.
-After you modify the config file, restart NxRelay. And then make them as the only DNS server for your network.
-* You can add multiple NxCloud server IP addresses separated by commas.
-* You can verify your config values and the connectivity by running '/opt/nxrelay/bin/test.sh'.
-Which policy to apply
-When you run NxRelay as the DNS server for your network it starts filtering with the policy associated to the login token you set up in the config file. But that is just a default policy for NxRelay. You can apply a different policy based on IP address. On NxCloud's operator GUI, create a user and associate one private IP address or IP range in your network to the user. Now the users on the associated IP address or IP address range will be under the policy of the user you created on NxCloud GUI.
-Scipts included
-In '/opt/nxrelay/bin' there are several scripts included.
-startup.sh - Starting NxRelay.
-shutdown.sh - Stopping NxRelay.
-test.sh - Test the connectivity to NxCloud.
-ping.sh - Test if it is running.
-For Windows,
-instsvc.bat - Installing 'NxRelay' service.
-unstsvc.bat - Uninstall 'NxRelay' service.
-For Ubuntu we have a Systemd script in '/opt/nxrelay/script',
+Parametrizando
+^^^^^^^^^^^^^^
+
+Antes de iniciar você precisa ter o endereço IP do servidor NxCloud e um token de uma das contas de usuário. Os parâmetros ficam em ''/opt/nxrelay/conf/cfg.properties''.
+
+Por exemplo:
+
+.. code-block:: jproperties
+
+   server = 192.168.0.100
+   token = BSYEB28O
+   local_dns = 8.8.8.8,8.8.4.4
+   local_domain =
+
+Tendo esses parâmetros no arquivo de configuração, considerando que o IP do servidor NxCloud é '192.168.0.100' e o token do usuário 'BSYEB280' e o servidor de DNS local ou o existente é o '8.8.8.8' e '8.8.4.4'. Se há domínios ou endereços que deseja que não sejam filtrados você pode adiciona-los em ''local_domain'' separando-os por virgula.
+
+Depois de modificar o arquivo de configuração, sempre reinicie o NxRelay. E então configure o mesmo para ser seu único servidor DNS na rede.
+
+.. note::
+ 
+  - É possível adicionar múltiplos servidores NxCloud, basta separar os IPs por vírgulas.
+
+  - Pode ainda verificar se a configuração está correta e a conectividade com o servidor através do comando ''/opt/nxrelay/bin/test.sh''
+
+Que políticas aplicar?
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Quando o NxRelay estiver funcionando em sua rede local como o servidor DNS ele inicia o filtro com a política associada ao token registrado nele. Porém isso é apenas um procedimento padrão para o NxRelay. Você pode aplicar diferentes políticas baseadas nos endereços IP. Na GUI, do NxCloud, o operador cria um usuário e associa o mesmo a um IP privado ou range de IPs em sua rede para aquele usuário. Agora os usuários associados aquele IP ou range de endereços estará subordinado a política definida ao mesmo usuário criado na GUI do NxCloud.
+
+Scripts inclusos
+^^^^^^^^^^^^^^^^
+
+Em ''/opt/nxrelay/bin' existem diversos scripts.
+
+
+Para o Linux/BSD :
+
+  - startup.sh - Ativa o serviço.
+  - shutdown.sh - Para o serviço.
+  - test.sh - Testa a conectividade com o NxCloud, de acordo com os parâmetros definidos no arquivo de configuração.
+  - ping.sh - Testa se o serviço do NxRelay está ativo.
+
+Para o Windows,
+
+  - instsvc.bat - Para instalar o serviço 'NxRelay'.
+  - unstsvc.bat - Para remover o serviço 'NxRelay'.
+
+
+Já para o Ubuntu é disponibilizado também o script para o Systemd em ''/opt/nxrelay/script'',
 nxrelay.service
