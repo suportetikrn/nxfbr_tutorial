@@ -38,7 +38,7 @@ A página JSP deverá estar com os seguintes comandos:
 Se precisa atualizar alguns dados do operador :
 
 
-.. highlight:: java
+.. code-block:: jsp
 
      <%
 	OperatorDao dao = new OperatorDao();
@@ -51,18 +51,14 @@ Se precisa atualizar alguns dados do operador :
 
 Se você precisa desativar um operador :
 
-.. highlight:: java
+.. code-block:: jsp
 
-::
     <%
      	OperatorDao dao = new OperatorDao();
 	OperatorData data = dao.select_one_by_name(”triton”);
 	data.stop_flag = true;
 	dao.update(data);
     %>
-
-
-.. highlight:: none
 
 
 .. note::
