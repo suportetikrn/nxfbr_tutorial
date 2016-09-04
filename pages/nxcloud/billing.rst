@@ -39,7 +39,8 @@ Se precisa atualizar alguns dados do operador :
 
 
 .. highlight:: java
-    <%
+
+     <%
 	OperatorDao dao = new OperatorDao();
 	OperatorData data = dao.select_one_by_name(”triton”);
 	data.max_user = 5;
@@ -50,13 +51,18 @@ Se precisa atualizar alguns dados do operador :
 
 Se você precisa desativar um operador :
 
- .. highlight:: java
+.. highlight:: java
+
+::
     <%
      	OperatorDao dao = new OperatorDao();
 	OperatorData data = dao.select_one_by_name(”triton”);
 	data.stop_flag = true;
 	dao.update(data);
     %>
+
+
+.. highlight:: none
 
 
 .. note::
