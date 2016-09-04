@@ -18,8 +18,7 @@ Supondo que haja a necessidade de criar um operador com os atributos abaixo:
 
 A página JSP deverá estar com os seguintes comandos:
 
-.. highlight:: java
-
+.. code-block:: jproperties
   <%
 	OperatorData data = new OperatorData();
 	data.name = ”triton”;
@@ -38,8 +37,7 @@ A página JSP deverá estar com os seguintes comandos:
 Se precisa atualizar alguns dados do operador :
 
 
- .. highlight:: java
-
+.. highlight:: java
     <%
 	OperatorDao dao = new OperatorDao();
 	OperatorData data = dao.select_one_by_name(”triton”);
@@ -52,7 +50,6 @@ Se precisa atualizar alguns dados do operador :
 Se você precisa desativar um operador :
 
  .. highlight:: java
- 
     <%
      	OperatorDao dao = new OperatorDao();
 	OperatorData data = dao.select_one_by_name(”triton”);
