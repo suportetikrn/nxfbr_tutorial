@@ -40,9 +40,8 @@ Instalando como um serviço no Windows
    Antes de iniciar o serviço é preciso alterar os parâmetros de configuração em ''c:\nxrelay\conf\cfg.properties''.
 
 
-Install it on Linux as a Systemd service
 Instalando SystemD no Linux
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Faça o download do pacote zip
 2. Descompacte dentro do diretório '/opt/nxrelay'
 
