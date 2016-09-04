@@ -9,5 +9,5 @@ Caso seja preciso atualizar a lista no modo manual, baixe a mesma no endereço `
 
 .. code-block:: bash
 
-  cd /nxfilter/bin
-  update_sh.sh /nxfilter/shallalist1/BL
+   cd /nxfilter/bin
+   update_sh.sh /nxfilter/shallalist1/BL
