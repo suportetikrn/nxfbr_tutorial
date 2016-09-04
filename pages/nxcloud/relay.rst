@@ -8,7 +8,7 @@ NxRelay é um servidor Relay de DNS para o NxCloud. Com NxRelay você pode assoc
    NxRelay tem como pre-requisito o NxCloud 3.4.2 ou superior.
 
 Como funciona?
-^^^^^^^^^^^^^^^
+==============
 
 
 O NxRelay por si só é um servidor DNS Forward. Ele faz a filtragem consultando o NxCloud e trabalha como um servidor DNS redirecionando as consulta DNS para seu servidor de DNS local. Para o NxRelay, o NxCloud não é um servidor DNS Upstream, pelo contrário é um servidor de políticas. O servidor upstream é o seu servidor DNS local ou o servidor MS do AD que responde as suas consultas DNS.
