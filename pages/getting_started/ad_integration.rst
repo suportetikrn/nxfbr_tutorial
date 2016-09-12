@@ -39,14 +39,18 @@ Quando você publicar o NxFilter em um ambiente com Active Directory você pode 
 Mas a ideia não é desabilitar ou substituir o servidor DNS AD existente. Nosso objetivo é trabalhar com o servidor DNS AD de forma colaborativa. Então você precisa manter seu servidor MS DNS mesmo que use o NxFilter como servidor DNS para toda a sua rede.
 
 1. Onde instalar
+
   Em alguns ambientes tentam instalar o NxFilter dentro do próprio controlador de Domínio (AD). Mas como dito antes, já existe um servidor DNS no AD, é o seu servidor MS DNS. O correto é instalar o NxFilter em outro servidor de modo que evite conflito de portas, no caso do DNS ( `53/udp` e `53/tcp` ).
 
 2. Atualização dinâmica de IP
+
   O Servidor MS DNS no MS Active Directory executa diversas operações. Ele permite que os terminais/hosts saibam onde estão os recursos que utilizam registros SRV. E mantem uma Zona DNS para todos os terminais/hosts. Ele também faz atualização dinâmica do IP quando o endereço IP da máquina é alterado. Para manter todas essas coisas funcionando o NxFilter faz um `bypass` de consultas internas que seriam de cargo do servidor AD, direcionando automaticamente - de modo transparente - para o servidor MS DNS. Ele entende que se você tem um servidor MS DNS no Domain Controller ( DC ) é dele que seus usuários são importados.
 
 3. Que servidor upstream utilizar no NxFilter
   Você pode se perguntar sobre que servidor DNS utilizar como upstream para o NxFilter pois você já tem um servidor DNS que é o seu servidor MS DNS . Você pode usar qualquer servidor DNS como upstream, inclusive o próprio servidor MS DNS. O NxFilter continuaŕa direcionando as suas consultas internas para seu servidor AD, isso não impedirá o funcionamento do NxFilter. Então você pode usar o servidor DNS que achar melhor.
+
  .. warning::
+
   Ao usar seu servidor MS DNS como upstream leve em conta que o mesmo terá permissão para consulta na internet.
 
 4. Configuração Manual para o servidor MS DNS.
@@ -73,7 +77,7 @@ Exemplo de um ambiente em produção
 
    O NxClient tem versões para Mac e Windows.
 
- Para os Chromebook há a extensão NxBlock. O NxBlock é uma extensão para o Chrome e você pode usá-lo como um agente de filtro remoto ou agente SSO para o AD.
+Para os Chromebook há a extensão NxBlock. O NxBlock é uma extensão para o Chrome e você pode usá-lo como um agente de filtro remoto ou agente SSO para o AD.
 
  Já para seus servidores é melhor não filtrá-los então defina IP estático para eles e use outro servidor DNS para eles, afinal, geralmente você não precisa bloquear nada - de consulta DNS - para os servidores.
 
