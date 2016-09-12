@@ -55,3 +55,27 @@ Mas a ideia não é desabilitar ou substituir o servidor DNS AD existente. Nosso
  .. note:: 
 
    Você pode ter de ativar 'Atualização Dinâmica Insegura' em `Propriedades` na Zona do servidor MS DNS para que o NxFilter faça a atualização dos IP das estações diretamente na Zona.
+
+Exemplo de um ambiente em produção
+**********************************
+
+ Suponha que na empresa ACME o ambiente é composto por diversos desktops com Windows, alguns Macbooks e recentemente foram adquiridos muitos Chromebooks. Os usuários da rede ainda trazem seus smartphones Android e iPhone. E claro para garantir a qualidade dos serviços na rede você tem servidores Linux para manter os sites, sistemas e compartilhamento de arquivos.
+
+ Há ainda o interesse de controlar os acessos dentro ou fora do escritórios, mantendo os logins de usuários através de contas no AD.
+
+ A primeira coisa a se fazer é configurar o NxOEM ( já que estamos em um ambiente empresarial esse é o modelo certo ) para importar as contas de usuários e grupos do AD. E então usar o NxLogon nos desktops Windows.
+
+ Porém o NxLogon não funciona nos MacBooks. Para os Mac você pode usar o NxMapper, só precisa instalar o NxMapper no controlador de domínio.
+
+ Já para os notebooks você pode instalar o NxClient. NxClient atua, basicamente, como um agente de filtro remoto para o NxFilter mas eles tentarão fazer o SSO quanto estiverem na rede local.
+
+.. note::
+
+   O NxClient tem versões para Mac e Windows.
+
+ Para os Chromebook há a extensão NxBlock. O NxBlock é uma extensão para o Chrome e você pode usá-lo como um agente de filtro remoto ou agente SSO para o AD.
+
+ Já para seus servidores é melhor não filtrá-los então defina IP estático para eles e use outro servidor DNS para eles, afinal, geralmente você não precisa bloquear nada - de consulta DNS - para os servidores.
+
+ Para os smartphones Android e iPhone, não tem preocupação, afinal o NxFilter tem sua página de login ( estilo Captive Portal ) e eles acessarão a mesma normalmente para autenticar.
+
