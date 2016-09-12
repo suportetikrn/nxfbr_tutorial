@@ -1,0 +1,5707 @@
+<html>
+
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv='Expires' content='-1'>
+<meta http-equiv='Pragma' content='no-cache'>
+<meta http-equiv='Cache-Control' content='no-cache'>
+<meta name='Title' content='NxFilter Tutorial'>
+<title>NxFilter</title>
+<style>
+a:link{color: #008DC4; text-decoration: none;}
+a:active{color: #008DC4; text-decoration: none;}
+a:visited{color: #008DC4; text-decoration: none;}
+a:hover{color: #008DC4; text-decoration: underline;}
+
+body{
+	min-width: 800px;
+	background-color: #EFEFEF;
+	font-family: arial;
+	font-size: 10pt;
+	color: #111111;
+}
+
+div.view{
+	background-color: #F9F9F9;
+	width: 800px;
+	line-height: 22px;
+	border: 1px solid gray;
+	padding: 30px;
+	-webkit-box-shadow: 4px 4px 7px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    4px 4px 7px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         4px 4px 7px 0px rgba(50, 50, 50, 0.75);
+	text-align: left;
+	margin-top: 20px;
+}
+
+div.title{
+	font-family: times;
+	font-weight: bold;
+	font-size: 18pt;
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+div.tab{
+	padding-left: 20px;
+}
+
+div.info{
+	background-color: #EBEBEB;
+	width: 95%;
+	line-height: 22px;
+	border: 1px dotted #808080;
+	padding: 10px;
+	font-family: tahoma;
+}
+
+div.cmd{
+	background-color: #000000;
+	color: #BBBBBB;
+	width: 95%;
+	line-height: 22px;
+	border: 1px #000000;
+	padding: 10px;
+	font-family: Lucida Console;
+}
+
+div.code{
+	background-color: #000000;
+	color: #00FF00;
+	width: 95%;
+	line-height: 22px;
+	border: 1px #000000;
+	padding: 10px;
+	font-family: Lucida Console;
+}
+
+div.nx_hr{
+	background-color: #C0C0C0;
+	border: 0px;
+	height: 1px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 100%;
+	overflow: hidden;
+}
+
+/* table */
+table{
+    font-family: arial;
+    font-size: 10pt;
+    color: #111111;
+}
+
+tr.row{
+    height: 24px;
+}
+
+tr.line2{
+    height: 1px;
+    background: silver;
+}
+</style>
+</head>
+
+<body>
+<center>
+
+<!-- -->
+<a name='index'></a>
+<div class='view'>
+<div class='title'>NxFilter Tutorial</div>
+
+<a href='#sys_req'>1. Getting started</a>
+	<div class='tab'>
+	<a href='#sys_req'>- System requirements</a><br>
+	<a href='#install_which'>- Which one to install</a><br>
+	<a href='#install_windows'>- Install NxFilter on Windows</a><br>
+	<a href='#install_ubuntu'>- Install NxFilter on Ubuntu Linux</a><br>
+	<a href='#install_unix'>- Install NxFilter on other Linux</a><br>
+	<a href='#install_windows2'>- Install NxFilter on Windows manually</a><br>
+	<a href='#update_nxfilter'>- Updating NxFilter</a><br>
+	<!-- 
+	<a href='#install_nxfadmin'>- Install NxFAdmin by Rob Asher</a><br>
+	-->
+	<a href='#start_stop'>- Start and stop NxFilter</a><br>
+	<a href='#client'>- Client DNS setup</a><br>
+	<a href='#ad_integration'>- Active Directory integration</a><br>
+
+	<a href='#not_start'>- When NxFilter not starting</a><br>
+	<a href='#cloud_install'>- Install NxCloud</a><br>
+	</div>
+	</p>
+
+<a href='#whatblacklist'>2. Blacklist and domain categorization</a>
+	<div class='tab'>
+	<a href='#whatblacklist'>- What is a blacklist?</a><br>
+	<a href='#using_jahaslist'>- Using Jahaslist, Cloudlist</a><br>
+	<a href='#blacklist_recat'>- Reclassification on blacklist</a><br>
+	<a href='#shallalist'>- Updating Shallalist</a><br>
+	</div>
+	</p>
+
+<a href='#nxfilter_auth'>3. Authentication</a>
+	<div class='tab'>
+	<a href='#nxfilter_auth'>- NxFilter and authentication</a><br>
+	<a href='#sso_nxlogon'>- Single sign-on with Active Directory using NxLogon</a><br>
+	<a href='#sso_nxmapper'>- Single sign-on with Active Directory using NxMapper</a><br>
+	<a href='#sso_nxclient'>- Single sign-on with Active Directory, OpenLDAP using NxClient</a><br>
+	<a href='#custom_login'>- Custom login script for single sign-on</a><br>
+	<a href='#auth_order'>- The order of authentication methods</a><br>
+	</div>
+	</p>
+
+<a href='#gui_config'>4. GUI overview</a>
+	<div class='tab'>
+	<a href='#gui_config'>- GUI - Config</a><br>
+	<a href='#gui_dns'>- GUI - DNS</a><br>
+	<a href='#gui_user'>- GUI - User</a><br>
+	<a href='#gui_policy'>- GUI - Policy</a><br>
+	<a href='#gui_category'>- GUI - Category</a><br>
+	<a href='#nxclassifier_gui'>- GUI - NxClassifier</a><br>
+	<a href='#gui_whitelist'>- GUI - Whitelist</a><br>
+	<a href='#gui_report'>- GUI - Dashboard, Logging, Report</a><br>
+	</div>
+	</p>
+
+<a href='#agent_diff'>6. Working with agent</a>
+	<div class='tab'>
+	<a href='#agent_diff'>- Differences between agents</a><br>
+	<a href='#agent_nxclient'>- NxClient and remote user filtering</a><br>
+	<a href='#agent_nxupdate'>- NxUpdate and dynamic IP update</a><br>
+	<a href='#agent_application_control'>- Application control with NxClient</a><br>
+	<a href='#agent_proxy'>- Proxy filtering with NxClient</a><br>
+	<a href='#agent_install_mac'>- Installing NxClient or NxUpdate on Mac OS X</a><br>
+	<a href='#agent_nxblock'>- NxBlock for Chromebook</a><br>
+	</div>
+	</p>
+
+<a href='#cloud_what'>7. NxCloud</a>
+	<div class='tab'>
+	<a href='#cloud_what'>- What is NxCloud?</a><br>
+	<a href='#cloud_install'>- Install NxCloud</a><br>
+	<a href='#cloud_diff'>- Differences from running NxFilter</a><br>
+	<a href='#cloud_home'>- Business account and home account</a><br>
+	<a href='#cloud_billing'>- Writing your own billing system for NxCloud</a><br>
+	<a href='#cloud_nxrelay'>- NxRelay to differentiate users behind a router</a><br>
+	</div>
+	</p>
+
+<a href='#custom_before'>8. Customization or rebranding of NxFilter and its clients</a>
+	<div class='tab'>
+	<a href='#custom_before'>- Before you customize NxFilter</a><br>
+	<a href='#custom_directory'>- GUI - Directory structure and naming rule</a><br>
+	<a href='#custom_dao'>- GUI - Using Dao and Data classes</a><br>
+	<a href='#custom_javadoc'>- GUI - Javadoc for Dao and Data classes</a><br>
+	<a href='#custom_oem'>- OEM properties</a><br>
+	<a href='#custom_templates'>- Templates for email and block-page</a><br>
+	<a href='#custom_other'>- Other things you may be interested in</a><br>
+	<a href='#custom_package'>- Making your own install packages for client softwares</a><br>
+	</div>
+	</p>
+
+<a href='#nxclassifier_what'>9. NxClassifier</a>
+	<div class='tab'>
+	<a href='#nxclassifier_what'>- What is NxClassifier</a><br>
+	<a href='#nxclassifier_why'>- Why NxClassifier</a><br>
+	<a href='#nxclassifier_directory'>- Jahaslist and its directory structure</a><br>
+	<a href='#nxclassifier_gui'>- GUI for NxClassifier</a><br>
+
+	<a href='#nxclassifier_workflow'>- Understanding NxClassifier workflow</a><br>
+	<a href='#nxclassifier_rule'>- What is a classification rule</a><br>
+	<a href='#nxclassifier_tuning'>- Performance tuning for NxClassifier</a><br>
+	<a href='#jahaslist_repository'>- Remote repository for Jahaslist</a><br>
+	<!-- 
+	<a href='#nxclassifier_build'>- Building your own blacklist</a><br>
+	<a href='#nxclassifier_update'>- Updating Jahaslist and NxClassifier ruleset</a><br>
+	-->
+	</div>
+	</p>
+
+<a href='#nxfilter_dns_server'>10. NxFilter as a DNS server</a>
+	<div class='tab'>
+	<a href='#nxfilter_forwarding_dns'>- Forwarding DNS server</a><br>
+	<a href='#nxfilter_caching_dns'>- Caching DNS server</a><br>
+	<a href='#nxfilter_authoritative_dns'>- Authoritative DNS server</a><br>
+	<a href='#nxfilter_dynamic_dns'>- Dynamic DNS server</a><br>
+	<a href='#nxfilter_avoid_ddos'>- To avoid of having DDOS attack</a><br>
+	</div>
+	</p>
+
+<a href='#cluster'>11. Misc</a>
+	<div class='tab'>
+	<a href='#cluster'>- Clustering with NxFilter</a><br>
+	<a href='#bandwidth'>- Bandwidth control with NxFilter</a><br>
+	<a href='#malware'>- Detecting and preventing malware/botnet activity with NxFilter</a><br>
+	<a href='#ad-remove'>- Removing embedded adverts in webpages</a><br>
+
+	<a href='#syslog_export'>- Syslog exportation</a><br>
+	<a href='#performance'>- Performance tuning guide</a><br>
+	<!-- 
+	<a href='#user_contrib'>- User contributed documents and scripts</a><br>
+	-->
+	</div>
+	</p>
+
+<a name='faq_index'></a>
+<a href='#faq'>12. FAQ</a>
+	<div class='tab'>
+	<a href='#ip_host'>- I can bypass NxFilter by accessing websites using IP address.</a><br>
+	<a href='#right_away'>- It doesn't get blocked/unblocked right away.</a><br>
+	<a href='#force_filter'>- How do I force users to be filtered by NxFilter?</a><br>
+	<a href='#decide_policy'>- How NxFilter determine which policy to apply for a user?</a><br>
+	<a href='#quickest_block'>- What is the quickest way of blocking 'facebook.com'?</a><br>
+	<a href='#students'>- I want to block 'facebook.com' only for students.</a><br>
+	<a href='#lunch_free'>- I want to allow sales department to use the Internet freely at lunchtime.</a><br>
+	<a href='#change_port'>- How do I change NxFilter's webserver port?</a><br>
+	<a href='#reset_pw'>- How do I reset admin password?</a><br>
+	<a href='#bind_ip'>- Can I bind NxFilter to a specific IP address?</a><br>
+	<a href='#bypass_local'>- How do I bypass my local domain?</a><br>
+	<!--
+	<a href='#nightly_shalla'>- How do I update Shallalist nightly?</a><br>
+	<a href='#too_many'>- Too many requests for some domains.</a><br>
+	-->
+	<a href='#exact_match'>- Can I use an exact matching keyword for log search?</a><br>
+	<!--
+	<a href='#disable_login_redirection'>- I want to disable login redirection.</a><br>
+	-->
+	<a href='#lunch'>- Why do I need to re-login after lunch break?</a><br>
+	<a href='#custom_ssl'>- How do I apply my own SSL certificate?</a><br>
+	<a href='#enable_debug'>- How do I enable debug mode?</a><br>
+	<a href='#hide_ssl'>- How do I hide SSL warning?</a><br>
+	<a href='#see_username'>- I don't see any username on 'Logging > Request'.</a><br>
+	<a href='#bypass_logging'>- How do I bypass logging completely?</a><br>
+	<a href='#browser_keep_restarting'>- My Browsers keep restarting after NxClient starting.</a><br>
+	</div>
+
+</div>
+
+
+
+<!-- -->
+<a name='sys_req'></a>
+<div class='view'>
+<div class='title'>System requirements</div>
+- Windows, Linux, FreeBSD or other OS having Java(JRE) 1.7 or higher installed.<br>
+- 512 MB RAM.<br>
+- 4 GB available disk space.<br>
+- UDP/53, TCP/80, TCP/443 ports.<br>
+</p>
+
+	<div class='info'>
+	* You can run NxFilter with lesser hardware	but we recommend you to have more than 1 GB of system memory
+	and 40 GB of disk space	especially when you have more than 1,000 users.
+	</p>
+	
+	* At default NxFilter uses up to 512 MB of system memory. This might not be enough for a bigger site.
+	You can increase the limit of memory allocation to NxFilter in its startup script. In '/nxfilter/bin/startup.sh'
+	modify the value of '-Xmx512m'.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='install_which'></a>
+<div class='view'>
+<div class='title'>Which one to install</div>
+We have three variations for NxFilter.
+</p>
+
+1. NxFilter
+	<div class='tab'>
+	Free software for personal, non-commercial use. You only can distribute it without modification.
+	This one is not for business.
+	</div>
+	</p>
+
+2. NxOEM
+	<div class='tab'>
+	Business friendly version of NxFilter. You can use it for commercial purpose. You can build your own
+	product based on it. Modification, rebranding, redistribution is permitted by its license.
+	</div>
+	</p>
+
+3. NxCloud
+	<div class='tab'>
+	Another variation of NxFilter for multi-tenancy cloud filtering business. It has the same license policy as NxOEM.
+	</div>
+	</p>
+
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='install_windows'></a>
+<div class='view'>
+<div class='title'>Install NxFilter on Windows</div>
+
+We provide a Windows installer. When you download and run 'nxfilter-x.x.x.exe' you will
+have the following screen.
+</p>
+
+<img src='screenshot/setup_welcome.png'>
+</p>
+
+After you follow several steps on the installer, it will try to create a Windows service
+for NxFilter. If you see the following message you have NxFilter successfully installed.
+</p>
+
+<img src='screenshot/setup_svc_inst.png'>
+</p>
+
+To access the admin GUI, start your browser and type 'http://localhost/admin' into the address bar.
+Or if you created a desktop icon during the installation process you can click it.
+If you see the following login screen your NxFilter is up and running. The initial login name
+and password is 'admin' and 'admin'.
+</p>
+
+<img src='screenshot/admin_login2.png' border='1'>
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='install_ubuntu'></a>
+<div class='view'>
+<div class='title'>Install NxFilter on Ubuntu Linux</div>
+
+We have a 'deb' package for installing NxFilter on Ubuntu Linux.
+To install it, install Java first. Download the package using 'wget', and then install it using 'dpkg'.
+Then start it from the Systemd script which is installed with the package.
+</p>
+
+	<div class='cmd'>
+	sudo apt-get install openjdk-8-jre<br>
+	wget http://www.nxfilter.org/download/nxfilter-3.1.6.deb<br>
+	sudo dpkg -i nxfilter-3.1.6.deb<br>
+	sudo systemctl enable nxfilter.service<br>
+	sudo systemctl start nxfilter.service<br>
+	</div>
+	</p>
+
+To access the admin GUI, start your browser and type 'http://your-system-ip/admin' into the address bar.
+If you install it on '192.168.0.100' type 'http://192.168.0.100/admin'.
+The initial admin name and password is 'admin' and 'admin'.
+</p>
+
+When you update NxFilter using 'deb' package and if you update it to v3.1.7
+use the following commands,
+</p>
+
+	<div class='cmd'>
+	sudo systemctl stop nxfilter.service
+	sudo dpkg -i nxfilter-3.1.7.deb<br>
+	sudo systemctl start nxfilter.service<br>
+	</div>
+	</p>
+
+</p>
+
+On older version of Ubuntu system you might be using Upstart instead of Systemd. We install Upstart script as well. You need
+to use the following commands to start and stop NxFilter service.
+</p>
+
+	<div class='cmd'>
+	sudo start nxfilter<br>
+	sudo stop nxfilter<br>
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='install_unix'></a>
+<div class='view'>
+<div class='title'>Install NxFilter on other Linux</div>
+
+When you install NxFilter on Linux system in general,<br>
+	<div class='tab'>
+	- You need to have root permission.<br>
+	- Make sure that your system has Java 1.7 or higher installed.<br>
+	- You can start NxFilter as a daemon use '-d' option with 'startup.sh'.<br>
+	</div>
+</p>
+
+1. Download 'nxfilter-x.x.x.zip' file from www.nxfilter.org.
+</p>
+
+2. Extract the zip file into '/nxfilter'.
+</p>
+
+3. Go to '/nxfilter/bin' and run 'chmod +x *.sh'.
+</p>
+
+4. Run 'startup.sh'.
+</p>
+
+<img src='screenshot/linux_startup.png'>
+</p>
+
+5. To access the admin GUI, start your browser and type 'http://your-system-ip/admin' into the address bar.
+If you install it on '192.168.0.100' type 'http://192.168.0.100/admin'.
+The initial admin name and password is 'admin' and 'admin'.
+</p>
+
+	<div class='info'>
+	* You might want to start NxFilter automatically at your system startup. On one of our Linux systems we have
+	'/nxfilter/bin/startup.sh -d' in '/etc/rc.local' script. You need to use '-d' option for running NxFilter
+	as a daemon.
+	</p>
+
+	* Charles Gunzelman has built a docker image for NxFilter.
+	<a target='_blank' href='https://hub.docker.com/r/packetworks/nxfilter-base/'>https://hub.docker.com/r/packetworks/nxfilter-base/</a>
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='install_windows2'></a>
+<div class='view'>
+<div class='title'>Install NxFilter on Windows manually</div>
+
+This is about how to install NxFilter on Windows manually using a 'zip' package.
+You still can make it a Windows service with a batch script included in the package.
+</p>
+
+1. Download 'nxfilter-x.x.x.zip' file.
+</p>
+
+2. Extract the zip file into 'c:/nxfilter'.
+</p>
+
+3. Go to 'c:/nxfilter/bin''.
+</p>
+
+4. Run 'startup.bat'.
+</p>
+
+	<div class='info'>
+	* If you want to install NxFilter as a Windows service run 'c:/nxfilter/bin/instsvc.bat'.
+	It will create 'NxFilter' service. When you uninstall it run 'c:/nxfilter/bin/unstsvc.bat'.
+	</p>
+
+	* To run NxFilter as a service 'net start NxFilter'. To stop it 'net stop NxFilter'.
+	</p>
+
+	* Use 'net start NxCloud' and 'net stop NxCloud' for NxCloud.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='update_nxfilter'></a>
+<div class='view'>
+<div class='title'>Updating NxFilter</div>
+
+We provide a Windows installer and a 'deb' package for installaing and updating NxFilter. While it
+is convenient sometimes you have to do it with a 'zip' package. When you update NxFilter using
+a 'zip' package,
+</p>
+
+1. Download 'nxfilter-x.x.x.zip' file.
+</p>
+
+2. Stop NxFilter.
+</p>
+
+3. Extract the zip file into the directory NxFilter installed.
+</p>
+
+4. Start NxFilter.
+</p>
+
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<!-- 
+<a name='install_nxfadmin'></a>
+<div class='view'>
+<div class='title'>Install NxFAdmin by Rob Asher</div>
+
+Rob Asher developed a custom GUI for NxFilter and many people prefer using
+it over the default GUI of NxFilter. To apply it on NxFilter download it from
+NxFAdmin repository on BitBucket first.
+</p>
+
+	<div class='tab'>
+	<a target='_blank' href='https://bitbucket.org/DeepWoods/nxfadmin'>https://bitbucket.org/DeepWoods/nxfadmin</a>
+	</div>
+	</p>
+
+After you download it, create '/nxfilter/skins' directory and extract NxFAdmin package
+into '/nxfilter/skins' directory. You many have '/nxfilter/skins/nxfadmin-1.3' contains
+the newest NxFAdmin package. Then add this line into '/nxfilter/conf/cfg.properties'
+file and restart NxFilter.
+</p>
+
+	<div class='tab'>
+	www_dir = skins/nxfadmin-1.3
+	</div>
+	</p>
+
+	<div class='info'>
+	* You can view how NxFAdmin looks on our demo site.
+		<a target='_blank' href='http://demo.nxfilter.org/admin'>http://demo.nxfilter.org/admin</a>
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+-->
+
+
+
+<!-- -->
+<a name='start_stop'></a>
+<div class='view'>
+<div class='title'>Start and stop NxFilter</div>
+
+There are several utility scripts for NxFilter in '/nxfilter/bin' directory.
+</p>
+
+	<div class='tab'>
+	- To start NxFilter : startup.sh<br>
+	- To stop NxFilter : shutdown.sh<br>
+	- To see if it is running : ping.sh<br>
+	</div>
+	</p>
+
+On Windows use '.bat' files instead of '.sh' files.
+</p>
+
+	<div class='info'>
+	* When you run it as a Windows service use 'net start NxFilter' to start
+	and 'net stop NxFilter' to stop.
+	</p>
+
+	* Use 'net start NxCloud' and 'net stop NxCloud' for NxCloud.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='client'></a>
+<div class='view'>
+<div class='title'>Client DNS setup</div>
+
+After you install NxFilter you want to monitor and filter Internet activity in your network.
+To monitor and filter Internet activity you need to make NxFilter to be the only DNS server for your network.
+</p>
+
+<img src='screenshot/dns_setup.png'>
+</p>
+
+The simplest way of setting up a DNS server for your users would be modifying the network setup
+on OS level like the above. But you don't want to set up all the PC in your network one by one.
+So the best way would be using DHCP server. You just need to modify DNS server address on your
+DHCP server setup and then your users will be using NxFilter as their DNS server.
+</p>
+
+If you have a firewall you can force your users to use NxFilter as their DNS server by blocking outgoing
+traffic on UDP/53, TCP/53 port. Now NxFilter became the only DNS server your users can use.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='ad_integration'></a>
+<div class='view'>
+<div class='title'>Active Directory integration</div>
+
+NxFilter supports Active Directory integration but some people find it hard to understand.
+So we want to explain what is Active Directory integration for NxFilter and when to use it and how to
+implement it at conceptual level.
+</p>
+
+<div class='nx_hr'></div>
+<b>What is Active Directory integration</b>
+</p>
+
+One of the reasons why people want to integrate NxFilter into Active Directory is that they want
+to apply filtering policies based on Active Directory user and group. They also don't want to
+have their users going through any extra login step to use the Internet except when they login to their own PC.
+So for NxFilter 'Active Directory integration' means using the same user account from your Active Directory
+to differentiate users and having single sign-on with your Active Directory.
+</p>
+
+<div class='nx_hr'></div>
+<b>User importation</b>
+</p>
+
+Now we know what is Active Directory integration and why we need it. But how to do that? On NxFilter
+the first thing you need to do for implementing Active Directory integration is to import the users and groups
+from Active Directory. It means you need to let NxFilter be aware of your users and groups. You can
+do that on 'User & Group > Active Directory'.
+</p>
+
+After you import your users and groups, your users will be able to use their Active Directory credentials
+on NxFilter's login-page. So we already achieved Active Directory integration to a certain level.
+</p>
+
+<div class='nx_hr'></div>
+<b>Single sign-on with Active Directory</b>
+</p>
+
+We can say that we achieved Active Directory integration as your users can use their Active Directory
+credentials on NxFilter's login-page. However your users don't want to go through the login-page so the
+next thing you need to do is implementing single sign-on with your Active Directory. To impelment single
+sign-on you need to use an agent program working with NxFilter. We have several agents that are NxLogon, NxMapper,
+NxClient. You can use just one of them or mix and match them to complement each other.
+</p>
+
+	<div class='info'>
+	* For more information, read single sign-on or agent related parts of this tutorial.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>MS DNS server and NxFilter</b>
+</p>
+
+When you deploy NxFilter in an Active Directory environment you might be worrying about the possibility
+of breaking the integrity of Active Directory as NxFilter is a DNS server and the role of a DNS server
+in Active Directory is very important. But we don't disable or replace the existing Active Directory DNS server.
+Our approach is to work with the existing Active Directory DNS server in cooperation. So you have to maintain
+your existing MS DNS server even though you use NxFilter as the DNS server for your network.
+</p>
+
+1. Where to install it
+	<div class='tab'>
+	Some people try to install NxFilter on their domain controller. But you already have another DNS server
+	there. It is your MS DNS server. It would be better to install it on the other system to avoid of having
+	a port collision problem.
+	</div>
+	</p>
+
+2. Dynamic host update
+	<div class='tab'>
+	MS DNS server in Active Directory does a lot of things. It lets the hosts in Active Directory know
+	the location of resources using SRV records. And it maintains a DNS zone for every hosts. It does dynamic
+	host IP update when you change an IP address of a system. To keep all these things working NxFilter bypasses
+	the internal DNS queries for Active Directory domain to MS DNS server automatically. It assumes that you
+	have your MS DNS server on the DC you imported your
+	users from.
+	</div>
+	</p>
+
+3. Which upstream server for NxFilter
+	<div class='tab'>
+	You might have a question about which DNS server you should use as an upstream server for NxFilter because
+	you already have a DNS server that is your MS DNS server. You can use any DNS server as an upstream DNS server
+	for your NxFilter including your MS DNS server. NxFilter still forwards your Active Directory internal DNS queries
+	to your MS DNS server. So you can use whichever DNS server you think the best.
+	</div>
+	</p>
+
+4. Manual setup for MS DNS server
+	<div class='tab'>
+	After you import Active Directory users and groups, NxFilter tries to work with your MS DNS server automatically
+	based on your Active Directory importation setup but sometimes you want to have a different settings for your
+	MS DNS server. Or you might want to have a redundancy for your MS DNS server. In that case, you can do all these things
+	on the edit page of your Active Directory setup. For having redundancy, you can add multiple DNS servers separated by commas.
+	</div>
+	</p>
+
+	<div class='info'>
+	* You might need to allow 'Nonsecure Dynamic Update' on your MS DNS zone properties for NxFilter to update
+	the IP addresses of the hosts in the MS DNS zone.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>An examplary deployment scenario</b>
+</p>
+
+Lastly, we will give you an examplary deployment scenario. Suppose we are in a company
+environment. Many Windows PCs and some Macbooks and recently we bought several
+Chromebooks. And people bring their own iPhone and Android phones. And plus we have
+several Linux servers for our own website and file sharing. There are some mobile
+workers using company laptops. Some are using Windows and some are using Macbooks.
+And you want to filter all of them whether they are inside office or outside office
+with their Active Directory accounts.
+</p>
+
+The first thing you need to do is to set up Active Directory user and group importation. And then
+use NxLogon for these Windows PCs. But NxLogon doesn't work with Macbooks. For these Macbooks
+you can use NxMapper. You just need to install it on your domain controller.
+</p>
+
+And then you want to deal with these mobile workers. You can install NxClient on their laptops.
+NxClient is basically a remote filtering agent for NxFilter but they will try to do single sign-on
+when they are in a local Active Directory. There are Windows and Mac versions for NxClient.
+</p>
+
+For Chromebook, you can try NxBlock. It is a Chrome extension and you can use it as a remote
+filtering agent or single sign-on agent for Active Directory.
+</p>
+
+For your servers you better not to filter them and set them up with static IP addresses and use
+another DNS server for them. You don't need to block anything from them normally.
+</p>
+
+For your iPhone and Android phones, just let them go through NxFilter's login-page.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+
+<!-- -->
+<a name='not_start'></a>
+<div class='view'>
+<div class='title'>When NxFilter not starting</div>
+
+When you find your NxFilter not starting, the first thing you need to do is checking '/nxfilter/log/nxfilter.log'
+file. You can find some information about the cause of the problem. The other things you might want to check
+out would be the port collision problem and Java installation. NxFilter uses UDP/53, TCP/80, TCP/443.
+This means NxFilter itself is a DNS server and a webserver. So if you have another DNS server or webserver
+running on the same system NxFilter will not start.
+</p>
+
+About the Java installation, if you use NxFilter's Windows installer, in most cases you
+will not have the problem but if you install NxFilter manually or if you start it manually
+not using Windows service you might have some Java related problems. To avoid of having
+this kind of problem there should be Java installed on the system and you need to have the
+proper environment variables for Java.
+</p>
+
+If your are on Windows system having properly configured Java, you will see this kind of
+message on command line when you type 'java'.
+</p>
+
+<img src='../screenshot/cmd_java_ok.png'>
+</p>
+
+On Windows system you can set these environment variables.
+</p>
+
+	<div class='tab'>
+	JAVA_HOME = C:\Program Files\Java\jre7<br>
+	PATH = %JAVA_HOME%\bin;C:\bin
+	</div>
+	</p>
+
+If it is on Linux, NxFilter will try to find 'java' in '/usr/bin' first and then '/usr/local/bin'
+so if you don't have 'java' in these directories you need to modify the script files
+in '/nxfilter/bin' directory or you need to include the path into the environment variables
+for your system.
+</p>
+
+To set up 'PATH' system variable for Java you can follow the instruction from the link below.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;- <a href='http://java.com/en/download/help/path.xml'>http://java.com/en/download/help/path.xml</a>
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='whatblacklist'></a>
+<div class='view'>
+<div class='title'>What is a blacklist?</div>
+
+A blacklist is a database of categorized domains. This is an essential part for a DNS filter
+for blocking websites by categories. NxFilter supports the following blacklists.
+</p>
+
+1. Jahaslist
+	<div class='tab'>
+	Jahaslist is the default blacklist option for NxFilter. It supports dynamic classification
+	by NxClassifier. NxClassifier is the integrated auto-classification engine for NxFilter.
+	</p>
+
+	For more about NxClassifier and how to grow Jahaslist, read <a href='#nxclassifier_what'>NxClassifier</a> section.
+	</div>
+	</p>
+
+2. Shallalist
+	<div class='tab'>
+	Free for non-commercial use only. It is maintained on www.shallalist.de.
+	</div>
+	</p>
+
+3. Cloudlist
+	<div class='tab'>
+	We outsource a third party cloud based blacklist option. It has more than 30 million domains classified already and
+	it does dynamic classification. Many companies are are using it for their commercial products. Since it is on cloud,
+	you don't need to import or update anything.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='using_jahaslist'></a>
+<div class='view'>
+<div class='title'>Using Jahaslist, Komodia</div>
+
+
+Jahaslist and Komodia blacklist options are commercial. You can buy the license on our homepage.
+</p>
+
+	<div class='tab'>
+	<a target='_blank' href='http://www.nxfilter.org/p2/?page_id=727'>- To buy Jahaslist license</a>
+	<br>
+
+	<a target='_blank' href='http://www.nxfilter.org/p2/?page_id=738'>- To buy Komodia license</a>
+	</div>
+	</p>
+
+	<div class='info'>
+	* We have a discount option for non-profit organization. When you want to get the discount contact
+	us first using 'support @ nxfiter.org'.
+	</div>
+	</p>
+
+
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='blacklist_recat'></a>
+<div class='view'>
+<div class='title'>Reclassification on blacklist</div>
+
+You can add domains directly into system categories. It works like the domains added into custom
+categories. Even if you have the same domain classified differently in your blacklist your custom
+classification overrides it. So the effect of it is immediate. No need to report it back to blacklist
+provider and wait to see it reflected.
+</p>
+
+There are two ways of reclassification. One is to add domains on 'Category > System' and the other
+one is using the popup reclassification form by clicking a domain on 'Logging > Request'.
+</p>
+
+<img src='screenshot/recat_popup.png' border='1'>
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+<!-- -->
+<a name='shallalist'></a>
+<div class='view'>
+<div class='title'>Updating Shallalist</div>
+
+NxFilter provides an auto-update script for Shallalist.
+To update Shallalist stop NxFilter and run '/nxfilter/bin/update_sh.sh'.
+Depending on Internet speed it may take several minutes to finish the whole process.
+</p>
+
+	<div class='tab'>
+	<img src='screenshot/shalla_console.png'>
+	</div>
+	</p>
+
+If you need to update it manually download <a href='http://www.shallalist.de/Downloads/shallalist.tar.gz'>http://www.shallalist.de/Downloads/shallalist.tar.gz</a>
+and extract it into '/nxfilter/shallalist1/BL' then run 'update_sh.sh /nxfilter/shallalist1/BL' command.
+</p>
+
+	<div class='cmd'>
+	cd /nxfilter/bin<br>
+	update_sh.sh /nxfilter/shallalist1/BL
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxfilter_auth'></a>
+<div class='view'>
+<div class='title'>NxFilter and authentication</div>
+
+NxFilter provides several authentication methods including single sign-on with Active Directory integration.
+</p>
+
+<div class='nx_hr'></div>
+<b>Why authentication</b>
+</p>
+
+When you install NxFilter first time you only have one policy and it applies to everybody
+in your network. But what if you are working for a school as a systems administrator and you want to apply
+a policy based on user and group. For students, a stricter policy and for teachers, a bit lenient
+policy. Now you need to differentiate users. That's when you need to enable authentication.
+</p>
+
+<div class='nx_hr'></div>
+<b>Which authentication</b>
+</p>
+
+NxFilter supports several ways of authentication. You can choose one of them or mix and match some of them.
+</p>
+
+1. IP based authentication
+	<div class='tab'>
+	This is the simplest form of authentication. When you use a static IP address for your client PC this might be the best choice.
+	Just associate the IP address of the client PC to the user you create on NxFilter GUI. You also can associate an IP range
+	to a user.
+	</p>
+
+		<div class='info'>
+		* Many people try to use IP based authentication without enabling authentication on 'Config > Setup'. But IP based
+		authentication is still a method of authentication so you must enable it first.
+		</div>
+	</div>
+	</p>
+
+2. Password based authentication
+	<div class='tab'>
+	When you enable authentication NxFilter blocks any user trying to access the Internet with its login-page unless they
+	already logged-in or having IP address associated to them. To go through the login-page your users need to enter
+	their passwords. You can set a password for each user on NxFilter GUI.
+	</div>
+	</p>
+
+3. LDAP based authentication
+	<div class='tab'>
+	If you have OpenLDAP or Active Directory your users can go through the login-page using their LDAP credentials. To
+	use this feature you need to import your users from your LDAP server first.
+	</div>
+	</p>
+
+4. Login token based authentication
+	<div class='tab'>
+	NxFilter has a special concept called 'Login Token'. This is used for remote user authentication or filtering.
+	This login token is being created for each user when you create or import users. You use this login token to
+	differentiate users for remote user filtering with NxClient and NxBlock or dynamic IP update with NxUpdate.
+	</div>
+	</p>
+
+5. Single sign-on against Active Directory
+	<div class='tab'>
+	Many people want to filter their users transparently. Or you don't want to show any login prompt to your users.
+	NxFilter provides Active Directory integration. Once you implement it your users don't need to go through NxFilter's
+	login-page and your users will be appeared on NxFilter GUI with their Active Directory usernames and groups.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='sso_nxlogon'></a>
+<div class='view'>
+<div class='title'>Single sign-on with Active Directory using NxLogon</div>
+
+When you have Active Directory you want to have single sign-on against it and not showing any extra login
+prompt to your users. For this we have an agent program that is NxLogon. When you run NxLogon on a user PC it creates
+and refreshes a login session for the user on NxFilter.
+</p>
+
+However you don't want to install this program on every PC in your network. So we use a logon script on GPO(Group Policy Object).
+This logon script is being executed whenever a user logon to Active Directory and launches NxLogon on each user's PC.
+</p>
+
+	<div class='info'>
+	* If you want to have single sign-on against Active Directory you firstly need to import users and groups from
+	your Active Directory. To import users and groups read,
+	<a href='#import_user'>GUI - User</a>
+	<p>
+
+	* NxLogon uses TCP/19002 port to talk to NxFilter.
+	</div>
+	</p>
+
+You can follow these steps to launch NxLogon from GPO.
+</p>
+
+1. Download nxlogon-x.x.zip package from www.nxfilter.org.
+</p>
+
+2. Modify IP address in 'nxlogon.bat' to point NxFilter. If you use clustering you can add multiple server
+IP addresses separated by spaces.
+</p>
+
+3. Open 'Administrative Tools > Active Directory Users and Computers' on your DC.
+</p>
+
+4. Open 'Group Policy' tab in properties of your Active Directory Domain.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src='screenshot/gpo.png'>
+</p>
+
+5. Click 'Edit' button and then go to 'User configuration > Windows Settings > Scripts (Logon/Logoff)'.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src='screenshot/gpo_edit.png'>
+</p>
+
+6. Click 'Logon' and click 'Add' and then click 'Browse' button. You will see 'Logon' directory
+to select file. Copy your 'nxlogon.bat' and 'nxlogon.exe' from NxLogon package into 'Logon' directory.
+You can drag and drop the files into the directory.
+</p>
+
+7. Select 'nxlogon.bat' which you copied into 'Logon' directory as a logon script to add.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src='screenshot/gpo_logon.png'>
+</p>
+
+8. Now every time a user logon to his/her system 'logon.bat' will be executed and it will launch 'nxlogon.exe'.
+You can check the process running on Windows task manager.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<img src='screenshot/task_man.png'>
+</p>
+
+	<div class='info'>
+	* If you want to remove login session immediately after user logout use 'nxlogoff.bat'
+	as a logoff script in GPO.
+	</p>
+
+<!-- 
+	* When you run multiple instances of NxLogon on the same PC by multiple users it would cause a mess
+	for user detection process. Your users might be appeared with several different names on log view.
+	To block multiple instances on the same system use '-bm' option.
+	</p>
+-->
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='sso_nxmapper'></a>
+<div class='view'>
+<div class='title'>Single sign-on with Active Directory using NxMapper</div>
+
+While using NxLogon is still the best solution for Active Directory single sign-on but some people
+find it difficult to set up all these GPO and logon script. So we offer an easier way of implementing single
+sign-on against Active Directory. When you install NxMapper on your domain controller it will grab
+username and IP address pair when a user logon and creates a login session on NxFilter.
+</p>
+
+	<div class='info'>
+	* If you want to have single sign-on against Active Directory you firstly need to import users
+	and groups from your Active Directory. To import users and groups read,
+	<a href='#import_user'>GUI - User</a>
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Install and run NxMapper</b>
+</p>
+
+We offer a Windows installer for NxMapper. It will install NxMapper as a Windows service.
+After you install it, you will have its setup program running.
+</p>
+
+<img src='screenshot/nxmapper_setup.png'>
+</p>
+
+	<div class='info'>
+	* NxMapper needs to be installed on a domain controller.
+	<p>
+
+	* You can add multiple IP addresses separated by commas if you run a cluster of NxFilter.
+	<p>
+
+	* NxMapper uses TCP/19002 port to talk to NxFilter.
+	</div>
+	</p>
+
+After you modify the config values, test your setup first and then start it.
+</p>
+
+<div class='nx_hr'></div>
+<b>Differences from using NxLogon</b>
+</p>
+
+Although it is a lot easier to be compared to using NxLogon, NxMapper also has its own limit.
+</p>
+
+The login session created by NxMapper can be expired. While NxLogon refreshes its login session
+on evey minutes, NxMapper creates or refreshes a login session only when there is a user activity
+on a domain controller. Once the session expired your users will be redirected to NxFilter's login-page.
+
+To avoid of having this kind of problem you can increase the session timeout value on
+'Config > Setup > Block and Authentication > Login session TTL'.
+</p>
+
+	<div class='info'>
+	* It can be expired as NxMapper doesn't refresh it. But as long as there is an activity from a user
+	NxFilter refreshes the login session. It usually expires when a user returned to his/her desk from
+	a long break.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Terminal server exclusion</b>
+</p>
+
+When we use NxMapper we might have a problem with Windows terminal server. If there are multiple users
+on one system the IP address of the system will be associated to the user whose action detected
+lastly by NxMapper. It means your users can be appeared on NxFilter with a different username.
+To prevent having this kind of problem the best solution would be creating an IP based user for
+your terminal server.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='sso_nxclient'></a>
+<div class='view'>
+<div class='title'>Single sign-on with Active Directory, OpenLDAP using NxClient</div>
+
+NxClient is basically a remote user filtering client for mobile workers with
+their own laptop. But you can use it for single sign-on against Active Directory
+or OpenLDAP. One good thing is that since there is Mac OS version of NxClient you
+can have single sign-on from Mac OS.
+</p>
+
+If you already tried to use NxClient you already know that single sign-on using NxClient
+is possible with its 'Login Token' concept. But with this approach one problem is that
+it is almost impossible to set up several hundreds of NxClient installations with their own
+'Login Token'.
+</p>
+
+So we provide a way of running NxClient on a local network without setting up different
+login token to each client PC. What you need to do is to install NxClient using a common
+login token for all the client PC. Then when it starts it will look for its server that is
+NxFilter on the local network and if it finds one it will try to create a login session for the
+current logged-in user or console username.
+</p>
+
+	<div class='info'>
+	* For NxClient being able to detect a local NxFilter, you have to use NxFilter
+	as the DNS server for your client PC.
+	</p>
+
+	* If you use NxClient only for single sign-on you can install it without a login token
+	and a server IP.
+	</div>
+	</p>
+
+To find out more about NxClient read this, <a href=#agent_nxclient>NxClient and remote user filtering</a>
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_login'></a>
+<div class='view'>
+<div class='title'>Custom login script for single sign-on</div>
+
+Currently NxFilter supports single sign-on with Active Directory. However some people
+want more than that. For example, you might want to have single sign-on with your OpenLDAP.
+</p>
+
+NxFilter supports an API set for creating login session through HTTP protocol. You need
+to write your custom login script to call some webpage on NxFilter's built-in webserver.
+And then your users don't need to go through NxFilter's login-page.
+</p>
+
+We have example code on '/nxfilter/webapps/example/login_user.jsp'. Initially the access of the page
+is restricted to localhost only for security reason but you can edit the JSP page to allow
+the calls from your local network.
+</p>
+
+You can call the webpage this way.
+</p>
+
+	<div class='code'>
+	http://192.168.0.100/example/login_user.jsp?ip=192.168.0.100&uname=john
+	</div>
+	</p>
+
+As you see there are two parameters being passed. One is the IP address of your user and
+the other one is the associated username. The username should be imported or created on
+NxFilter side already.
+</p>
+
+One thing you need to consider when you write your own login script is that
+it might be better to call the webpage periodically. There is a session
+timeout concept in NxFilter. If there is no activity from a logged-in user for certain amount
+of time the login session will be expired. So if you don't want to show your
+users NxFilter's login-page, you would need to refresh the login session periodically.
+</p>
+
+There are three methods of UserLoginDao class for custom login script.
+</p>
+
+	<div class='code'>
+	- create_ip_session(String ip, String uname) : Creating a login session with an IP and username.<br>
+	- delete_ip_session(String ip) : Deleting a login session with an IP.<br>
+	- find_user(String ip) : You can find a logged-in username by its associated IP address.<br>
+	</div>
+	</p>
+
+All the example JSP pages are in '/nxfilter/webapps/example' directory.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='auth_order'></a>
+<div class='view'>
+<div class='title'>The order of authentication methods</div>
+
+NxFilter supports multiple authentication methods at the same time. But there is a sequential
+order for these authentication methods. You need to understand the order of authentication
+methods to build your filtering setup.
+</p>
+
+This is the order of authentication methods.
+</p>
+
+1. Single IP association
+<br>
+	<div class='tab'>
+	Single IP association comes first so that you can exclude some systems from the IP range
+	association or allow some users to login without any login procedure.
+	</div>
+	</p>
+
+2. IP session
+<br>
+	<div class='tab'>
+	IP session is the login session being created and maintained on NxFilter by its single
+	sign-on agent or login-page. This comes at second.
+	</div>
+	</p>
+
+3. IP range association
+<br>
+	<div class='tab'>
+	When you need to allow an anonymous user to access the Internet without any login process
+	you create an IP range user to cover whole your network. But you still want to differentiate
+	users by single IP association or the login session. So the IP range association comes at last.
+	</p>
+
+		<div class='info'>
+		We have 'Most specific IP range comes first' rule for ordering IP range users. If there
+		are overlapped IP ranges the smaller IP range will be applied before the others.
+		</div>
+
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='gui_config'></a>
+<div class='view'>
+<div class='title'>GUI - Config</div>
+These are mostly system configuration parameters for NxFilter.
+
+<div class='nx_hr'></div>
+<b>Config > Setup > Block and Authentication</b>
+</p>
+
+- Block Redirection IP
+	<div class='tab'>
+	This is the IP address of NxFilter itself. If there is a blocked DNS request, it will be redirected
+	to this IP address. It is supposed to be populated automatically during the installation process.
+	</p>
+
+		<div class='info'>
+		* You can add multiple block redirection IP addresses separated by commas for redundancy.
+		</div>
+
+	</div>
+	</p>
+
+- External Redirection IP
+	<div class='tab'>
+	When you use a remote filtering agent you might need to use a different 'Block Redirection IP' for the remote
+	filtering agent since it is outside of your network. If you leave this one empty NxFilter will use
+	'Block Redirection IP' for redirecting the remote filtering agent.
+	</div>
+	</p>
+
+- IPv6 Redirection IP
+	<div class='tab'>
+	You need to set this up when you use NxFilter as your IPv6 network DNS server.
+	</div>
+	</p>
+
+- Enable Authentication
+	<div class='tab'>
+	This option is required when you use any authentication methods including IP based authentication.
+	After you enable this option, any unauthenticated user will be redirected to NxFilter's login-page.
+	As a result your users will be forced to login to use the Internet.
+	</div>
+	</p>
+
+- Login Domain
+	<div class='tab'>
+	You can access NxFilter's login-page using a domain defined here.
+	</div>
+	</p>
+
+- Logout Domain
+	<div class='tab'>
+	You can clear out a user login session using a domain defined here.
+	</div>
+	</p>
+
+- Login Session TTL
+	<div class='tab'>
+	NxFilter keeps a login session after a user login. But this login session needs to be expired eventually.
+	It is especially required when there is a shared PC by several users. If a user doesn't make any DNS request
+	for the specified amount of time defined here, his/her login session expires and the user needs to login
+	again.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Config > Setup > Syslog</b>
+</p>
+
+NxFilter supports Syslog exportation of its log data. You can build your own reporting system with this feature
+or you can monitor all the logging in real-time way.
+</p>
+
+- Syslog Host
+	<div class='tab'>
+	The host IP address to which you want to send syslog data.
+	</div>
+	</p>
+
+- Export Blocked Only
+	<div class='tab'>
+	With this option NxFilter sends the log data of blocked DNS request only.
+	</div>
+	</p>
+
+- Enable Remote Logging
+	<div class='tab'>
+	Enable Syslog exportation.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Config > Setup > NetFlow</b>
+</p>
+
+NxFilter supports bandwidth control. This is possible by importing NetFlow data.<br>
+For more detail read this, <a href='#bandwidth'>Bandwidth control with NxFilter</a>
+</p>
+
+- Router IP
+	<div class='tab'>
+	The IP address of a device sending NetFlow data to NxFilter.
+	</div>
+	</p>
+
+- Listen Port
+	<div class='tab'>
+	The UDP port number of NetFlow collector.
+	</div>
+	</p>
+
+- Run Collector
+	<div class='tab'>
+	Run NetFlow collector. After change this option you need to restart NxFilter.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Config > Setup > Misc</b>
+</p>
+
+- Admin Domain
+	<div class='tab'>
+	You can access the admin GUI using the domain you set up. For example, if you use 'admin.nxfilter.org'
+	as your admin domain you can access your admin GUI by typing 'http://admin.nxfilter.org/admin' into your
+	browser address bar.
+	</p>
+	
+		<div class='info'>
+		* This only works when you use NxFilter as your DNS server. Otherwise you need to register your
+		admin domain to your own DNS server.
+		</div>
+
+	</div>
+	</p>
+
+- Bypass Microsoft Update
+	<div class='tab'>
+	You don't want to block Microsoft update with your filtering. Enabling this option means bypassing
+	'micfosoft.com' and 'windowsupdate.com' and their subdomains.
+	</div>
+	</p>
+
+- Logging Retention Period
+	<div class='tab'>
+	If you keep your log data too long it will use your disk space a lot. You can set how
+	long NxFilter keeps its log data here.
+	</div>
+	</p>
+
+- SSL Only to Admin GUI
+	<div class='tab'>
+	When you want to allow only HTTPS access to the admin GUI enable this option.
+	Once you enable this option you will be redirected to the SSL port automatically even if you use HTTP.
+	</div>
+	</p>
+
+- Auto Backup
+	<div class='tab'>
+	NxFilter makes a backup file for its config into '/nxfilter/backup' directory on '01:00' everyday.
+	The name of the backup file starts with 'auto-' prefix. You can have up to 30 backups.
+	</div>
+	</p>
+
+- Agent Policy Update Period
+	<div class='tab'>
+	NxFilter provides several agents programs for application control and remote user filtering.
+	These agents fetch their policies periodically. You can set up the policy update period for them here.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Config > Admin</b>
+</p>
+
+You can change admin name and password for GUI login here.
+</p>
+	
+	<div class='info'>
+	* 'Client Password' is for remote filtering agent setup. We use it to access NxBlock setup page.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Config > Alert</b>
+</p>
+
+NxFilter sends an alert email for recent blocking or clustering node down incident.
+If you want to send an alert email to 'admin @ nxfilter.org' from 'alert200 @ gmail.com'
+on every 15 minutes then the setup would look like the followings.
+</p>
+
+	<div class='tab'>
+	- Admin email : admin @ nxfilter.org<br>
+	- SMTP host : smtp:gmail.com<br>
+	- SMTP host : 465<br>
+	- SMTP SSL : on<br>
+	- SMTP user : alert200<br>
+	- SMTP password : ********<br>
+	- Alert period : Every 15 minutes<br>
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Config > Allowed IP</b>
+</p>
+
+NxFilter has IP based access restriction function for its DNS, GUI, login redirection.
+You may need to use this feature when you put your NxFilter on a public IP address.
+You can make whitelist/blacklist way of ACL here.
+</p>
+
+<div class='nx_hr'></div>
+<b>Config > Backup</b>
+</p>
+
+You can make a backup for the config DB of NxFilter manually. The backup files will be created into
+'/nxfilter/backup' directory.
+</p>
+
+<div class='nx_hr'></div>
+<b>Config > Block Page</b>
+</p>
+
+This is the setup for custom block-page, login-page, welcome-page. When you edit your block-page you can use
+the following variables populated by NxFilter for making your block-page more informative.
+</p>
+
+	<div class='tab'>
+	- #{domain} : Blocked domain<br>
+	- #{reason} : Reason for block<br>
+	- #{user} : Logged-in username<br>
+	- #{group} : Groups of the logged-in user<br>
+	- #{policy} : The applied policy<br>
+	- #{category} : Categories or the blocked domain<br>
+	</div>
+
+</p>
+
+<div class='nx_hr'></div>
+<b>Config > Cluster</b>
+</p>
+
+NxFilter has a built-in clustering. You can make your NxFilter to be a master node or a slave node in a cluster.
+After you change the values in cluster setup you need to restart your NxFilter to apply the new settings.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='gui_dns'></a>
+<div class='view'>
+<div class='title'>GUI - DNS</div>
+NxFilter is basically a DNS server with filtering ability. These are DNS service related configuration parameters.
+
+<div class='nx_hr'></div>
+<b>DNS > Setup > DNS Setup</b>
+</p>
+
+- Upstream DNS server
+	<div class='tab'>
+	NxFilter works as a forwarding DNS server. You need to have at least one upstream DNS server for NxFilter.
+	</div>
+	</p>
+
+- Upstream DNS Query Timeout
+	<div class='tab'>
+	Timeout for a DNS query to your upstream DNS server.
+	</div>
+	</p>
+
+- Upstream DNS Load Balance
+	<div class='tab'>
+	Load balancing option for your upstream DNS servers.
+	</div>
+	</p>
+
+- Max Client Cache TTL
+	<div class='tab'>
+	You can modify the TTL value in a DNS response from NxFilter. If you set the value to '60' NxFilter
+	modifies the DNS cache TTL to '60' if the TTL is bigger than 60.
+	</p>
+
+	0 - Don't touch it.<br>
+	60 - Don't touch it if it's smaller than 60 and make it '60' if it's bigger than 60.
+	</p>
+
+	We introduced this function to minimize the effect from the client cache. However if you have more than
+	1,000 users you would better turn this function off for better performance.
+	</div>
+	</p>
+
+- Response Cache Size
+	<div class='tab'>
+	NxFilter has its own cache for DNS query result from its upstream server. Generally speaking, the bigger
+	cache would be better for the performance. Currently the default size is 200,000 and it is enough for most
+	sites.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>DNS > Setup > Local DNS</b>
+</p>
+
+- Local DNS Server
+	<div class='tab'>
+	When you have a local DNS server for resolving your local domain add your local DNS server IP address
+	here. You can add multiple IP addresses separated by commas for redundancy.
+	</div>
+	</p>
+
+- Local Domain
+	<div class='tab'>
+	When you have a domain which you want to forward to your local DNS server add the domain here. You can
+	add multiple domains separated by commas.
+	</div>
+	</p>
+
+		<div class='info'>
+		* Don't use '*' or any wildcard for a local domain.
+		</div>
+		</p>
+
+- Local DNS Query Timeout
+	<div class='tab'>
+	Timeout for a DNS query to your local DNS server.
+	</div>
+	</p>
+
+- Upstream DNS Load Balance
+	<div class='tab'>
+	Load balancing option for your local DNS servers.
+	</div>
+	</p>
+
+- Use Local DNS
+	<div class='tab'>
+	Enable local DNS.
+	</div>
+	</p>
+
+		<div class='info'>
+		* If you set up a local DNS server for you local domain, all the DNS queries for your local
+		domain will be bypassed from authentication, filtering and logging.
+		</div>
+		</p>
+
+<div class='nx_hr'></div>
+<b>DNS > Setup > Dynamic DNS</b>
+</p>
+
+NxFilter supports dynamic DNS service. For howto, read
+<a href='#nxfilter_dynamic_dns'>Dynamic DNS server</a> part of this tutorial.
+
+<div class='nx_hr'></div>
+<b>DNS > Zone File</b>
+</p>
+
+When you use NxFilter as an authoritative DNS server you would need to set up a zone file. We use the same format
+as BIND zone file. To find out more read
+<a href='#nxfilter_authoritative_dns'>Authoritative DNS server</a> part of this tutorial.
+	</p>
+
+<div class='nx_hr'></div>
+<b>DNS > Redirection</b>
+</p>
+
+Domain to IP or domain to domain redirection is possible with NxFilter. It works like a custom DNS record.
+</p>
+
+<div class='nx_hr'></div>
+<b>DNS > Zone Transfer</b>
+</p>
+
+In some situation you need to import a DNS zone from another DNS server. Once you add a zone-transfer setup
+here NxFilter imports the DNS zone on every minutes using IXFR protocol.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='gui_user'></a>
+<div class='view'>
+<div class='title'>GUI - User</div>
+
+You can create or import users and groups here. NxFilter supports user importation from
+Active Directory and OpenLDAP.
+</p>
+
+<div class='nx_hr'></div>
+<b>Creating a user</b>
+</p>
+
+You can create a user on 'User & Group > User'. There are 3 types of users in NxFilter
+</p>
+
+1. IP user
+<br>
+	<div class='tab'>
+	It has an associated IP address or IP range and will be authenticated based on IP address.
+	</div>
+	</p>
+
+2. Password user
+<br>
+	<div class='tab'>
+	If you set a password for a user it becomes a password user. You can use the password
+	on the login-page of NxFilter.
+	</div>
+	</p>
+
+3. LDAP user
+<br>
+	<div class='tab'>
+	When you import users from your LDAP servers or Active Directory they become
+	LDAP users. They can use LDAP or Active Directory user credentials on NxFilter's login-page.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Properties of a user</b>
+</p>
+
+- Password : The password for login through NxFilter's login-page.<br>
+- Work-time Policy : The policy being applied when it is not in a free-time.<br>
+- Free-time Policy : The policy being applied during a free-time. You can define a free-time on 'Policy & Rule > Free Time'.<br>
+- Expiration Date : The expiration date for a user account.<br>
+- Login Token : The token for remote user filtering or remote user authentication. It is created when a user created or imported.<br>
+</p>
+
+<div class='nx_hr'></div>
+<b>Testing a user</b>
+</p>
+
+When you have an LDAP imported user you may have multiple groups and policies for a user. As a result it becomes
+difficult to figure out which policy a user fall into. To find out which is the 'Applied Policy' for a user,
+use 'TEST' button on the user list. It fetches the state of a user from NxFilter in real-time way.
+</p>
+
+	<div class='info'>
+	* You can use this test view to find out how much quota or bandwidth consumed by a user
+	or to reset quota or bandwidth for a user.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Creating a group</b>
+</p>
+
+You can create a group on 'User & Group > Group'. After you create a group you can set up a policy for
+the group by editing its properties. You also can assign members to the group.
+</p>
+
+<a name='import_user'></a>
+<div class='nx_hr'></div>
+<b>Importing users and groups from Active Directory or OpenLDAP</b>
+</p>
+
+You can import users and groups from Active Directory on 'User & Group > Active Directory'.
+For example, if you have your Active Directory with the following setup.
+</p>
+
+	<div class='tab'>
+	- Domain controller : 192.168.0.100<br>
+	- Domain : nxfilter.local<br>
+	- Admin username : Administrator<br>
+	</div>
+</p>
+
+Then you can create an Active Directory importation setup with the following details.
+</p>
+
+	<div class='tab'>
+	- Host : 192.168.0.100<br>
+	- Admin : Administrator@nxfilter.local<br>
+	- Password : your-password<br>
+	- Base DN : cn=users,dc=nxfilter,dc=local<br>
+	- Domain : nxfilter.local<br>
+	</div>
+	</p>
+
+After having an Active Directory importation setup you can import users and groups with 'IMPORT' button.
+You also can set up a periodical import by selecting an auto-sync interval.
+</p>
+
+	<div class='info'>
+	<!--
+	* NxFilter supports zone-transfer option for AD. When you check 'Zone transfer' option
+	NxFilter imports 'your-domain' and '_msdcs.your-domain' on every minutes using IXFR protocol.
+	This one works on based on assumption that you have your DNS server on your domain controller.
+	If you have your DNS server separately you need to use 'Config > Zone Transfer'. When you
+	use this function zone-transfer	should be allowed on AD DNS server.
+	</p>
+	 -->
+
+	* If you want to find out if there is a connectivity issue between NxFilter and your domain controller,
+	use 'TEST' button.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='gui_policy'></a>
+<div class='view'>
+<div class='title'>GUI - Policy</div>
+
+With NxFilter you can have multiple filtering policies based on user and group.
+</p>
+
+<div class='nx_hr'></div>
+<b>Creating a policy</b>
+</p>
+
+When you install NxFilter, there is only one policy that is 'Default'. This policy will be applied to everybody
+if you don't make any change on NxFilter setup. If you want to apply a different policy for a specific user or group
+you need to create another policy and enable authentication.
+</p>
+
+<div class='nx_hr'></div>
+<b>Editing a policy</b>
+</p>
+
+After you create a policy you can modify its properties.
+</p>
+
+- Priority Points
+	<div class='tab'>
+	If there are multiple policies associated to one user then the policy having
+	the biggest points will be applied.
+	</div>
+</p>
+
+- Enable Filter
+	<div class='tab'>
+	If you disable this option there will be no blocking from the policy.
+	</div>
+</p>
+
+- Block All
+	<div class='tab'>
+	Block everything on policy level.
+	</div>
+</p>
+
+- Block Unclassified
+	<div class='tab'>
+	Block unclassified domains.
+	</div>
+</p>
+
+- Ad-remove
+	<div class='tab'>
+	Block domains in 'Ads' category of Jahaslist with a blank block-page.
+	</p>
+
+		<div class='info'>
+		* This is useful when you want to remove embedded adverts without
+		showing NxFilter's block-page.
+		</div>
+
+	</div>
+</p>
+
+- Max Domain Length
+	<div class='tab'>
+	There are some malwares using domain name itself as a message protocol. These domains are abnormally
+	long while the length of most domains are under 30 characters. You can set a limit for the length
+	of a domain to block these abnormal domains. To prevent having false positives NxFilter doesn't
+	apply 'Max Domain Length' against 100,000 well known domains.
+	</div>
+</p>
+
+- Block Covert Channel
+	<div class='tab'>
+	Some malwares or botnets are using DNS protocol as their communication tool. They are using DNS
+	query and response to communicate to each other.
+	</div>
+</p>
+
+- Block Mailer Worm
+	<div class='tab'>
+	Normally you are not supposed to see MX query from your client PC. When NxFilter finds MX type query
+	from your client PC it will be regarded from some malware trying to send emails.
+	</div>
+</p>
+
+- Block DNS Rebinding
+	<div class='tab'>
+	When NxFilter finds a private IP address(192.168.0.0/16, 172.16.0.0/12, 10.0.0.0/8)
+	on DNS response packet it will be blocked as DNS rebinding attack.
+	</p>
+
+		<div class='info'>
+		* If you have your own DNS record with private IP address you need to bypass
+		the domain on whitelist.
+		</div>
+
+	</div>
+</p>
+
+- Allow 'A' Record Only
+	<div class='tab'>
+	This is the most strict way of filtering malwares and botnets employing DNS protocol as their
+	communication tool. If you are an ordinary office worker you don't need to use any special
+	type of DNS record.	With this option NxFilter allows A, AAAA, PTR, CNAME only and the other
+	types of DNS records will be blocked.
+	</div>
+</p>
+
+- Quota
+	<div class='tab'>
+	NxFilter has quota-time feature. You can allow your users to browse some websites for a certain
+	amount of time. You can set the amount of time here.
+	</div>
+</p>
+
+- Quota All
+	<div class='tab'>
+	Apply quota to all domains including unclassified domains.
+	</div>
+</p>
+
+- Bandwidth Limit
+	<div class='tab'>
+	You can set the bandwidth consumtion limit for a user.
+	</p>
+
+		<div class='info'>
+		This feature requires to import NetFlow data from your router or firewall. For more details read
+		<a href='#bandwidth'>Bandwidth control with NxFilter</a> on this tutorial.
+		</div>
+	</div>
+</p>
+
+- Safe-search
+	<div class='tab'>
+	Enforcing safe-search against Google, Bing, Yahoo and Youtube.
+	</p>
+
+		<div class='info'>
+		* Safe-search enforcing for Yahoo requires a local proxy agent running on user system.
+		</div>
+
+	</div>
+	</p>
+
+- Block-time
+	<div class='tab'>
+	You can set policy specific block-time.
+	</div>
+</p>
+
+- Disable Application Control
+	<div class='tab'>
+	Disable application control on policy level.
+	</div>
+</p>
+
+- Disable Proxy Filtering
+	<div class='tab'>
+	Disable proxy filtering for on policy level.
+	</div>
+</p>
+
+- Logging Only
+	<div class='tab'>
+	Monitoring user activity without blocking them.
+	</div>
+	</p>
+
+- Blocked Categories
+	<div class='tab'>
+	You can block DNS request by categories.
+	</div>
+</p>
+
+- Quotaed Categories
+	<div class='tab'>
+	If you check some categories in 'Quotaed Categories' then your users can access the websites in the
+	categories for the amount of time you specified with 'Quota' above.	When a user consumed up his quota
+	his/her DNS requests for those sites will be blocked.
+	</div>
+</p>
+
+<div class='nx_hr'></div>
+<b>Define a free-time</b>
+</p>
+
+You can define a global free-time in 'Policy & Rule > Free Time'.
+If you assign a free-time policy to users it will be applied during the time defined here.
+</p>
+
+	<div class='info'>
+	* If the start-time is bigger than the end-time then it will break into
+	'end-time ~ 24:00' and '00:00 ~ start-time'	on the same day.
+	</p>
+
+	* You can set a group specific free-time on 'User & Group > Group > EDIT'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Application Control</b>
+</p>
+
+NxFilter provides application control through NxClient. For more details read 'Application control with NxClient'
+part of this tutorial.
+</p>
+
+<div class='nx_hr'></div>
+<b>Proxy Filtering</b>
+</p>
+
+NxFilter provides HTTP proxy filtering through NxClient. For more details read
+'Proxy filtering with NxClient' part of this tutorial.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='gui_category'></a>
+<div class='view'>
+<div class='title'>GUI - Category</div>
+
+On NxFilter there are system categories and custom categories. System categories are
+already defined by your blacklist DB. But you can create your own custom categories.
+You can add domains into these system/custom categories and block domains by these
+categories.
+</p>
+
+Currently NxFilter supports several blacklist options. If you want to find out more read
+'Blacklist and domain categorization' part of this tutorial.
+</p>
+
+	<div class='info'>
+	* If you want to include subdomains into a category use asterisk.
+	</p>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;ex) *.nxfilter.org
+	</p>
+
+	* If you want to find out which category a domain fall into, use 'Category > Domain Test'.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='gui_whitelist'></a>
+<div class='view'>
+<div class='title'>GUI - Whitelist</div>
+
+This is for making a whitelist/blacklist by a domain or a keyword here.
+</p>
+
+- Bypass Authentication : When you need to bypass authentication for some sites use this options.
+</p>
+
+- Bypass Filtering : When you want to exclude some domains from your filtering use this option.
+</p>
+
+- Bypass Logging : When you find that there are too many log data for a domain which you are not interested in
+you can bypass logging for the domain with this option.
+</p>
+
+- Admin Block : When you want to block some domains without setting up a policy use this option. This option overrides 'Bypass Filtering'.
+</p>
+
+	<div class='info'>
+	* You can use an asterisk to include subdomains.
+	</p>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;ex) *.nxfilter.org
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='gui_report'></a>
+<div class='view'>
+<div class='title'>GUI - Main, Logging, Report</div>
+
+NxFilter keeps its log data up to 400 days and you can generate a daily, weekly, per-user report
+based on the log data.
+
+<div class='nx_hr'></div>
+<b>Main</b>
+</p>
+
+When you login to your admin GUI you will see the dashboard of NxFilter. There are several charts for
+showing a summary for the last 2 hours. On the bottom of the dashboard you can see 10 recent block logs for
+the last 12 hours.
+</p>
+
+	<div class='info'>
+	* The difference between 'request-sum' and 'request-cnt' is from NxFilter's logging system.
+	To reduce the amount of disk access NxFilter keeps all the log data into its memory space.
+	And then it flushes the data once a minute. If there is a request for the same domain from the same user in a minute
+	it only increases the count for the data. So 'request-sum' means the sum of all the counts and 'request-cnt'
+	means the count for all the unique data.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Logging</b>
+</p>
+
+You can search user request log with various conditions in 'Logging > Request'.
+Logging data is being updated once in a minute to reduce the load on DB.
+</p>
+
+In 'Logging > Signal' you can view the log of the signals from the agents of NxFilter.
+</p>
+
+In 'Logging > NetFlow' you can monitor NetFlow data imported.
+</p>
+
+	<div class='info'>
+	* Use square brackets for the exact matching keyword on log search.
+	</p>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;ex) [nxfilter], [192.168.0.100]
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Report</b>
+</p>
+
+NxFilter generates a daily, weekly, per-user report.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='agent_diff'></a>
+<div class='view'>
+<div class='title'>Differences between agents</div>
+
+NxFilter has several agents. Some are for single sign-on with Active Directory.
+Some are for remote user filtering and dynamic IP update. Some of them can be used
+for application control and proxy filtering.
+</p>
+
+1. NxLogon
+<br>
+	<div class='tab'>
+	Single sign-on agent for Active Directory. You can launch it
+	from a logon script on GPO.
+	</div>
+	</p>
+
+
+2. NxMapper
+<br>
+	<div class='tab'>
+	Another option for single sign-on with Active Directory. Unlike NxLogon you install it
+	on a domain controller.
+	</div>
+	</p>
+
+3. NxClient
+<br>
+	<div class='tab'>
+	Remote user filtering agent of NxFilter. When you have a mobile worker or home worker
+	you can install NxClient on their laptop.
+	</div>
+	</p>
+
+4. NxUpdate
+<br>
+	<div class='tab'>
+	Dynamic IP updater for NxFilter.
+	</div>
+	</p>
+
+5. NxBlock
+<br>
+	<div class='tab'>
+	Remote filtering agent and single sign-on agent for Chromebook.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='agent_nxclient'></a>
+<div class='view'>
+<div class='title'>NxClient and remote user filtering</div>
+
+NxFilter provides a remote user filtering client software that is NxClient.
+Once you install NxClient on a user system you can filter and monitor the Internet
+traffic from the user system on your NxFilter GUI centrally regardless of its location.
+</p>
+
+	<div class='info'>
+	* You need to open 53 UDP and 80, 443 TCP ports on NxFilter side.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Installation of NxClient</b>
+</p>
+
+After you install it using NxClient installer you will have its setup program running.
+There are 'Server IP' and 'Login Token' parameters and you need to set them up with your own.
+</p>
+
+	<div class='info'>
+	* On NxFilter every user has a login token. You can find it on 'User & Group > User > Edit'.
+	</p>
+
+	* NxClient is a Windows service program. It will start at system startup automatically.
+	</p>
+
+	* When you install NxClient or NxUpdate on Mac OS X, read
+	<a href='#agent_install_mac'>Installing NxClient or NxUpdate on Mac OS X</a>
+	on this tutorial.
+	</div>
+	</p>
+
+<img src='screenshot/nxclient_setup.png'>
+</p>
+
+After you modify the config value test your setup first and then start it. You can check if it is working
+by viewing 'Logging > Signal'. There will be signals from NxClient.
+</p>
+
+	<div class='info'>
+	* You can add multiple server IP addresses separated by commas if you run a cluster of NxFilter.
+	</p>
+
+	* To change the config value run 'C:/Program Files/nxclient/setup.exe'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Signals of NxClient</b>
+</p>
+	
+When it comes to a remote user filtering the most tricky part would be how to force users
+to be filtered. Nobody wants to get filtered and they are away from your office. If they
+use their personal PC then you can not filter them anyway. But when they use a company laptop
+you still can filter them by installing NxClient on their system.
+</p>
+
+However what if they uninstall or stop NxClient? NxClient is running as a service and it doesn't
+provide an uninstaller for 'Add/Remove programs' in control panel. So if your users don't have
+enough privilege they can't uninstall it.
+</p>
+
+But sometimes you need to give your users 'Local Administrator' privilege. In that case it's not
+possible to stop your users from uninstalling NxClient. So we defined several signals with which
+you can find out what's happening on a user system. NxClient send the following signals.
+</p>
+
+	<div class='tab'>
+	- START : When NxClient starts it sends START signal to NxFilter.<br>
+
+	- STOP : When NxClient stops it sends STOP signal to NxFilter.<br>
+
+	- PING : On every 5 minutes NxClient sends PING signal to NxFilter.<br>
+	</div>
+	</p>
+
+You can view these signals on 'Logging > Signal' on NxFilter GUI.
+</p>
+
+<div class='nx_hr'></div>
+<b>Fail-safe measure for NxClient</b>
+</p>
+
+NxClient needs to update its pollicy from its server that is NxFilter. When NxClient can't connect to its
+server it bypasses filtering as your users need to be able to use the Internet anyway. You can specify multiple
+server IP addresses on its setup for redundacy.
+</p>
+
+<div class='nx_hr'></div>
+<b>Auto-switch between local filtering and remote filtering</b>
+</p>
+
+When you use NxClient on your mobile worker's laptop you might have a problem with your filtering policy when they
+are staying in the office. Your mobile worker might be filtered twice. One from NxClient, one from your local NxFilter.
+And he/she might be required to go through the login-page of NxFilter.
+</p>
+
+To address this issue NxClient does auto-switch between local filtering and remote filtering. This means that NxClient
+can find NxFilter in a local network and when it is on your local network it stops its proxy filtering. Plus, it has
+its own NxLogon module doing single sign-on in your local network.
+</p>
+
+	<div class='info'>
+	* If you don't like this auto-switch behavior you can add 'no_switch = 1' into
+	'C:/Program Files/nxclient/conf/cfg.properties'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Uninstalling NxClient</b>
+</p>
+	
+To prevent an accidental uninstallation by your user, NxClient doesn't provide an uninstaller for 'Add/Remove programs'
+in control panel. When you uninstall NxClient you need to do it manually with the following commands.
+</p>
+
+	<div class='tab'>
+	- Run 'C:/Program Files/nxclient/bin/unstsvc.bat'.<br>
+	- Delete 'C:/Program Files/nxclient' folder.<br>
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Silent install</b>
+</p>
+
+Some people want to install NxClient on multiple PCs using GPO or PDQ deployment. For this, we have the silent install option
+for NxClient.
+</p>
+
+For silent install,
+</p>
+
+	<div class='tab'>
+	/silent : Runs the installer in silent mode (The progress window is displayed).<br>
+	/verysilent : Very silent mode. No windows are displayed.<br>
+	</div>
+	</p>
+
+And you can specify 'Server IP' and 'Login Token',
+</p>
+
+	<div class='tab'>
+	/server=192.168.0.100<br>
+	/token=2P1WQ6VF<br>
+	</div>
+	</p>
+
+This is the final form of the command.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;nxclient-6.0-win.exe /silent /server=192.168.0.102 /token=2P1WQ6VF
+</p>
+
+	<div class='info'>
+	* You can build your own MSI package using MSP wrapper from
+	<a target='_blank' href='http://www.exemsi.com'>http://www.exemsi.com</a>.
+	</p>
+
+	* When you install Java silently as a prerequisite for NxClient it might not be starting. This is mostly because
+	when you install Java silently it doesn't set 'PATH' environment variable for itself.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='agent_nxupdate'></a>
+<div class='view'>
+<div class='title'>NxUpdate and dynamic IP update</div>
+
+When you have a client system using dynamic IP address and you want to associate its IP address to a specific user
+you can install NxUpdate on the system. It will update the user's associated IP address on NxFilter.
+</p>
+
+NxUpdate has basically the same structure with NxClient. You can install it in the same way as NxClient.
+</p>
+
+	<div class='info'>
+	* It sends START, STOP and IPUPDATE signals.
+	</p>
+
+	* NxUpdate can be working as a dynamic DNS client for NxFilter.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Writing your own NxUpdate</b>
+</p>
+
+We use the standard DNS protocol for communication between NxFilter and NxUpdate. This means you can write your
+own NxUpdate as long as you can run 'nslookup' or if you can send a DNS query.
+</p>
+
+	<div class='info'>
+	* NxFilter v3.3.0 or later and NxUpdate v7.0 or later required for the DNS protocol based communication.
+	</div>
+	</p>
+
+If you send an IP update query against NxFilter from your Windows CMD using nslookup,
+</p>
+
+	<div class='cmd'>
+	nslookup GKSYEJYG.ipupdate.signal.nxfilter.org. 192.168.0.100
+	</div>
+	</p>
+
+'GKSYEJYG' is a login-token of a user and 'ipupdate.signal.nxfilter.org' is the special domain for 'IPUPDATE' signal.
+'192.168.0.100' is the IP address of your NxFilter.
+</p>
+
+We use the following signals.
+</p>
+
+	<div class='tab'>
+  - start.signal.nxfilter.org : 'START' signal.<br>
+  - stop.signal.nxfilter.org : 'STOP' signal.<br>
+  - ipupdate.signal.nxfilter.org : 'IPUPDATE' signal.<br>
+	</div>
+	</p>
+
+	<div class='info'>
+	* You need to add a login-token of a user to these signals for user identification.
+	</div>
+	</p>
+
+When we send these signals we can have two kinds of responses as a DNS response from NxFilter. 
+</p>
+
+	<div class='tab'>
+  - 127.100.100.1 : Error.<br>
+  - 127.100.100.100 : Success.<br>
+	</div>
+	</p>
+
+You don't need to send 'START' or 'STOP' signal if you want to go simple. Sending 'IPUPDATE' would be enough.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='agent_application_control'></a>
+<div class='view'>
+<div class='title'>Application control with NxClient</div>
+
+NxFilter supports application control with NxClient. You can block an unwanted program by setting
+up your application control policy on NxFilter GUI centrally and you can find out who tried to run
+the blocked programs on your log view.
+</p>
+
+<div class='nx_hr'></div>
+<b>How it works</b>
+</p>
+
+After you define your application control policy on 'Policy & Rule > Application Control' NxClient retrieves
+the application control policy periodically.
+</p>
+
+	<div class='info'>
+	* You can adjust the policy update period by changing the value for	'Agent Policy Update Period' on 'Config > Setup'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Supported options</b>
+</p>
+
+1. Block by port scanning
+	<div class='tab'>
+	NxClient detects UltraSurf and Tor processes by port scanning. This means even if your users
+	change the process name or run them from a USB stick you can find and block them.
+	</div>
+	</p>
+
+2. Block by process name
+	<div class='tab'>
+	You can block a process running by its name. This works based on keyword matching against process name.
+	You can add the blocked keywords on GUI and If your agent finds the matching process name it will block
+	the process.
+	</div>
+	</p>
+
+<!-- 
+3. Block by window title
+	<div class='tab'>
+	Windows programs are supposed to have a window title. For example, Skype has 'Skype' in its
+	window title and uTorrent has 'Torrent'. You can define your keywords for matching against window
+	title of the blocked programs.
+	</div>
+	</p>
+
+	<div class='info'>
+	* By default all the keywords are for partial matching but you can specify the exact matching
+	using the square brackets. If you need to add a keyword having spaces then use double quotes.
+	</p>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;ex) Skype [Dropbox.exe] "Tor Browser"
+	</p>
+
+	* NxLogon doesn't support Unicode or multi-bytes keywords for application control.
+	</div>
+	</p>
+-->
+
+<div class='nx_hr'></div>
+<b>Enable application control only for specific users</b>
+</p>
+
+Basically the application control of NxFilter supposed to be a global policy. When you want to disable it
+for some user use 'Disable Application Control' option on 'Policy & Rule > Policy > EDIT'.
+</p>
+
+<div class='nx_hr'></div>
+<b>Logging blocked application</b>
+</p>
+
+NxFilter is basically a DNS filter so its log data format was designed for showing the allowed/blocked domains.
+To accommodate the log data about a blocked application NxFilter introduced these domains or rules.
+</p>
+
+	<div class='tab'>
+	- ultrasurf.port.app : UltraSurf has been blocked by port scanning.<br>
+	- tor.port.app : Tor has been blocked by port scanning.<br>
+	- chrome.exe.pname.app : Chrome has been blocked by its process name.<br>
+	- Skype.title.app : Skype has been blocked by its window title.<br>
+	</div>
+	</p>
+
+	<div class='info'>
+	* When you enable 'Block UltraSurf' and there is UltraSurf extension for Chrome or other extensions having
+	proxy permission installed NxClient kills Chrome process and sends 'ultrasurf.chrome.app' signal.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Execution Interval</b>
+</p>
+
+Finding and blocking application may cause some amount of CPU load. If you don't want to cause too much load
+form your client PC, increase 'Execution Interval' on 'Policy & Rule > Application Control'.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='agent_proxy'></a>
+<div class='view'>
+<div class='title'>Proxy filtering with NxClient</div>
+
+NxClient has a local web proxy mudule for HTTP protocol level filtering.
+</p>
+
+<div class='nx_hr'></div>
+<b>How it works</b>
+</p>
+
+Firstly, define your proxy filtering policy on 'Policy & Rule > Proxy Filtering'. After NxClient started
+on user system they will filter HTTP traffic by setting up itself as a local proxy server. NxClient retrieves
+the proxy filtering policy periodically by 'Agent Policy Update Period' on 'Config > Setup'.
+</p>
+
+<div class='nx_hr'></div>
+<b>Supported options</b>
+</p>
+
+1. Block HTTPS
+	<div class='tab'>
+	You can block all the HTTPS traffic.
+	</div>
+	</p>
+
+2. Block IP Host
+	<div class='tab'>
+	Blocking HTTP requests with IP host in URL.
+	</div>
+	</p>
+
+3. Block Other Browser
+	<div class='tab'>
+	NxFilter's proxy filtering is being activated through the system proxy settings. Internet Explorer and Chrome
+	are using the system proxy already and many other applications are also using the system proxy. But there are some
+	applications trying to make a direct connection to the Internet. With this option enabled NxClient will block
+	any program making direct HTTP connection to the Internet.
+	</p>
+
+		<div class='info'>
+		* Currently the proxy filtering supports Internet Explorer, Chrome, Firefox.
+		</p>
+
+		* You can allow direct HTTP access to some application using 'Excluded keywords' on 'Policy & Rule > Application'.
+		Basically it is for application control, but it also bypasses 'Other Browser Blocking'.
+		</div>
+
+	</div>
+	</p>
+
+4. Blocked Keyword in URL
+	<div class='tab'>
+	Keyword filtering against URL.
+	</div>
+	</p>
+
+5. IE Proxy Bypass
+	<div class='tab'>
+	NxClient bypasses the domains you have on 'Whitelist > Domain' with 'Bypass Filtering' option. But this only applied
+	on HTTP protocol on Windows. When you need to bypass the other protocols than HTTP or the sites using the other ports
+	than TCP/80 add the sites here. They will be appended to the system proxy bypass list on Windows.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Enable proxy filtering only for specific users</b>
+</p>
+
+The proxy filtering of NxFilter works globally. If you need to disable it for some user check 'Disable Proxy Filtering'
+option on the 'Policy & Rule > Policy > EDIT'.
+</p>
+
+<div class='nx_hr'></div>
+<b>Logging</b>
+</p>
+
+You only get domain level log data. But you will see a detailed block reason like the followings.
+</p>
+
+	<div class='tab'>
+	Domain: www.google.com<br>
+	Reason: Blocked by proxy, url_kw=game
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='agent_install_mac'></a>
+<div class='view'>
+<div class='title'>Installing NxClient or NxUpdate on Mac OS X</div>
+
+We provide Mac OS installer for NxClient and NxUpdate. You can install them as
+you do with Windows installer. You set up connection values and do 'Test' and 'Start'.
+</p>
+
+When you want to run the setup program, you need to run 'setup-mac.sh' script inside the
+installation directory. If it's NxClient it would be installed into '/Library/nxclient'
+so you'd need to run the following command.
+</p>
+
+	<div class='cmd'>
+	sudo /Library/nxclient/setup-mac.sh
+	</div>
+	</p>
+
+When you uninstall it,
+</p>
+
+	<div class='cmd'>
+	sudo /Library/nxclient/uninstall-mac.sh
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='agent_nxblock'></a>
+<div class='view'>
+<div class='title'>NxBlock for Chromebook</div>
+
+NxBlock is the remote filtering agent for Chromebook. It also can be used as a single sign-on agent
+in a local network.
+</p>
+
+	<div class='info'>
+	* NxBlock has became an open source software since v1.8. You can download its source code from our
+	download page.
+	</div>
+	</p>
+
+<img src='screenshot/nxblock.png' border='1' style='border-style: dotted'>
+</p>
+
+<div class='nx_hr'></div>
+<b>Installation of NxBlock</b>
+</p>
+
+NxBlock is basically a Chrome extension. You can install it from Chrome Web Store. You can
+download it from the following link. 
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<a target='_blank' href='https://chrome.google.com/webstore/detail/nxblock/gibapcjkdgdiamgdkbcpgaldogcoldgf'>
+    - NxBlock download from Chrome Web Store</a>
+</p>
+
+<div class='nx_hr'></div>
+<b>Filtering policy of NxBlock</b>
+</p>
+
+NxBlock shares the policy on 'Policy & Rule > Proxy Filtering' with the other proxy filtering agents.
+It updates its policy on every 120 seconds.
+</p>
+
+<div class='nx_hr'></div>
+<b>Connection to NxFilter</b>
+</p>
+
+After you install it, you can see NxBlock on your extension setup panel of Chrome or 'chrome://extensions'.
+There is 'options' link under NxBlock icon. When you click the icon you will be on NxBlock setup page.
+You need to set up these parameters.
+</p>
+
+	<div class='tab'>
+	- Sever IP : The IP address of your NxFilter.<br>
+	- Login Token : A login token associated to a user on NxFilter.<br>
+	</div>
+	</p>
+
+Once you set up these parameters you can test the connectivity using 'Test' button. And then use
+'Save' button to save and reload the new configuration.
+</p>
+
+<div class='nx_hr'></div>
+<b>Password protection of your setup</b>
+</p>
+
+You can hide your NxBlock setup page from your users by having password login procedure.
+Once you set up a password and enable it, the users will be blocked from accessing NxBlock setup page
+and 'chrome://extension'.
+</p>
+
+	<div class='info'>
+	* You can use your client password from NxFilter to access NxBlock setup page once its connection
+	to server is established.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>User identification</b>
+</p>
+
+We use login token and Google account to identify users. Suppose you create a user named
+'student' and setup 10 NxBlock with the login token associated to 'student'. If these users
+don't login to Chrome they will be appeared on NxFilter side as 'student' but if one of them
+login to Chrome using 'john1234@gmail.com' for example, then he/she will be appeared as
+'student_john1234' on NxFilter log view.
+
+<div class='nx_hr'></div>
+<b>Central configuration for mass installation</b>
+</p>
+
+When you do mass installation for NxBlock the problem is that you don't want to set up its
+connection parameters one by one. If you just use it as a single sign-on agent in your local network
+it might be fine without the connection parameters but if you want to use it for remote filtering
+you must set these parameters.
+</p>
+
+To solve this problem, we have a way for setting up these values centrally. We use a webpage
+and Chrome's start page function for this. Simply speaking, you write a webpage containing
+these config values and then make that webpage to be Chrome's start page on Google admin console.
+Then everytime your users start their Chrome they will set up themselves with the values.
+</p>
+
+When you write the webpage you add a meta tag like the followings,
+</p>
+
+	<div class='tab'>
+	&lt;meta name='nxblock' content='192.168.0.100:HW00IYKW:1'&gt;
+	</div>
+	</p>
+
+We have 3 parameters separated by colons. The first one is NxFilter's IP address and the second
+one is a login token and the last one is about locking or unlocking Chrome's extension setup page.
+</p>
+
+On Google admin side,
+</p>
+
+	<div class='tab'>
+	1. From the main dashboard, go to Device Management > Chrome > User Settings.
+	</p>
+
+	2. Select the organizational unit to which you want the settings to apply.
+	</p>
+
+	3. Find 'Pages to Load on Startup'.
+	</p>
+
+	4. Enter the URL for the web page containing NxBlock configuration meta tag.
+	</p>
+
+	5. Click the 'Save Changes' button.
+	</div>
+	</p>
+
+<!-- 
+<div class='nx_hr'></div>
+<b>Single sign-on in your local network</b>
+</p>
+
+NxBlock works as a single sign-on agent on a local network. We use Google account for single
+sign-on and we made a simple rule for this. If you login to your Chromebook with 'john1234@gmail.com'
+then you need to have 'john1234' user on NxFilter. And you get the single sign-on.
+</p>
+
+While the concept of single sign-on with NxBlock is easy and simple but we might have some problem
+from Chromebook. It tries to open webpages or make DNS queries before NxBlock starts. This means it
+tries to access websites before NxBlock creates a login session and it leads to get redirected to
+NxFilter's login-page or DNS failures for several websites.
+</p>
+
+The solution is to use a temporary username for the IP range to cover all your Chromebook users.
+On NxFilter 'login by IP range' comes after 'login by IP session'. Suppose you create a user
+'bemyguest' which covers 192.168.0.1 ~ 192.168.0.100. If there is a Chromebook using an IP address
+in the range it becomes 'bemyguest' on NxFilter and after NxBlock starts it appears with Google account
+or single sign-on username.
+</p>
+
+	<div class='info'>
+	* Google supports Active Directory and LDAP sync with 'Google Apps Directory Sync'. If
+	you need AD integration including your Chrombook read this,
+	<a target'_blank' href='http://www.google.com/support/enterprise/static/gapps/docs/admin/en/gads/admin/intro_about.html'>
+	Google Apps Directory Sync
+	</a>
+	</div>
+	</p>
+-->
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='cloud_what'></a>
+<div class='view'>
+<div class='title'>What is NxCloud?</div>
+
+NxCloud is a fully rebrandable multi-tenancy cloud based DNS filter software. It is based on NxFilter
+and inherited the most of the features of NxFilter. Simply speaking, you can build your own cloud filtering
+service like OpenDNS.
+</p>
+
+These are the features only available on NxCloud.
+</p>
+
+<div class="nx_hr"></div>
+<b>Multi-level admin</b>
+</p>
+
+If you want to build your own cloud service, one of the essential factors would be being able to create accounts
+for your customers and the customers need to be able to set up their own policy on their own GUI.
+</p>
+
+On NxCloud there are 3 kinds of users.
+</p>
+
+	<div class='tab'>
+	<i>Admin > Operator > User</i>
+	</div>
+	</p>
+
+'Admin' is actually the administrator of NxCloud. It has almost the same GUI as the NxFilter but being an
+administrator you can create the operator accounts. These operator accounts are for your customers and it is
+something like a sub-admin on NxCloud. They can create and manage their own users and policies.
+</p>
+
+<div class="nx_hr"></div>
+<b>Creating an operator</b>
+</p>
+
+To create an operator you need to login to NxCloud GUI with admin account. On 'Config &gt; operator' you can create
+an operator. When you create an operator NxCloud creates a default user and a default policy for the operator
+with the same name.
+</p>
+
+	<div class='info'>
+	You can change the number of users and policies the operator can create. This means you can have several levels
+	on your service based on the permission for an operator.
+	</div>
+	</p>
+
+<div class="nx_hr"></div>
+<b>Operator GUI</b>
+</p>
+
+On NxCloud each operator have their own GUI. If you login to NxCloud GUI with an operator account you will
+be on the operator mode GUI. It is a bit more restrictive compared to the admin GUI as you only can manipulate
+the operator specific parameters.
+</p>
+
+<div class="nx_hr"></div>
+<b>Operator and user</b>
+</p>
+
+Operators can create their own users and apply a different policy based on user authentication. Users can be
+authenticated based on IP address or using NxClient.
+</p>
+
+<div class="nx_hr"></div>
+<b>Operator specific dashboard and report</b>
+</p>
+
+Dashboard and report of NxCloud is still available on operator GUI.
+</p>
+
+<div class="nx_hr"></div>
+<b>Operator specific free-time</b>
+</p>
+
+Each operator can define their own free-time and they can set up a work-time policy and a free-time policy for
+their user.
+</p>
+
+<div class="nx_hr"></div>
+<b>Operator specific whitelist and blacklist</b>
+</p>
+
+You can add operator specific whitelist/blacklist based on domain name. But you still have the global
+whitelist/blacklist for admin. So you can have more flexibility to deal with these whitelist and blacklist as an admin.
+</p>
+
+<div class="nx_hr"></div>
+<b>Operator specific alert-email</b>
+</p>
+
+NxCloud sends an alert email about the blocking incidents to each operator. Operators can setup their
+email addresses to receive the email and define alert period on 'Config &gt; Alert'.
+</p>
+
+	<div class='info'>
+	* You need to set up the global alert email first to send the operator specific alert email. You can set it up
+	on 'Config &gt; Alert'.
+	</div>
+	</p>
+
+<div class="nx_hr"></div>
+<b>Operator specific block-page</b>
+</p>
+
+Each operator can have their own block-page. If there is no block-page defined by operator NxCloud
+shows the default block-page by admin.
+</p>
+
+<div class="nx_hr"></div>
+<b>Authentication over cloud</b>
+</p>
+
+NxClient still works against NxCloud. This means you can differentiate users behind their router
+and you can apply a different policy based on user.
+</p>
+
+<div class="nx_hr"></div>
+<b>Dynamic IP updater</b>
+</p>
+
+Many of your clients will be using the service from a dynamic IP address. You can use NxUpdate as a dynamic
+IP updater for your service.
+</p>
+
+<div class="nx_hr"></div>
+<b>Dynamic DNS association</b>
+</p>
+
+Some of your users may have a dynamic domain for their own network. You can associate a domain to a user
+on NxCloud.
+</p>
+
+<div class="nx_hr"></div>
+<b>NxRelay to differentiate users behind a router</b>
+</p>
+
+NxCloud supports NxRelay that is a relaying DNS server being installed behind a router and let you apply
+a different policy based on a private IP or IP range in your network.
+</p>
+
+<div class="nx_hr"></div>
+<b>Rebranding or customization of GUI</b>
+</p>
+
+Its GUI layer is designed for easy customization. The GUI layer is separated from its core part. You just
+need to modify all the JSP pages in '/nxcloud/webapps' directory. These JSP files have a naming rule
+corresponding to the GUI menu structure. So it is easy to find which file you need to modify.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='cloud_install'></a>
+<div class='view'>
+<div class='title'>Install NxCloud</div>
+
+NxCloud is basically a modified NxFilter. You can install and run NxCloud in the same way as NxFilter.
+</p>
+
+But unlike NxFilter, after you install it, you can't use it as your DNS server right away. This is
+because NxCloud is a multi-tenancy program for commercial service. You are not supposed to use it for your
+internal network. Your clients use it for their network. So you need to create an account for your client first.
+</p>
+
+On NxCloud there are 3 kinds of users.
+</p>
+
+	<div class='tab'>
+	<i>Admin > Operator > User</i>
+	</div>
+	</p>
+
+'Admin' is you and an operator is your customer and a user is the user in your customer's network.
+An admin manages operator accounts and an operator manages the end users and policies. So you need
+to create an operator first. To create an operator login to NxCloud GUI as admin and then go to
+'Operator' menu. You can create an operator there.
+</p>
+
+When you create an operator there will be a default user and default policy for the operator
+with the same name as the operator. And the default password for the operator is also the name
+of the operator. Once you create an operator you can login with the operator account to set up
+a user for testing.
+</p>
+
+	<div class='info'>
+	* You need to associate your IP address to the default user of your first operator to test it.
+	</div>
+	</p>
+
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='cloud_diff'></a>
+<div class='view'>
+<div class='title'>Differences from running NxFilter</div>
+
+1. Authentication enabled always
+<br>
+	<div class='tab'>
+	You don't want to make your service available to everybody for free. You want to service it to your
+	paid customers only. so the authentication is enabled by default.
+	</div>
+	</p>
+
+2. Login redirection disabled at default
+<br>
+	<div class='tab'>
+	You still can use the password based login with NxCloud but if you use that on a public network you
+	can be a target of DDOS attack. You would better disable it on a public network. When you disable it
+	NxCloud silently drops the DNS request packets from unknown source IP addresses.
+	</div>
+	</p>
+
+3. Magic password for accessing operator GUI
+<br>
+	<div class='tab'>
+	As an administrator of NxCloud sometimes you would need to access operator GUI for technical support
+	purpose. For that reason, NxCloud has one more password for admin. It is called 'magic password'.
+	With this password you can access any operator's GUI. The default magic password is 'magic1023' and
+	you can change the password on 'Config > Admin'.
+	</div>
+	</p>
+
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='cloud_home'></a>
+<div class='view'>
+<div class='title'>Business account and home account</div>
+
+When you build a cloud based filtering service one of the problems you have is to find out the exact
+number of users behind a router. It may be possible when there are some kind of agent installed and
+running behind router and NxCloud supports several agents for that. However some of your customers
+don't need to differentiate users and they just want to have one global policy for everybody. It means
+you don't know how many users they have.
+</p>
+
+To solve this problem, we limit the request count for a user. Currently one user can make 3,000 requests
+a day. This is more than enough considering a user makes under 1,000 requests a day according to our
+statistics so far. However we may have another issue from this request count limit approach. If you
+have a customer using your service in their home they probably have several Internet accessing devices
+and have several family members but not wanting to pay for multiple users. In that case this 3,000
+daily request limit is too small for them.
+</p>
+
+To address this issue, we introduced the concept of operator type. There are 2 kinds of operator types
+on NxCloud. One is 'Business' and the other is 'Home'. Business type operators are nothing special.
+You can create as many users as you want for them and each of the users has 3,000 request limit. But
+if it is a home type operator its first user has 12,000 extra request count and that makes 15,000 daily
+request count limit for the first user. If it has the second user its request count limit becomes 18,000
+and that would be more than enough for most home users.
+</p>
+
+	<div class='info'>
+	* For home type operator you can create up to 5 users.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='cloud_billing'></a>
+<div class='view'>
+<div class='title'>Writing your own billing system for NxCloud</div>
+
+When you service NxCloud commercially you want to have an automated billing system. Since all the GUI
+layer exposed as JSP pages it is not that difficult for you to build your own builling system with NxCloud.
+</p>
+
+To build your own billing system you need to be able to create, edit an operator which is your
+client account on your service. You should be able to do these actions on your custom JSP pages.
+Suppose if you need to create an operator with these properties.
+</p>
+
+	<div class='tab'>
+	- Name : triton<br>
+	- Password : triton1234<br>
+	- Email : tmail0487@yahoo.com<br>
+	- Max user : 3<br>
+	- Max user IP : 3<br>
+	- Max policy : 3<br>
+	- Max whitelist : 20<br>
+	- Max free-time : 10<br>
+	</div>
+	</p>
+
+The JSP code would look like the followings.
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	OperatorData data = new OperatorData();<br>
+	data.name = &#8221;triton&#8221;;<br>
+	data.passwd = &#8221;triton1234&#8221;;<br>
+	data.email = &#8221;tmail0487@yahoo.com&#8221;;<br>
+	data.max_user = 3;<br>
+	data.max_user_ip = 3;<br>
+	data.max_policy = 3;<br>
+	data.max_whitelist = 20;<br>
+	data.max_free_time = 10;
+	</p>
+
+	OperatorDao dao = new OperatorDao();<br>
+	dao.insert(data);<br>
+	%&gt;
+	</div>
+	</p>
+
+If you need to update the properties of an operator.
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	OperatorDao dao = new OperatorDao();
+	</p>
+
+	OperatorData data = dao.select_one_by_name(&#8221;triton&#8221;);<br>
+	data.max_user = 5;<br>
+	data.max_user_ip = 5;<br>
+	data.max_policy = 5;<br>
+	dao.update(data);<br>
+	%&gt;
+	</div>
+	</p>
+
+If you need to suspend an operator.
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	OperatorDao dao = new OperatorDao();
+	</p>
+
+	OperatorData data = dao.select_one_by_name(&#8221;triton&#8221;);<br>
+	data.stop_flag = true;<br>
+	dao.update(data);<br>
+	%&gt;
+	</div>
+	</p>
+
+	<div class='info'>
+	* There is a separated section for GUI customization on this tutorial and we also provide Javadoc
+	for building your own custom GUI.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='cloud_nxrelay'></a>
+<div class='view'>
+<div class='title'>NxRelay to differentiate users behind a router</div>
+
+NxRelay is a relaying DNS server for NxCloud. With NxRelay you can associate a private IP or IP range to a user on NxCloud.
+This means you can apply different filtering policies based on private IP behind a router from your cloud filter service.
+</p>
+
+	<div class='info'>
+	* NxRelay requires to run with NxCloud v3.4.2 or later.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>How it works</b>
+</p>
+
+NxRelay itself is a forwarding DNS server. It does filtering by querying NxCloud and it works as a DNS server by forwarding DNS queries to your local DNS server.
+For NxRelay, NxCloud is not its upstream DNS server. Rather it's a policy server. Its upstream server is your existing DNS server or MS DNS
+server if you are on Active Directory. This means even if you lose the connection to NxCloud your network will be working fine. And you will not have
+an issue with Active Directory integration or local domain resolving as all the queries will be resolved by your local DNS server.
+</p>
+
+	<div class='info'>
+	* Since it is a DNS server you can have fail-safe and load balance easily. Install multiple NxRelay servers and make them as the primary and secondary
+	DNS servers of your network.
+	</p>
+
+	* It sends 'START' and 'PING' signals. You can verify if it works on 'Logging > Signal' on NxCloud GUI.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Install it on Windows as a Windows service</b>
+</p>
+
+1. Download its zip package.
+</p>
+  
+2. Extract it into 'c:/nxrelay'.
+</p>
+
+On CMD,
+</p>
+
+<div class='cmd'>
+cd c:/nxrelay/bin<br>
+instsvc.bat<br>
+net start NxRelay<br>
+</div>
+</p>
+
+	<div class='info'>
+	* Before you start it you need to modify its config parameters in 'c:/nxrelay/conf/cfg.properties'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Install it on Linux as a Systemd service</b>
+</p>
+
+1. Download its zip package.
+</p>
+  
+2. Extract it into '/opt/nxrelay'.
+</p>
+
+On command line,
+</p>
+
+<div class='cmd'>
+cd /opt/nxrelay<br>
+sudo chmod +x bin/*.sh<br>
+sudo cp script/nxrelay.service /lib/systemd/system/nxrelay.service<br>
+sudo systemctl enable nxrelay.service<br>
+sudo systemctl start nxrelay.service<br>
+</div>
+</p>
+
+To stop it,
+</p>
+
+<div class='cmd'>
+sudo systemctl stop nxrelay.service
+</div>
+</p>
+
+	<div class='info'>
+	* Before you start it you need to modify its config parameters in '/opt/nxrelay/conf/cfg.properties'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>How to set it up</b>
+</p>
+
+You need one of your NxCloud server IP and a login token from one of your user accounts. It has all of its config parameters
+in '/opt/nxrelay/conf/cfg.properties'.
+</p>
+
+For example,
+</p>
+
+	<div class='cmd'>
+	server = 192.168.0.100<br>
+	token = BSYEB28O<br>
+	local_dns = 8.8.8.8,8.8.4.4<br>
+	local_domain =<br>
+	</div>
+	</p>
+
+When you have these config values in the config file, your NxCloud server IP is '192.168.0.100' and the login token is 'BSYEB28O'
+and your local DNS server or the existing DNS server is '8.8.8.8' and '8.8.4.4'. If you have some domains to bypass from filtering
+you can add them as the comma separated value of 'local_domain'.
+</p>
+
+After you modify the config file, restart NxRelay. And then make them as the only DNS server for your network.
+</p>
+
+	<div class='info'>
+	* You can add multiple NxCloud server IP addresses separated by commas.
+	</p>
+
+	* You can verify your config values and the connectivity by running '/opt/nxrelay/bin/test.sh'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Which policy to apply</b>
+</p>
+
+When you run NxRelay as the DNS server for your network it starts filtering with the policy associated to the login token you set up in
+the config file. But that is just a default policy for NxRelay. You can apply a different policy based on IP address. On NxCloud's operator
+GUI, create a user and associate one private IP address or IP range in your network to the user. Now the users on the associated IP address
+or IP address range will be under the policy of the user you created on NxCloud GUI.
+</p>
+
+<div class='nx_hr'></div>
+<b>Scipts included</b>
+</p>
+
+In '/opt/nxrelay/bin' there are several scripts included.
+</p>
+
+	<div class='tab'>
+    startup.sh - Starting NxRelay.<br>
+    shutdown.sh - Stopping NxRelay.<br>
+    test.sh - Test the connectivity to NxCloud.<br>
+    ping.sh - Test if it is running.<br>
+	</div>
+	</p>
+
+For Windows,
+</p>
+
+	<div class='tab'>
+    instsvc.bat - Installing 'NxRelay' service.<br>
+    unstsvc.bat - Uninstall 'NxRelay' service.<br>
+	</div>
+	</p>
+
+For Ubuntu we have a Systemd script in '/opt/nxrelay/script',
+</p>
+
+	<div class='tab'>
+    nxrelay.service
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_before'></a>
+<div class='view'>
+<div class='title'>Before you customize NxFilter</div>
+
+	<div class='info'>
+	* If you want to customize or rebrand NxFilter for your business purpose, use NxOEM or NxCloud.
+	</div>
+	</p>
+
+Now we will talk about how to customize or rebrand NxFilter and its client softwares with
+your own brand. Firstly, we will show you how to customize its GUI. And then we will talk
+about the other parts you might be interested in. Lastly, we will show you how to rebrand
+the client softwares of NxFilter.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_directory'></a>
+<div class='view'>
+<div class='title'>GUI - Directory structure and naming rule</div>
+
+The GUI layer of NxFilter was designed for easy customization. It is completely separated from
+its core part. And it has a naming convention corresponding to its menu structure so that you
+can find the file you need to modify easily. For example, if you want to modify
+'Policy & Rule > Free Time' on NxFilter menu the file you need to edit is '/nxfilter/webapps/policy,free_time.jsp'.
+</p>
+
+	<div class='info'>
+	* In NxCloud's case, it has operator specific menu. If a JSP file is for operator specific menu
+	then it has 'zop' prefix.
+	</p>
+
+	&nbsp;&nbsp;&nbsp;&nbsp;ex) zop,policy,free_time.jsp
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Structure of web application directory</b>
+</p>
+
+We put all the JSP pages into '/nxfilter/webapps' and we don't use any subdirectory for keeping JSP pages.
+This is for simplicity and easy understanding. Everything you need to modify is in '/nxfilter/webapps'
+directory. It has the following structure.
+</p>
+
+
+	<div class='cmd'>
+	/nxfilter/webapps
+		<div class='tab'>
+			<div class='tab'>
+			- error<br>
+			- example<br>
+			- img<br>
+			- include<br>
+			- lib<br>
+			- WEB-INF<br>
+			</div>
+		</div>
+	</div>
+	</p>
+
+In 'webapps/error' directory we have the error pages for HTTP error codes. If you want to have an error page
+for a specific HTTP error code you can define it on '/webapps/WEB-INF/web.xml'.
+</p>
+
+	<div class='info'>
+	* We use HTTP 400 error for special purpose. You shouldn't define any error page for HTTP 400 error.
+	</div>
+	</p>
+
+In 'webapps/example' directory we have some example JSP pages for custom login module.
+</p>
+
+In 'webapps/img' we keep the image files for webpages.
+</p>
+
+In 'webapps/include' we have common JSP files to be included into the other JSP files. These are for
+library functions and navigation menus and initialization code for JSP pages.
+</p>
+
+	<div class='info'>
+	* '/include/lib.jsp' is a common library file for all JSP files. It has some utility functions for web development
+	and it executes the initialization code for JSP pages and does authentication checking as well.
+	</p>
+
+	* We don't include '/include/lib.jsp' directly. It gets included when we include '/include/top.jsp'.
+	</div>
+	</p>
+
+In 'webapps/lib' we have CSS and javascript files.
+</p>
+
+We have 'WEB-INF' as we use an embedded Tomcat to be NxFilter's built-in webserver.
+</p>
+
+<div class='nx_hr'></div>
+<b>Separating your customized GUI into another directory</b>
+</p>
+
+When you customize NxFilter's GUI it is not a good idea to modify the original files directly. You would better
+keep it for future reference and create another directory under the installaion directory of NxFilter
+and copy all the files inside '/nxfilter/webapps' into the new directory and then modify these copied
+files. To make things easier, NxFilter supports 'www_dir' option on '/nxfilter/conf/cfg.properties' file.
+</p>
+
+When you have your own custom GUI in '/nxfilter/myweb' directory and you want to use this directory as the root
+directory of NxFilter's webserver, you need to add the following line into your cfg.properties file.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;www_dir = myweb
+</p>
+
+Then restart your NxFilter.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_dao'></a>
+<div class='view'>
+<div class='title'>GUI - Using Dao and Data classes</div>
+
+On typical web programming, dealing with DB is almost everything.
+We are using 'Data Access Object' and 'Data Object' for manipulating DB.
+
+<div class='nx_hr'></div>
+<b>Common methods for a data access object</b>
+</p>
+
+We have some common methods for most data access object classes. For example, on 'policy,policy.jsp'
+file we use PolicyDao and PolicyData class for manipulating policies. PolicyDao has these methods.
+</p>
+
+	<div class='code'>
+	public int select_count() : The number of policies.<br>
+	public List<PolicyData> select_list() : Fetching policies as a list.<br>
+	public PolicyData select_one(int id) : Fetching one policy by ID column.<br>
+	public boolean insert(PolicyData data) : Insert a new policy.<br>
+	public boolean update(PolicyData data) : Update a existing policy.<br>
+	public boolean delete(int id) : Delete a policy by ID column.<br>
+	</div>
+	</p>
+
+Every policy data has its own unique ID which is a number and we use this ID for finding, updating a policy data.
+</p>
+
+<div class='nx_hr'></div>
+<b>Insert, delete, update, select data</b>
+</p>
+
+If we want to modify 'whitelist,domain.jsp' we have to use 'WhitelistDomainDao' and 'WhitelistData' classes.
+</p>
+
+To insert a new data,
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	WhitelistDomainDao dao = new WhitelistDomainDao();<br>
+	</p>
+
+	WhitelistData data = new WhitelistData();<br>
+	data.domain = "*.nxfilter.org";<br>
+	data.bypass_auth = true;<br>
+	data.bypass_filter = true;<br>
+	</p>
+
+	dao.insert(data);<br>
+	%&gt;
+	</div>
+	</p>
+
+To delete a data when its ID is 12,
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	WhitelistDomainDao dao = new WhitelistDomainDao();<br>
+	dao.delete(12);<br>
+	%&gt;
+	</div>
+	</p>
+
+
+To select a data when its ID is 12,
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	WhitelistDomainDao dao = new WhitelistDomainDao();<br>
+	WhitelistData data = dao.select_one(12);<br>
+	%&gt;
+	</div>
+	</p>
+
+And to update the selected data,
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	data.bypass_filter = false;<br>
+	dao.update(data);<br>
+	%&gt;
+	</div>
+	</p>
+
+Lastly, to list data.
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	WhitelistDomainDao dao = new WhitelistDomainDao();<br>
+	List<WhitelistData> data_list = dao.select_list();<br>
+	for(WhitelistData data : data_list){<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;out.println(data.domain + "&lt;br&gt;");<br>
+	}<br>
+	%&gt;
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Accessing data field</b>
+</p>
+
+Many Java developers are using 'get' and 'set' accessors for encapsulation and for having some
+additional data processing like validation. But for simplicity, we use a public field directly in most cases. For
+example, you get an instance of UserData and uses its 'name' property like the following codes,
+</p>
+
+	<div class='code'>
+	&lt;%<br>
+	UserData data = new UserDao().select_one(1);<br>
+	out.println(data.name)<br>
+	%&gt;
+	</div>
+	</p>
+
+However there are some data classes having methods starting with 'get_'. These methods are mostly
+about formatting. We have 'ctime' property for 'RequestData' which we use on 'Logging > Request'.
+If you use it directly you get '201507081415' but when you use its 'get_ctime()' method you
+get '07/08 14:14'.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_javadoc'></a>
+<div class='view'>
+<div class='title'>GUI - Javadoc for Dao and Data classes</div>
+
+We have Javadoc for 'dao' and 'data' packages.
+</p>
+
+	<div class='tab'>
+	<a target='_blank' href='/javadoc/nxoem/index.html'>- Javadoc for NxOEM</a><br>
+	<a target='_blank' href='/javadoc/nxcloud/index.html'>- Javadoc for NxCloud</a><br>
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_oem'></a>
+<div class='view'>
+<div class='title'>OEM properties</div>
+
+We support 'oem.properties' file for NxOEM and NxCloud to accomodate some business specific
+requirements. If you have 'oem.properteis' file into '/nxfilter/conf' with the follwing value.
+</p>
+
+	<div class='tab'>
+	appname = MyFilter<br>
+	</div>
+	</p>
+
+1. NxOEM or NxCloud adds 'MYFILTER' prefix to its Syslog message.
+</p>
+
+2. When NxOEM or NxCloud sends an alert email to users it adds 'MyFilter' as the prefix of the subject.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_templates'></a>
+<div class='view'>
+<div class='title'>Templates for email and block-page</div>
+
+NxFilter sends alert emails to its administrator. Mostly it is about access violation for the blocked
+sites but there are emails about a clustering node failure or a license violation. We have two email
+templates for these alert emails.
+</p>
+
+	<div class='tab'>
+	- /nxfilter/conf/tpl/access_violation.ftl<br>
+	- /nxfilter/conf/tpl/alert_email.ftl
+	</div>
+	</p>
+
+In '/nxfilter/conf/tpl' directory you also can find the templates for block-page, login-page and
+welcome-page. These templates are being used when you first install NxFilter to populate its DB
+or when you click 'RESTORE-DEFAULT' button on 'Config > Block Page' on NxFilter GUI.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_other'></a>
+<div class='view'>
+<div class='title'>Other things you may be interested in</div>
+
+You might want to replace or remove our 'readme.txt' and 'license.txt' with your own files. You
+can do that but you still need to keep our 'license.txt' file somewhere. We keep all the third party
+licenses in 'third-party-license.txt' and you also can add our license into that file.
+About our 'readme.txt', you can remove it or replace it with your own.
+</p>
+
+There are links to our online tutorial in '/nxfilter/tutorial.html' and '/nxfilter/bin/tutorial.bat'
+You can remove or replace these files when you make your own package for your customized NxFilter.
+</p>
+
+The other thing you would need to think about would be icon files. There are two icon files. One for
+Windows program icon and the other one is for favicon of its admin webpage. You can remove
+'/nxfilter/nxd.ico' and '/nxfilter/webapps/favicon.ico' or replace them with your own icon files.
+</p>
+
+	<div class='info'>
+	* You shoud not remove our license file or any third party license.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='custom_package'></a>
+<div class='view'>
+<div class='title'>Making your own install packages for the client softwares</div>
+
+You can make your own packages for our client programs that are NxClient, NxUpdate, NxMapper, NxLogon, NxBlock, NxRelay.
+</p>
+
+For NxLogon, since it is a simple Windows console application without installer you just
+need to replace several files from the original zip file and make your own zip file including them.
+You can change its name as well. When you change its name you also need to change the contents
+of the included batch files but these are all straight forward.
+</p>
+
+However it is a bit different for NxClient and NxUpdate, NxMapper as these softwares require you
+to make your own installers for Windows and Mac OS.
+</p>
+
+<div class='nx_hr'></div>
+<b>Making your own Windows installer</b>
+</p>
+
+In our case, we use Inno Setup from <a target='_blank' href='http://www.jrsoftware.org/isinfo.php'>
+http://www.jrsoftware.org</a> to build the Windows installers. When you install
+NxClient, NxUpdate and NxMapper, they will create their own directories inside 'C:\Program Files (x86)'
+and register them as a Windows service. For example, when you run NxClient installer we copy all the
+required files into 'C:/Program Files (x86)/nxclient' and then we run 'bin/instsvc.bat' under the installation
+directory to register it as a Windows service and then we run 'bin/setup.bat' at the end of the installation
+process to run its setup program.
+</p>
+
+	<div class='info'>
+	* We can provide our Inno Setup script of each client when you become one of our business partners.
+	</p>
+
+	* The zip files we use to build our installer packages are on our
+	<a target='_blank' href='http://www.nxfilter.org/download.php'>older package download</a> page.
+	</p>
+
+	* When you uninstall it, we run 'bin/unstsvc.bat' to unregister it from Windows service list.
+	</div>
+	</p>
+
+
+<div class='nx_hr'></div>
+<b>Making your own Mac OS installer</b>
+</p>
+
+We use 'Packages' from <a target='_blank' href='http://s.sudre.free.fr/Software/Packages/about.html'>
+http://s.sudre.free.fr</a> for building our Mac OS installer.
+When you run our installer it will create its own directory under '/Library' and copy a 'conf/plist.default' file
+into '/Library/LaunchDaemons' with a new name like 'org.nxfilter.nxclient.plist' to run it as a daemon. and then it
+runs 'setup-mac.sh' inside its installation directory to launch its setup program. When you uninstall it, you need
+to run 'uninstall-mac.sh' inside the installation directory manually.
+</p>
+
+	<div class='info'>
+	* We can provide our Packages script of each client when you become one of our business partners.
+	</p>
+
+	* The zip files we use to build our installer packages are on our
+	<a target='_blank' href='http://www.nxfilter.org/download.php'>older package download</a> page.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Changing application name</b>
+</p>
+
+When you customize our agents, one of the things you want to do might be changing the names of our agents. We have
+'conf/appname' file for that under the installation directory. When you change the name inside the file, your own
+program name will be appeared on the setup program of our agents.
+</p>
+
+<div class='nx_hr'></div>
+<b>Replacing icon file and default setup value</b>
+</p>
+
+When you want to use your own icon, the icon file is 'nxd.ico' inside the installation directory and
+it is a merged icon file for 16x16 and 32x32 and 48x48 icons. At the moment it is only for Windows Installer
+and setup program.
+</p>
+
+	<div class='info'>
+	* For Java version NxClient and NxUpdate you need to add one more icon file which is 'nxd16.png'. It's 16x16
+	PNG file for its setup GUI.
+	</div>
+	</p>
+
+One of the other things you might want to do is to change the default connection values to the server. You can change
+the default values for 'Server IP' and 'Login Token' on the setup program by modifying 'conf/cfg.default' file.
+</p>
+
+	<div class='info'>
+	* 'conf/cfg.default' file will be copied into 'conf/cfg.properties' file when you run a setup program first time
+	or during the installation process.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Writing your own setup program or GUI</b>
+</p>
+
+If you can build your own package, to build and include your own setup program is also a possible option.
+On our setup programs there are some input controls and buttons. For input controls, we read the values
+from 'conf/cfg.properties' file.
+</p>
+
+<img src='screenshot/nxclient_setup.png'>
+</p>
+
+And when you click the buttons that are 'SAVE', 'TEST', 'START', 'STOP' we do some action with the updated config values.
+With 'SAVE' button we save the config values into 'conf/cfg.properties' file. For 'START' and 'STOP' buttons, if it is on Windows
+we use 'net start' and 'net stop' commands as we install our agent as a service. On Mac OS, we use '/bin/launchstl'
+command with the Plist file we copied into '/Library/LaunchDaemons' directory.
+</p>
+
+So when you make a setup program for NxClient on Windows, you need to run these commands with 'START' and 'STOP' buttons,
+</p>
+
+<div class='cmd'>
+net start NxClient<br>
+net stop NxClient<br>
+</div>
+</p>
+
+If it is on Mac OS,
+</p>
+
+<div class='cmd'>
+/bin/launchctl load -w /Library/LaunchDaemons/org.nxfilter.nxclient.plist<br>
+/bin/launchctl unload -w /Library/LaunchDaemons/org.nxfilter.nxclient.plist<br>
+</div>
+</p>
+
+For 'TEST' button, you can run 'bin/test.bat' or 'bin/test.sh' script. Before you run the test script you have to save the config
+values first.
+</p>
+
+After you run the test script you can get some messages with the following exit codes.
+</p>
+
+	<div class='tab'>
+	0 = Success<br>
+	-1 = Invalid config values<br>
+	-2 = Connection error<br>
+	-3 = Login error<br>
+	</div>
+	</p>
+
+<div class='info'>
+* For NxMapper, we have 'test.exe' instead of 'bin/test.bat'.
+</p>
+
+* For NxMapper, we don't have the login error code as there is no login process.
+</div>
+</p>
+
+<div class='nx_hr'></div>
+<b>Customization of NxBlock</b>
+</p>
+
+NxBlock is an open source software. You can download its source code from our download page.
+</p>
+
+<div class='nx_hr'></div>
+<b>Customization of NxRelay</b>
+</p>
+
+We don't provide an installer or a setup program for NxRelay as we don't think it is for an ordinary Windows user.
+But its structure is almost same as NxFilter. You have enough knowledge to make an installer package for it, if you
+already read the previous part of this tutorial.
+</p>
+
+<div class='nx_hr'></div>
+<b>Limitation</b>
+</p>
+
+Building your own installers and changing the names of the client softwares will do what you want to do mostly.
+But there is something you can't touch or change. We have some internal code having 'nxfilter' signature.
+This is important as we need to have a unique signature to diffrentiate signals from our agents.
+</p>
+
+And you don't remove our license or any third party license from the package otherwise that is a license
+violation. You can have your own license file but you need to keep our license somewhere. All in all
+it is our software and you just customize it, so it is inevitable to have some limitation.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxclassifier_what'></a>
+<div class='view'>
+<div class='title'>What is NxClassifier</div>
+
+NxClassifier is the NxFilter's integrated auto-classification engine for Jahaslist. It does dynamic
+classification against the websites visited by your users base on keyword matching and scoring system.
+You can define or modify its classification ruleset as you like using your own language.
+</p>
+
+	<div class='info'>
+	* NxClassifier requires a valid Jahaslist license.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxclassifier_why'></a>
+<div class='view'>
+<div class='title'>Why NxClassifier</div>
+
+There are two kinds of classification methods we can use to build a blacklist. One is
+auto-classification and the other one is human classification. Auto-classification does
+the job at very fast speed but it is not as accurate as human classification. And human
+classification costs a lot of money as you need to hire real people. So the best method
+would be the combination of both or at least having a human verification process for the
+auto-classification result.
+</p>
+
+Most of these auto-classification engines do their job based on a keyword matching system
+with a keyword dictionary or some kind of ruleset. So we need an effective keyword dictionary
+or ruleset for an auto-classification engine to make a satisfiable result. But we can
+have different opinions on which keyword belongs to where and how one keyword important
+to be compared to the others.
+</p>
+
+Moreover we also can have a different opinion on the classification of a site.
+For example, 'www.stackoverflow.com ' is a community or 'Forum' site but also can be
+classified into 'Computer/Technology' category as they are focusing on computer and
+technologies. And yet they are one of the 'Business/Service' websites. We can classify
+it into all of them if we allow multi-categories for a site. But in that case, in our
+filtering business we face another problem. What if we want to block 'Forum' but allowing
+'Computer/Technology'? We get an unexpected result.
+</p>
+
+Another one, at the moment we speak English. But English is not the only language we use
+in the world. There are numerous non-English websites. So we need the keyword dictionaries for
+the other languages as well. But who is going to build all these dictionaries for all
+the other languages? And if we do human classification or verification we need to hire
+people being able to speak those languages too. So things are getting bigger and complicated.
+Nobody can afford it. And that's why we have many false positives for these blacklists
+and we can't be satisfied with any blacklist 100%.
+</p>
+
+Lastly, no matter how big it is, a blacklist can't cover the whole Internet. Even if you
+have a huge file to cover the Internet, how many websites in the file could be useful for
+you? Your users will never visit most of the websites in it as they are not written in your
+own language.
+</p>
+
+However with NxClassifier,
+</p>
+
+1. You build your own ruleset.
+
+	<div class='tab'>
+	This means that you can build your own classification ruleset for your own language. You
+	are the best one for filtering the websites in your own language.
+	</div>
+	</p>
+
+2. We don't allow multi-categorization.
+
+	<div class='tab'>
+	One site can be classified into only one category. No more confusion from multi-categorization.
+	</p>
+
+		<div class='info'>
+		* The reason for these blacklist providers having multi-categories for one site is not just
+		that they want to reflect the real world ambiguity. They want to use it for the other market
+		something like advertising market. That's why they need to have multi-categorization.
+		But it is no good for us in most cases.
+		</div>
+	</div>
+	</p>
+
+3. You can do recategorization instantly.
+
+	<div class='tab'>
+	No need to make a recategorization request to a blacklist provider and wait for them to
+	accept your request. You can modify your own blacklist as you like.
+	</div>
+	</p>
+
+4. Jahaslist keeps growing.
+
+	<div class='tab'>
+	We only ship a baselist in NxFilter package as we want to make the size of NxFilter package
+	small. It covers the major sites only. But with the aide of dynamic classification by NxClassifier
+	it keeps growing and they are only for the actual websites your users are visiting.
+	</div>
+	</p>
+
+5. You can share the result with others.
+
+	<div class='tab'>
+	Once you build your own blacklist using NxClassifier you can share it with others. Not
+	only the blacklist. You can share your classification ruleset.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxclassifier_directory'></a>
+<div class='view'>
+<div class='title'>Jahaslist and its directory structure</div>
+</p>
+
+Jahaslist is the name of the blacklist which is being grown by NxClassifier. Jahaslist
+is being activated when you install NxFilter. We have '/nxfilter/jahaslist'
+directory for it and we have several files in it.
+</p>
+
+- categories.txt : Jahaslist categories are defined here.
+</p>
+
+- baselist.txt : Even if we can build our own blacklist with NxClassifier we still need all
+these major websites classified. Otherwise you will see too many unclassified websites before
+NxClassifier classify enough number of domains.
+</p>
+
+- ruleset.txt : This is the default classification ruleset for NxFilter.
+</p>
+
+	<div class='info'>
+	* baselist.txt and ruleset.txt will be imported into NxFilter DB when you start NxFilter
+	first time.
+	</p>
+
+	* We keep everything except the classification ruleset in a separate DB file. It is '/nxfilter/db/jahaslist.h3.db'.
+	When you want to reinitialize Jahaslist for some reason you just need to delete this file
+	and restart NxFilter.
+	</div>
+	</p>
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxclassifier_gui'></a>
+<div class='view'>
+<div class='title'>GUI for NxClassifier</div>
+</p>
+
+We have 'NxClassifier' top menu on GUI. It has the following submenus.
+</p>
+
+<div class='nx_hr'></div>
+<b>Setup > Classifier Setup</b>
+</p>
+
+- DNS Test Timeout : NxClassifier only classifies the existing domains. So it does DNS
+testing first when it needs to classify a domain.
+</p>
+
+- HTTP Connection Timeout : After DNS testing, now it needs to download a webpage
+to analyze. This is the connection timeout value for HTTP connection.
+</p>
+
+- HTTP Read Timeout : This is the data read timeout value after you have an HTTP connection.
+</p>
+
+	<div class='info'>
+	* If you make these timeout values too big you might have a performance degrading for
+	NxClassifier.
+	</div>
+	</p>
+
+- Classified Data Retention Days : NxClassifier makes the classification result log for
+the recently classified websites. NxClassifier doesn't do the classification if it is already
+classified or if it is in the classification log without an error.
+</p>
+
+- Keep HTML Text : NxClassifier can extracts the text from a main page of website and keep it
+for reclassification. But this requires more disk space so you can decide to keep the text or not.
+</p>
+
+- Disable Domain Pattern Dic : NxFilter has a domain pattern based calssification process. If a domain
+can be classified by this domain pattern dictionary NxClassifier doesn't try to classify the domain.
+</p>
+
+- Disable Classification : You can disable the classification by NxClassifier.
+</p>
+
+<div class='nx_hr'></div>
+<b>Setup > Mass Import</b>
+</p>
+
+You use this when you want to import a ruleset file or Jahaslist file exported from another
+system. It doesn't delete the existing data. But it overwrites the existing data if it is the
+same one.
+</p>
+
+<div class='nx_hr'></div>
+<b>Ruleset</b>
+</p>
+
+You can define your own ruleset here. Or modify the default ruleset. You can export the
+ruleset and share it with others.
+</p>
+
+<div class='nx_hr'></div>
+<b>Classified</b>
+</p>
+
+This is the classification result log by NxClassifier. It will show yout the recently classified
+domains and how they got classified or unclasssified. Based on this classification result
+you can improve your classification ruleset.
+</p>
+
+	<div class='info'>
+	* With 'VIEW' button you can view the details of the log and with 'TEST' button you do
+	the actual classification process for a domain with your current ruleset.
+	</p>
+
+	* If you want to apply a new classification ruleset against the already classified
+	sites use 'RECLASSIFY-ALL' button.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Excluded</b>
+</p>
+
+We exclude the domains making certain errors during the classification process. For example, if we have
+403 response from a website we don't need to try to classify it as we can't access the website. Or if
+we get an image file or some other type of file instead of a text or HTML file we will exclude it.
+</p>
+
+	<div class='info'>
+	* Since we don't delete these excluded domains if you want to have NxClassifier trying to
+	classify an excluded domain you would need to delete it from the list first.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Jahaslist</b>
+</p>
+
+You can view the contents of Jahaslist and modify it directly here. But we don't recommend you
+to do the reclassification here unless it is a mass importation of domains. We keep Jahaslist
+in a separated DB file and NxFilter doesn't do auto-backup for it. So you would better use
+'Category > System' for reclassification as it is in the main config DB.
+</p>
+
+	<div class='info'>
+	* When you do the reclassification on 'Logging > Request' or 'NxClassifier > Classified' your
+	reclassification data goes into 'Category > System'.
+	</p>
+
+	* When you export Jahaslist, NxFilter merges your custom classified domains from
+	'Category > System' into Jahaslist  and then export the merged result into a file.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Test Run</b>
+</p>
+
+After you add your own classification rules you want to see the result. You can do a test
+run for your classification ruleset against a website here.
+</p>
+
+	<div class='info'>
+	* 'Test Run' doesn't do actual classification. If you want to classify a domain you need
+	to make a query for the domain against NxFilter.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxclassifier_workflow'></a>
+<div class='view'>
+<div class='title'>Understanding NxClassifier workflow</div>
+
+You need to understand the workflow of NxClassifier before you can build an effective
+classification ruleset for you.
+</p>
+
+NxClassifier itself is a multi-threaded program integrated into NxFilter. When NxFilter
+finds an unclassified domain requested, it adds the domain into the process queue of
+NxClassifier. NxClassifier does DNS test to see if the domain actually exists and then
+it tries to see if there is a website for the domain. If there is a website for the
+domain NxClassifier downloads its main page and parses its title, description and the text.
+</p>
+
+Once NxClassifier gets the details of a website then it runs the data through its classification
+ruleset. While running through its ruleset, if it finds an exactly matched rule it stops there
+and classify the domain to the associated category to the rule. Otherwise it adds up the points
+from the matching rules and classify the domain into the category which has the biggest score.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxclassifier_rule'></a>
+<div class='view'>
+<div class='title'>What is a classification rule</div>
+
+Now we need to understand how to make a classification rule. A classification rule consists
+of the following factors.
+</p>
+
+- Keyword : Matching keyword. In reality it is a regular expression.
+</p>
+
+- Target : You can apply your keyword against the domain, title, description and text of a website.
+</p>
+
+	<div class='info'>
+	* We get the title, description and text of a website from its main page.
+	</div>
+	</p>
+
+- Points : You can set a different points to a rule by its importance. The minimum points to
+be classified is 100 and the maximum points is 1,000.
+</p>
+
+- Category : Associated category for a rule.
+</p>
+
+	<div class='info'>
+	* When you want to have an 'Exclude Keyword' for a category, set minus points for the
+	keyword. For example, you associate 'movie' keyword to 'Entertainment' category but you don't
+	want to classify the websites you can download movies to 'Entertainment'. Then you associate
+	'download' keyword to 'Entertainment' with minus points.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxclassifier_tuning'></a>
+<div class='view'>
+<div class='title'>Performance tuning for NxClassifier</div>
+
+If you run it on a big site having many users you might notice that NxClassifier's
+classification speed can't follow up all the unclassified domains your users visited. This
+is because we designed NxClassifer to be an optional service for NxFilter. You run NxFilter
+basically for filtering not for classifying domains. So we don't want to have NxClassifier
+consuming all the system resources. So we run only two worker threads for NxClassifier at default.
+</p>
+
+However some of you want to increase its performance. In that case you can increase the
+number of threads by setting up a value for 'classifier_num' parameter on
+'/nxfilter/conf/cfg.properties' file.
+</p>
+
+	<div class='tab'>
+	classifier_num = 8
+	</div>
+	</p>
+
+And when you have a cluster for NxFilter, NxClassifier also gets clustered. With this feature
+you also can have a dedicated node for classification. You run 16 threads for classification
+on one node and you set 'classifier_num' to zero on all the other nodes.
+</p>
+
+The other thing you need to think about would be the optimization of your classification
+ruleset. If you have a bigger ruleset NxClassifier needs to consume more CPU power.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='jahaslist_repository'></a>
+<div class='view'>
+<div class='title'>Remote repository for Jahaslist</div>
+
+NxFilter does auto-update for Jahaslist on the background. It downloads the update files from the Internet
+and updates its Jahaslist. You can build your own repository for this remote update. This is useful for people
+wanting to share their blacklist or making a business on their blacklist.
+</p>
+
+1. The process of the auto-update.
+	<div class='tab'>
+	When you add a URL of an update file from the Internet on 'NxClassifier > Setup > Jahaslist Repository'
+	NxFilter downloads the file and updates its Jahaslist. The auto-update process will be running at the startup
+	time and once a day nightly. Since the auto-update process is running as a separated thread, it doesn't block
+	NxFilter main process.
+	</p>
+
+		<div class='info'>
+		* You can add multiple repository URLs separated by newlines.
+		</div>
+	</div>
+	</p>
+
+2. The format of an update file.
+	<div class='tab'>
+	Basically it needs to be a text file with '.txt' extension. But you also can upload a zipped tarball
+	with '.tgz' or '.tar.gz' extensions. In the zipped tarball you need to have a text file. So if there
+	is a minor update you would better go with a text file and if is a major update it would better be a
+	zipped tarball.
+
+	Inside the file you can add a domain and a category number concatenated with a comma like the followings,
+	</p>
+
+		<div class='code'>
+		google.com,46<br>
+		yahoo.com,46<br>
+		nxfilter.org,9<br>
+		</div>
+		</p>
+
+	Actually this format is being used for importing and exporting Jahaslist on GUI. This means you can share
+	the exported file from your Jahaslist by uploading it into a website.
+	</p>
+
+		<div class='info'>
+		* If you use a text file without archiving, you can add 100,000 domains at the maximum into the file.
+		</p>
+
+		* When you make 'recatlist.tgz' file for 'recatlist.txt' file, use the following command.
+		</p>
+
+		&nbsp;&nbsp;&nbsp;&nbsp;ex) tar cvzf recatlist.tgz recatlist.txt
+		</div>
+	</div>
+	</p>
+
+3. The version of an update file.
+	<div class='tab'>
+	You don't want to download the same file over and over again. So we have a versioning system for the
+	update files. When you have your udpate file on the following URL,
+	</p>
+
+		<div class='tab'>
+		http://www.nxfilter.org/test/recatlist.txt
+		</div>
+		</p>
+
+	NxFilter tries to find a version file on this URL,
+	</p>
+
+		<div class='tab'>
+		http://www.nxfilter.org/test/recatlist.ver
+		</div>
+		</p>
+
+	In the version file you need to have a number. When it is greater than the version number NxFilter previously
+	downloaded it downloads the update file and updates its Jahaslist and if the number is less or equal, NxFilter
+	ignores the update file.
+	</p>
+
+		<div class='info'>
+		* The version number can not be less than 1.
+		</div>
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<!--
+<a name='nxclassifier_build'></a>
+<div class='view'>
+<div class='title'>Building your own blacklist</div>
+
+For whatever reason, some of you might want to build your own blacklist with the different
+categories you defined. This is also possible. You need to redefine the categories in
+'/nxfilter/jahaslist/categories.txt' and then build your own ruleset and start the classification
+from the scratch.
+</p>
+
+Or you might just want to add some new categories. In that case, you can append those categories
+into 'categories.txt' file.
+</p>
+
+	<div class='info'>
+	* For internal reason, you only can define 99 categories for Jahaslist or your own blacklist.
+	</p>
+
+	* We have a domain pattern based categorization working on NxFilter. If you want to use your
+	own category set then you need to turn it off on 'NxClassifier > Setup'.
+	</p>
+
+	* For internal reason, the ID of 'Ads' category needs to be '1'.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+-->
+
+
+
+<!--
+<a name='nxclassifier_update'></a>
+<div class='view'>
+<div class='title'>Updating Jahaslist and NxClassifier ruleset</div>
+
+We do auto-update for Jahaslist periodically. But sometimes there's a big change in 'baselist.txt'
+and you want to update your Jahaslist to the latest one. In that case you need to delete the existing
+list and then import the whole list from 'baselist.txt' again. You can do this with 'RESTORE-DEFAULT' button
+in one process.
+</p>
+
+</p>
+
+	<div class='info'>
+	* We have 'RESTORE-DEFAULT' button for NxClassifier ruleset as well.
+	</p>
+	</div>
+	</p>
+
+
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+-->
+
+
+<!-- -->
+<a name='nxfilter_dns_server'></a>
+<div class='view'>
+<div class='title'>NxFilter as a DNS server</div>
+
+NxFilter is basically a forwarding, caching DNS server with filtering ability. You also can use it
+as an authoritative DNS server. It also supports dynamic DNS service.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxfilter_forwarding_dns'></a>
+<div class='view'>
+<div class='title'>Forwarding DNS server</div>
+
+When you install NxFilter first time it is already ready for working as a forwarding DNS
+server. It uses Google DNS servers as its upstream DNS servers at default. You can change
+the upstream servers on 'DNS > Setup'.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxfilter_caching_dns'></a>
+<div class='view'>
+<div class='title'>Caching DNS server</div>
+
+NxFilter has its own cache for the DNS response from its upstream server. This means when you use a public
+or ISP DNS server as a DNS server for your network NxFilter can boost up your network speed by reducing
+the traffic to the DNS server outside your local network. This is because once a DNS response from an upstream
+server has been cached then your users will get the response from NxFilter not from the upstream server.
+You will not have a latency problem between your local network and the DNS server on the Internet.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxfilter_authoritative_dns'></a>
+<div class='view'>
+<div class='title'>Authoritative DNS server</div>
+
+NxFilter can be working as an authoritative DNS server.
+</p>
+
+1. Zone File
+	<div class='tab'>
+	We use the same form of zone file as BIND. You create a zone file for a domain on 'DNS > Zone File'.
+	And then you can add your hosts into the DNS zone by editing it on GUI.
+	</div>
+	</p>
+
+2. To put it on the Internet
+	<div class='tab'>
+	Since NxFilter is a DNS filter with authentication, when you use it as an autoritative DNS
+	server there are several things you would need to think about.
+	</p>
+
+	- Authentication
+		<div class='tab'>
+		You must enable authentication especially when you put NxFilter on the Internet to avoid of
+		being a target of DDOS attack. But the problem is that if you enable authetication, these anonymous
+		users querying your domain will be redirected to the login-page of NxFilter. To allow the anonymous
+		DNS query against your domain, you need to bypass authentication for your domain.
+		</div>
+		</p>
+
+	- Filtering
+		<div class='tab'>
+		NxFilter is a DNS filter so your domain might be blocked by NxFilter for some reason. This will lead
+		to the failure of resolving the domain you want to service. To avoid of having this kind of problem,
+		it might be better to bypass filtering for your domain.
+		</div>
+		</p>
+
+	- Too many log
+		<div class='tab'>
+		You could have too many log data for your domain as a result of DDOS attack. In that case, you would
+		better bypass logging for your domain.
+		</div>
+	</div>
+	</p>
+
+	<div class='info'>
+	* You can set up whitelist for your domain with some bypass options but you also can do that using
+	the bypass options of a zone file.
+	</p>
+
+	* On NxCloud you have 'Public Service' option instead of bypass options. In reality this is	a combination
+	of 'Bypass Filtering' and 'Bypass Logging' as there is no 'Bypass Authentication' option for NxCloud.
+	You need to set this option to service your DNS zone on the Internet when you use NxCloud.
+	</div>
+	</p>
+
+3. Clustering
+	<div class='tab'>
+	When you build a cluster of NxFilter your slave nodes will be working as an authoritative DNS server
+	with the settings from the master node. You don't need to set up a secondary DNS server for redundancy.
+	It is already clustered.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxfilter_dynamic_dns'></a>
+<div class='view'>
+<div class='title'>Dynamic DNS service</div>
+
+NxFilter supports dynamic DNS. You can build a 'DynDNS' like service with NxFilter if you want.
+</p>
+
+To service dynamic DNS you need to have a domain for the service on 'DNS > Setup > Dynamic Domain' and
+then enable the service. If you want to service it publicly or on the Internet, you will have to have
+a authoritative DNS zone on 'DNS > Zone File' for your dynamic DNS domain.
+</p>
+
+Once you set up everything on the server side, you need to install a dynamic DNS client on your client system.
+We use NxUpdate for this. On NxUpdate you need to set up a server IP that is the IP address of your NxFilter
+and a login token associated to a username. The associated username will be the hostname.
+</p>
+
+For example, if you have 'example.com' as your dynamic DNS domain and you install NxUpdate on a client system with
+a login token which is associated to 'myhost' user. Then once your NxUpdate started working you
+can access the system using 'myhost.example.com'.
+</p>
+
+	<div class='info'>
+	* Dynamic DNS service requires to enable authentication on 'Config > Setup'.
+	</p>
+
+	* You can view the list of dynamic domains being serviced on 'DNS > Dynamic Domain'.
+	</p>
+
+	* On NxCloud we have 'Logging > Dynamic DNS' for admin to monitor the activities related to your
+	dynamic domain.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='nxfilter_avoid_ddos'></a>
+<div class='view'>
+<div class='title'>To avoid of having DDOS attack</div>
+
+When you put NxFilter on the Internet you might be under DDOS attack. Once you are under DDOS attack or the other kinds of DNS attack
+you could have a massive traffic to your NxFilter. Your NxFilter can't handle all the traffic and eventually it will look like almost
+dead and you will get the error logs about 'Queue full'.
+</p>
+
+To avoid of having this kind of problem, the best thing is to hide your DNS server or not responding to these attackers with a valid
+DNS response. To hide your NxFilter as a DNS server from these attackers you can enable authentication firstly. Being unknown to NxFilter,
+these attackers will get your NxFilter redirection IP as a DNS response.
+</p>
+
+But still they may think there is a DNS server to attack as they get a response anyway. To hide it from these attackers completely
+we need to drop the packets from these anonymous users silently. For this purpose, you can set 'Allowed IP for Login Redirection'
+on 'Config > Allowed IP' and NxFilter will drop the packets from these attackers.
+</p>
+
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='cluster'></a>
+<div class='view'>
+<div class='title'>Clustering with NxFilter</div>
+
+NxFilter has built-in clustering for load balancing and fail-safe. Once you have a master node you can add up to 4 slave
+nodes to your cluster. All the slave nodes in your cluster share the setup from the master node. So you can control
+everything on your master node.
+</p>
+
+<div class='nx_hr'></div>
+<b>Creating a cluster</b>
+</p>
+
+To create a cluster, the first thing you need to do is to make a master node. On 'Config > Cluster'
+you can make one of your NxFilter installations to be the master node. And then you can add the other
+NxFilter installations as the slave nodes to your mater node. You need to restart NxFilter after
+change the cluster setup.
+</p>
+
+	<div class='info'>
+	* Clustering requires 19002, 19003, 19004 ports on TCP opened on the master node.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Starting clustered NxFilter</b>
+</p>
+
+When you start NxFilter cluster you need to start the master node first and then you can start the slave nodes.
+This is because your slave nodes need to download the initial setup from the master node when they start.
+</p>
+
+<div class='nx_hr'></div>
+<b>Load balancing and fail-safe</b>
+</p>
+
+One good thing about a DNS filter is that there is already a way of load balancing and fail-safe existing.
+Make your master node to be the primary DNS server and your slave node to be the secondary DNS server in
+your network. Then you get the load balancing and fail-safe.
+</p>
+
+	<div class='info'>
+	* If you want to have these load balancing and fail-safe for your block-page and login-page or policy update
+	for NxFilter's agents you need to set multiple block redirection IP addresses separated by commas on 'Config > Setup'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>When a cluster node down</b>
+</p>
+
+When a slave node down the other nodes will not be affected. When your master node down you still don't lose your
+filtering unless you restart your slave node before you restore the master node. But there are several things need
+to be aware of.
+</p>
+
+	<div class='info'>
+	* If you set up the alert email on 'Config > Alert' you will receive an email when a cluster node down.
+	</div>
+	</p>
+
+1. Login redirection will not be working
+	<div class='tab'>
+	When your master node down we can't share the login session between cluster nodes. This means your login-page
+	will not be working correctly. So we don't redirect users to the login-page.
+	</div>
+	</p>
+
+
+2. Unauthenticated users will be bypassed
+	<div class='tab'>
+	If we don't redirect the 'Password Users' to the login-page they can't login. But we don't want to
+	let them lose the Internet.	So we bypass filtering for these unauthenticated users when the master node down.
+	If you don't want to bypass filtering for any users even if your master node down try to have a default user
+	covering whole IP range of your network.
+	</p>
+
+		<div class='info'>
+		* NxCloud's case is a bit different. It drops the requests from unauthenticated users as the login redirection is not
+		the default option for NxCloud and the users on NxCloud mostly use the other authentication methods.
+		</div>
+	</div>
+	</p>
+
+3. Multiple server IP addresses with an agent
+	<div class='tab'>
+	If you use one of our agent programs with multiple server IP addresses to cover the slave nodes, they will
+	still be working.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Access control for slave nodes</b>
+</p>
+
+If you add all your slave node IP addresses into 'Config > Cluster' any attempt to join a slave node from an unknown
+source IP address will be blocked.
+</p>
+
+<!--
+<div class='nx_hr'></div>
+<b>Using a different set of resolving DNS servers for a slave node</b>
+</p>
+
+You might want to have a fail-safe measure for the connection to your resolving DNS servers by
+having a different set of resolving DNS servers for your slave node. But the problem is that in a cluster
+every node share a master node's configuration. So you can't do it using GUI. However you can use '/nxfilter/conf/cfg.properties'
+for that purpose. There's 'upstream_dns' parameter you can add into the file. For example if you want to use
+'192.168.0.100' and '192.168.0.101' as your upstream servers you can add this line into the config file.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;upstream_dns = 192.168.0.100,192.168.0.101
+</p>
+-->
+
+<div class='nx_hr'></div>
+<b>Monitoring slave node state</b>
+</p>
+
+You can view connection state from your slave nodes on 'Config > Cluster'. Once you set up your cluster
+then your slave nodes will be appeared with the last contact time on the page. It is also showing each node's
+request, block, user, client-ip count information. These counter information will be set to 0 on midnight
+or when you restart NxFilter.
+</p>
+
+<div class='nx_hr'></div>
+<b>Session sharing between cluster nodes</b>
+</p>
+
+We use TCP ports for sharing data between cluster nodes. The one of the data we share is the login session
+so that you don't need to login twice to master and slave node. And we share quota-time and bandwidth
+consumption data as well. But this could be a reason for performance degrading when you have busy servers
+as it increase the amount of communication between nodes.
+</p>
+
+If you don't want to share these data you can disable authentication and not to use quota-time and bandwidth
+control. But you may want to have authentication even if you need to login twice. And in reality, this login session
+sharing is only for the login-page. If you don't use password login you are not going to have any problem.
+NxLogon and NxMapper, NxClient can talk to multiple NxFilter servers. And IP based authentication works fine
+without session sharing.
+</p>
+
+To disable session sharing while you keeping authentication enabled, add this line into '/nxfilter/conf/cfg.properties'.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;no_share_session = 1
+</p>
+
+	<div class='info'>
+	* You need to set up 'no_share_session' option on all nodes.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='bandwidth'></a>
+<div class='view'>
+<div class='title'>Bandwidth control with NxFilter</div>
+
+NxFilter supports per-user based bandwidth control using NetFlow data. The idea is simple.
+NxFilter associates NetFlow data from a router to its user login session based on IP address
+and if there is a user consumed bandwidth over the limit you set, NxFilter blocks all the DNS
+requests from the user.
+</p>
+
+Good thing is that this is not just about HTTP traffic. Since NxFilter uses NetFlow data
+you can monitor and block other protocols including HTTP, FTP, IM, Skype, Torrent and any other
+protocols working on TCP/UDP.
+</p>
+
+To enable the bandwidth control you need to have a router or firewall supporting NetFlow version 5
+in your network and you need to make them sending NetFlow data to NxFilter. And then run NxFilter's
+built-in NetFlow collector on 'Config > Setup > NetFlow'. After that you can set up a bandwidth limit
+on a policy.
+</p>
+
+There are several rules for NxFilter to import NetFlow data. Firstly, one of the source or destination
+IP addresses of a NetFlow data should be associated to an IP address of a logged-in user on NxFilter.
+Secondly, NxFilter ignores the internal traffic. This means one of the source or destination IP addresses
+needs to be a public IP address. This is because you are only interested in inboud or outbound traffic
+to the Internet. And lastly, NxFilter keeps only TCP/UDP data.
+</p>
+
+	<div class='info'>
+	* Currently NxFilter supports NetFlow v5 only.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='malware'></a>
+<div class='view'>
+<div class='title'>Detecting and preventing malware/botnet activity with NxFilter</div>
+
+One of the features of NxFilter is to be able to detect and block malware/botnet activity by analyzing
+DNS packets. In reality malwares and botnets are another form of network clients or server programs.
+This means that they are also heavily relying on DNS protocol to find their masters or peers to communicate
+with or the victims to attack.
+</p>
+
+For example, if you have a spambot in your network the spambot will make a lot of DNS queries for
+MX records of the target domains to send emails. But normally your client PC doesn't need to make
+MX queries unless they have a mail server running on it.
+</p>
+
+Another example would be the botnets using the 'TXT' record or other DNS records as their communication
+tool. These are the real world examples of malwares using DNS protocol as their communication tool.
+</p>
+
+	<div class='tab'>
+    ex1) Trojan.Spachanel was using SPF record.<br>
+    ex2) W32.Morto was using TXT record.<br>
+	</div>
+	</p>
+
+The other method we can think of would be detecting the abnormal length of domains. When we tested
+top 100,000 domains by Alexa all the domains except 142 domains were shorter than 30 characters.
+But there are abnormal domains trying to look like some URL of a target website. This is an example
+from www.phishtank.com which is trying to look like a webpage of www.ebay.co.uk but actually it i
+s a phishing domain.
+</p>
+
+	<div class='tab'>
+    ex1) cgi.ebay.co.uk-item-css.ebay-motors.session.id-sj3mzbasf3k12z581668115.login-wpadmin-sw.buyitnow.sign-in.secure-process657943sddh53zix34235hj65rj.xml.config-page.overview.buyer-protection-jsp.wpcs.spiridus-magic.org<br>
+	</div>
+	</p>
+
+So detecting botnet/malware by analyzing DNS packet would be one of the effective techniques we can
+think of. NxFilter provides these blocking options on its policy setup.
+</p>
+
+	<div class='tab'>
+	- Max Domain Length<br>
+	- Block Covert Channel<br>
+	- Block Mailer Worm<br>
+	- Block DNS Rebinding<br>
+	- Allow 'A' Record Only<br>
+	</div>
+	</p>
+
+But you can say that the most effective way of preventing malware/botnet in your network would be allowing
+only 'A' record query from your client PC. In most cases your client PC doesn't need to make a DNS query
+for any other record than 'A', 'AAAA', 'PTR' , 'CNAME'.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='ad-remove'></a>
+<div class='view'>
+<div class='title'>Removing embedded adverts in webpages</div>
+
+There are webpages having embedded adverts from other domains. One of the problems for blocking these
+adverts with NxFilter would be having a mangled webpage as a result of blocking. Your block-page replaces
+the embedded adverts.
+</p>
+
+To avoid of having this kind of problem, there are two ways of removing embedded adverts with NxFilter. One
+is using a special category in 'Category > Custom' which is called 'ad-remove'. If you add a domain into
+this category and block the category somewhere, NxFilter blocks the domain with a blank block-page.
+</p>
+
+The other method is to block it using the 'Ad-remove' option on a policy. With this option NxFilter blocks
+'Ads' category of Jahaslist.
+</p>
+
+	<div class='info'>
+	* After you add a domain into 'ad-remove' category you need to block the domain on whitelist or policy
+	otherwise it will not be blocked.
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='syslog_export'></a>
+<div class='view'>
+<div class='title'>Syslog exportation</div>
+
+NxFilter provides Syslog exportation function. The exported data is a character string separated by '|'.
+For example, if you have the following Syslog data,
+</p>
+	<div class='tab'>
+NXFILTER|2013-01-28 10:53:23|Y|www.bbc.co.uk|pwuser|192.168.0.101|admin|news|Blocked by admin|33
+	</div>
+	</p>
+
+It can be parsed into these values,
+</p>
+
+	<div class='tab'>
+	- Prefix : NXFILTER<br>
+	- Date : '2013-01-28 10:53:23'<br>
+	- Block yes/no : Y<br>
+	- Domain : www.bbc.co.uk<br>
+	- User : pwuser<br>
+	- Client IP : 192.168.0.101<br>
+	- Policy : admin<br>
+	- Category : news<br>
+	- Blocked reason : 'Blocked by admin'<br>
+	- DNS query type : 33
+	</div>
+	</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!-- -->
+<a name='performance'></a>
+<div class='view'>
+<div class='title'>Performance tuning guide</div>
+
+Although NxFilter is designed to handle several thousands users easily there are several factors
+you can adjust to get the best performance from NxFilter.
+</p>
+
+<div class='nx_hr'></div>
+<b>Memory size</b>
+</p>
+
+At default NxFilter uses up to 512 MB RAM. This is enough for most users. But if you allocate a bigger
+memory to NxFilter you can expect a better performance. In NxFilter startup scripts, '/nxfilter/bin/startup.bat'
+you have the following line.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;java -Djava.net.preferIPv4Stack=true -Xmx512m -cp "%NX_HOME%"\nxd.jar;"%NX_HOME%"\lib\*; nxd.Main
+</p>
+
+If you want to increase it to 1 GB then change '-Xmx512m' to '-Xmx1024m'.
+</p>
+
+	<div class='info'>
+	* When you run NxFilter as a Windows service you need to reinstall the service with the increased memory
+	size. When you reinstall it, uninstall the service with 'unstsvc.bat' first and edit 'instsvc.bat' with
+	the increased memory size and then reinstall it by running 'instsvc.bat'.
+	</div>
+	</p>
+
+<div class='nx_hr'></div>
+<b>Disk space and reducing the amount of log data</b>
+</p>
+
+NxFilter has various reporting features. You can view all the logging data and daily, weekly report and
+per-user report. However this kind of reporting consumes a lot of disk space. When you have a bigger
+size of reporting data your system might experience a performance issue.
+</p>
+
+If you have more than several hundreds users it might be better to have at least 10 GB of disk space
+for traffic DB. Or to save the disk space you can reduce the amount of data. To reduce the amount of
+traffic data you can adjust the value for 'Log Retention Days' on 'Config > Setup'.
+</p>
+
+The other way of reducing the amount of traffic data is to make a whitelist with 'Bypass Logging' option
+for the domains you are not interested in.
+</p>
+
+<div class='nx_hr'></div>
+<b>Use client cache for DNS response</b>
+</p>
+
+NxFilter manipulates DNS cache TTL to clear out the client DNS as soon as possible to make your policy
+update being applied faster. But basically this is not a critically needed function and it increases the
+number of DNS queries from your client systems. For the performance, you would better not to manipulate
+DNS cache TTL.
+</p>
+
+You can set 'Max Client Cache TTL' in 'Config > Setup' to '0' to turn off the function. When you turn
+it off your client system will not make a DNS query against the domain already existing in its cache
+and it will reduce the load for NxFilter significantly. When you have more than 1,000 users we recommend
+you to turn off this function.
+</p>
+
+<div class='nx_hr'></div>
+<b>Increase the number of request handlers</b>
+</p>
+
+NxFilter is a multi-threaded program. It has worker threads handling client DNS requests. The default
+number of request handlers is 8 and it is enough for most cases. But if you think your NxFilter responding 
+slowly you can try to increase it. To increase it to 16 add the following line into
+'/nxfilter/conf/cfg.properties' and restart NxFilter.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;rh_num = 16
+</p>
+
+<div class='nx_hr'></div>
+<b>Using local recursive DNS server</b>
+</p>
+
+One of the possible cause of performance degrading for NxFilter would be the latency to its upstream
+server. This is not the case when you have just several hundreds users as NxFilter has its own caching.
+But if you have several thousands users this could be an issue. So we added local recursive DNS option.
+</p>
+
+However this doesn't mean that NxFilter does recursive DNS query by itself. Rather you install
+a recursive DNS server into the server having NxFilter already installed and make NxFilter uses it
+as its upstream DNS server. If you install something like MaraDNS's Deadwood recursive DNS server
+and set it to use 10053 port and listening '127.0.0.1' then you need to add the following line into
+'/nxfilter/conf/cfg.properties' file.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;local_resolver_port = 10053
+</p>
+
+And then restart NxFilter.
+
+</p>
+
+<div class='nx_hr'></div>
+<b>Disable data sharing between cluster nodes</b>
+</p>
+
+When you have a cluster, there is a massive amount of communication between nodes for data sharing.
+This could be a performance degrading factor when you have a busy server. To reduce the amount of
+communication read <a href='#cluster'>Clustering with NxFilter</a> section on this tutorial.
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+
+
+
+<!--
+<a name='user_contrib'></a>
+<div class='view'>
+<div class='title'>User contributed documents and scripts</div>
+
+- Chad Coccioniti's script to auto-update URLBlacklist on Windows.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a target='_blank' href='https://groups.google.com/forum/?fromgroups=#!topic/nxfilter200/Kw9mURfw4es'>
+How to auto-update URLBlacklist</a>
+</p>
+- Tutorial for how to install NxFilter on Ubuntu by Carl Miller.<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<a target='_blank' href='http://www.nxfilter.org/doc/Install_NxFliter_on_Ubuntu_for_beginners.docx'>
+Install NxFilter on Ubuntu for beginners</a>
+</p>
+
+- Rob Asher's NxFilter start/stop script for Linux.<br>
+	<div class='tab'>
+	Rob Asher sent me a script to start and stop NxFilter with Linux system.
+	I attached Rob's script and you just need to copy it into '/etc/init' directory on your Linux.
+	</p>
+
+	</div>
+
+	<div class='tab'>
+	Rob said:<br>
+	I threw together a little upstart script to manager nxfilter a bit
+	easier on linux systems.  I'm using it on CentOS 6.5 but it should work
+	on any linux that uses upstart scripts like RHEL/CentOS/Ubuntu and the
+	file paths match the script.  Copy the attached file to /etc/init/ and 
+	nxfilter will startup and shutdown with the system plus you can control
+	it with commands like "start nxfilter" or "stop nxfilter" or "status
+	nxfilter".
+	<a target='_blank' href='http://www.nxfilter.org/doc/nxfilter.conf'>download-script</a>
+	</div>
+	</p>
+
+- Rob Asher wrote a single sign-on script from Linux and Mac clients using NxFilter's
+login API for custom login script.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a target='_blank' href='https://groups.google.com/forum/?fromgroups=&hl=en#!topic/nxfilter200/hFirs0ovyqs'>
+NxFilter + OS X and linux login script</a>
+</p>
+
+- Rob Asher's JSP page for restarting NxFilter from GUI.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a target='_blank' href='https://groups.google.com/forum/?fromgroups=&hl=en#!topic/nxfilter200/uvgES0wHiEk'>
+View posting</a>
+</p>
+
+- Stewart Sentanoe's 'Simple way to change blocked page GUI'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a target='_blank' href='https://groups.google.com/forum/?fromgroups=&hl=en#!topic/nxfilter200/wbQpIDUNwFo'>
+View posting</a>
+</p>
+
+<a href='#index'>- Go index -</a>
+</div>
+-->
+
+
+
+<!-- -->
+<a name='faq'></a>
+<div class='view'>
+<div class='title'>FAQ</div>
+
+These are frequently asked questions about NxFilter.
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='ip_host'></a>
+<b>I can bypass NxFilter by accessing websites using IP address.</b>
+</p>
+
+There are people saying that DNS filtering is useless as they can access a website using IP address.
+This is a very naive thought and simply not true. In today's Internet environment most websites are
+running on a virtual host. This means there are multiple websites on one IP address. You can't access
+these websites without domain.
+</p>
+
+And the other thing you need to think about is that there are many URLs in a webpage. This
+is especially true when it comes to a big portal site. Those URLs are based on DNS as well. It is like
+that you can try to access a blocked website using an IP address but what you get is just
+a brocken webpage.
+</p>
+
+	<div class='info'>
+	* NxFilter can block IP host in URL with its local proxy agents.
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='right_away'></a>
+<b>It doesn't get blocked/unblocked right away.</b>
+</p>
+
+This is most likely from the DNS cache on your system. If you are on a Windows system there are two kinds
+of DNS caches. One is from your browser and the other is from your Windows OS. Before the cache expires your
+policy change for blocking/unblocking will not be working. Both caches expire eventually but you might want
+to clear it out immediately. If it is a browser cache you can clear it out by restarting your browser.
+</p>
+
+If you want to clear out your Windows DNS cache, use the following command on CMD.
+</p>
+
+	<div class='cmd'>
+	ipconfig /flushdns
+	</div>
+	</p>
+
+Normally DNS cache from Windows expires in a day at the maximum. Of course it depends on TTL from DNS
+record but I have not seen it bigger than 86,400 seconds(1 day) usually. About the browser cache it may
+take several minutes to get expired. But it will get expired and blocked eventually. So in practice
+this is not a problem as you don't need to block/unblock a site many times a day.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='force_filter'></a>
+<b>How do I force users to be filtered by NxFilter?</b>
+</p>
+
+If you have a firewall in your network it is simple. You just need to block outgoing UDP/53, TCP/53
+traffic except from NxFilter. And then you use DHCP to set up NxFilter to be the DNS server
+for your network. Now NxFilter became the only DNS server that your users can use and their DNS setup
+to point NxFilter will be done automatically.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='decide_policy'></a>
+<b>How NxFilter determin which policy to apply for a user?</b>
+</p>
+
+You can assign a policy to a user directly. If the user belongs to a group then the group policy overrides
+the user policy. This is simple so far. But when you import users from Active Directory there might be
+users belonging to multiple groups. You don't know which policy to apply to a user in this case.
+</p>
+
+To solve this problem we introduced 'Priority Points' concept. If there are multiple groups and if they
+have several different policies, the policy having the highest priority points will be applied. You can set
+this priority points on a policy. When you want to find out which policy being applied to a user use 'TEST'
+button on 'User & Group > User'.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='quickest_block'></a>
+<b>What is the quickest way of blocking 'facebook.com'?</b>
+</p>
+
+Add '*.facebook.com' into 'Whitelist > Domain' and check 'Admin Block' option.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='students'></a>
+<b>I want to block 'facebook.com' only for students.</b>
+</p>
+
+You need to be able to differentiate your students on NxFilter with authentication first. And then block
+'Social Networking' category on a policy when you use Jahaslist. Then assign the policy to the user or group
+for your students.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='lunch_free'></a>
+<b>I want to allow sales department to use the Internet freely at lunchtime.</b>
+</p>
+
+Create a user or a group for your sale department and define a free-time in 'Policy & Rule > Free Time'
+then assign a free-time policy which is more lenient to the user or group.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='change_port'></a>
+<b>How do I change NxFilter's webserver port?</b>
+</p>
+
+You can change HTTP/HTTPS listening ports on NxFilter. However when you change HTTP port you will
+lose your block-page redirection. It is because when NxFilter redirects a user there needs
+to be something waiting for the browser on TCP/80 port.
+</p>
+
+To change the ports, you need to modify these two parameters on '/nxfilter/conf/cfg.properties' file.
+</p>
+
+	<div class='tab'>
+	http_port = 80<br>
+	https_port = 443<br>
+	</div>
+	</p>
+
+After you change the ports, restart NxFilter.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='reset_pw'></a>
+<b>How do I reset admin password?</b>
+</p>
+
+We have '/nxfilter/bin/reset_pw.sh' script to reset admin password. Once you run the
+script, the admin name and password will be reset to 'admin'. You need to run the script
+while NxFilter working.
+</p>
+
+	<div class='info'>
+	* There is '/nxfilter/bin/reset_acl.sh' to reset access restriction to GUI as well.
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='bind_ip'></a>
+<b>Can I bind NxFilter to a specific IP address?</b>
+</p>
+
+You might want to bind NxFilter to a specific IP address to avoid of having a port collision problem.
+You can bind NxFilter to a specific IP address using 'listen_ip' parameter in '/nxfilter/conf/cfg.properties'
+file. If you set it to '0.0.0.0' NxFilter will listen on all the IP addresses of the system but if you set
+it to a specific IP address NxFilter will listen on the specified IP address only.
+</p>
+
+	<div class='info'>
+	* Even if you bind NxFilter to a specific IP address you can not run multiple NxFilter on the
+	same machine. This is because NxFilter needs to bind several ports on localhost for internal communication.
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='bypass_local'></a>
+<b>How do I bypass my local domain?</b>
+</p>
+
+On 'DNS > Setup' You can set your local DNS server and local domain. With this setup if there
+are DNS queries for your local domain NxFilter forwards the queries to the local DNS server
+and bypass authentication, filtering and logging.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!--
+<div class='nx_hr'></div>
+<a name='nightly_shalla'></a>
+<b>How do I update Shallalist nightly?</b>
+</p>
+
+If you want to update Shallalist on midnight you can write your own script and add it into crontab if it's on Unix.
+</p>
+
+	<div class='cmd'>
+	#!/bin/sh
+	/nxfilter/bin/shudown.sh<br>
+	/nxfilter/bin/update_sh.sh<br>
+	/nxfilter/bin/startup.sh -d<br>
+	</div>
+	</p>
+
+If you are on Windows use 'net start NxFilter' and 'net stop NxFilter' commands. It would look like the followings.
+</p>
+
+	<div class='cmd'>
+	net stop NxFilter<br>
+	c:/nxfilter/bin/update_sh.bat<br>
+	net start NxFilter<br>
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+-->
+
+<!--
+<div class='nx_hr'></div>
+<a name='too_many'></a>
+<b>Too many requests for some domains.</b>
+</p>
+
+One of NxFilter users reported that he sees too many requests for these domains.
+</p>
+
+	<div class='tab'>
+	e3191.dscc.akamaiedge.net<br>
+	us-courier.push-apple.com.akadns.net<br>
+	</div>
+	</p>
+
+According to him he has almost 1,200 users in his network and they are using only Mac. These
+domains being used for CDNs for Apple and he gets about 100k of requests for these domains a day.
+
+The problem of this kind of situation would result in that you can't view the other domains on the log view
+or report or it would be difficult for you to understand what's going on in your network. It will also slow
+down your NxFilter with the massive amount of data.
+
+To avoid of having this kind of problem, what you can do is using whitelist with 'bypass_logging' option.
+Once you bypass these kinds of domains you will have lesser load for NxFilter and lesser amount of log data.
+</p>
+
+	<div class='info'>
+	* If they are important domains for your network we recommend you to set 'bypass_authentication',
+	'bypass_filter' options as well.
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+-->
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='exact_match'></a>
+<b>Can I use an exact matching keyword for log search?</b>
+</p>
+
+You can use square brackets for exact matching on log search.
+</p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;ex) [john], [192.168.0.1] 
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!--
+<div class='nx_hr'></div>
+<a name='disable_login_redirection'></a>
+<b>I want to disable login redirection.</b>
+</p>
+
+There is no config option for that. However you can achieve what you want by emptying your login-page
+or just having the message like 'We don't have a login-page for you!' instead of a login form.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+-->
+
+<!---->
+<div class='nx_hr'></div>
+<a name='lunch'></a>
+<b>Why do I need to re-login after lunch break?</b>
+</p>
+
+Your login session has been expired. If there is no activity(DNS query) from your PC for a certain time
+your login session expires. You can increase 'Login Session TTL' on 'Config > Setup'.
+</p>
+
+	<div class='info'>
+	* If you use single sign-on with Active Directory you can avoid of having this problem.
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='custom_ssl'></a>
+<b>How do I apply my own SSL certificate?</b>
+</p>
+
+We use an embedded Tomcat 7.x as the built-in webserver for NxFilter. If you want to apply your own
+SSL certificate with Tomcat there are two parameters you need to set in Tomcat config file. One is
+'keystoreFile' and the other one is 'keystorePass'. However we don't have a separated config file for
+Tomcat. We use '/nxfilter/conf/cfg.properties' file to set these parameters.
+</p>
+
+	<div class='tab'>
+	keystore_file = conf/myown.keystore<br>
+	keystore_pass = 123456
+	</div>
+	</p>
+
+	<div class='info'>
+	* About how to build keystore file read Tomcat manual.
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='enable_debug'></a>
+<b>How do I enable debug mode?</b>
+</p>
+
+When there is something wrong with NxFilter the first thing you can do is to find out
+what is going on exactly with its log data. NxFilter keeps its system log data inside '/nxfilter/log' directory.
+If you need more detailed log data, enable debug mode on '/nxfilter/conf/log4j.properties'.
+Change 'INFO' to 'DEBUG' inside the file and restart NxFilter.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='hide_ssl'></a>
+<b>How do I hide SSL warning?</b>
+</p>
+
+When a browser being redirected on HTTPS it warns users that they are being redirected. This is
+for preventing 'Man in the Middle' attack. That is why you get an SSL warning page instead of NxFilter
+block-page. Your browser is just doing its job and we don't want to interfere that. However we know that
+there are users wanting to hide the warning page for some reason. While we still can't show the block-page
+on HTTPS but you can hide it by changing HTTPS port of NxFilter. If you use a non-standard HTTPS port, your
+users will only see 'Connection Error' message.
+</p>
+
+To change HTTPS port for NxFilter modify the following line on '/nxfilter/conf/cfg.properties' file.
+</p>
+
+	<div class='tab'>
+	https_port = 443
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='see_username'></a>
+<b>I don't see any username on 'Logging > Request'.</b>
+</p>
+
+The first thing you need to check would be 'Enable Authentication' option on 'Config > Setup'. Some people
+don't understand that they need to enable authentication before implementing any authentication method.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='bypass_logging'></a>
+<b>How do I bypass logging completely?</b>
+</p>
+
+For internal purposes, the minimum log retention period you can set is 3 days. But you can bypass logging
+completely by setting 'syslog_only' option on '/nxfilter/conf/cfg.properties' file. If you set this option without
+having Syslog exportation setup then NxFilter bypasses logging and not sending Syslog data as it doesn't
+know where to send it.
+</p>
+
+To enable 'syslog_only' option add the following line on '/nxfilter/conf/cfg.properties' file,
+</p>
+
+	<div class='tab'>
+	syslog_only = 1
+	</div>
+	</p>
+
+	<div class='info'>
+	* You still get the counting data but the actual logging data will not be stored into your traffic DB.
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='bypass_logging'></a>
+<b>How to set up a time zone.</b>
+</p>
+
+Some of our users reported that they have a different time zone on NxFilter from the system. This happens mostly on
+CentOS. When you need to set up a time zone for NxFilter manually. You can do that on JVM level.
+On '/nxfilter/bin/startup.sh' set the following parameter.
+</p>
+
+	<div class='tab'>
+	-Duser.timezone=Europe/Rome
+	</div>
+	</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+<!-- -->
+<div class='nx_hr'></div>
+<a name='browser_keep_restarting'></a>
+<b>My Browsers keep restarting after NxClient starting.</b>
+</p>
+
+NxClient is a local proxy so it needs to update the system proxy settings to redirect HTTP/HTTPS
+traffic of your browsers to itself. And after it updates the proxy settings it needs to restart
+the browsers to apply the changes. But you might have another Windows program preventing the update or
+doing the update for itself. You have a race condition here. To fix it, you have to disable one of them.
+</p>
+
+<a href='#faq_index'>- Go index -</a>
+</p>
+
+
+</div>
+</center>
+</body>
+<html>
