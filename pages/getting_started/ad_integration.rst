@@ -86,7 +86,7 @@ Já para os notebooks você pode instalar o NxClient. NxClient atua, basicamente
 
 Para os Chromebook há a extensão NxBlock. O NxBlock é uma extensão para o Chrome e você pode usá-lo como um agente de filtro remoto ou agente SSO para o AD.
 
-Já para seus servidores é melhor não filtrá-los então defina IP estático para eles e use outro servidor DNS para eles, afinal, geralmente você não precisa bloquear nada - de consulta DNS - para os servidores.
+Já para seus servidores é melhor não filtrá-los, então defina IP estático para eles e use outro servidor DNS para eles - afinal - geralmente você não precisa bloquear nada - de consulta DNS - para os servidores.
 
 Para os smartphones Android e iPhone, não tem preocupação, afinal o NxFilter tem sua página de login ( estilo Captive Portal ) e eles acessarão a mesma normalmente para autenticar.
 
