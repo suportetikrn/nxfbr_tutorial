@@ -8,7 +8,7 @@ Instalando o NxFilter
 .. toctree::
    :titlesonly:
 
-   install/install_wich.rst
+   install/install_which.rst
    install/install_win.rst
    install/install_lnx_debian.rst
    install/install_lnx_ubuntu.rst
