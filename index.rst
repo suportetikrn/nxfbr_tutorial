@@ -18,6 +18,7 @@ Conteúdo:
    pages/working_agent
    pages/nxcloud
    pages/custom_nxfilter
+   pages/custom_before
    pages/nxclassifier
    pages/dns_server
    pages/misc
