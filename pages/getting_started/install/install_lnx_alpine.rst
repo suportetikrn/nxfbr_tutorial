@@ -28,6 +28,7 @@ Após a instalação do Java faça o download do pacote do NxFilter através do 
   # mkdir nxfilter
   # cd nxfilter
   # unzip ~/nxfilter-3.3.1.zip
+  # chmod +x /nxfilter/bin/*.sh
   
 Feito isso vamos criar os scripts para iniciar e parar o NxFilter, para que o mesmo fique como serviço e inicie/pare automaticamente no Alpine Linux. ::
 
