@@ -15,6 +15,10 @@ Após esse procedimento instale o OpenJDK JRE 8. ::
   # apk --update add openjdk8-jre ca-certificates
   # update-ca-certificates
 
+.. warning::
+
+  O comando ''update-ca-certificates'' pode retornar uma mensagem de alerta 'Warning' porém isso não é prejudicial para o processo
+
 Após a instalação do Java faça o download do pacote do NxFilter através do comando ``wget`` e então descompacte usando o comando ``unzip``. ::
 
   $ su - root
@@ -31,6 +35,7 @@ Feito isso vamos criar os scripts para iniciar e parar o NxFilter, para que o me
   # cd /etc/local.d
   # echo '/nxfilter/bin/startup.sh -d' > nxfilter.start
   # echo '/nxfilter/bin/shutdown.sh' > nxfilter.stop
+  # chmod +x nxfilter*
   # rc-update add local
 
 Agora vamos inicializar o sistema: ::
