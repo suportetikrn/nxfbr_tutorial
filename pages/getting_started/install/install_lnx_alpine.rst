@@ -23,7 +23,7 @@ Após a instalação do Java faça o download do pacote do NxFilter através do 
 
   $ su - root
   # cd ~
-  # wget -t0 -c http://www.nxfilter.org/download/nxfilter-3.3.1.zip
+  # wget -t0 -c http://www.nxfilter.org/download/nxfilter-3.4.2.zip
   # cd /
   # mkdir nxfilter
   # cd nxfilter
