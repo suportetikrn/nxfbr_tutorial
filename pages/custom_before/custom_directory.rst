@@ -1,5 +1,6 @@
+*******************************************************
 GUI - Estrutura de diretórios e padronização dos nomes
----------------------------------------------------------
+*******************************************************
 The GUI layer of NxFilter was designed for easy customization. It is completely separated from its core part. And it has a naming convention corresponding to its menu structure so that you can find the file you need to modify easily. For example, if you want to modify 'Policy & Rule > Free Time' on NxFilter menu the file you need to edit is '/nxfilter/webapps/policy,free_time.jsp'.
 * In NxCloud's case, it has operator specific menu. If a JSP file is for operator specific menu then it has 'zop' prefix.
     ex) zop,policy,free_time.jsp
