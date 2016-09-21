@@ -83,9 +83,16 @@ E listar os registros.
    %>
 
 Accessing data field
-Many Java developers are using 'get' and 'set' accessors for encapsulation and for having some additional data processing like validation. But for simplicity, we use a public field directly in most cases. For example, you get an instance of UserData and uses its 'name' property like the following codes,
-<%
-UserData data = new UserDao().select_one(1);
-out.println(data.name)
-%>
-However there are some data classes having methods starting with 'get_'. These methods are mostly about formatting. We have 'ctime' property for 'RequestData' which we use on 'Logging > Request'. If you use it directly you get '201507081415' but when you use its 'get_ctime()' method you get '07/08 14:14'.
+---------------------
+
+Muitos desenvolvedores Java estão usando accessors 'get' e 'set' visando encapsular e para fazer outros procedimentos como validar os registros. Para para facilitar, na maioria do casos é permitido o acesso direto ao campo.
+
+Por exemplo, se criar uma instância de UserData e ele tiver a propriedade ''name'', deverá ser feito como o exemplo:
+
+.. code-block:: jsp
+   <%
+	UserData data = new UserDao().select_one(1);
+	out.println(data.name)
+   %>
+
+Porém, existem muitas classes que tem os métodos começando por 'get_'. Geralmente esses métodos são vinculados a formatação. Há a propriedade ''ctime'' para 'RequestData' que é usado em ''Logging > Request''. Se usar a chamada direta, obterá como retorno '201507081415', já se chamar o método 'get_ctime()' será retornado ''07/08 14:14''.
