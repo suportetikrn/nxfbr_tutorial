@@ -3,7 +3,13 @@ Outros pontos para se observar
 
 Você pode sobrepor ou remover o 'readme.txt' e 'license.txt' com seus próprios arquivos. Você ainda pode manter o arquivo original 'license.txt'.
 
-You might want to replace or remove our 'readme.txt' and 'license.txt' with your own files. You can do that but you still need to keep our 'license.txt' file somewhere. We keep all the third party licenses in 'third-party-license.txt' and you also can add our license into that file. About our 'readme.txt', you can remove it or replace it with your own.
-There are links to our online tutorial in '/nxfilter/tutorial.html' and '/nxfilter/bin/tutorial.bat' You can remove or replace these files when you make your own package for your customized NxFilter.
-The other thing you would need to think about would be icon files. There are two icon files. One for Windows program icon and the other one is for favicon of its admin webpage. You can remove '/nxfilter/nxd.ico' and '/nxfilter/webapps/favicon.ico' or replace them with your own icon files.
-* You shoud not remove our license file or any third party license.
+Ainda é mantido o arquivo com as licenças de terceiros em 'third-party-license.txt' e pode adicinar sua licença nesse mesmo arquivo.
+
+Há links para nosso tutorial online em '/nxfilter/tutorial.html' e '/nxfilter/bin/tutorial.bat', esses arquivos podem ser removidos ou substituidos quando você criar sua própria distribuição do NxOEM.
+
+Outro ponto que pode ser necessário alterar são os arquivos de ícones. Existem dois arquivos com ícones. 1 para os programas Windows e o outro é para o favicon na página de administração. Você pode remover ou substituir com seus próprios arquivos os ícones em '/nxfilter/nxd.ico' e '/nxfilter/webapps/favicon.ico'.
+
+.. warning::
+
+   Você não deve remover nosso arquivo de licenças ou qualquer licença de terceiros
+
