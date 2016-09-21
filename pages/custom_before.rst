@@ -19,3 +19,4 @@ Por último mostraremos como customizar os aplicativos do NxOEM.
    :titlesonly:
 
    custom_before/custom_directory.rst
+   custom_before/custom_dao.rst
