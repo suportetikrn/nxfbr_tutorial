@@ -96,19 +96,22 @@ Após você executar o script de teste você pode receber algumas mensagens com 
   
    Para o NxMapper não há code de erro do login já que não existe processo de login.
 
-Customization of NxBlock
+Personalizando o NxBlock
 --------------------------
 
-NxBlock is an open source software. You can download its source code from our download page.
-Customization of NxRelay
-We don't provide an installer or a setup program for NxRelay as we don't think it is for an ordinary Windows user. But its structure is almost same as NxFilter. You have enough knowledge to make an installer package for it, if you already read the previous part of this tutorial.
+NxBlock é um software Open Source. Você pode fazer o download de seu código fonte na área de download de nossa página.
 
-Limitation
+Personalizando o NxRelay
+--------------------------
+
+Não é disponibilizado um instalador ou programa de configuração do NxRelay por não ser um sistema para um usuário comum do Windows. Mas sua estrutura é a mesma do NxFilter. Nos tópicos anteriores é explicado como criar um pacote de instalação, siga o mesmo procedimento.
+
+Limitação
 --------------
 
-Building your own installers and changing the names of the client softwares will do what you want to do mostly. But there is something you can't touch or change. We have some internal code having 'nxfilter' signature. This is important as we need to have a unique signature to diffrentiate signals from our agents.
-And you don't remove our license or any third party license from the package otherwise that is a license violation. You can have your own license file but you need to keep our license somewhere. All in all it is our software and you just customize it, so it is inevitable to have some limitation.
+Preparando seu próprio instalador e modificando os nomes dos agentes geralmente atende a maioria das necessidades. Mas há algo que não pode ser mudado. Internamente, no sistema, há uma codificação contendo a assinatura 'nxfilter'. É importante mantê-la para que tenhamos uma unica assinatura e possamos diferenciar os sinais recebidos dos agentes.
 
+E também não é permitido remove a licença ou qualquer das licenças de terceiro sob pena de caracterizar uma violação na licença base. Você pode ter seu próprio arquivo de licença mas a licença base precisa ser mantida. Sào permitidas muitas caracterizações e alterações, então é inevitável não ter alguma limitação.
 
 .. target-notes::
 .. _`Inno Setup`: http://www.jrsoftware.org

@@ -24,3 +24,4 @@ Por último mostraremos como customizar os aplicativos do NxOEM.
    custom_before/custom_oem.rst
    custom_before/custom_templates.rst
    custom_before/custom_other.rst
+   custom_before/custom_package.rst
