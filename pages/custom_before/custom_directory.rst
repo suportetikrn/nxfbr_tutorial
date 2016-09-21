@@ -52,7 +52,8 @@ Quando a GUI é personalizada, não é uma boa ideia modificar os arquivos origi
 
 Se por exemplo você armazenou sua GUI personalizada em ''/nxfilter/myweb'' e quer usá-la como a raiz do servidor web do NxOEM, você irá adicionar a seguinte linha no arquivo `cfg.properties`.
 
-````
+.. code-block:: jproperties 
+
     www_dir = myweb
-````
+
 Então reinicie o NxOEM.
