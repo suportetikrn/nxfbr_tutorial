@@ -1,5 +1,6 @@
+*******************************************************
 GUI - Estrutura de diretórios e padronização dos nomes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*******************************************************
 
 A camada GUI do NxOEM foi desenhada de modo a facilitar sua personalização. É uma parte completamente separada do Core principal. E segue uma padronização, que a faz ser correspondente a estrutura de menus, facilitando localizar os arquivos desejados.
 
@@ -10,15 +11,23 @@ Por exemplo: se você quer modificar ''Policy & Rule > Free Time'', no menu do N
    No NxCloud, ele tem um menu especifico para o operador. Se haverá um JSP específico para o menu do operador então ele deve ter o prefixo ''zop''.
     ex) zop,policy,free_time.jsp
 
-Structure of web application directory
-We put all the JSP pages into '/nxfilter/webapps' and we don't use any subdirectory for keeping JSP pages. This is for simplicity and easy understanding. Everything you need to modify is in '/nxfilter/webapps' directory. It has the following structure.
-/nxfilter/webapps
-- error
-- example
-- img
-- include
-- lib
-- WEB-INF
+Estrutura de diretórios da aplicação web
+-----------------------------------------
+
+Todos os arquivos JSP ficam em ''/nxfilter/webapps'' e não é usado nenhum sub-diretório para armazenar páginas JSP, isso para simplificar e facilitar o entendimento. Tudo que é necessário está no diretório ''/nxfilter/webapps''.
+
+Segue a seguinte estrutura:
+
+````
+	/nxfilter/webapps
+			- error
+			- example
+			- img
+			- include
+			- lib
+			- WEB-INF
+````
+
 In 'webapps/error' directory we have the error pages for HTTP error codes. If you want to have an error page for a specific HTTP error code you can define it on '/webapps/WEB-INF/web.xml'.
 * We use HTTP 400 error for special purpose. You shouldn't define any error page for HTTP 400 error.
 In 'webapps/example' directory we have some example JSP pages for custom login module.
