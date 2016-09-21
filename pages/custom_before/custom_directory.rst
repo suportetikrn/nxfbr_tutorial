@@ -1,6 +1,5 @@
-*******************************************************
 GUI - Estrutura de diretórios e padronização dos nomes
-*******************************************************
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A camada GUI do NxOEM foi desenhada de modo a facilitar sua personalização. É uma parte completamente separada do Core principal. E segue uma padronização, que a faz ser correspondente a estrutura de menus, facilitando localizar os arquivos desejados.
 
@@ -8,9 +7,9 @@ Por exemplo: se você quer modificar ''Policy & Rule > Free Time'', no menu do N
 
 ,, note::
   
-   No NxCloud, ele tem um menu especifico para o operador. Se qui arquivo JSP é 
-* In NxCloud's case, it has operator specific menu. If a JSP file is for operator specific menu then it has 'zop' prefix.
+   No NxCloud, ele tem um menu especifico para o operador. Se haverá um JSP específico para o menu do operador então ele deve ter o prefixo ''zop''.
     ex) zop,policy,free_time.jsp
+
 Structure of web application directory
 We put all the JSP pages into '/nxfilter/webapps' and we don't use any subdirectory for keeping JSP pages. This is for simplicity and easy understanding. Everything you need to modify is in '/nxfilter/webapps' directory. It has the following structure.
 /nxfilter/webapps
