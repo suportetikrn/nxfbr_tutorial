@@ -8,7 +8,7 @@ Por exemplo: se você quer modificar ''Policy & Rule > Free Time'', no menu do N
 
 .. note::
   
-   No NxCloud, ele tem um menu especifico para o operador. Se haverá um JSP específico para o menu do operador então ele deve ter o prefixo ''zop''.
+   No NxCloud há um menu especifico para o operador. Se haverá um JSP específico para o menu do operador então ele deve ter o prefixo ''zop''.
     ex) zop,policy,free_time.jsp
 
 Estrutura de diretórios da aplicação web
@@ -16,7 +16,25 @@ Estrutura de diretórios da aplicação web
 
 Todos os arquivos JSP ficam em ''/nxfilter/webapps'' e não é usado nenhum sub-diretório para armazenar páginas JSP, isso para simplificar e facilitar o entendimento. Tudo que é necessário está no diretório ''/nxfilter/webapps''.
 
-Segue a seguinte estrutura:
+Segue a seguinte estrutura dentro do diretório ''/nxfilter'':
+
++------------+-------------------------------+
+|   Diretório       |              Função           |
++============+============+===========+============+===========+
+| webapps/error     |    Yes     |    Yes    |   Yes      |    No     |
++------------+------------+-----------+------------+-----------+
+| webapps/example   |    Yes     |    Yes    |   Yes      |    No     |
++------------+------------+-----------+------------+-----------+
+| webapps/img       |    master  |   default |            |    trunk  |
++------------+------------+-----------+------------+-----------+
+| webapps/include   |
++------------+------------+-----------+------------+-----------+
+| webapps/lib       |
++------------+------------+-----------+------------+-----------+
+| webapps/WEB-INF   |
++------------+------------+-----------+------------+-----------+
+
+
 
 ````
 	/nxfilter/webapps
@@ -28,8 +46,12 @@ Segue a seguinte estrutura:
 			- WEB-INF
 ````
 
-In 'webapps/error' directory we have the error pages for HTTP error codes. If you want to have an error page for a specific HTTP error code you can define it on '/webapps/WEB-INF/web.xml'.
-* We use HTTP 400 error for special purpose. You shouldn't define any error page for HTTP 400 error.
+Em ''webapps/error'' ficam as páginas de erro para os códigos de erro HTTP. Se deseja personalizar uma página para um código de erro HTTP específico é possível definila em ''/webapps/WEB-INF/web.xml''
+
+.. note::
+ 
+  Os erros HTTP 400 são usados para um propósito especial. Você não pode definir nenhuma página para o código de erro HTTP 400.
+
 In 'webapps/example' directory we have some example JSP pages for custom login module.
 In 'webapps/img' we keep the image files for webpages.
 In 'webapps/include' we have common JSP files to be included into the other JSP files. These are for library functions and navigation menus and initialization code for JSP pages.
