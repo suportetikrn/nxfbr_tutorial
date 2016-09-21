@@ -10,7 +10,7 @@ Contudo esse processo é um pouco diferente para o NxClient, NxUpdate e NxMapper
 Criando sua própria instalação Windows
 ----------------------------------------
 
-Para fazer os instaladores do Windows foi utilizado o [[Inno Setup|http://www.jrsoftware.org]]. Quando NxClient, NxUpdate e NxMapper é instalando, eles criam seus próprios diretórios dentro de 'C:\Program Files (x86)' e registrado como um serviço Windows. Por exemplo, quando é executado o instalador NxClient todos os arquivos necessários são copiados para 'C:/Program Files (x86)/nxclient' e então é executado 'bin/instsvc.bat' para registrá-lo como serviço Windows e então é executado o arquivo 'bin/setup.bat' ao término do processo de instalação para rodar seu programa de configuração.
+Para fazer os instaladores do Windows foi utilizado o [Inno Setup](http://www.jrsoftware.org). Quando NxClient, NxUpdate e NxMapper é instalando, eles criam seus próprios diretórios dentro de 'C:/Program Files (x86)' e registrado como um serviço Windows. Por exemplo, quando é executado o instalador NxClient todos os arquivos necessários são copiados para 'C:/Program Files (x86)/nxclient' e então é executado 'bin/instsvc.bat' para registrá-lo como serviço Windows e então é executado o arquivo 'bin/setup.bat' ao término do processo de instalação para rodar seu programa de configuração.
 
 .. note::
 
@@ -23,7 +23,7 @@ Para fazer os instaladores do Windows foi utilizado o [[Inno Setup|http://www.jr
 Criando seu instalador para o Mac OS
 -------------------------------------
 
-É usado o programa [[Packages|http://s.sudre.free.fr]] para construir nosso instalador Mac OS. Quando o instalador é executado ele criará seus diretórios em '/Library' e o arquivo 'conf/plist.default' é copiado para dentro de '/Library/LaunchDaemons' com um novo nome como 'org.nxfilter.nxclient.plist' para ser executado como um daemon. E então ele roda o script 'setup-mac.sh' localizado no diretório de instalação para iniciar o programa de configuraçãoi.
+É usado o programa [Packages](http://s.sudre.free.fr) para construir nosso instalador Mac OS. Quando o instalador é executado ele criará seus diretórios em '/Library' e o arquivo 'conf/plist.default' é copiado para dentro de '/Library/LaunchDaemons' com um novo nome como 'org.nxfilter.nxclient.plist' para ser executado como um daemon. E então ele roda o script 'setup-mac.sh' localizado no diretório de instalação para iniciar o programa de configuraçãoi.
 
 Para remover o programa você precisa rodar o script 'uninstall-mac.sh', que está dentro do diretório de instalação.
 
@@ -56,11 +56,14 @@ Também é possível mudar os valores padrão na conexão com o servidor. Você 
 Escrevendo seu programa de configuração 
 -----------------------------------------
 
+É possível construir seu próprio pacote, para fazê-lo e incluir seu programa de configuração. Em nossos programas de configuração existem alguns controles e botões. Para controle, nós lemos os paramêtros no arquivo 'conf/cfg.properties'.
 
-If you can build your own package, to build and include your own setup program is also a possible option. On our setup programs there are some input controls and buttons. For input controls, we read the values from 'conf/cfg.properties' file.
+E quando você clicar nos botões que são 'SAVE', 'TEST', 'START', 'STOP' as ações são feitas relendo/alterando o arquivo de configuração.
 
-And when you click the buttons that are 'SAVE', 'TEST', 'START', 'STOP' we do some action with the updated config values. With 'SAVE' button we save the config values into 'conf/cfg.properties' file. For 'START' and 'STOP' buttons, if it is on Windows we use 'net start' and 'net stop' commands as we install our agent as a service. On Mac OS, we use '/bin/launchstl' command with the Plist file we copied into '/Library/LaunchDaemons' directory.
-So when you make a setup program for NxClient on Windows, you need to run these commands with 'START' and 'STOP' buttons,
+  - O botão 'SAVE' grava os valores definidos na tela em 'conf/cfg.properties'. 
+  - Os botões 'START' e 'STOP', se forem usados no Windows chamam os comandos 'net start' e 'net stop' considerando que o agente foi instalado como serviço. Já no Mac OS, é executado o programa '/bin/launchstl' com o arquivo Plist gravado no diretório '/Library/LaunchDaemons'.
+
+Então - reafirmando - ao fazer seu programa de configuração para o NxClient no Windows, quando for clicando em 'START' e 'STOP' você precisa executar os comandos,
 
 .. code-block:: bash
 
@@ -68,7 +71,7 @@ So when you make a setup program for NxClient on Windows, you need to run these 
 
    net stop NxClient
 
-If it is on Mac OS,
+Quando for no Mac OS,
 
 .. code-block:: bash
 
@@ -76,14 +79,20 @@ If it is on Mac OS,
 
     /bin/launchctl unload -w /Library/LaunchDaemons/org.nxfilter.nxclient.plist
 
-For 'TEST' button, you can run 'bin/test.bat' or 'bin/test.sh' script. Before you run the test script you have to save the config values first.
-After you run the test script you can get some messages with the following exit codes.
-0 = Success
--1 = Invalid config values
--2 = Connection error
--3 = Login error
-* For NxMapper, we have 'test.exe' instead of 'bin/test.bat'.
-* For NxMapper, we don't have the login error code as there is no login process.
+O botão 'TEST' executa o batch 'bin/test.bat' ou o script 'bin/test.sh'. Antes de executar seu próprio script de testes você precisa gravar primeiro os valores de configuração.
+
+Após você executar o script de teste você pode receber algumas mensagens com os seguintes códigos de saída.
+
+0 = Sucesso
+-1 = Valores incorretos na configuração
+-2 = Erro de conexão
+-3 = Erro de login
+
+.. note::
+
+   Para o NxMapper, ao invés de 'bin/test.bat' é usado o aplicativo 'test.exe'.
+  
+   Para o NxMapper não há code de erro do login já que não existe processo de login.
 
 Customization of NxBlock
 --------------------------
