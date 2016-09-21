@@ -4,9 +4,7 @@
 Customização ou melhorias do NxFilter e seus clientes
 ******************************************************
 
----------------------------
-Antes de modificar o NxOEM
-----------------------------
+*Antes de modificar o NxOEM
 
 .. warning::
 
