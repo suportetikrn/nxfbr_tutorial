@@ -13,14 +13,14 @@ Alguns métodos são usados para acessar a maioria dos dados. Por exemplo. em 'p
 
 PolicyDao tem os seguinte métodos:
 
-.. code-block:: jsp
+.. code-block:: java
 
-public int select_count() : Quantidade de políticas.
-public List select_list() : Retornar uma lista contendo as políticas
-public PolicyData select_one(int id) : Retornar uma determinada política com base no ID.
-public boolean insert(PolicyData data) : Insere uma nova política
-public boolean update(PolicyData data) : Atualiza uma política existente.
-public boolean delete(int id) : Apaga/Remove uma política com determinado ID.
+   public int select_count() : Quantidade de políticas.
+   public List select_list() : Retornar uma lista contendo as políticas
+   public PolicyData select_one(int id) : Retornar uma determinada política com base no ID.
+   public boolean insert(PolicyData data) : Insere uma nova política
+   public boolean update(PolicyData data) : Atualiza uma política existente.
+   public boolean delete(int id) : Apaga/Remove uma política com determinado ID.
 
 Cada política tem seu próprio ID que é um número e pode ser usado para encontrar e atualizar uma determinada política.
 
