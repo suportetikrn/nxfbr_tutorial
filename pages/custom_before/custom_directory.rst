@@ -5,7 +5,7 @@ A camada GUI do NxOEM foi desenhada de modo a facilitar sua personalização. É
 
 Por exemplo: se você quer modificar ''Policy & Rule > Free Time'', no menu do NxOEM, o arquivo a ser modificado será ''/nxfilter/webapps/policy,free_time.jsp''.
 
-,, note::
+.. note::
   
    No NxCloud, ele tem um menu especifico para o operador. Se haverá um JSP específico para o menu do operador então ele deve ter o prefixo ''zop''.
     ex) zop,policy,free_time.jsp

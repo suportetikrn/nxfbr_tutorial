@@ -14,7 +14,7 @@ Controle de Banda com NxFilter ( Bandwidth )
   #. NxFilter igrnora o tráfego interno. Então o IP de origem ou destino precisa ser um endereço público. Isso por levar em consideração que se está interessado em tráfego de entrada ou saída para a Internet.
   #. Por último NxFilter coleta somente dados TCP/UDP.
 
-.. alert::
+.. warning::
 
  Atualmente o NxFilter tem compatibilidade somente com o NetFlow v5
 
