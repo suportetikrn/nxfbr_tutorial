@@ -36,10 +36,12 @@ Segue a seguinte estrutura dentro do diretório ''/nxfilter'':
 
 .. warning::
  
-  Os erros HTTP 400 são usados para um propósito especial. Você não pode definir nenhuma página para o código de erro HTTP 400.
+ - Os erros HTTP 400 são usados para um propósito especial. Você não pode definir nenhuma página para o código de erro HTTP 400.
 
-* '/include/lib.jsp' is a common library file for all JSP files. It has some utility functions for web development and it executes the initialization code for JSP pages and does authentication checking as well.
-* We don't include '/include/lib.jsp' directly. It gets included when we include '/include/top.jsp'.
+ - O arquivo '/include/lib.jsp' é uma biblioteca compartilhada por todos os arquivos JSP. Ele tem algumas funções, iniciliza todo o código e verifica a autenticação também.
+
+ - Não incluímos diretamente o arquivo '/include/lib.jsp'. Ele é executado quando nós incluímos o arquivo '/include/top.jsp'
+
 
 Separando a GUI personalizada em outro diretório
 ------------------------------------------------
