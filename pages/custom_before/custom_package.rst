@@ -9,11 +9,21 @@ In our case, we use Inno Setup from http://www.jrsoftware.org to build the Windo
 * We can provide our Inno Setup script of each client when you become one of our business partners.
 * The zip files we use to build our installer packages are on our older package download page.
 * When you uninstall it, we run 'bin/unstsvc.bat' to unregister it from Windows service list.
-Making your own Mac OS installer
+
+Criando seu instalador para o Mac OS
+-------------------------------------
+
 We use 'Packages' from http://s.sudre.free.fr for building our Mac OS installer. When you run our installer it will create its own directory under '/Library' and copy a 'conf/plist.default' file into '/Library/LaunchDaemons' with a new name like 'org.nxfilter.nxclient.plist' to run it as a daemon. and then it runs 'setup-mac.sh' inside its installation directory to launch its setup program. When you uninstall it, you need to run 'uninstall-mac.sh' inside the installation directory manually.
-* We can provide our Packages script of each client when you become one of our business partners.
-* The zip files we use to build our installer packages are on our older package download page.
+
+.. note::
+
+   We can provide our Packages script of each client when you become one of our business partners.
+   
+   The zip files we use to build our installer packages are on our older package download page.
+
 Changing application name
+--------------------------
+
 When you customize our agents, one of the things you want to do might be changing the names of our agents. We have 'conf/appname' file for that under the installation directory. When you change the name inside the file, your own program name will be appeared on the setup program of our agents.
 Replacing icon file and default setup value
 When you want to use your own icon, the icon file is 'nxd.ico' inside the installation directory and it is a merged icon file for 16x16 and 32x32 and 48x48 icons. At the moment it is only for Windows Installer and setup program.
@@ -25,11 +35,21 @@ If you can build your own package, to build and include your own setup program i
 
 And when you click the buttons that are 'SAVE', 'TEST', 'START', 'STOP' we do some action with the updated config values. With 'SAVE' button we save the config values into 'conf/cfg.properties' file. For 'START' and 'STOP' buttons, if it is on Windows we use 'net start' and 'net stop' commands as we install our agent as a service. On Mac OS, we use '/bin/launchstl' command with the Plist file we copied into '/Library/LaunchDaemons' directory.
 So when you make a setup program for NxClient on Windows, you need to run these commands with 'START' and 'STOP' buttons,
-net start NxClient
-net stop NxClient
+
+.. code-block:: bash
+
+   net start NxClient
+
+   net stop NxClient
+
 If it is on Mac OS,
-/bin/launchctl load -w /Library/LaunchDaemons/org.nxfilter.nxclient.plist
-/bin/launchctl unload -w /Library/LaunchDaemons/org.nxfilter.nxclient.plist
+
+.. code-block:: bash
+
+    /bin/launchctl load -w /Library/LaunchDaemons/org.nxfilter.nxclient.plist
+
+    /bin/launchctl unload -w /Library/LaunchDaemons/org.nxfilter.nxclient.plist
+
 For 'TEST' button, you can run 'bin/test.bat' or 'bin/test.sh' script. Before you run the test script you have to save the config values first.
 After you run the test script you can get some messages with the following exit codes.
 0 = Success
