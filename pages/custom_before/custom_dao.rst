@@ -9,9 +9,9 @@ No NxFilter/NxOEM são utilizados 'Data Access Object' e 'Data Object' para mani
 Métodos utilizados para manipular os 'Data Access Object'
 ----------------------------------------------------------
 
-Alguns métodos são usados para acessar a maioria dos dados. Por exemplo. em 'policy,policy.jsp'  são usadas as classes PolicyDao e PolicyData class para manipular as Políticas. 
+Alguns métodos são usados para acessar a maioria dos dados. 
 
-PolicyDao tem os seguinte métodos:
+Por exemplo. em 'policy,policy.jsp'  são usadas as classes PolicyDao e PolicyData class para manipular as Políticas. PolicyDao tem os seguinte métodos:
 
 .. code-block:: java
 
