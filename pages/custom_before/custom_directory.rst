@@ -49,6 +49,8 @@ Separando a GUI personalizada em outro diretório
 Quando a GUI é personalizada, não é uma boa ideia modificar os arquivos originais. Você pode mantê-las para usar como referência e criar outro diretório dentro do /nxfilter e copiar todos os arquivos que estão dentro de ''/nxfilter/webapps' para o novo diretório e então modificar esses arquivos que foram copiados. Para facilitar mais ainda, NxOEM permite que se defina o parâmetro ''www_dir'' em '/nxfilter/conf/cfg.properties.
 
 Se por exemplo você armazenou sua GUI personalizada em ''/nxfilter/myweb'' e quer usá-la como a raiz do servidor web do NxOEM, você irá adicionar a seguinte linha no arquivo `cfg.properties`.
-    www_dir = myweb
 
+````
+    www_dir = myweb
+````
 Então reinicie o NxOEM.
