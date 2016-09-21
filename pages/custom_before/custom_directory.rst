@@ -23,44 +23,30 @@ Segue a seguinte estrutura dentro do diretório ''/nxfilter'':
 +============+======+==========================================================================================================================+
 | webapps/error     | Páginas de erro para os códigos HTTP. Para personalizar para um código específico defina em ''/webapps/WEB-INF/web.xml'' |
 +-------------------+--------------------------------------------------------------------------------------------------------------------------+
-| webapps/example   |    Yes          Yes        Yes          No                                                                               |
+| webapps/example   | Páginas de exemplo para customizar o módulo de login                                                                     |
 +-------------------+--------------------------------------------------------------------------------------------------------------------------+
-| webapps/img       |    master      default                  trunk  			                                                       |
+| webapps/img       | Imagens para as páginas web                    			                                                       |
 +-------------------+--------------------------------------------------------------------------------------------------------------------------+
-| webapps/include   |									                                                       |
+| webapps/include   | Arquivos JSP comuns a outras páginas, que pode ser incluídas em outros arquivos JSP. 				       |
 +-------------------+--------------------------------------------------------------------------------------------------------------------------+
-| webapps/lib       |                       						                                                       |
+| webapps/lib       | Contém arquivos CSS e Javascript                                                                                         |
 +-------------------+--------------------------------------------------------------------------------------------------------------------------+
-| webapps/WEB-INF   |                                                                                                                          |
+| webapps/WEB-INF   | Necessário para o servidor WEB Tomcat embutido                                                                           |
 +-------------------+--------------------------------------------------------------------------------------------------------------------------+
 
-
-
-````
-	/nxfilter/webapps
-			- error
-			- example
-			- img
-			- include
-			- lib
-			- WEB-INF
-````
-
-Em ''webapps/error'' ficam as páginas de erro para os códigos de erro HTTP. Se deseja personalizar uma página para um código de erro HTTP específico é possível definila em ''/webapps/WEB-INF/web.xml''
-
-.. note::
+.. warning::
  
   Os erros HTTP 400 são usados para um propósito especial. Você não pode definir nenhuma página para o código de erro HTTP 400.
 
-In 'webapps/example' directory we have some example JSP pages for custom login module.
-In 'webapps/img' we keep the image files for webpages.
-In 'webapps/include' we have common JSP files to be included into the other JSP files. These are for library functions and navigation menus and initialization code for JSP pages.
 * '/include/lib.jsp' is a common library file for all JSP files. It has some utility functions for web development and it executes the initialization code for JSP pages and does authentication checking as well.
 * We don't include '/include/lib.jsp' directly. It gets included when we include '/include/top.jsp'.
-In 'webapps/lib' we have CSS and javascript files.
-We have 'WEB-INF' as we use an embedded Tomcat to be NxFilter's built-in webserver.
-Separating your customized GUI into another directory
-When you customize NxFilter's GUI it is not a good idea to modify the original files directly. You would better keep it for future reference and create another directory under the installaion directory of NxFilter and copy all the files inside '/nxfilter/webapps' into the new directory and then modify these copied files. To make things easier, NxFilter supports 'www_dir' option on '/nxfilter/conf/cfg.properties' file.
-When you have your own custom GUI in '/nxfilter/myweb' directory and you want to use this directory as the root directory of NxFilter's webserver, you need to add the following line into your cfg.properties file.
+
+Separando a GUI personalizada em outro diretório
+------------------------------------------------
+
+Quando a GUI é personalizada, não é uma boa ideia modificar os arquivos originais. Você pode mantê-las para usar como referência e criar outro diretório dentro do /nxfilter e copiar todos os arquivos que estão dentro de ''/nxfilter/webapps' para o novo diretório e então modificar esses arquivos que foram copiados. Para facilitar mais ainda, NxOEM permite que se defina o parâmetro ''www_dir'' em '/nxfilter/conf/cfg.properties.
+
+Se por exemplo você armazenou sua GUI personalizada em ''/nxfilter/myweb'' e quer usá-la como a raiz do servidor web do NxOEM, você irá adicionar a seguinte linha no arquivo `cfg.properties`.
     www_dir = myweb
-Then restart your NxFilter.
+
+Então reinicie o NxOEM.
