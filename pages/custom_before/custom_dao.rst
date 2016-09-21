@@ -1,9 +1,18 @@
-GUI - Using Dao and Data classes
+GUI - Acessando a base de dados
 *********************************
 
-On typical web programming, dealing with DB is almost everything. We are using 'Data Access Object' and 'Data Object' for manipulating DB.
-Common methods for a data access object
-We have some common methods for most data access object classes. For example, on 'policy,policy.jsp' file we use PolicyDao and PolicyData class for manipulating policies. PolicyDao has these methods.
+Geralmente na programação web, o uso de um banco de dados é muito importante. No NxFilter/NxOEM São utilizados 'Data Access Object' e 'Data Object' para manipular o Banco de Dados.
+
+
+Métodos utilizados para manipular os 'Data Access Object'
+----------------------------------------------------------
+
+Alguns métodos são usados para acessar a maioria dos dados. Por exemplo. em 'policy,policy.jsp'  são usadas as classes PolicyDao e PolicyData class para manipular as Políticas. 
+
+PolicyDao tem os seguinte métodos:
+
+.. code-block:: java
+
 public int select_count() : The number of policies.
 public List select_list() : Fetching policies as a list.
 public PolicyData select_one(int id) : Fetching one policy by ID column.
