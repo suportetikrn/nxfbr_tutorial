@@ -1,7 +1,9 @@
 GUI - Acessando a base de dados
 *********************************
 
-Geralmente na programação web, o uso de um banco de dados é muito importante. No NxFilter/NxOEM São utilizados 'Data Access Object' e 'Data Object' para manipular o Banco de Dados.
+Geralmente na programação web, o uso de um banco de dados é algo muito importante. 
+
+No NxFilter/NxOEM são utilizados 'Data Access Object' e 'Data Object' para manipular o Banco de Dados.
 
 
 Métodos utilizados para manipular os 'Data Access Object'
@@ -11,18 +13,24 @@ Alguns métodos são usados para acessar a maioria dos dados. Por exemplo. em 'p
 
 PolicyDao tem os seguinte métodos:
 
-.. code-block:: java
+.. code-block:: jsp
 
-public int select_count() : The number of policies.
-public List select_list() : Fetching policies as a list.
-public PolicyData select_one(int id) : Fetching one policy by ID column.
-public boolean insert(PolicyData data) : Insert a new policy.
-public boolean update(PolicyData data) : Update a existing policy.
-public boolean delete(int id) : Delete a policy by ID column.
-Every policy data has its own unique ID which is a number and we use this ID for finding, updating a policy data.
-Insert, delete, update, select data
-If we want to modify 'whitelist,domain.jsp' we have to use 'WhitelistDomainDao' and 'WhitelistData' classes.
-To insert a new data,
+public int select_count() : Quantidade de políticas.
+public List select_list() : Retornar uma lista contendo as políticas
+public PolicyData select_one(int id) : Retornar uma determinada política com base no ID.
+public boolean insert(PolicyData data) : Insere uma nova política
+public boolean update(PolicyData data) : Atualiza uma política existente.
+public boolean delete(int id) : Apaga/Remove uma política com determinado ID.
+
+Cada política tem seu próprio ID que é um número e pode ser usado para encontrar e atualizar uma determinada política.
+
+
+Inserir, remover, atualizar, selecionar registros
+----------------------------------------------------
+
+Se há o interesse em modificar ''whitelist,domain.jsp'' tem de se usar as classes 'WhitelistDomainDao' e 'WhitelistData'.
+
+Inserir um novo registro,
 
 .. code-block:: jsp
 
@@ -35,7 +43,6 @@ To insert a new data,
    dao.insert(data);
   %>
 
-To delete a data when its ID is 12,
 Para remover um registro cujo ID é igual a 12,
 
 .. code-block:: jsp
