@@ -7,7 +7,7 @@ Customização ou melhorias do NxFilter e seus clientes
 Antes de modificar o NxOEM
 -----------------------------------------------------
 
-.. note::
+.. warning::
 
   Se há o desejo de fazer melhorias no NxFilter para sua ferramenta comercial, use NxOEM ou NxCloud.
 
