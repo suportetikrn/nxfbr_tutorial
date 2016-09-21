@@ -20,3 +20,5 @@ Por último mostraremos como customizar os aplicativos do NxOEM.
 
    custom_before/custom_directory.rst
    custom_before/custom_dao.rst
+   custom_before/custom_javadoc.rst
+   custom_before/custom_oem.rst
