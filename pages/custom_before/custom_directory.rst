@@ -22,8 +22,8 @@ Segue a seguinte estrutura dentro do diretório ''/nxfilter'':
 |   Diretório       |              Função                                                                                    |
 +============+======+========================================================================================================+
 |                   | Páginas de erro para os códigos HTTP. 				                                     |
-| webapps/error	    | Para personalizar para um código específico defina em ''/webapps/WEB-INF/web.xml''                     |
-|                   |                                                                                        		     |
+| webapps/error	    |                                                                                                        |
+|                   | Para personalizar para um código específico defina em ''/webapps/WEB-INF/web.xml''       		     |
 +-------------------+--------------------------------------------------------------------------------------------------------+
 | webapps/example   | Páginas de exemplo para customizar o módulo de login                                                   |
 +-------------------+--------------------------------------------------------------------------------------------------------+
