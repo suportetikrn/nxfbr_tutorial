@@ -17,6 +17,6 @@ Agora vamos falar sobre como personalizar NxOEM e seus aplicativos com sua próp
 Por último mostraremos como customizar os aplicativos do NxOEM.
 
 .. toctree::
-  :titlesonly:
+   :titlesonly:
 
    custom_before/custom_directory.rst
