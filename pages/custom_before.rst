@@ -4,14 +4,17 @@
 Customização ou melhorias do NxFilter e seus clientes
 ******************************************************
 
-Before you customize NxFilter
+Antes de modificar o NxOEM
 -----------------------------------------------------
 
 .. note::
 
   Se há o desejo de fazer melhorias no NxFilter para sua ferramenta comercial, use NxOEM ou NxCloud.
 
-Now we will talk about how to customize or rebrand NxFilter and its client softwares with your own brand. Firstly, we will show you how to customize its GUI. And then we will talk about the other parts you might be interested in. Lastly, we will show you how to rebrand the client softwares of NxFilter.
+
+Agora vamos falar sobre como personalizar NxOEM e seus aplicativos com sua própria marca. Antes de qualquer coisa, iremos demonstrar como padronizar a GUI. E depois falaremos sobre os outros componentes pois você pode se interessa.
+
+Por último mostraremos como customizar os aplicativos do NxOEM.
 
 .. toctree::
    :titlesonly:
