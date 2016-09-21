@@ -10,7 +10,9 @@ Contudo esse processo é um pouco diferente para o NxClient, NxUpdate e NxMapper
 Criando sua própria instalação Windows
 ----------------------------------------
 
-Para fazer os instaladores do Windows foi utilizado o [Inno Setup](http://www.jrsoftware.org). Quando NxClient, NxUpdate e NxMapper é instalando, eles criam seus próprios diretórios dentro de 'C:/Program Files (x86)' e registrado como um serviço Windows. Por exemplo, quando é executado o instalador NxClient todos os arquivos necessários são copiados para 'C:/Program Files (x86)/nxclient' e então é executado 'bin/instsvc.bat' para registrá-lo como serviço Windows e então é executado o arquivo 'bin/setup.bat' ao término do processo de instalação para rodar seu programa de configuração.
+Para fazer os instaladores do Windows foi utilizado o [Inno Setup](http://www.jrsoftware.org). Quando NxClient, NxUpdate e NxMapper é instalando, eles criam seus próprios diretórios dentro de 'C:/Program Files (x86)' e registrado como um serviço Windows. 
+
+Por exemplo, quando é executado o instalador NxClient todos os arquivos necessários são copiados para 'C:/Program Files (x86)/nxclient' e então é executado 'bin/instsvc.bat' para registrá-lo como serviço Windows e então é executado o arquivo 'bin/setup.bat' ao término do processo de instalação para rodar seu programa de configuração.
 
 .. note::
 
