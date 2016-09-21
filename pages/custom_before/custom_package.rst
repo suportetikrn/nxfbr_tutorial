@@ -23,7 +23,7 @@ Para fazer os instaladores do Windows foi utilizado o [Inno Setup](http://www.jr
 Criando seu instalador para o Mac OS
 -------------------------------------
 
-É usado o programa [Packages](http://s.sudre.free.fr) para construir nosso instalador Mac OS. Quando o instalador é executado ele criará seus diretórios em '/Library' e o arquivo 'conf/plist.default' é copiado para dentro de '/Library/LaunchDaemons' com um novo nome como 'org.nxfilter.nxclient.plist' para ser executado como um daemon. E então ele roda o script 'setup-mac.sh' localizado no diretório de instalação para iniciar o programa de configuraçãoi.
+É usado o programa `Packages`_ para construir nosso instalador Mac OS. Quando o instalador é executado ele criará seus diretórios em '/Library' e o arquivo 'conf/plist.default' é copiado para dentro de '/Library/LaunchDaemons' com um novo nome como 'org.nxfilter.nxclient.plist' para ser executado como um daemon. E então ele roda o script 'setup-mac.sh' localizado no diretório de instalação para iniciar o programa de configuraçãoi.
 
 Para remover o programa você precisa rodar o script 'uninstall-mac.sh', que está dentro do diretório de instalação.
 
@@ -107,3 +107,6 @@ Limitation
 Building your own installers and changing the names of the client softwares will do what you want to do mostly. But there is something you can't touch or change. We have some internal code having 'nxfilter' signature. This is important as we need to have a unique signature to diffrentiate signals from our agents.
 And you don't remove our license or any third party license from the package otherwise that is a license violation. You can have your own license file but you need to keep our license somewhere. All in all it is our software and you just customize it, so it is inevitable to have some limitation.
 
+
+.. target-notes::
+.. _`Packages`: http://s.sudre.free.fr
