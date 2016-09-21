@@ -1,36 +1,62 @@
-Making your own install packages for the client softwares
+Criando seu próprio pacote de instalação dos agentes
 ***********************************************************
 
-You can make your own packages for our client programs that are NxClient, NxUpdate, NxMapper, NxLogon, NxBlock, NxRelay.
-For NxLogon, since it is a simple Windows console application without installer you just need to replace several files from the original zip file and make your own zip file including them. You can change its name as well. When you change its name you also need to change the contents of the included batch files but these are all straight forward.
-However it is a bit different for NxClient and NxUpdate, NxMapper as these softwares require you to make your own installers for Windows and Mac OS.
-Making your own Windows installer
-In our case, we use Inno Setup from http://www.jrsoftware.org to build the Windows installers. When you install NxClient, NxUpdate and NxMapper, they will create their own directories inside 'C:\Program Files (x86)' and register them as a Windows service. For example, when you run NxClient installer we copy all the required files into 'C:/Program Files (x86)/nxclient' and then we run 'bin/instsvc.bat' under the installation directory to register it as a Windows service and then we run 'bin/setup.bat' at the end of the installation process to run its setup program.
-* We can provide our Inno Setup script of each client when you become one of our business partners.
-* The zip files we use to build our installer packages are on our older package download page.
-* When you uninstall it, we run 'bin/unstsvc.bat' to unregister it from Windows service list.
+Você pode fazer seu próprio pacote dos agentes NxClient, NxUpdate, NxMapper, NxLogon, NxBlock, NxRelay.
+
+Já o NxLogon, que é uma aplicação simples sem instalador você só precisa substituir vários arquivos do arquivo zip original e fazer seu próprio arquivo zip. Você pode alterar o nome dele também, mas quando fizer essa alteração é indicado mudar também o conteúdo dos arquivos batch mas isso será visto a frente.
+
+Contudo esse processo é um pouco diferente para o NxClient, NxUpdate e NxMapper uma vez que estes requerem que sejam feitos instaladores para Windows e Mac OS.
+
+Criando sua própria instalação Windows
+----------------------------------------
+
+Para fazer os instaladores do Windows foi utilizado o [[Inno Setup|http://www.jrsoftware.org]]. Quando NxClient, NxUpdate e NxMapper é instalando, eles criam seus próprios diretórios dentro de 'C:\Program Files (x86)' e registrado como um serviço Windows. Por exemplo, quando é executado o instalador NxClient todos os arquivos necessários são copiados para 'C:/Program Files (x86)/nxclient' e então é executado 'bin/instsvc.bat' para registrá-lo como serviço Windows e então é executado o arquivo 'bin/setup.bat' ao término do processo de instalação para rodar seu programa de configuração.
+
+.. note::
+
+ - Se você se tornar nosso parceiro comercial podemos disponibilizar nosso script Inno Setup.
+
+ - Os arquivos zip usados para criar nossos pacotes de instaladores estão em um pacote antigo na nossa página de download.
+
+ - Quanto o sistema é removido, é executado o batch 'bin/unstsvc.bat' para remover o registro do serviço do Windows.
 
 Criando seu instalador para o Mac OS
 -------------------------------------
 
-We use 'Packages' from http://s.sudre.free.fr for building our Mac OS installer. When you run our installer it will create its own directory under '/Library' and copy a 'conf/plist.default' file into '/Library/LaunchDaemons' with a new name like 'org.nxfilter.nxclient.plist' to run it as a daemon. and then it runs 'setup-mac.sh' inside its installation directory to launch its setup program. When you uninstall it, you need to run 'uninstall-mac.sh' inside the installation directory manually.
+É usado o programa [[Packages|http://s.sudre.free.fr]] para construir nosso instalador Mac OS. Quando o instalador é executado ele criará seus diretórios em '/Library' e o arquivo 'conf/plist.default' é copiado para dentro de '/Library/LaunchDaemons' com um novo nome como 'org.nxfilter.nxclient.plist' para ser executado como um daemon. E então ele roda o script 'setup-mac.sh' localizado no diretório de instalação para iniciar o programa de configuraçãoi.
+
+Para remover o programa você precisa rodar o script 'uninstall-mac.sh', que está dentro do diretório de instalação.
 
 .. note::
 
-   We can provide our Packages script of each client when you become one of our business partners.
-   
-   The zip files we use to build our installer packages are on our older package download page.
+  - Podemos disponibilizar nosso script do Packages se for nosso parceiro comercial.
 
-Changing application name
---------------------------
+  - Os arquivos zip usados para criar nossos pacotes de instaladores estão em um pacote antigo na nossa página de download.
 
-When you customize our agents, one of the things you want to do might be changing the names of our agents. We have 'conf/appname' file for that under the installation directory. When you change the name inside the file, your own program name will be appeared on the setup program of our agents.
+Mudando o nome da aplicação
+---------------------------
+
+Quando você personalizar nossos agentes, uma das coisas que pode desejar é mudar os nomes dos nossos agentes. Altere o arquivo 'conf/appname', localizado no diretório de instalação. Quando o nome é alterado, ele aparecerá no programa de instalação dos nossos agentes.
+
+
 Replacing icon file and default setup value
-When you want to use your own icon, the icon file is 'nxd.ico' inside the installation directory and it is a merged icon file for 16x16 and 32x32 and 48x48 icons. At the moment it is only for Windows Installer and setup program.
-* For Java version NxClient and NxUpdate you need to add one more icon file which is 'nxd16.png'. It's 16x16 PNG file for its setup GUI.
-One of the other things you might want to do is to change the default connection values to the server. You can change the default values for 'Server IP' and 'Login Token' on the setup program by modifying 'conf/cfg.default' file.
-* 'conf/cfg.default' file will be copied into 'conf/cfg.properties' file when you run a setup program first time or during the installation process.
-Writing your own setup program or GUI
+Substituindo/Alterando ícones
+------------------------------
+
+Para usar seu próprio ícone, o arquivo é ''nxd.ico'' localizado no diretório de instalação e é um arquivo que contém ícones com as dimensões 16x16, 32x32 e 48x48. No momento só é usado para o Instalador Windows e programa de configuração.
+
+.. note::
+  
+  A versão do NxClient e NxUpdate baseado em Java precisa que seja adicionado mais um ícone cujo nome seria 'nxd16.png'. É um arquivo PNG de 16x16 para a GUI de configuração.
+
+Também é possível mudar os valores padrão na conexão com o servidor. Você pode modificar os valores padrão de 'Server IP' e 'Login Token' do programa de configuração alterando o arquivo 'conf/cfg.default'.
+
+  O arquivo 'conf/cfg.default' será copiado por cima do arquivo 'conf/cfg.properties' quando você executa o programa de configuração pela primeira vez ou durante o processo de instalação.
+
+Escrevendo seu programa de configuração 
+-----------------------------------------
+
+
 If you can build your own package, to build and include your own setup program is also a possible option. On our setup programs there are some input controls and buttons. For input controls, we read the values from 'conf/cfg.properties' file.
 
 And when you click the buttons that are 'SAVE', 'TEST', 'START', 'STOP' we do some action with the updated config values. With 'SAVE' button we save the config values into 'conf/cfg.properties' file. For 'START' and 'STOP' buttons, if it is on Windows we use 'net start' and 'net stop' commands as we install our agent as a service. On Mac OS, we use '/bin/launchstl' command with the Plist file we copied into '/Library/LaunchDaemons' directory.
