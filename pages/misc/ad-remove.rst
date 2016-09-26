@@ -1,12 +1,15 @@
-Removing embedded adverts in webpages
-**************************************
+Removendo anúncios embutidos em páginas
+****************************************
 
-There are webpages having embedded adverts from other domains. One of the problems for blocking these adverts with NxFilter would be having a mangled webpage as a result of blocking. Your block-page replaces the embedded adverts.
+Há diversas páginas com anúncios embutidos vindos de outros domínios. Um dos problemas de bloquear esses anúncios com o NxFilter é que a página pode ficar completamente descaracterizada. Afinal sua página de bloqueio ficará embutida no lugar dos anúncios.
 
-To avoid of having this kind of problem, there are two ways of removing embedded adverts with NxFilter. One is using a special category in 'Category > Custom' which is called 'ad-remove'. If you add a domain into this category and block the category somewhere, NxFilter blocks the domain with a blank block-page.
+Para evitar esse tipo de problema, existem duas formas de remover anúncios com o NxFilter. 
 
-The other method is to block it using the 'Ad-remove' option on a policy. With this option NxFilter blocks 'Ads' category of Jahaslist.
+1. Usando uma categoria especial em 'Category > Custom' chamado 'ad-remove'. Se você adicionar um domínio nesta categoria e bloquear essa categoria em qualquer lugar, o NxFilter bloqueia o domínio com uma página em branco.
+
+2. O outro método é fazer o bloqueio usando a opção 'Ad-Remove' em uma política. Com esta opção o NxFilter bloqueia a categoria 'Ads' a partir da Jahaslist.
 
 .. note::
 
-  After you add a domain into 'ad-remove' category you need to block the domain on whitelist or policy otherwise it will not be blocked.
+  Após adicionar um domínio na categoria 'ad-remove' você precisa bloquear o domínio em uma lista ou outra política caso contrário ele não será bloqueado.
+
