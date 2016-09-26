@@ -46,21 +46,41 @@ Quando cai o nó master você ainda não perderá os filtros a menos que você r
 
 2. Usuários não autenticados passarão livremente
 
-If we don't redirect the 'Password Users' to the login-page they can't login. But we don't want to let them lose the Internet.	So we bypass filtering for these unauthenticated users when the master node down. If you don't want to bypass filtering for any users even if your master node down try to have a default user covering whole IP range of your network.
-* NxCloud's case is a bit different. It drops the requests from unauthenticated users as the login redirection is not the default option for NxCloud and the users on NxCloud mostly use the other authentication methods.
-3. Multiple server IP addresses with an agent
-If you use one of our agent programs with multiple server IP addresses to cover the slave nodes, they will still be working.
-Access control for slave nodes
-If you add all your slave node IP addresses into 'Config > Cluster' any attempt to join a slave node from an unknown source IP address will be blocked.
-Monitoring slave node state
-You can view connection state from your slave nodes on 'Config > Cluster'. Once you set up your cluster then your slave nodes will be appeared with the last contact time on the page. It is also showing each node's request, block, user, client-ip count information. These counter information will be set to 0 on midnight or when you restart NxFilter.
-Session sharing between cluster nodes
-We use TCP ports for sharing data between cluster nodes. The one of the data we share is the login session so that you don't need to login twice to master and slave node. And we share quota-time and bandwidth consumption data as well. But this could be a reason for performance degrading when you have busy servers as it increase the amount of communication between nodes.
-If you don't want to share these data you can disable authentication and not to use quota-time and bandwidth control. But you may want to have authentication even if you need to login twice. And in reality, this login session sharing is only for the login-page. If you don't use password login you are not going to have any problem. NxLogon and NxMapper, NxClient can talk to multiple NxFilter servers. And IP based authentication works fine without session sharing.
+  Se não redirecionar as 'Senhas de usuários' para a página de login eles não poderão se autenticar. Mas no não desejamos fazer com que nossos clientes fiquem sem Internet. Então o filtro é desativado para os usuários sem autenticação para o caso do servidor Master cair. Se você não deseja desativar os filtros para todos os usuários então pro caso do master cair tente criar um usuário padrão para uma faixa de ip na sua rede.
+
+.. note::
+
+  Para o NxCloud é um pouco diferente. Ele cancela as requisições de usuários não autenticados, afinal para o NxCloud a página de login não é um opção padrão e os usuários do NxCloud geralmente usam outros métodos de autenticação.
+
+3. Diversos endereços IP para um agente
+
+ Se você usar um dos agentes do NxFilter com múltiplos IP para contemplar os nõs slave, eles continuarão funcionando.
+
+Controle de acesso para os nós slave
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Se você adicionar todos os endereços IP dos nós Slave em 'Config > Cluster' toda solicitação para se unir a um nó slave a partir de um IP desconhecido será bloqueado.
+
+Monitorando os nós slave
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Você pode visualizar o status da conexão dos nós slave, acesse 'Config > Cluster'. Uma você que o cluster for levantado todos os nós slave aparecerão informando o registro da última sincronia. Ele também informa as quantidades de requisições, bloqueios, usuários e ips.
+Esse contador será zerado a meia-noite ou quanto o NxFilter for reiniciado.
+
+Compartilhando as sessoões entre os nõs do cluster
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Portas TCP são utilizadas para permitir a troca de informações entre os nós do cluster. Um dos dados compartilhados é a sessão do usuário então não é necessário logar a cada vez que consultar um nó diferente. E também é compartilhado o consumo de banda e o tempo de navegação. Mas isso pode defradar a performance caso os servidores fiquem lentos e também aumenta o tráfego de dados entre eles.
+
+Se você não deseja que essas informações sejam compartilhadas, é possível desativar a autenticação e não usar o controle de banda e tempo de navegação. 
+
+Porém, ainda pode ser interessante não ter de se autenticar a cada troca de servidor DNS. E na verdade, a sessão é somente para a página de login. Se você não usa autenticação com base em senhas você não terá problemas. NxLogon, NxMapper e NxClient podem se comunicar com os nós do NxFilter.
+
+E a autenticação baseada em IP funciona tranquilamente sem compartilhar a sessão.
 
 Para desativar o compartilhamento de sessões enquanto a autenticação estiver ativa, insira o seguinte parâmetro em '/nxfilter/conf/cfg.properties'.
 
     no_share_session = 1
 
 .. warning::
- Essa configuração 'no_share_session' tem de ser feita em todos os nós.
+ O parâmetro 'no_share_session' tem de ser aplicado em todos os nós.
