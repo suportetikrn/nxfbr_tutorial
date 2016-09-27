@@ -77,8 +77,11 @@ Compartilhando as sessoões entre os nós do cluster
 Para permitir a troca de informações entre os nós do cluster são utilizadas portas TCP.
 
 Através dessas portas são compartilhados:
+
 1. A sessão do usuário, evitando assim que o usuário se autentique toda vez que consultar um nó diferente.
+
 2. Consumo de banda
+
 3. Tempo de navegação
 
 .. note::
