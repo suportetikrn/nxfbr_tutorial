@@ -40,7 +40,7 @@ Quando um dós nós cair
 
 .. note::
  
- Se você configurar o alerta de email em 'Config > Alert' você receberá o aviso de que o nó caiu.
+ Se você configurar o alerta de email, em 'Config > Alert', você receberá o aviso de que o nó caiu.
 
 1. Redirecionamento do Login não funciona
 
@@ -72,11 +72,11 @@ Esse contador será zerado a meia-noite ou quanto o NxFilter for reiniciado.
 Compartilhando as sessoões entre os nõs do cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Portas TCP são utilizadas para permitir a troca de informações entre os nós do cluster. Um dos dados compartilhados é a sessão do usuário então não é necessário logar a cada vez que consultar um nó diferente. E também é compartilhado o consumo de banda e o tempo de navegação. Mas isso pode defradar a performance caso os servidores fiquem lentos e também aumenta o tráfego de dados entre eles.
+Portas TCP são utilizadas visando permitir a troca de informações entre os nós pertencentes ao cluster. Um dos dados compartilhados é a sessão do usuárioi, então não é necessário logar ( se autenticar ) a cada vez que consultar um nó diferente. Também são compartilhados o consumo de banda e o tempo de navegação. Mas isso pode degradar a performance caso os servidores fiquem lentos e também aumenta o tráfego de dados entre eles.
 
-Se você não deseja que essas informações sejam compartilhadas, é possível desativar a autenticação e não usar o controle de banda e tempo de navegação. 
+Se você não deseja que essas informações sejam compartilhadas, é possível desativar a autenticação e não usar o controle de banda nem o tempo de navegação. 
 
-Porém, ainda pode ser interessante não ter de se autenticar a cada troca de servidor DNS. E na verdade, a sessão é somente para a página de login. Se você não usa autenticação com base em senhas você não terá problemas. NxLogon, NxMapper e NxClient podem se comunicar com os nós do NxFilter.
+Porém, ainda pode ser interessante não ter de se autenticar a cada troca de servidor DNS. E na verdade, a sessão compartilhada é somente para evitar o redirecionamento à página de login. Se você não usa autenticação - com base em senhas - você não terá problemas. NxLogon, NxMapper e NxClient podem se comunicar com os nós do NxFilter.
 
 E a autenticação baseada em IP funciona tranquilamente sem compartilhar a sessão.
 
