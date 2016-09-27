@@ -86,7 +86,7 @@ Através dessas portas são compartilhados:
 
 .. note::
 
-   A desvantagem dessa solução é que pode haver queda no tempo de resposta dos serviço para os casos em que os servidores ficarem lentos e também gerar uma carga maior de tráfego entre os nós.
+   A desvantagem dessa solução é que pode haver queda no tempo de resposta dos serviços para os casos em que os servidores ficarem lentos e também gerar uma carga maior de tráfego entre os nós.
 
 Se você não deseja que essas informações sejam compartilhadas, é possível desativar todo o compartilhamento de informações entre os nós. 
 
