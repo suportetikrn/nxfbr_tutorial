@@ -8,22 +8,24 @@ Todos os nós slave em seu cluster recebem as configurações do nó master. Ent
 Criando um cluster
 ^^^^^^^^^^^^^^^^^^
 
- Para criar um cluster, a primeira coisa a se fazer é configurar o nó master. Em 'Config > Cluster' você pode fazer com que uma de suas instalações do NxFilter seja o Master. E então você pode adicionar os outros NxFilter como os nós slave, vinculando-os ao seu nó master. Após definir o NxFilter como masteri ou qualquer alteração no cluster você precisa reiniciar os NxFilter.
+ Para criar um cluster, a primeira coisa a se fazer é configurar o nó master. Em 'Config > Cluster' você definir que uma de suas instalações do NxFilter seja o nó Master. E então você pode adicionar os outros NxFilter como nós ''Slave'', vinculando-os ao nó ''Master''. 
+
+ Após definir o NxFilter como master, ou sempre que for feita qualquer alteração na parte de configuração do cluster, você precisa reiniciar os NxFilter.
 
 .. note::
 
-  O serviço de cluster requer que as portas 19002,19003 e 19004 que usam protocolo TCP sejam liberadas ( todas no nó master e demais )
+  O serviço de cluster requer que as portas 19002,19003 e 19004 - que usam protocolo TCP - sejam liberadas ( todas no nó master e demais )
 
 Iniciando o NxFilter em cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ao ativer o cluster NxFilter você precisa iniciar antes o nó principal e só em seguida os nós slave. Isso ocorre pois os nós slave tentarão baixar a configuração inicial a partir do nós principal assim que forem inicializados.
+Ao configurar o serviço de cluster no NxFilter, você precisa iniciar antes o nó principal ''Master'' e só em seguida os nós ''Slave''. Isso é necessário pois os nós ''Slave'' tentarão baixar as configurações iniciais a partir do nó ''Master'' assim que estes forem inicializados.
 
 
 Load balance e alta disponibilidade 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Uma coisa boa sobre o filtr DNS é que o load balance (lb) e alta disponibilidade (ha) são nativos do sistema. Configure seu nó master como o DNS Primário e seu Slave como DNS Secundário na sua rede. Então você já tem tanto o load balance quanto a alta disponibilidade.
+Uma coisa boa sobre o filtro DNS é que o load balance (lb) e ia alta disponibilidade (ha) são funcionalidades nativas do sistema. Configure seu nó ''Master'' como o DNS Primário e seu ''Slave'' como DNS Secundário na sua rede. Então você já tem tanto o load balance quanto a alta disponibilidade.
 
 .. note::
 
@@ -32,9 +34,9 @@ Uma coisa boa sobre o filtr DNS é que o load balance (lb) e alta disponibilidad
 Quando um dós nós cair
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Quando um nó slave cai os outros nós não serão afetados.
+ - Quando um nó slave cai os outros nós não serão afetados.
 
-Quando cai o nó master você ainda não perderá os filtros a menos que você reinicie seu nó slave antes de restaurar o nó master. Porém a diversas formas de evitar isso.
+ - Quando cai o nó master você ainda não perderá os filtros a menos que você reinicie seu nó slave antes de restaurar o nó master. Porém há diversas formas de evitar isso.
 
 .. note::
  
