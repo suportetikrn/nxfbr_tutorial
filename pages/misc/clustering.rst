@@ -48,7 +48,7 @@ Quando um dós nós cair
 
 2. Usuários não autenticados passarão livremente
 
-  Se não redirecionar as 'Senhas de usuários' para a página de login eles não poderão se autenticar. Mas no não desejamos fazer com que nossos clientes fiquem sem Internet. Então o filtro é desativado para os usuários sem autenticação para o caso do servidor Master cair. Se você não deseja desativar os filtros para todos os usuários então pro caso do master cair tente criar um usuário padrão para uma faixa de ip na sua rede.
+  Se não redirecionar as 'Senhas de usuários' para a página de login eles não poderão se autenticar. Mas os clientes não podem ficar sem acesso à Internet. Por isso o filtro é desativado para os usuários que ainda não tinham sido autenticados para o caso em que o servidor Master cair. Se você não deseja desativar os filtros para todos os usuários a alternativa para ocasiões em que o servidor ''Master'' cair crie um usuário padrão com uma determinada faixa de ip da sua rede.
 
 .. note::
 
@@ -56,27 +56,40 @@ Quando um dós nós cair
 
 3. Diversos endereços IP para um agente
 
- Se você usar um dos agentes do NxFilter com múltiplos IP para contemplar os nõs slave, eles continuarão funcionando.
+ Se você usar um dos agentes do NxFilter com múltiplos IP para contemplar os nós slave, eles continuarão funcionando.
 
 Controle de acesso para os nós slave
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Se você adicionar todos os endereços IP dos nós Slave em 'Config > Cluster' toda solicitação para se unir a um nó slave a partir de um IP desconhecido será bloqueado.
+Só é permitido se conectar ao servidor ''Master'' os nós Slave listados em 'Config > Cluster', o que não estiverem nessa lista serão bloqueados.
+
 
 Monitorando os nós slave
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Você pode visualizar o status da conexão dos nós slave, acesse 'Config > Cluster'. Uma você que o cluster for levantado todos os nós slave aparecerão informando o registro da última sincronia. Ele também informa as quantidades de requisições, bloqueios, usuários e ips.
-Esse contador será zerado a meia-noite ou quanto o NxFilter for reiniciado.
+Você pode visualizar o status da conexão dos nós slave, acesse 'Config > Cluster'. Uma vez que que o cluster for levantado todos os nós slave aparecerão informando o registro da última sincronia. Ele também informa as quantidades de requisições, bloqueios, usuários e ips.
 
-Compartilhando as sessoões entre os nõs do cluster
+Esse contador será zerado a meia-noite ou quando o NxFilter for reiniciado.
+
+Compartilhando as sessoões entre os nós do cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Portas TCP são utilizadas visando permitir a troca de informações entre os nós pertencentes ao cluster. Um dos dados compartilhados é a sessão do usuárioi, então não é necessário logar ( se autenticar ) a cada vez que consultar um nó diferente. Também são compartilhados o consumo de banda e o tempo de navegação. Mas isso pode degradar a performance caso os servidores fiquem lentos e também aumenta o tráfego de dados entre eles.
+Para permitir a troca de informações entre os nós do cluster são utilizadas portas TCP.
 
-Se você não deseja que essas informações sejam compartilhadas, é possível desativar a autenticação e não usar o controle de banda nem o tempo de navegação. 
+Através dessas portas são compartilhados:
+1. A sessão do usuário, evitando assim que o usuário se autentique toda vez que consultar um nó diferente.
+2. Consumo de banda
+3. Tempo de navegação
 
-Porém, ainda pode ser interessante não ter de se autenticar a cada troca de servidor DNS. E na verdade, a sessão compartilhada é somente para evitar o redirecionamento à página de login. Se você não usa autenticação - com base em senhas - você não terá problemas. NxLogon, NxMapper e NxClient podem se comunicar com os nós do NxFilter.
+.. note::
+
+   A desvantagem dessa solução é que pode haver queda no tempo de resposta dos serviço para os casos em que os servidores ficarem lentos e também gerar uma carga maior de tráfego entre os nós.
+
+Se você não deseja que essas informações sejam compartilhadas, é possível desativar todo o compartilhamento de informações entre os nós. 
+
+Porém, ainda sim pode ser interessante não ter de se autenticar a cada troca de servidor DNS. E na verdade, a sessão compartilhada é somente para evitar o redirecionamento à página de login. Se você não usa autenticação - com base em senhas - você não terá problemas. 
+
+Os agente NxLogon, NxMapper e NxClient podem se comunicar com os nós do NxFilter, evitando a necessidade de autenticação a cada acesso a um servidor diferente.
 
 E a autenticação baseada em IP funciona tranquilamente sem compartilhar a sessão.
 
