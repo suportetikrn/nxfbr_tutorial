@@ -1,7 +1,7 @@
 Cluster com NxFilter
 ***********************
 
-O NxFilter tem um sistema embutido para criar clusters com load balance e alta disponibilidade. Uma vez que você tenha um nó master você pode adicionar 4 nós slave no cluster.
+O NxFilter tem um sistema embutido para criar clusters com load balance e alta disponibilidade. Uma vez que você tenha um nó master você pode adicionar até 4 nós ''Slave'' no cluster.
 
 Todos os nós slave em seu cluster recebem as configurações do nó master. Então você pode controlar tudo a partir do nó master.
 
