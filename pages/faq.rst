@@ -213,8 +213,7 @@ Ou você pode usar o sinal de logout do endereço que é 'logout.signal.nxfilter
   @echo off
   nslookup logout.signal.nxfilter.org.
 
-NxFilter stops working after 'Queue full' error.
-NxFilter deixa de funcionar após o erro 'Queue full'.
+NxFilter deixa de funcionar após o erro 'Queue full'
 ******************************************************
 
 Ao receber a mensagem de erro 'Queue full' você perde a conexão com a internet ou com o servidor DNS Upstream. Isso ocorre por que o NxFilter não consegue processar as requisições DNS em sua fila. 
