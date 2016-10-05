@@ -35,7 +35,7 @@ Quanto ao cache DNS no Browser o registro DNS pode levar vários minutos para ex
   .. note::
     Na prática isso não será um problema, já que não é comum executar esse procedimento de bloqueio/desbloqueio várias vezes ao dia.
 
-Como obrigar os usuários a usarem o NxFilter?
+Como obrigar o usuário a usar o NxFilter?
 *********************************************
 Havendo um firewall em sua rede esse é um procedimento simples. Só é preciso bloquear a saída UDP/53 e TCP/53 de outros que não sejam o NxFilter. E então você pode usar o DHCP para registrar no cliente o NxFilter como servidor DNS na sua rede. Desse modo o NxFilter se tornará seu único servidor DNS que seus usuários poderão utilizar e a parte DHCP deixará isso configurado de modo automático.
 
@@ -197,3 +197,36 @@ O Agente NxClient atua como um proxy local, entáo ele precisa atualizar as conf
 Mas você pode ter outro programa no seu Windows bloqueando tais configurações/atualizações ou fazendo as modificações ele mesmo. 
 
 Você terá um conflito nesse ponto. Para corrigir isso você precisa deixar habilitado apenas um dos programas.
+
+Como forçar o usuário a fazer o logout?
+****************************************
+Não existe essa função na GUI. Porém, em muitos casos, as pessoas desejam forçar esse término de sessão quando os usuários deixam de usar seus terminais e desejam forçar que o próximo usuário se autentique. Para isso você pode usar a opção de logout do domínio em 'Config > Setup'. Você escreverá um script batch para o browser acessar o endereço assim que o usuário fizer o logoff.
+
+.. code-block:: bash
+   @echo off
+   start http://logout.example.com
+
+Ou você pode usar o sinal de logout do endereço que é 'logout.signal.nxfilter.org'. Verifique esse endereço usando o aplicativo 'nslookup' e a sessão de login associada ao IP dessa estação será excluído.
+
+.. code-block:: bash
+
+  @echo off
+  nslookup logout.signal.nxfilter.org.
+
+NxFilter stops working after 'Queue full' error.
+NxFilter deixa de funcionar após o erro 'Queue full'.
+******************************************************
+
+Ao receber a mensagem de erro 'Queue full' você perde a conexão com a internet ou com o servidor DNS Upstream. Isso ocorre por que o NxFilter não consegue processar as requisições DNS em sua fila. 
+
+Entende-se que o NxFilter deveria retormar as funcionalidade quando sua conexão é restaurada. Em todo caso em alguns sistemas o processamento nao volta a ocorrer após o retorno da conexão. E o problema é que apesar do sistema informar que está conectado não é isso que esteja ocorrendo e como a conexão é UDP não tem como confirmar. Esse problema não ocorre em todas as instalações do NxFilter e apesar de nossas tentativas, ainda não conseguimos repetir o problema em nossos laboratórios, dificultando assim a identificação da causa.
+
+A solução para isso, temporariamente, é reiniciar o NxFilter. E seria muito interessante se fosse possível reiniciar o NxFilter assim que receber a devida mensagem de erro 'Queue full'. Na versão 3.4.4 foi introduzido o parâmetro 'queue_full_exit' em ''/nxfilter/conf/cfg.properties''.
+
+No arquivo haverá a seguinte linha:
+
+.. code-block:: jproperties
+
+   queue_full_exit = 1
+
+Assim o NxFilter fechará automaticamente ao receber a mensagem de erro 'Queue full' e você poderá reinicia-lo. Por exemplo, se estiver em um sistema Linux você pode usar a opção 'respawn' no Upstart ou no Systemd para reiniciar o NxFilter.
