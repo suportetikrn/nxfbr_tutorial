@@ -65,3 +65,16 @@ Por exemplo, se você tem o domínio dinâmico 'exemplo.com' e instalar o NxUpda
   Pode ser acessada a lista de domínios dinâmicos que estão sendo resolvidos em ``DNS > Dynamic Domain``.
 
   No serviço NxCloud há em ``Logging > Dynamic DNS`` a possibilidade do administrador monitorar as atividades relacionadas ao seu domínio dinâmico. 
+
+Evitando ataques DDOS
+*********************
+
+Quando o NxFilter é disponibilizado a Internet há a possibilidade de sofrer ataques DDOS. Uma vez estando sob ataque ou outros tipos de ataque DNS será visível o tráfego intenso no servidor. O NxFilter não conseguirá tratar todo o tráfego e provavelmente ele aparentará estar parado, assim como receberá erros no log informando 'Queue full'.
+ 
+Para evitar que isso ocorra a melhor coisa a se fazer é não expor o servidor DNS ou não responder a essas solicitações com um endereço válido. Para evitar que o NxFilter atue como servidor de DNS para esses tipos de ataque a primeira opção é ativar a autenticação. Como não serão usuários autenticados eles serão redirecionados para o IP do NxFilter quando fizerem consultas DNS.
+
+Ainda assim o servidor DNS será identificado pois estará respondendo as consultas do mesmo jeito. Para mitigar de vez esses ataques é necessário matar os pacotes vindos desses clientes anonimos de forma silenciosa. Para isso é possível ativar a opções 'Allowed IP for Login Regirection' em ''Config > Allowed IP'' e o NxFilter vai ignorar os pacotes desses atacantes.
+
+.. note::
+
+  Com o NxCloud você pode ativar/desativar o redirecionamento de login em ''Config > Setup''.
