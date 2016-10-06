@@ -38,9 +38,11 @@ Atualmente esse é o formato usado para arquivos importados ou exportados da Jah
 
 3. O versionamento dos arquivos.
 
-You don't want to download the same file over and over again. So we have a versioning system for the update files. When you have your udpate file on the following URL,
-http://www.nxfilter.org/test/recatlist.txt
-NxFilter tries to find a version file on this URL,
-http://www.nxfilter.org/test/recatlist.ver
-In the version file you need to have a number. When it is greater than the version number NxFilter previously downloaded it downloads the update file and updates its Jahaslist and if the number is less or equal, NxFilter ignores the update file.
-* The version number can not be less than 1.
+Para evitar que o mesmo arquivo seja baixado diversas vezes o NxFilter tem um sistema de controle de versões para os arquivos disponibilizados. Quando for gerado o arquivo na URL ''http://www.nxfilter.org/test/recatlist.txt'', o NxFilter tentará encontrar um arquivo de versão no mesmo endereço que tenha o seguinte formato ''http://www.nxfilter.org/test/recatlist.ver''
+
+No arquivo de versão '.ver' você deverá registrar um número. Quando esse número for maior que a versão anterior, já baixada pelo NxFilter, o sistema fará um novo download do arquivo e atualiza a Jahaslist. Se o número for menor ou igual, o NxFilter ignora o arquivo.
+
+.. note::
+
+  A versão não pode ser menor que 1.
+
