@@ -12,5 +12,7 @@ NxForward para ocultar falhas no SSL
 
  O NxForward pode ser instalado a partir da Chrome Web Store. Baixe a partir do link.
 
-    - [[Fazer o Download a partir da Chrome Web Store|https://chrome.google.com/webstore/detail/nxforward/ohhmhnionmgplhblinhpijfbaelmaojd]]
+    - `Download NxForward na Chrome Web Store`_
 
+.. target-notes::
+.. _`Download NxForward na Chrome Web Store`: https://chrome.google.com/webstore/detail/nxforward/ohhmhnionmgplhblinhpijfbaelmaojd 
