@@ -13,3 +13,4 @@ Diversos
    misc/ad-remove.rst
    misc/syslog.rst
    misc/performance.rst
+   misc/report_manager.rst
