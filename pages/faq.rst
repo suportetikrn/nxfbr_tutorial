@@ -149,6 +149,12 @@ Em todo caso há situações em que se deseja ocultar essa página de alerta. Pa
 
   Para mudar a porta HTTPS modifique a linha ``https_port = 443`` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
 
+
+.. warning::
+  
+  O Agente NxForward passou a funcionar a partir da versão 3.4.5 do NxFilter. O NxForward é uma extensão para o Google Chrome e se um site - em HTTPS - é bloqueado, ele redireciona as requisições para uma página HTTP de modo a permitir exibir a página de bloqueio sem que haja o alerta da página SSL. Para mais informações acesse a sessão ''Agentes/Clientes > NxForward para ocultar falhas no SSL'' neste mesmo tutorial.
+
+
 Não vejo o nome do meu usuário em 'Logging > Request'
 *************************************************************
 
