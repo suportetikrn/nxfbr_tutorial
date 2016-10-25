@@ -152,7 +152,7 @@ Em todo caso há situações em que se deseja ocultar essa página de alerta. Pa
 
 .. warning::
   
-  O Agente NxForward passou a funcionar a partir da versão 3.4.5 do NxFilter. O NxForward é uma extensão para o Google Chrome e se um site - em HTTPS - é bloqueado, ele redireciona as requisições para uma página HTTP de modo a permitir exibir a página de bloqueio sem que haja o alerta da página SSL. Para mais informações acesse a sessão ''Agentes/Clientes > NxForward para ocultar falhas no SSL'' neste mesmo tutorial.
+  O Agente NxForward passou a funcionar a partir da versão 3.4.5 do NxFilter. O NxForward é uma extensão para o Google Chrome e se um site - em HTTPS - é bloqueado, ele redireciona as requisições para uma página HTTP de modo a permitir que seja exibida a página de bloqueio sem que haja o alerta da página SSL. Para mais informações acesse a sessão ''Agentes/Clientes > NxForward para ocultar falhas no SSL'' neste mesmo tutorial.
 
 
 Não vejo o nome do meu usuário em 'Logging > Request'
