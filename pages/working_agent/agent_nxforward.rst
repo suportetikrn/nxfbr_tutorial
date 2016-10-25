@@ -4,7 +4,7 @@ NxForward para ocultar falhas no SSL
  
  No filtro DNS, quando é bloqueado um site HTTPS é recebido um alerta de SSL não seguro.
 
- ..image:: /images/nxforward_ssl.png
+ .. image:: /images/nxforward_ssl.png
  
  É um erro comum pois o browser tenta protegê-lo do que é chamado de ataque 'Man in the Middle'. De qualquer forma ainda é um processo irritante pois na verdade é causado pela politica de filtragem. Muitas pessoas já solicitaram que este alerta seja removido, a solução para esse problema - atualmente - só é aplicável no browser Google Chrome. 
  
