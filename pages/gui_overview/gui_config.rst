@@ -70,7 +70,7 @@ O NxFilter permite que se exporte os registros para um Servidor Syslog. Você po
 
 .. envvar:: From Each Node
 
-  Port padrão, o cluster NxFilter envia os dados para o Syslog apenas pelo nó Master. Ativando essa opção, cada nó envia seus próprios dados.
+  Por padrão, o cluster NxFilter envia os dados para o Syslog apenas pelo nó Master. Ativando essa opção, cada nó envia seus próprios dados.
 
 .. envvar:: Enable Remote Logging
 
