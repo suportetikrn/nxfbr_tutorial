@@ -9,7 +9,7 @@ Criando o usuário
 Para criar um usuário vá em 'User & Group > User'. Existem 3 tipos de usuários no NxFilter
 
 1. IP user 
- O Usuário tem um endereço de IP ou um Range de IPs e será autenticado vinculado a ele(s).
+ O Usuário tem um endereço de IP ou um Range de IPs e será automaticamente vinculado a ele(s).
 
 2. Password user 
  Se você definir uma senha para um usuário ele se classifica como 'password user'. Você pode usar a senha para se autenticar no NxFilter.
