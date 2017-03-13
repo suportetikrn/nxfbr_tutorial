@@ -25,11 +25,11 @@ Há 3 métodos na classe `UserLoginDao` que são utilizados pelo script de login
 
 .. code-block:: java
   
-  create_ip_session(String ip, String uname) // Cria a sessão de login com IP e usuário
+  createIPSession(String ip, String uname) // Cria a sessão de login com IP e usuário
 
-  delete_ip_session(String ip) // Fecha a sessão informando o IP
+  deleteIPSession(String ip) // Fecha a sessão informando o IP
 
-  find_user(String ip) // Localiza o usuário com base no IP informado.
+  findUser(String ip) // Localiza o usuário com base no IP informado.
 
 .. note:: 
 
