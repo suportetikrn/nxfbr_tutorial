@@ -11,5 +11,5 @@ O NxFilter tem 3 variações:
   Gratuito para uso em residências, sem ganho financeiro ou sem uso comercial. Pode ser distribuido sem nenhuma alteração. Suporta a Shallalist.
 
 3. NxCloud
-  Outra variação do NxFilter para área comercial com ambientes variados, feito para uso na Cloud. Ele tem a mesma política de licenciamento do NxOEM.
+  Outra variação do NxFilter para área comercial com ambientes variados, feito para uso na Cloud.
 
