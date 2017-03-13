@@ -14,3 +14,8 @@ Instalando em outras distribuições Linux
 #. Execute ``startup.sh``
 
  .. image:: /images/linux_startup.png
+
+#. Para acessar a GUI de administração, entre com o endereço ip do servidor NxFilter no browser, 'http://<ip_servidor>/admin'. Usuário e senha inicial são 'admin' e 'admin'.
+
+.. note::
+   Você pode inicializar o NxFilter automáticamente usando o arquivo '/etc/rc.local'. Considerando que o NxFilter fora instalando em '/nxfilter', basta adicionar a linha '/nxfilter/bin/startup.sh -d' no arquivo '/etc/rc.local'. Não esqueça do parâmetro '-d' pois ele coloca o serviço NxFilter como daemon.
