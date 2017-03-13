@@ -1,17 +1,17 @@
-******************
-Usando a Jahaslist
-******************
+******************************
+Usando a Jahaslist, Cloudlist
+******************************
 
- Jahaslist é a lista padrão do NxFilter e no ato da instalação do NxFilter a mesma pode ser utilizada por 30 dias para avaliação. Uma vez o NxFilter instalado você pode usar a Jahaslist e o NxClassifier sem nenhuma restrição por 30 dias.
+ As listas Jahaslist e Cloudlist são produtos comerciais. Você pode adquirir a licença em nossa homepage.
 
-Custo de licenciamento da lista
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- O licenciamento de uso da lista é de 1 dólar americano por usuário, ao ano. 
+ - Para adquirir a licença da [[Jahaslist|http://nxf.kernel.inf.br/jahaslist]]
+ - Para adquirir a licença da [[Cloudlist|http://nxf.kernel.inf.br/cloudlist]]
 
-.. note ::
-   Há a possibilidade de desconto para organizações sem fins lucrativos e opções de licença ilimitada. 
-   Caso haja interesse em algum desses modos favor entrar em contato no email 'suporte@kernel.inf.br'.
+.. note::
+
+ Temos uma política de descontos para organizações sem fins lucrativos. Para saber mais entre em contato em 'suporte @ kernel.inf.br'.
+
 
 Ativando a licença
 ^^^^^^^^^^^^^^^^^^
