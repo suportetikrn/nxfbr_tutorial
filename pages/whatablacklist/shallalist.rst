@@ -8,7 +8,7 @@ O NxFilter tem um script para atualização automática. Para proceder com a atu
 
 .. image:: /images/shalla_console.png
 
-Caso seja preciso atualizar a lista no modo manual, baixe a mesma no endereço ``http://www.shallalist.de/Downloads/shallalist.tar.gzip`` e desompacte esse arquivo em ``/nxfilter/shallalist1/BL`` e execute o comando `update_sh.sh /nxfilter/shallalist1/BL`.
+Caso seja preciso atualizar a lista no modo manual, baixe a mesma no endereço ``http://www.shallalist.de/Downloads/shallalist.tar.gzip`` e descompacte esse arquivo em ``/nxfilter/shallalist1/BL`` e execute o comando `update_sh.sh /nxfilter/shallalist1/BL`.
 
 .. code-block:: bash
 
