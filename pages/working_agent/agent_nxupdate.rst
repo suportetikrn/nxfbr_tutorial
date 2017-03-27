@@ -14,30 +14,30 @@ NxUpdate tem, basicamente, a mesma estrutura do NxClient. Você pode instalá-lo
 Escrevendo seu próprio NxUpdate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We use the standard DNS protocol for communication between NxFilter and NxUpdate. This means you can write your own NxUpdate as long as you can run 'nslookup' or if you can send a DNS query.
+Para a comunicação entre o NxFilter e o NxUpdate é usado o protoloco DNS. Significa então que você pode simular ou criar o seu próprio NxUpdate usando apenas o 'nslookup' ou outra ferramenta que faça uma simples consulta DNS.
 
-* NxFilter v3.3.0 or later and NxUpdate v7.0 or later required for the DNS protocol based communication.
+* NxFilter v3.3.0 ou superiores e NxUpdate v7.0 ou superiores seguem esse formato de comunicação baseado no protoloco DNS.
 
-If you send an IP update query against NxFilter from your Windows CMD using nslookup,
+Então, para fazer a atualização de um IP usando o nslookup, você pode proceder da seguinte forma::
 
-nslookup GKSYEJYG.ipupdate.signal.nxfilter.org. 192.168.0.100
+  nslookup GKSYEJYG.ipupdate.signal.nxfilter.org. 192.168.0.100
 
-'GKSYEJYG' is a login-token of a user and 'ipupdate.signal.nxfilter.org' is the special domain for 'IPUPDATE' signal. '192.168.0.100' is the IP address of your NxFilter.
+Onde 'GKSYEJYG' é o token de um usuário e 'ipupdate.signal.nxfilter.org.' é o domínio especial para sinalizar o 'IPUPDATE' e '192.168.0.100' é o endereço IP do seu servidor NxFilter.
 
-We use the following signals.
+São utilizados os seguintes sinais.
 
-- start.signal.nxfilter.org : 'START' signal.
+- start.signal.nxfilter.org : 'START' - inicializa .
 
-- stop.signal.nxfilter.org : 'STOP' signal.
+- stop.signal.nxfilter.org : 'STOP' - para .
 
-- ipupdate.signal.nxfilter.org : 'IPUPDATE' signal.
+- ipupdate.signal.nxfilter.org : 'IPUPDATE' - atualiza.
 
-* You need to add a login-token of a user to these signals for user identification.
+* Como demonstrado anteriormente, você tem de escrever o token do usuário para que esses sinais o identifiquem.
 
 When we send these signals we can have two kinds of responses as a DNS response from NxFilter.
+Quando esses sinais são enviados você pode receber dois tipos de respostas ( como registro DNS ) a partir do NxFilter. E elas são ::
 
-- 127.100.100.1 : Error.
+  - 127.100.100.1 = Erro.
+  - 127.100.100.100 = Successo.
 
-- 127.100.100.100 : Success.
-
-You don't need to send 'START' or 'STOP' signal if you want to go simple. Sending 'IPUPDATE' would be enough.
+Não é necessário enviar os sinais 'START' ou 'STOP' a cada atualização. Basta enviar 'IPUPDATE'.
