@@ -6,8 +6,8 @@ Para instalá-lo, primeiro instale o Java e o Sudo. Baixo o pacote através do c
 
   $ su - root
   $ apt-get install openjdk-7-jre sudo
-  $ wget http://www.nxfilter.org/download/nxfilter-4.0.5.deb
-  $ sudo dpkg -i nxfilter-4.0.5.deb
+  $ wget http://www.nxfilter.org/download/nxfilter-4.0.6.deb
+  $ sudo dpkg -i nxfilter-4.0.6.deb
   $ systemctl enable nxfilter
   $ systemctl start nxfilter
 
@@ -28,7 +28,7 @@ Para acessar a interface administrativa, abra o seu browser de preferëncia e en
 O procedimento de atualização é bem simples, garanta que o serviço do NxFilter esteja parado.::
 
    $ sudo systemctl stop nxfilter.service
-   $ sudo dpkg -i nxfilter-3.4.2.deb
+   $ sudo dpkg -i nxfilter-4.0.6.deb
    $ sudo systemctl start nxfilter.service
 
 Em versões do Debian anteriores a 8, ele deverá estar usando o Upstart ao invés do SystemD. Para esses casos o procedimento de parada e inicialização do serviço deve ser: ::
