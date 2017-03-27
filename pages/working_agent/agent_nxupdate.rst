@@ -32,9 +32,10 @@ São utilizados os seguintes sinais.
 
 - ipupdate.signal.nxfilter.org : 'IPUPDATE' - atualiza.
 
-* Como demonstrado anteriormente, você tem de escrever o token do usuário para que esses sinais o identifiquem.
+.. note::
 
-When we send these signals we can have two kinds of responses as a DNS response from NxFilter.
+  Como demonstrado anteriormente, você tem de escrever o token do usuário para que esses sinais o identifiquem.
+
 Quando esses sinais são enviados você pode receber dois tipos de respostas ( como registro DNS ) a partir do NxFilter. E elas são ::
 
   - 127.100.100.1 = Erro.
