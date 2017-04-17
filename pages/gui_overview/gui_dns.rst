@@ -28,10 +28,6 @@ DNS > Setup > DNS Setup
   - 60 - Ignora somente se o valor for inferior a '60', caso seja superior força com que o mesmo seja '60'
 
   A ideia principal dessa funcionalidade é minimizar os efeitos causados pelo cache dns do cliente. Em todo caso se no seu ambiente houver mais de 1.000 usuários é interessante desligar essa funcionalidade de alteração do TTL para obter melhor performance.
-  
-  .. warn:: 
-
-  Desativando essa funcionalidade colocando o valor '0' poderá fazer com que alguns controles como o de `Quota` não tenham a funcionalidade esperada já que o Cliente poderá demorar mais para consultar o registro DNS.
 
 .. envvar:: Response Cache Size
 
@@ -78,6 +74,17 @@ DNS > Setup > Dynamic DNS
 
  NxFilter suporta o serviço de DNS dinâmico. Para saber como leia,'Servidor DNS Dinâmico' nesse mesmo tutorial.
 
+DNS > Setup > Misc
+******************
+
+.. envvar:: Drop Hostname Without Domain
+
+   Útil para ambientes que usem NxFilter ou NxCloud nas nuvens e que n&atilde;o necessita resolver hostnames.
+
+.. envvar:: Drop PTR For Private IP
+   
+   Descarta consultas para endereços IP privados. Indicado para ambientes que rodem o NxFilter em nuvem.
+
 DNS > Zone File
 ***************
 
@@ -87,3 +94,9 @@ DNS > Redirection
 *****************
 
  Redirecionamento Domínio para IP ou domínio para domínio é possivel de ser feito com NxFilter. Ele funciona como um registro DNS alterado.
+
+
+DNS > Zone Transfer
+********************
+
+ Em algumas situações pode ser necessário importar uma zona DNS a partir de outro servidor DNS. Ao ser configurada uma zona para transferência, o NxFilter importa a mesma constantemente usando o protocolo IXFR.
