@@ -67,10 +67,23 @@ NxFilter tem a funcionalidade de quota-por-tempo ( quota-time ). Você pode perm
 
 Aplicar quota a todos os domínios, inclusive os `não classificados`.
 
+.. envvar:: Bandwidth Limit
+
+Você pode definir o limite de banda consumido por um usuário.
+
+ .. note::
+ 
+   Essa funcionalidade requer que os dados do Netflow vindos do seu roteador, sejam encaminhados para o NxFilter. Verifique em 'Controle de Banda com NxFilter' neste mesmo tutorial.
+
 .. envvar:: Safe-search
 
 Força o uso de safe-search no Goolg, Yahoo, Youtube e Bing.
- .. note:: Para uso com Yahoo é obrigatório o uso de proxy agent rodando no sistema
+
+ .. note:: 
+
+    Para uso com Yahoo é obrigatório o uso de proxy agent rodando no sistema
+
+    No momento, a funcionalidade 'Moderate' e 'Strict' afeta apenas o Youtube.
 
 .. envvar:: Block-time
 Vocë pode definir o período em que a política de bloqueios é aplicada.
