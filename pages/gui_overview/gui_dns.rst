@@ -37,6 +37,14 @@ DNS > Setup > DNS Setup
 
     Atualmente o NxFilter comporta 200.000 registros e é suficiente para a maioria dos ambientes.
 
+.. envvar:: Use Persistent Cache 
+  
+  O NxFilter mantém 1 milhão de registros DNS em seu próprio banco. Tendo um cache constante você não perderá acesso aos domínios acessados na sua rede, mesmo que os servidores DNS da sua região caiam. Seus usuários terão acesso sem problemas.
+
+.. envvar:: Minimal Responses
+ 
+ É possível enviar somente os registros 'Answer' em uma resposta DNS do NxFilter e ignorar seções como 'Additional' e 'Autority', reduzindo assim o tamanho do pacote a ser retornando e melhorando a performance.
+
 DNS > Setup > Local DNS 
 ************************
 
