@@ -12,6 +12,7 @@ Conteúdo:
    :maxdepth: 2
 
    pages/getting_started
+   pages/jahasfilter-what
    pages/whatablacklist
    pages/authentication
    pages/gui_overview
