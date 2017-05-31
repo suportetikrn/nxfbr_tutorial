@@ -1,4 +1,4 @@
-Instalando o Jahasfilter
+Instalando o JahasFilter
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 De certo modo, o JahasFilter é uma derivação do NxFilter. Desse modo, para instalá-lo e configurá-lo, você faz a mesma coisa que faria com o NxFilter.
@@ -10,6 +10,6 @@ De certo modo, o JahasFilter é uma derivação do NxFilter. Desse modo, para in
 
 .. note::
 
-    - No Windows, o instalador do Jahasfilter o instala em 'c:\jahasfilter'.
+    - No Windows, o instalador do JahasFilter o instala em 'c:\jahasfilter'.
      
-    - Instalando o Jahasfilter como um serviço Windows, use 'net start JahasFilter' e 'net stop JahasFilter' para iniciar e parar o serviço.
+    - Instalando o JahasFilter como um serviço Windows, use 'net start JahasFilter' e 'net stop JahasFilter' para iniciar e parar o serviço.
