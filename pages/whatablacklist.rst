@@ -9,7 +9,7 @@ Categorias - Blacklist e Domínios
 
    whatablacklist/whatblacklist.rst
    whatablacklist/using_jahaslist.rst
+   whatablacklist/blacklist_recat.rst
    whatablacklist/shallalist.rst
    whatablacklist/komodia_service.rst
-   whatablacklist/blacklist_recat.rst
    
