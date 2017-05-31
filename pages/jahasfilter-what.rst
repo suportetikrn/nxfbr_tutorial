@@ -13,3 +13,9 @@ O que é Jahasfilter ?
 
   -  JahasFilter é licenciado para uso pessoa e não para ser usado em empresas.
 
+ 
+.. toctree::
+   :titlesonly:
+
+   jahasfilter-what/jahasfilter-install.rst
+   jahasfilter-what/jahasfilter-howto.rst
