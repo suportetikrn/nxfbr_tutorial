@@ -19,11 +19,13 @@ Após ter configurado os seus PCs para usar somente o JahasFilter como servidor 
 Autenticando com o JahasFilter
 ------------------------------
 
-Diferente do NxFilter, JahasFilter só da suporte a autenticação baseada em IP. E há uma diferença na forma em como o NxFilter faz a autenticação baseada em IP.
+Diferente do NxFilter, JahasFilter só da suporte a autenticação baseada em IP. E há uma diferença na forma em como o NxFilter faz a autenticação baseada em IP. Tendo em vista que não foram poucos os casos de pessoas tentanto associar um usuário a um IP sem habilitar a autenticação, nós fizemos com que a associação de um usuário a um IP funcione sem a necessidade de ativar a autenticação. O que significa que é possível identificar ou ver seus usuários com seus logins e aplicar uma política assim que um usuário é criado na GUI do JahasFilter e associar o usuário para um IP ou uma faixa de IPs.
 
-Unlike NxFilter, JahasFilter supports IP based authentication only. And there's one thing different from NxFilter's way of IP based authentication. Since we have seen so many people tried to associate a user to an IP address without enabling authentication we made the IP association working without authentication enabled on JahasFilter. This means you can identify or view your users with their username and apply a policy when you create a user on JahasFilter GUI and associate the user to an IP or IP range.
-However, it is user identification. It's not authentication yet. Users not having associated IP or unknown users will be able to use your network still. If you want to block these unknown users, go to 'Config > Setup' and enable 'Block Unknown User'. Then only the users having username and associated IP will be able to use your network.
-* We have a preference of IP based authentication. Single IP association comes first and then smaller IP range. You can make some exception to your filtering policy using this rule. For example, you can associate '192.168.0.1 ~ 192.168.0.255' to a user named 'everyone' and associate '192.168.0.100' to 'manager' and assign a different policy on him/her.
+Mas, ainda sim é uma identificação do usuário. Não é uma autenticação. Usuários que não tiverem seus IPs associados ou usuários desconhecidos ainda poderão navegar na rede. Se deseja bloquear os usuários desconhecidos, vá em 'Config > Setup' e ative a opção 'Block Unknown User'. Assim, somente usuários que tenham seus logins associados a um IP estarão liberados para usar a rede.
+
+.. note::
+
+        * We have a preference of IP based authentication. Single IP association comes first and then smaller IP range. You can make some exception to your filtering policy using this rule. For example, you can associate '192.168.0.1 ~ 192.168.0.255' to a user named 'everyone' and associate '192.168.0.100' to 'manager' and assign a different policy on him/her.
 
 
 Se você tem um AD
