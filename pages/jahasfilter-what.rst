@@ -11,7 +11,7 @@ O que é Jahasfilter ?
 
   -  O Jahasfilter vem com uma licença gratuita e ilimitada da Jahaslist.
 
-  -  JahasFilter é licenciado para uso pessoa e não para ser usado em empresas.
+  -  JahasFilter é licenciado para uso pessoal e não para ser usado em empresas.
 
  
 .. toctree::
