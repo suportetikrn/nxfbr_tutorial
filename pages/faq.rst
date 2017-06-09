@@ -49,10 +49,12 @@ Para resolver esses problema use a feature 'Priority Points'. Se há mais de um 
 
 Qual forma mais rápida de bloquear 'facebook.com'?
 **************************************************
+
 Insira ``*.facebook.com`` em 'Whitelist > Domain' e marque a opção 'Admin Block'.
 
 Desejo bloquear o 'facebook.com' apenas para um determinado grupo
 *****************************************************************
+
 Antes é necessário separar de algum modo seu grupo de outros usuários usando a parte de autenticação do NxFilter. Daí bloquear a categoria de 'Social Networking' em uma política quando estiver usando a Jahaslist. O último passo seria atribuir essa política ao grupo desejado.
 
 Se houver o interesse em permitir, por exemplo, que o grupo de 'Vendas' possa usar a internet sem bloqueios no horário de almoço.
@@ -240,3 +242,34 @@ No arquivo haverá a seguinte linha:
    queue_full_exit = 1
 
 Assim o NxFilter fechará automaticamente ao receber a mensagem de erro 'Queue full' e você poderá reinicia-lo. Por exemplo, se estiver em um sistema Linux você pode usar a opção 'respawn' no Upstart ou no Systemd para reiniciar o NxFilter.
+
+
+Como restringir acesso a resultados com conteudo pornografico no Google e/ou Youtube?
+***************************************************************************************
+
+No NxFilter você pode obrigar o uso de pesquisas com o ''safe-search' ativado. No NxFilter tem a opção 'Safe-searc' na política.
+
+.. note::
+
+ - Para usar o Safe-search no Yahoo é necessário ter o agente de proxy local instalado na área do usuário.
+
+ - Os modos 'Moderate' e 'Strict' só interferem nas pesquisas do Youtube.
+
+
+O que é o erro 'Too many requests' ?
+**************************************
+
+Foram registrados diversos casos de uso inadequado do NxFilter atrás de um roteador, por isso foi adicionada a verificação por contagem de requisições. Segundo nossas análises, um usuário faz pouco mais de 1.000 requisições ao dia, dando uma margem de mais 2.000 requisições chegamos ao limite de 3.000 requisições por dia.
+
+Sendo assim mais do que suficiente para a maioria dos casos de uso, já que em diversas empresas a quantidade de requisições fica abaixo de 1.500 por usuário ao dia.
+
+Essa proteção da licença por quantidade de requisições é altamente necessário por conta de nossos contratos de parceria com soluções nas nuvens, já que eles poderiam ter contratos onde milhares de clientes usariam o mesmo usuário e esgotariam o recurso dos mesmos. Ou seja essa proteção não é só para os nossos negócios, ela protege também nossos clientes comerciais.
+
+.. note::
+
+   Temos os parâmetros de 'request-sum' e 'request-cnt'. O 'request-cnt' é utilizado para essa validação.
+ 
+   São contadas apenas as consultas DNS to tipo 'A'.
+
+   Antes de adquirir sua licença é possível acessar o relatório em 'Report > Usage' para ter ideia das quantidades de licenças necessárias. Esse relatório exibe os últimos 30 dias de uso.
+
