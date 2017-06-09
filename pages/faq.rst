@@ -145,10 +145,20 @@ Quando um browser está sendo redirecionado para HTTPS ele alerta o usuário que
 
 Em todo caso há situações em que se deseja ocultar essa página de alerta. Para que isso ocorra pode se mudar a porta HTTPS do NxFilter, desse modo os usuários receberão a mensagem de "Erro de Conexão".
 
+Agora é possível ocultar o Alerta do SSL porém existe um problema nessa abordagem. Alguns usuários informaram que a navegação ficou mais lenta já que é preciso aguardar o timeout de alguns websites. Então agora é permitido usar o parâmetros 'hide_ssl_warning'.
+
+.. code-block:: jproperties
+
+   hide_ssl_warning = 1
+
+Ao ativar essa função no arquivo config.properties, o controle de timeout será aplicado imediatamente.
+
 .. note::
 
-  Para mudar a porta HTTPS modifique a linha ``https_port = 443`` em '/nxfilter/conf/cfg.properties', alterando 443 para outra porta que não a padrão.
-
+  Caso deseje acessar a GUI usando HTTPS quando ativar a opção ''hide_ssl_warning'' é necessário mudar a porta padrão 443 em ''https_port'' para uma outra porta fora do padrão. Caso contrário a requisição HTTPS retornará timeout imediatamente.
+  
+  Já para o Chrome é possível exibir a página de bloqueio no HTTPS usando o NxForward. Para saber mais, acesse o tópico do NxForward neste mesmo tutoria.
+   
 
 .. warning::
   
