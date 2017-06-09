@@ -1,3 +1,5 @@
+.. _nxforward:
+
 *************************************
 NxForward para ocultar falhas no SSL
 *************************************
