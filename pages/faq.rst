@@ -157,13 +157,8 @@ Ao ativar essa função no arquivo config.properties, o controle de timeout ser�
 
   Caso deseje acessar a GUI usando HTTPS quando ativar a opção ''hide_ssl_warning'' é necessário mudar a porta padrão 443 em ''https_port'' para uma outra porta fora do padrão. Caso contrário a requisição HTTPS retornará timeout imediatamente.
   
-  Já para o Chrome é possível exibir a página de bloqueio no HTTPS usando o NxForward. Para saber mais, acesse o tópico do NxForward neste mesmo tutoria.
+  Já para o Chrome é possível exibir a página de bloqueio no HTTPS usando o NxForward. Para saber mais, acesse o tópico do :ref:`NxForward <nxforward>` neste mesmo tutorial.
    
-
-.. warning::
-  
-  O Agente NxForward passou a funcionar a partir da versão 3.4.5 do NxFilter. O NxForward é uma extensão para o Google Chrome e se um site - em HTTPS - é bloqueado, ele redireciona as requisições para uma página HTTP de modo a permitir que seja exibida a página de bloqueio sem que haja o alerta da página SSL. Para mais informações acesse a sessão ''Agentes/Clientes > NxForward para ocultar falhas no SSL'' neste mesmo tutorial.
-
 
 Não vejo o nome do meu usuário em 'Logging > Request'
 *************************************************************
