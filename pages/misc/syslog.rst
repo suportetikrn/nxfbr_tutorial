@@ -24,8 +24,8 @@ Pode ser quebrado da seguinte forma:
 
 .. note::
 
-  - No NXcloud ao invés do 'Grupo' é informado o nome do operador.
+  - No NxCloud ao invés do 'Grupo' é informado o nome do operador.
 
   - Na versão 3 do NxFilter não é informado o 'Grupo'.
 
-  - Veja como enviar os dados Syslog para o Graylog em 'Gerando relatórios com o Graylog'
+  - Veja como enviar os dados Syslog para o Graylog em :ref:`Gerar relatórios usando Graylog`

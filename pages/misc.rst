@@ -14,3 +14,4 @@ Diversos
    misc/syslog.rst
    misc/performance.rst
    misc/report_manager.rst
+   misc/using_graylog.rst
