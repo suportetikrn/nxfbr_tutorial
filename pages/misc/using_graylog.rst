@@ -9,6 +9,7 @@ Gerar relatórios usando Graylog
    demonstrado como fazê-lo usando o Graylog em conjunto com o NxFilter.
 
    1 . Faça o download do pacote para o Graylog no link:
+   
    2 . Na GUI do Graylog, importe o arquivo existente no zip baixado anteriormente
       - System > Content Packs > Import Content Pack
    3 . Após a importação, deverá aparecer o content pack 'NxFilter'.
