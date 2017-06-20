@@ -22,3 +22,10 @@ Pode ser quebrado da seguinte forma:
  - Tipo de consulta DNS : 33
  - Grupo: grupoA
 
+.. note::
+
+  - No NXcloud ao invés do 'Grupo' é informado o nome do operador.
+
+  - Na versão 3 do NxFilter não é informado o 'Grupo'.
+
+  - Veja como enviar os dados Syslog para o Graylog em 'Gerando relatórios com o Graylog'
