@@ -17,6 +17,8 @@ Gerar relatórios usando Graylog
    6 . Reinicie o NxFilter e você vera o Dashboard sendo alimentado com as informações.
       - Escolha o Dashboard 'NxFilter 2 Hours' na GUI do Graylog.
 
+.. image:: /images/graylog_nxfilter.png
+
 .. note::
 
   Após fazer o seu próprio relatório no Graylog você pode desativar o logging/armazenamento do tráfego no banco do NxFilter.
