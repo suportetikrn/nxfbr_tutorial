@@ -35,15 +35,10 @@ Setup > Classifier Setup
  
  Desabilita a classificação dos domínios pelo NxClassifier.
 
-Setup > Mass Import
-*******************
-
-Para importar um arquivo ruleset ou um arquivo Jahaslist exportado de outro sistema. Ele não remove nenhum registro existente mas sobrepõe caso os dados sejam iguais.
-
 Ruleset
 *********
 
-Você pode definir sua própria ruleset. Ou modificar a ruleset pré-existente. Você pode exportar a ruleset e compartilhar com outros.
+Você pode definir sua própria ruleset. Ou modificar a ruleset pré-existente. Você pode exportar a ruleset e compartilhar com outros. E ainda importar novas rulesets.
 
 Classified
 ***********
