@@ -5,8 +5,8 @@ Usando a Jahaslist, Cloudlist
  As listas Jahaslist e Cloudlist são produtos comerciais. Você pode adquirir a licença em nossa homepage.
 
 
- - Para adquirir a licença da `Jahaslist <https://nxf.kernel.inf.br/jahaslist>`_
- - Para adquirir a licença da `Cloudlist <https://nxf.kernel.inf.br/cloudlist>`_
+ - Para adquirir a licença da `Jahaslist <https://nxfilter.net.br/jahaslist>`_
+ - Para adquirir a licença da `Cloudlist <https://nxfilter.net.br/cloudlist>`_
 
 .. note::
 
